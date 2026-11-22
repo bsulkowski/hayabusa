@@ -10,13 +10,16 @@ Skok siatki 0,5 AU na pierścień daje bardzo dobre przybliżenie dla planet akt
 
 | Obiekt | Rzeczywistość | Model | Błąd |
 |--------|--------------|-------|------|
-| Ziemia | 1,00 AU | 1,0 AU | 0% |
-| Mars | 1,52 AU | 1,5 AU | −2% |
-| Wewn. krawędź pasa | ~2,1 AU | 2,0 AU | −5% |
-| Ceres | 2,77 AU | ~2,5 AU | −10% |
-| Zewn. krawędź pasa | ~3,3 AU | 3,0 AU | −9% |
+| Ziemia | 1,00 AU | pierścień 2 (1,0 AU) | 0% |
+| Mars | 1,52 AU | pierścień 3 (1,5 AU) | −2% |
 
-Ziemia i Mars wychodzą niemal idealnie. Pas planetoid jest lekko ściśnięty (o ok. 5–10%), ale jego szerokość – trzy pierścienie – jest zachowana.
+### Pas planetoid
+
+Pierścień to nie linia, tylko pas o szerokości jednego pola – od −0,25 do +0,25 AU wokół swojej odległości nominalnej. Pierścienie 4–6 obejmują więc obszar **1,75–3,25 AU**.
+
+Główny pas planetoid leży między dwiema lukami Kirkwooda – pustymi pasmami wyczyszczonymi przez rezonanse z Jowiszem: 4:1 (2,06 AU) i 2:1 (3,27 AU). Zewnętrzna krawędź pasa na planszy zgadza się z nim praktycznie idealnie. Wewnętrzna sięga ok. 0,3 AU bliżej Słońca, ale ten obszar (1,78–2,0 AU) zajmuje grupa Hungaria – najbardziej wewnętrzne gęste skupisko planetoid w Układzie Słonecznym.
+
+Ceres (2,77 AU) wypada na granicy pierścieni 5 i 6.
 
 ### Merkury i Wenus
 
@@ -26,40 +29,87 @@ Merkury leży realnie przy 0,39 AU, Wenus przy 0,72 AU. W modelu obie planety tr
 
 ### Skąd pochodzi ruch o 3/2/1/0 pól na turę
 
-Projektując prędkości orbitalne, szukano liczb całkowitych, które najlepiej oddają proporcje rzeczywistych prędkości kątowych planet. Rzeczywiste prędkości kątowe Ziemi, Marsa i pasa planetoid są w przybliżeniu w proporcji **4 : 2 : 1**. 
+Projektując prędkości orbitalne, szukano liczb całkowitych, które najlepiej oddają proporcje rzeczywistych prędkości kątowych. Prędkości kątowe Ziemi, Marsa i pasa planetoid są w przybliżeniu w proporcji **4 : 2 : 1**.
 
-Plansza obraca się w kierunku obiegu planet z prędkością odpowiadającą tej jednostce „1". Po odjęciu obrotu planszy widoczne prędkości na planszy wynoszą **3 : 1 : 0** – dokładnie to, co widzimy w tabeli ruchów.
+Plansza obraca się w kierunku obiegu planet z prędkością odpowiadającą tej jednostce „1". Po odjęciu obrotu planszy widoczne prędkości wynoszą **3 : 1 : 0** – dokładnie to, co widzimy w tabeli ruchów. Na planszy Ziemia przesuwa się co turę o 60° (2 pola na 12-polowym pierścieniu), a Mars o 20° (1 pole na 18-polowym).
 
-Proporcja 4:2:1 jest przybliżeniem. Rzeczywiste wartości to ok. 4,6 : 2,4 : 1, co oznacza błąd rzędu 13–18%. Jednak po odjęciu obrotu planszy proporcja widoczna w grze (Ziemia:Mars = 3:1) odpowiada rzeczywistości z dokładnością poniżej 1% – model jest wewnętrznie spójny.
+### Punkt odniesienia i skala czasu
 
-### Punkt odniesienia planszy
+Proporcja 4:2:1 jest tylko punktem wyjścia – rzeczywisty stosunek prędkości kątowych Ziemi i Marsa to 1,88, a nie 2. Mimo to proporcja **3:1 na planszy może być dokładna**: wystarczy dobrać prędkość obrotu planszy tak, żeby po jej odjęciu Ziemia poruszała się dokładnie trzy razy szybciej niż Mars.
 
-Plansza jest zsynchronizowana nie z Ceres (najbardziej znany obiekt pasa), lecz z orbitą o promieniu **2,24 AU** i okresie obiegu **3,36 roku**. To wewnętrzna część pasa planetoid, nieco bliżej Słońca niż Ceres. Wybór tego punktu wynika z dopasowania proporcji prędkości: przy synchronizacji z Ceres model Ziemia/Mars byłby mniej spójny wewnętrznie. Synchronizacja z 2,24 AU sprawia, że prędkości Ziemi i Marsa na planszy pasują do siebie niemal idealnie.
+Z tego warunku wynikają dwie wartości:
 
-### Skala czasu
+- plansza jest zsynchronizowana z orbitą o promieniu **2,24 AU** i okresie obiegu **3,36 roku** – w wewnętrznej części pasa planetoid, bliżej Słońca niż Ceres,
+- jedna runda trwa ok. **87 dni** (nieco poniżej ćwierć roku).
 
-Długość rundy nie była zakładana z góry – wynika z całego modelu jako rezultat. Przy przyjętych proporcjach prędkości jedna runda odpowiada ok. **87 dniom** (nieco poniżej ćwierć roku). Wartość ¼ roku jest wygodna komunikacyjnie, ale lekko zawyża rzeczywisty czas rundy.
+Dzięki temu Ziemia i Mars poruszają się na planszy zgodnie z rzeczywistością – z dokładnością ograniczoną tylko zaokrągleniem długości rundy. Ani punkt synchronizacji, ani długość rundy nie były zakładane z góry; oba są wynikiem dopasowania. Ceną jest to, że plansza obraca się razem z wewnętrzną częścią pasa, a nie z jego środkiem – dalsze części pasa dryfują (patrz niżej).
+
+Synchronizacja z Ceres dałaby rundę bliższą równej ćwiartce roku, ale proporcja Ziemia:Mars na planszy wynosiłaby wtedy ok. 2,5:1 zamiast 3:1. Wartość ¼ roku jest wygodna komunikacyjnie, ale lekko zawyża rzeczywisty czas rundy.
+
+### Pierścień 1
+
+Zgodnie z prawem Keplera orbita kołowa w odległości 0,5 AU przesuwałaby się na planszy o ok. 3,6 pola na turę – model zaokrągla to do 3. Rzeczywiste planety tego pierścienia rozjeżdżają się w obie strony: Wenus przesuwałaby się o ok. 1,9 pola na turę, Merkury o ok. 5,5. Jeden pierścień z jedną prędkością nie może oddać obu – co nie przeszkadza, skoro obie planety są tłem.
 
 ## Pas planetoid – dryf i losowość
 
 ### Nieuniknione uproszczenie
 
-Pas planetoid nie jest tarczą obracającą się ze stałą prędkością – każda planetoida krąży z własną prędkością wynikającą z jej orbity. Obiekty bliżej Słońca krążą szybciej, obiekty dalej – wolniej. Plansza jest zsynchronizowana tylko z jednym punktem (2,24 AU), więc obiekty na innych orbitach w pasie będą dryfować:
+Pas planetoid nie jest tarczą obracającą się ze stałą prędkością – każda planetoida krąży z własną prędkością wynikającą z jej orbity. Obiekty bliżej Słońca krążą szybciej, obiekty dalej – wolniej. Plansza jest zsynchronizowana tylko z jedną orbitą (2,24 AU), więc obiekty na pozostałych pierścieniach pasa dryfowałyby względem planszy:
 
-| Obiekt | Odległość | Dryf względem planszy |
-|--------|-----------|----------------------|
-| Wewn. krawędź pasa | 2,06 AU | +0,24 pola/turę (za szybki) |
-| Punkt synchronizacji | 2,24 AU | 0 |
-| Ceres | 2,77 AU | −0,64 pola/turę |
-| Zewn. krawędź pasa | 3,28 AU | −1,21 pola/turę |
+| Pierścień | Odległość | Dryf względem planszy |
+|-----------|-----------|----------------------|
+| 4 | 2,0 AU | +0,3 pola/turę (do przodu) |
+| – | 2,24 AU (synchronizacja) | 0 |
+| 5 | 2,5 AU | −0,3 pola/turę (do tyłu) |
+| 6 | 3,0 AU | −0,9 pola/turę (do tyłu) |
 
-W trakcie typowej gry (30–50 rund) Ceres dryfowałaby o kilkanaście do kilkudziesięciu pól, a zewnętrzna krawędź pasa jeszcze więcej.
+Ceres dryfowałaby o ok. −0,6 pola/turę. W trakcie typowej gry (30–50 rund) przesunęłaby się o kilkanaście do kilkudziesięciu pól, a obiekty na zewnętrznym pierścieniu jeszcze więcej.
 
 ### Dlaczego to nie jest problem
 
 Modelowanie dryfowania poszczególnych obiektów wymagałoby śledzenia ułamkowych przesunięć, co znacząco skomplikowałoby rozgrywkę bez żadnej korzyści dla jakości decyzji gracza. Co ważniejsze – pas planetoid w rzeczywistości nie jest zbiorem obiektów, które dałoby się sensownie śledzić na planszy. To miliony ciał na nieznacznie różnych orbitach.
 
 Losowe rozmieszczenie zasobów rzutem kości jest bliższe prawdzie niż jakikolwiek deterministyczny ruch mógłby oddać. Dryf jest świadomie pochłonięty przez losowość mechaniki pasa.
+
+## Ruch statków a fizyka
+
+Ruch statku na planszy składa się z ruchu wymuszonego (razem z pierścieniem) i ruchu własnego (1–2 pola na turę w dowolnym kierunku, zużywającego paliwo). Na pierwszy rzut oka wygląda to jak uproszczenie wbrew fizyce – w kosmosie nie ma tarcia, więc raz rozpędzony statek powinien lecieć dalej za darmo. W rzeczywistości ten model da się dobrze obronić.
+
+### Ruch wymuszony to bezwładność
+
+Statek bez napędu na danym pierścieniu leci po orbicie kołowej – czyli swobodnie, bez zużycia paliwa. Model ma więc bezwładność; jego naturalnym stanem nie jest stanie w miejscu, tylko krążenie po orbicie.
+
+### Ruch własny kosztuje stale
+
+Każdy ruch własny oznacza lot kursem innym niż orbita kołowa. Taki tor nie jest balistyczny: grawitacja Słońca stale go zakrzywia (względem lokalnej orbity objawia się to jako siła Coriolisa i siły pływowe). Żeby utrzymać kurs z określoną prędkością względem lokalnej orbity, trzeba więc stale pracować silnikiem – i to tym mocniej, im szybciej statek leci.
+
+Nie ma przy tym znaczenia, czy statek kończy trasę, czy leci dalej: koszt wynika z samego utrzymania kursu, a nie z hamowania i ponownego rozpędzania.
+
+Rzędy wielkości (1 pole na turę to ok. 10 km/s):
+
+| Gdzie | Zmiana prędkości (Δv) potrzebna na turę lotu z prędkością 1 pola/turę |
+|-------|------------------------------------------------------------------------|
+| orbita Ziemi | ok. 30 km/s |
+| orbita Marsa | ok. 16 km/s |
+| pas planetoid | ok. 6–9 km/s |
+
+To szacunki – przybliżenie, z którego wynikają, jest dokładne tylko dla przesunięć małych w porównaniu z promieniem orbity, a 0,5 AU małe nie jest. Pokazują jednak dwie rzeczy: szybszy lot kosztuje proporcjonalnie więcej paliwa na turę, a manewrowanie bliżej Słońca jest droższe niż w pasie. Stały koszt ruchu w całej planszy to uproszczenie – projektant gry może je zastąpić kosztem zależnym od pierścienia.
+
+### Co pomijamy: lot balistyczny
+
+Współczesne sondy na trasie Ziemia–Mars korzystają zwykle z transferu Hohmanna: dwa krótkie impulsy silnika, a pomiędzy nimi kilka miesięcy lotu po elipsie bez zużycia paliwa. Takiego „darmowego” lotu model nie przewiduje.
+
+Statki w grze odpowiadają innemu rodzajowi napędu – o małym ciągu, ale pracującym bez przerwy. Tak latała sonda Dawn: jej silniki jonowe pracowały łącznie prawie 6 lat, prowadząc ją po spirali między orbitami. Dla bliskich orbit taka spirala kosztuje niemal tyle samo co transfer Hohmanna: z orbity Ziemi na orbitę Marsa ok. 5,7 km/s zamiast 5,6 km/s, do pasa planetoid (2,24 AU) ok. 9,9 km/s zamiast 9,5 km/s.
+
+### Skala napędu
+
+Utrzymanie kursu z prędkością 1 pola na turę wymaga ciągłego przyspieszenia rzędu 0,1–0,4 tysięcznej części przyspieszenia ziemskiego (milli-g) – kilkanaście do kilkudziesięciu razy więcej, niż dawały silniki Dawn. W grze na kilkadziesiąt rund statki potrzebowałyby łącznie setek km/s zmiany prędkości, podczas gdy Dawn przez całą misję uzyskała ok. 11,5 km/s.
+
+To napęd z przyszłości – jądrowy lub fuzyjny o dużej mocy. Fizyka pozostaje jednak uczciwa: przyspieszenia są rzędu milli-g, a nie całego g, jak w mniej powściągliwej fantastyce naukowej.
+
+### Manewry w pasie planetoid
+
+Pas planetoid jest bardzo pusty – średnia odległość między planetoidami to ok. miliona km, a sondy przelatują przez niego bez żadnych manewrów. Ominięcie przeszkód nie jest więc tym, co kosztuje. Kosztuje dopasowanie się do celu: żeby wylądować na konkretnej planetoidzie, trzeba wejść na jej orbitę, a każda planetoida ma własną. To zarazem rzeczywisty odpowiednik pomijanego dryfu – jego koszt zawiera się w koszcie manewrów.
 
 ## Wybór kości do losowania w pasie planetoid
 
@@ -78,4 +128,4 @@ Mimo uproszczeń model przekazuje rzeczy, których popularne wizualizacje Układ
 - Pas planetoid jest szeroki, nie cienki.
 - Układ inercjalny to nie jedyna możliwość opisu ruchu – wybór układu odniesienia ma konsekwencje.
 
-Błędy proporcji rzędu 15–30% są przy tym zupełnie nieistotne. Gracz bez wiedzy astronomicznej spotka model spójny i intuicyjny. Gracz z tą wiedzą rozpozna, że mechanika jest prawdziwa – tylko zaokrąglona do liczb, z którymi da się grać.
+Ziemia i Mars poruszają się na planszy zgodnie z rzeczywistością. Największe uproszczenia – wspólny pierścień Merkurego i Wenus oraz pomijany dryf w pasie – dotyczą miejsc, w których dokładność nie wpływa na decyzje gracza. Gracz bez wiedzy astronomicznej spotka model spójny i intuicyjny. Gracz z tą wiedzą rozpozna, że mechanika jest prawdziwa – tylko zaokrąglona do liczb, z którymi da się grać.
