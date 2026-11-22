@@ -92,8 +92,8 @@ W kosmosie płaci się za zmianę prędkości, a nie za przebytą drogę. Propon
 3. Statek przesuwa się o swoją prędkość i razem z pierścieniem, na którym zaczął turę.
 4. Przeskok: statek może przesunąć się o 1 pole i zatrzymać w tej samej turze (koszt 2).
 5. Dokowanie, lądowanie i każda inna interakcja wymagają prędkości 0. Silnik fuzyjny jest za słaby, żeby wystartować z powierzchni planety albo dużej planetoidy:
-   - przy Ziemi i Marsie statek dokuje do stacji na orbicie, a na powierzchnię kursują promy stacji,
-   - na Ceres i Westę potrzebny jest prom – miejscowy albo własny, na wyposażeniu frachtowca (kosztem zasięgu lub ładunku),
+   - przy Ziemi i Marsie statek dokuje do stacji na orbicie, a na powierzchnię kursują lądowniki stacji,
+   - na Ceres i Westę potrzebny jest lądownik – miejscowy albo własny, na wyposażeniu frachtowca (kosztem zasięgu lub ładunku),
    - na małych planetoidach, o średnicy do kilku km, frachtowiec ląduje bezpośrednio.
 6. Prędkość ponad 2 pola na turę jest zakazana przepisami.
 7. Pierścień 1 jest zamknięty dla statków – blisko Słońca jest za gorąco, a pierścień przesuwa się o pół obiegu na turę.

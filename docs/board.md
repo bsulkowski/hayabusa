@@ -92,8 +92,8 @@ In space you pay for changing your velocity, not for the distance travelled. The
 3. The ship moves by its velocity and together with the ring on which it started the turn.
 4. Hop: a ship may move 1 hex and stop in the same turn (cost 2).
 5. Docking, landing and any other interaction require zero velocity. A fusion drive is too weak to lift off from the surface of a planet or a large asteroid:
-   - at the Earth and Mars the ship docks at a station in orbit, and the station's shuttles run to the surface,
-   - Ceres and Vesta need a shuttle – a local one or the freighter's own, carried on board (at the cost of range or cargo),
+   - at the Earth and Mars the ship docks at a station in orbit, and the station's landers run to the surface,
+   - Ceres and Vesta need a lander – a local one or the freighter's own, carried on board (at the cost of range or cargo),
    - on small asteroids, up to a few km across, the freighter lands directly.
 6. Speeds above 2 hexes per turn are forbidden by regulations.
 7. Ring 1 is closed to ships – it is too hot close to the Sun, and the ring moves half an orbit per turn.

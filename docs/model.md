@@ -84,7 +84,7 @@ So a game can either ignore drift or apply it, depending on its needs:
 - **Ignoring it** is enough when objects in the belt appear at random and their exact position doesn't need to be tracked for long. The asteroid belt consists of millions of bodies on slightly different orbits, so random placement with dice represents it well – drift is absorbed by the randomness.
 - **Tracking it** makes sense when a game needs to know the position of a particular asteroid more precisely over a longer time.
 
-Individual known bodies can be tracked separately, even when a game ignores the drift of the rest of the belt. Ceres (2.77 AU) lies on the inner edge of ring 6, but orbits faster than the rest of that ring: it drifts by about −0.6 hexes/turn, that is **2 hexes backward every 3 turns**. Combined with the need for a shuttle (see "Launching from the surface"), this makes a trip to Ceres something to plan: the target moves, and a shuttle is needed on arrival.
+Individual known bodies can be tracked separately, even when a game ignores the drift of the rest of the belt. Ceres (2.77 AU) lies on the inner edge of ring 6, but orbits faster than the rest of that ring: it drifts by about −0.6 hexes/turn, that is **2 hexes backward every 3 turns**. Combined with the need for a lander (see "Launching from the surface"), this makes a trip to Ceres something to plan: the target moves, and a lander is needed on arrival.
 
 ## Ship movement and physics
 
@@ -112,8 +112,8 @@ The unit on the board is a speed of 1 hex per turn – about **10 km/s** relativ
 3. The ship moves by its velocity and together with the ring on which it started the turn.
 4. Hop: a ship may move 1 hex and stop in the same turn (acceleration and braking, cost 2).
 5. Docking, landing and any other interaction require zero velocity. A fusion drive is too weak to lift off from the surface of a planet or a large asteroid (see "Launching from the surface"):
-   - at the Earth and Mars the ship docks at a station in orbit, and the station's shuttles run to the surface,
-   - Ceres and Vesta need a shuttle – a local one or the freighter's own, carried on board,
+   - at the Earth and Mars the ship docks at a station in orbit, and the station's landers run to the surface,
+   - Ceres and Vesta need a lander – a local one or the freighter's own, carried on board,
    - on small asteroids, up to a few km across, the freighter lands directly.
 6. Speeds above 2 hexes per turn are forbidden by regulations – a rule of convention, not of physics.
 7. Ring 1 is closed to ships.
@@ -219,7 +219,7 @@ Proposed values:
 | emergency kit carried by the freighter (about 1–2.5 t of rock per hour) | about 3 units per turn of stopover | about 7 turns |
 | mining station | the whole tank | 1 turn |
 
-The emergency kit is slow enough to really be an emergency solution – during the stopover the Earth and the transfer windows slip away. Like a shuttle, the kit has mass and reduces the ship's range.
+The emergency kit is slow enough to really be an emergency solution – during the stopover the Earth and the transfer windows slip away. Like a lander, the kit has mass and reduces the ship's range.
 
 There is more water in the outer part of the belt: stony, water-poor asteroids dominate the inner part, carbonaceous ones the outer part. On the board, rings 5–6 can therefore yield more water than ring 4.
 
@@ -245,15 +245,15 @@ A stronger engine won't solve this: for a given power, a higher exhaust velocity
 
 Three things follow:
 
-- Fusion freighters fly from orbit to orbit. At the Earth and Mars they dock at orbital stations, and separate shuttles – chemical ones, for example – run to the surface and back. Most of today's concepts of transport in the Solar System look similar: rockets to low orbit, then separate space tugs.
+- Fusion freighters fly from orbit to orbit. At the Earth and Mars they dock at orbital stations, and separate landers – chemical ones, for example – run to the surface and back. Most of today's concepts of transport in the Solar System look similar: rockets to low orbit, then separate space tugs.
 - Getting to orbit from Mars (about 4 km/s) is much cheaper than from the Earth (about 9.4 km/s), so a station at Mars is easier to supply from the surface.
-- Ceres and Vesta also need shuttles, but cheap ones – the escape velocity of Ceres is about 0.5 km/s. On small asteroids a freighter lands directly.
+- Ceres and Vesta also need landers, but cheap ones – the escape velocity of Ceres is about 0.5 km/s. On small asteroids a freighter lands directly.
 
-**A shuttle carried by the freighter.** At Ceres and Vesta a shuttle needs little: from low orbit to the surface and back is about 0.8 km/s at Ceres and about 0.6 km/s at Vesta, with no atmosphere and weak gravity. A small chemical shuttle that the freighter can carry with it is enough. Its fuel – hydrogen and oxygen from split water – can be produced in the asteroid belt. The shuttle's mass, however, counts towards the ship's mass without propellant, so a freighter with a shuttle has a shorter range or carries less cargo.
+**A lander carried by the freighter.** At Ceres and Vesta a lander needs little: from low orbit to the surface and back is about 0.8 km/s at Ceres and about 0.6 km/s at Vesta, with no atmosphere and weak gravity. A small chemical lander that the freighter can carry with it is enough. Its fuel – hydrogen and oxygen from split water – can be produced in the asteroid belt. The lander's mass, however, counts towards the ship's mass without propellant, so a freighter with a lander has a shorter range or carries less cargo.
 
-At Mars an own shuttle is possible but heavy (about 5 km/s for landing and returning to orbit) and needs fuel on the surface. At the Earth just getting to orbit takes a large rocket with ground infrastructure – a freighter can't carry that.
+At Mars an own lander is possible but heavy (about 5 km/s for landing and returning to orbit) and needs fuel on the surface. At the Earth just getting to orbit takes a large rocket with ground infrastructure – a freighter can't carry that.
 
-Where a permanent settlement has grown up, it is natural to keep shuttles on site, as at the Earth and Mars. A freighter's own shuttle is the solution for places without infrastructure – that is, for the early days of asteroid belt exploration.
+Where a permanent settlement has grown up, it is natural to keep landers on site, as at the Earth and Mars. A freighter's own lander is the solution for places without infrastructure – that is, for the early days of asteroid belt exploration.
 
 ### Manoeuvres in the asteroid belt
 
