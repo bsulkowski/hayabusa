@@ -1,30 +1,30 @@
 # Synodic Board
 
-**Plansza wewnętrznego Układu Słonecznego**
+**A board of the inner Solar System**
 
-Heksagonalna plansza do gier twardej science fiction o początkach eksploracji kosmosu – od Słońca po pas planetoid. Fizyka jest prawdziwa, z przyszłości pochodzą tylko silniki statków. Odległości i prędkości orbitalne zachowują rzeczywiste proporcje, a sama plansza obraca się razem z pasem planetoid: planety bliżej Słońca co turę przesuwają się po swoich orbitach, a statki graczy muszą się z tym liczyć.
+*[Wersja polska](README_pl.md)*
 
-Plansza nie jest przypisana do jednej gry – to przestrzeń, na której można budować różne gry.
+A hexagonal board for hard science fiction games about the early days of space exploration – from the Sun to the asteroid belt. The physics is real; only the ships' engines come from the future. Distances and orbital speeds keep their real proportions, and the board itself rotates together with the asteroid belt: planets closer to the Sun move along their orbits every turn, and players' ships have to reckon with it.
 
-## Plansza
+The board is not tied to a single game – it is a space on which different games can be built.
 
-| Plik | Opis |
-|------|------|
-| [board/board_pl.pdf](board/board_pl.pdf) ([SVG](board/board_pl.svg)) | plansza, wersja polska (v0.4.1) |
-| [board/board.pdf](board/board.pdf) ([SVG](board/board.svg)) | plansza, wersja angielska (v0.4.1) |
-| [board/board-light_pl.pdf](board/board-light_pl.pdf) ([SVG](board/board-light_pl.svg)) | plansza alternatywna, wersja polska (v0.4e) |
-| [board/qrcode_pl.svg](board/qrcode_pl.svg), [board/qrcode.svg](board/qrcode.svg) | kody QR do strony projektu |
+## Board
 
-Poprzednie wersje są w historii repozytorium (tagi `v0.1`–`v0.4.1`). Eksperymentalna kolorystyka planszy jest na branchu `experimental-colors`.
+| File | Description |
+|------|-------------|
+| [board/board.pdf](board/board.pdf) ([SVG](board/board.svg)) | board, English version (v0.4.1) |
+| [board/board_pl.pdf](board/board_pl.pdf) ([SVG](board/board_pl.svg)) | board, Polish version (v0.4.1) |
+| [board/board-light_pl.pdf](board/board-light_pl.pdf) ([SVG](board/board-light_pl.svg)) | alternative board, Polish version (v0.4e) |
+| [board/qrcode.svg](board/qrcode.svg), [board/qrcode_pl.svg](board/qrcode_pl.svg) | QR codes linking to the project page |
 
-## Dokumentacja
+Earlier versions are in the repository history (tags `v0.1`–`v0.4.1`). An experimental colour scheme of the board is on the `experimental-colors` branch.
 
-- [Jak działa plansza](docs/board_pl.md) – dla graczy i projektantów gier, którzy chcą wykorzystać gotową planszę
-- [Model i decyzje projektowe](docs/model_pl.md) – jak plansza ma się do rzeczywistego Układu Słonecznego
-- [Obliczenia](tools/README.md) – skrypty, którymi policzono model
+## Documentation
 
-Dokumentacja jest na razie po polsku; wersja angielska jest w przygotowaniu.
+- [How the board works](docs/board.md) – for players and game designers who want to use the board as it is
+- [The model and design decisions](docs/model.md) – how the board relates to the real Solar System
+- [Calculations](tools/README.md) – the scripts used to compute the model
 
-## Licencja
+## Licence
 
-Plansza i dokumentacja: [CC BY 4.0](LICENSE) – Bartosz Sułkowski. Kod w folderze `tools/`: [MIT](tools/LICENSE).
+Board and documentation: [CC BY 4.0](LICENSE) – Bartosz Sułkowski. Code in the `tools/` folder: [MIT](tools/LICENSE).

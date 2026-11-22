@@ -1,21 +1,23 @@
-# Obliczenia
+# Calculations
 
-Skrypty, którymi policzono liczby w [opisie modelu](../docs/model_pl.md). Każdy wypisuje tabele w tej samej postaci, w jakiej trafiły do dokumentacji.
+*[Wersja polska](README_pl.md)*
 
-Model fizyczny: Słońce i statek (zagadnienie dwóch ciał), orbity kołowe i współpłaszczyznowe. Trasy między orbitami liczone są jako optymalne łuki (zagadnienie Lamberta) albo transfer Hohmanna, lot swobodny – przez numeryczne całkowanie ruchu.
+The scripts used to compute the numbers in the [model description](../docs/model.md). Each one prints its tables in the same form in which they appear in the documentation. The script output is in Polish.
 
-| Skrypt | Co liczy | Rozdział opisu modelu |
-|--------|----------|-----------------------|
-| `orbits.py` | wspólne funkcje i parametry planszy (punkt synchronizacji, długość rundy) | – |
-| `board_model.py` | punkt synchronizacji, ruch pierścieni, dryf pasa, okna transferowe i kąty startu | Układ odniesienia, Pas planetoid, Okna transferowe |
-| `reference_model.py` | koszt zaplanowanych tras w tempie gry | Dlaczego model referencyjny ma sens |
-| `coasting.py` | zakrzywienie toru przy locie swobodnym, koszt utrzymania kursu, sprawdzenie prostej zasady zakrzywiania | Dlaczego nie prosta linia dosłownie |
-| `simplified_model.py` | kalibracja modelu uproszczonego, koszt przy jednakowym czasie lotu | Model uproszczony |
-| `propulsion.py` | zasięg zbiornika, ciąg i moc dla różnych napędów | Napęd i paliwo |
+Physical model: the Sun and a ship (the two-body problem), circular and coplanar orbits. Routes between orbits are computed as optimal arcs (Lambert's problem) or as Hohmann transfers; free flight by numerical integration of the motion.
 
-## Uruchomienie
+| Script | What it computes | Section of the model description |
+|--------|------------------|----------------------------------|
+| `orbits.py` | shared functions and board parameters (reference orbit, turn length) | – |
+| `board_model.py` | reference orbit, ring movement, belt drift, transfer windows and launch angles | Frame of reference, The asteroid belt, Transfer windows |
+| `reference_model.py` | cost of planned routes at game pace | Why the reference model makes sense |
+| `coasting.py` | path bending in free flight, cost of holding a course, test of a simple bending rule | Why not take the straight line literally |
+| `simplified_model.py` | calibration of the simplified model, cost at equal flight time | Simplified model |
+| `propulsion.py` | tank range, thrust and power for different drives | Propulsion and fuel |
 
-Potrzebny jest Python 3 z bibliotekami `numpy` i `scipy`:
+## Running
+
+You need Python 3 with the `numpy` and `scipy` libraries:
 
 ```
 pip install numpy scipy
@@ -23,8 +25,8 @@ cd tools
 python board_model.py
 ```
 
-Skrypty `coasting.py` i `simplified_model.py` liczą się kilkadziesiąt sekund.
+`coasting.py` and `simplified_model.py` take several tens of seconds to run.
 
-## Licencja
+## Licence
 
-Kod w tym folderze jest dostępny na licencji [MIT](LICENSE).
+The code in this folder is available under the [MIT](LICENSE) licence.

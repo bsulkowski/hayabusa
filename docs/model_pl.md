@@ -1,5 +1,7 @@
 # Synodic Board – model i decyzje projektowe
 
+*[English version](model.md)*
+
 ## Dla kogo jest ten dokument
 
 Ten dokument jest przeznaczony dla osób zainteresowanych tym, jak plansza ma się do rzeczywistej fizyki Układu Słonecznego: co zostało zamodelowane wiernie, co uproszczono i dlaczego. Może być przydatny zarówno dla projektantów gier chcących zmodyfikować planszę lub zainspirować się przy tworzeniu własnej, jak i dla graczy ciekawych astronomicznego kontekstu.
@@ -271,7 +273,7 @@ Model uproszczony jest spójny sam w sobie i dobrze nadaje się do gier, które 
 
 **Geometria planszy.** W żadnym z modeli kosztów nie uwzględniono w samej planszy – na przykład przez pola tym mniejsze, im bliżej Słońca. Plansza pokazywałaby wtedy koszt zamiast przestrzeni i straciłaby to, co jest jej główną wartością: prawdziwe odległości i proporcje ruchu orbitalnego. Mapy zbudowane z kosztów manewrów istnieją (taką ma na przykład gra High Frontier), ale tracą wyczucie, gdzie co naprawdę leży.
 
-Wszystkie liczby w tym rozdziale pochodzą ze skryptów w folderze [tools](../tools/README.md) – każdy może je sprawdzić i przeliczyć dla zmienionej planszy.
+Wszystkie liczby w tym rozdziale pochodzą ze skryptów w folderze [tools](../tools/README_pl.md) – każdy może je sprawdzić i przeliczyć dla zmienionej planszy.
 
 ## Wybór kości do losowania w pasie planetoid
 

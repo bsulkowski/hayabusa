@@ -1,5 +1,7 @@
 # Synodic Board – plansza wewnętrznego Układu Słonecznego
 
+*[English version](board.md)*
+
 ## Czym jest ta plansza
 
 Plansza przedstawia wewnętrzny Układ Słoneczny – przestrzeń od Słońca do pasa planetoid. Zaprojektowana jest jako uniwersalna przestrzeń do gier twardej science fiction o tematyce eksploracji kosmosu: gracze poruszają się statkami między planetami, eksploatują zasoby pasa planetoid i mierzą się z wyzwaniami, jakie niesie ze sobą prawdziwa mechanika orbitalna. Fizyka jest prawdziwa, z przyszłości pochodzą tylko silniki statków.
@@ -112,7 +114,7 @@ W rzeczywistości najtańszy energetycznie lot na Marsa to tzw. **manewr Hohmann
 
 Tak właśnie działała misja **Perseverance**: NASA wystartowała w lipcu 2020 roku, kiedy układ planet był odpowiedni, i łazik wylądował na Marsie w lutym 2021 – po dokładnie 7 miesiącach lotu. Gdyby rakieta nie wystartowała w tym oknie, kolejna szansa byłaby dopiero w 2022 roku.
 
-Na planszy wygląda to analogicznie: statek lecący z pierścienia 2 na pierścień 3 potrzebuje kilku rund na zmianę orbity. Przez ten czas Mars przesuwa się po swojej orbicie – gracz musi zaplanować kurs tak, żeby znaleźć się na pierścieniu 3 dokładnie wtedy i tam, gdzie będzie Mars.
+Na planszy wygląda to analogicznie: statek lecący z pierścienia 2 na pierścień 3 potrzebuje czasu na zmianę orbity. Przez ten czas Mars przesuwa się po swojej orbicie – gracz musi zaplanować kurs tak, żeby znaleźć się na pierścieniu 3 dokładnie wtedy i tam, gdzie będzie Mars.
 
 ### Powrót z pasa planetoid
 
