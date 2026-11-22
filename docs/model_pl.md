@@ -84,6 +84,8 @@ Gra może więc dryf pominąć albo go realizować, zależnie od potrzeb:
 - **Pominięcie** wystarcza, gdy obiekty w pasie pojawiają się losowo i nie trzeba długo śledzić ich dokładnej pozycji. Pas planetoid to miliony ciał na nieznacznie różnych orbitach, więc losowe rozmieszczenie rzutem kości oddaje go dobrze – dryf zostaje pochłonięty przez losowość.
 - **Śledzenie** ma sens, gdy gra przez dłuższy czas potrzebuje dokładniej znać pozycję konkretnej planetoidy.
 
+Pojedyncze znane ciała można śledzić osobno, nawet gdy gra pomija dryf reszty pasa. Ceres (2,77 AU) leży na wewnętrznym skraju pierścienia 6, ale krąży szybciej niż reszta tego pierścienia: dryfuje o ok. −0,6 pola/turę, czyli **2 pola do tyłu co 3 tury**. Połączone z wymogiem promu (patrz „Start z powierzchni”) daje to wyprawę na Ceres, którą trzeba zaplanować: cel się przesuwa, a na miejscu potrzebny jest prom.
+
 ## Ruch statków a fizyka
 
 Ruch statku na planszy składa się z ruchu wymuszonego (razem z pierścieniem) i ruchu własnego, napędzanego silnikiem. Plansza proponuje dwa modele lotów:
@@ -109,7 +111,10 @@ Jednostką na planszy jest prędkość 1 pola na turę – ok. **10 km/s** wzgl�
 2. Na początku tury statek może zmienić prędkość najwyżej o 2 pola. Każde pole zmiany prędkości kosztuje **1 jednostkę paliwa** (ok. 10 km/s).
 3. Statek przesuwa się o swoją prędkość i razem z pierścieniem, na którym zaczął turę.
 4. Przeskok: statek może przesunąć się o 1 pole i zatrzymać w tej samej turze (rozpędzenie i hamowanie, koszt 2).
-5. Dokowanie, lądowanie i każda inna interakcja wymagają prędkości 0. Przy planetach i dużych planetoidach statek dokuje do stacji na orbicie – na powierzchnię i z powrotem kursują osobne promy. Lądować bezpośrednio można tylko na małych planetoidach, o średnicy do kilku km (patrz „Start z powierzchni”).
+5. Dokowanie, lądowanie i każda inna interakcja wymagają prędkości 0. Silnik fuzyjny jest za słaby, żeby wystartować z powierzchni planety albo dużej planetoidy (patrz „Start z powierzchni”):
+   - przy Ziemi i Marsie statek dokuje do stacji na orbicie, a na powierzchnię kursują promy stacji,
+   - na Ceres i Westę potrzebny jest prom – miejscowy albo własny, na wyposażeniu frachtowca,
+   - na małych planetoidach, o średnicy do kilku km, frachtowiec ląduje bezpośrednio.
 6. Prędkość ponad 2 pola na turę jest zakazana przepisami – to ograniczenie umowne, nie fizyczne.
 7. Pierścień 1 jest zamknięty dla statków.
 
@@ -224,6 +229,12 @@ Wynikają z tego trzy rzeczy:
 - Frachtowce fuzyjne latają z orbity na orbitę. Przy Ziemi i Marsie dokują do stacji orbitalnych, a na powierzchnię i z powrotem kursują osobne promy, na przykład chemiczne. Podobnie wygląda większość dzisiejszych koncepcji transportu w Układzie Słonecznym: rakiety do niskiej orbity, a dalej osobne holowniki kosmiczne.
 - Wejście na orbitę z Marsa (ok. 4 km/s) jest dużo tańsze niż z Ziemi (ok. 9,4 km/s), więc stację przy Marsie łatwiej zaopatrywać z powierzchni.
 - Ceres i Westa też wymagają promów, ale tanich – prędkość ucieczki z Ceres to ok. 0,5 km/s. Na małych planetoidach frachtowiec ląduje bezpośrednio.
+
+**Prom na wyposażeniu frachtowca.** Na Ceres i Weście prom potrzebuje niewiele: z niskiej orbity na powierzchnię i z powrotem to ok. 0,8 km/s na Ceres i ok. 0,6 km/s na Weście, bez atmosfery i przy słabej grawitacji. Wystarczy mały prom chemiczny, który frachtowiec może wozić ze sobą. Paliwo do niego – wodór i tlen z rozłożonej wody – można pozyskiwać w pasie planetoid. Masa promu liczy się jednak do masy statku bez paliwa, więc frachtowiec z promem ma mniejszy zasięg albo zabiera mniej ładunku.
+
+Przy Marsie własny prom jest możliwy, ale ciężki (ok. 5 km/s na lądowanie i powrót na orbitę) i potrzebuje paliwa na powierzchni. Przy Ziemi samo wejście na orbitę wymaga dużej rakiety z infrastrukturą naziemną – tego frachtowiec nie zabierze.
+
+Tam, gdzie powstała stała osada, naturalne jest utrzymywanie promów na miejscu, tak jak przy Ziemi i Marsie. Własny prom frachtowca to rozwiązanie na miejsca bez infrastruktury – czyli na początki eksploracji pasa planetoid.
 
 ### Manewry w pasie planetoid
 

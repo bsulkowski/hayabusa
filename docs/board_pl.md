@@ -46,6 +46,8 @@ Plansza obraca się razem z jedną orbitą w pasie, a pozostałe części pasa k
 - pierścień 5: 1 pole do tyłu co 3 tury,
 - pierścień 6: 1 pole do tyłu co turę.
 
+Pojedyncze znane ciała można śledzić osobno: Ceres leży na wewnętrznym skraju pierścienia 6 i przesuwa się o 2 pola do tyłu co 3 tury.
+
 „Do przodu" oznacza zgodnie z kierunkiem ruchu planet. Gra może też dryf pominąć – szczegóły w [model_pl.md](model_pl.md#dryf-w-grze--opcjonalnie).
 
 ## Układ odniesienia – jak działa ruch na planszy
@@ -85,7 +87,10 @@ W kosmosie płaci się za zmianę prędkości, a nie za przebytą drogę. Propon
 2. Na początku tury statek może zmienić prędkość najwyżej o 2 pola. Każde pole zmiany prędkości kosztuje 1 jednostkę paliwa.
 3. Statek przesuwa się o swoją prędkość i razem z pierścieniem, na którym zaczął turę.
 4. Przeskok: statek może przesunąć się o 1 pole i zatrzymać w tej samej turze (koszt 2).
-5. Dokowanie, lądowanie i każda inna interakcja wymagają prędkości 0. Przy planetach i dużych planetoidach statek dokuje do stacji na orbicie, a na powierzchnię kursują osobne promy – silnik fuzyjny jest za słaby, żeby wystartować z powierzchni. Lądować można tylko na małych planetoidach, o średnicy do kilku km.
+5. Dokowanie, lądowanie i każda inna interakcja wymagają prędkości 0. Silnik fuzyjny jest za słaby, żeby wystartować z powierzchni planety albo dużej planetoidy:
+   - przy Ziemi i Marsie statek dokuje do stacji na orbicie, a na powierzchnię kursują promy stacji,
+   - na Ceres i Westę potrzebny jest prom – miejscowy albo własny, na wyposażeniu frachtowca (kosztem zasięgu lub ładunku),
+   - na małych planetoidach, o średnicy do kilku km, frachtowiec ląduje bezpośrednio.
 6. Prędkość ponad 2 pola na turę jest zakazana przepisami.
 7. Pierścień 1 jest zamknięty dla statków – blisko Słońca jest za gorąco, a pierścień przesuwa się o pół obiegu na turę.
 

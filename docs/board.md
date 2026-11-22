@@ -46,6 +46,8 @@ The board rotates together with one orbit in the belt; the rest of the belt circ
 - ring 5: 1 hex backward every 3 turns,
 - ring 6: 1 hex backward every turn.
 
+Individual known bodies can be tracked separately: Ceres lies on the inner edge of ring 6 and moves 2 hexes backward every 3 turns.
+
 "Forward" means in the direction in which the planets move. A game can also ignore drift – details in [model.md](model.md#drift-in-play--optional).
 
 ## Frame of reference – how movement works on the board
@@ -85,7 +87,10 @@ In space you pay for changing your velocity, not for the distance travelled. The
 2. At the start of a turn a ship may change its velocity by at most 2 hexes. Each hex of velocity change costs 1 fuel unit.
 3. The ship moves by its velocity and together with the ring on which it started the turn.
 4. Hop: a ship may move 1 hex and stop in the same turn (cost 2).
-5. Docking, landing and any other interaction require zero velocity. At planets and large asteroids the ship docks at a station in orbit, and separate shuttles run to the surface – a fusion drive is too weak to lift off from the surface. Ships can land only on small asteroids, up to a few km across.
+5. Docking, landing and any other interaction require zero velocity. A fusion drive is too weak to lift off from the surface of a planet or a large asteroid:
+   - at the Earth and Mars the ship docks at a station in orbit, and the station's shuttles run to the surface,
+   - Ceres and Vesta need a shuttle – a local one or the freighter's own, carried on board (at the cost of range or cargo),
+   - on small asteroids, up to a few km across, the freighter lands directly.
 6. Speeds above 2 hexes per turn are forbidden by regulations.
 7. Ring 1 is closed to ships – it is too hot close to the Sun, and the ring moves half an orbit per turn.
 
