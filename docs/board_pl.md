@@ -67,6 +67,10 @@ Każdy statek ma dwa składniki ruchu, które działają łącznie:
 
 Prędkość własna statku jest porównywalna z prędkościami orbitalnymi. Oznacza to, że mechanika orbitalna jest odczuwalna, ale nie paraliżująca: nie można jej ignorować, ale aktywne manewrowanie pozwala ją wykorzystać lub jej przeciwdziałać.
 
+**Pierścień 1 jest domyślnie zamknięty dla statków.** Manewrowanie tak blisko Słońca jest wielokrotnie droższe niż dalej, a pierścień przesuwa się o pół obiegu na turę. Gra, która chce tam latać, może tę zasadę zdjąć.
+
+**Koszt ruchu może zależeć od pierścienia.** Im bliżej Słońca, tym droższe manewry. Gry, które chcą to oddać, mogą mnożyć koszt ruchu własnego: ×3 na pierścieniu 2, ×2 na pierścieniu 3, ×1 w pasie planetoid.
+
 ## Planowanie trasy – serce mechaniki
 
 Zmiana orbity wymaga ruchu własnego w kierunku radialnym (bliżej lub dalej od Słońca). Ale sam dolot to tylko połowa problemu – cel też się porusza.

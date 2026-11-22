@@ -93,7 +93,34 @@ Rzędy wielkości (1 pole na turę to ok. 10 km/s):
 | orbita Marsa | ok. 16 km/s |
 | pas planetoid | ok. 6–9 km/s |
 
-To szacunki – przybliżenie, z którego wynikają, jest dokładne tylko dla przesunięć małych w porównaniu z promieniem orbity, a 0,5 AU małe nie jest. Pokazują jednak dwie rzeczy: szybszy lot kosztuje proporcjonalnie więcej paliwa na turę, a manewrowanie bliżej Słońca jest droższe niż w pasie. Stały koszt ruchu w całej planszy to uproszczenie – projektant gry może je zastąpić kosztem zależnym od pierścienia.
+To szacunki – przybliżenie, z którego wynikają, jest dokładne tylko dla przesunięć małych w porównaniu z promieniem orbity, a 0,5 AU małe nie jest. Pokazują jednak dwie rzeczy: szybszy lot kosztuje proporcjonalnie więcej paliwa na turę, a manewrowanie bliżej Słońca jest droższe niż w pasie.
+
+### Koszt a odległość od Słońca
+
+Koszt manewrów maleje z odległością od Słońca mniej więcej jak odległość do potęgi 1,5. Dwa niezależne sposoby liczenia – utrzymanie kursu i przejście po spirali na sąsiedni pierścień (różnica prędkości orbitalnych) – dają podobny obraz:
+
+| Pierścień | Utrzymanie kursu | Przejście na pierścień dalej | Strumień ciepła ze Słońca |
+|-----------|------------------|------------------------------|---------------------------|
+| 1 (0,5 AU) | 11× | 7,5× | 4× ziemskiego |
+| 2 (Ziemia) | 4× | 3,3× | 1× |
+| 3 (Mars) | 2,2× | 2× | 0,4× |
+| 4 | 1,4× | 1,4× | 0,25× |
+| 5 | 1 | 1 | 0,16× |
+| 6 | 0,8× | – | 0,1× |
+
+Koszty są względne (pierścień 5 = 1). Różnica między Ziemią a pasem planetoid – 3–4 razy – jest na tyle duża, że przy stałym koszcie ruchu manewrowanie w okolicach Ziemi wychodzi wyraźnie za tanio. Prosty mnożnik kosztu ruchu własnego dobrze oddaje oba wyliczenia: **×3 na pierścieniu 2, ×2 na pierścieniu 3, ×1 w pasie planetoid**. Czy go użyć, decyduje konkretna gra.
+
+Kosztów nie uwzględniono w geometrii planszy – na przykład przez pola tym mniejsze, im bliżej Słońca. Plansza pokazywałaby wtedy koszt zamiast przestrzeni i straciłaby to, co jest jej główną wartością: prawdziwe odległości i proporcje ruchu orbitalnego. Mapy zbudowane z kosztów manewrów istnieją (taką ma na przykład gra High Frontier), ale tracą wyczucie, gdzie co naprawdę leży.
+
+### Pierścień 1 – strefa zamknięta
+
+Domyślnie statki nie wlatują na pierścień 1. Przemawiają za tym trzy powody:
+
+- **Koszt** – manewry są tam 8–11 razy droższe niż w pasie planetoid. W rzeczywistości misje do Merkurego trwają latami i wymagają wielu przelotów obok planet: sonda MESSENGER wystartowała w 2004 roku, a na orbitę Merkurego weszła dopiero w 2011, po sześciu takich przelotach.
+- **Ciepło** – strumień promieniowania słonecznego jest tam cztery razy większy niż przy Ziemi, a przy Merkurym prawie siedem razy.
+- **Sterowanie** – pierścień przesuwa się o pół obiegu na turę. Statek o prędkości własnej 1–2 pola na turę praktycznie traci kontrolę nad tym, gdzie się znajdzie.
+
+Zasada pasuje do roli Merkurego i Wenus jako tła. Gra, która chce tam latać, może ją zdjąć.
 
 ### Co pomijamy: lot balistyczny
 
