@@ -65,11 +65,22 @@ Pas planetoid nie jest tarczą obracającą się ze stałą prędkością – ka
 
 Ceres dryfowałaby o ok. −0,6 pola/turę. W trakcie typowej gry (30–50 rund) przesunęłaby się o kilkanaście do kilkudziesięciu pól, a obiekty na zewnętrznym pierścieniu jeszcze więcej.
 
-### Dlaczego to nie jest problem
+### Dryf w grze – opcjonalnie
 
-Modelowanie dryfowania poszczególnych obiektów wymagałoby śledzenia ułamkowych przesunięć, co znacząco skomplikowałoby rozgrywkę bez żadnej korzyści dla jakości decyzji gracza. Co ważniejsze – pas planetoid w rzeczywistości nie jest zbiorem obiektów, które dałoby się sensownie śledzić na planszy. To miliony ciał na nieznacznie różnych orbitach.
+Dryf da się śledzić w prosty sposób, zaokrąglając go do pełnych pól:
 
-Losowe rozmieszczenie zasobów rzutem kości jest bliższe prawdzie niż jakikolwiek deterministyczny ruch mógłby oddać. Dryf jest świadomie pochłonięty przez losowość mechaniki pasa.
+| Pierścień | Dryf | Uproszczenie |
+|-----------|------|--------------|
+| 4 | +0,3 pola/turę | 1 pole do przodu co 3 tury |
+| 5 | −0,3 pola/turę | 1 pole do tyłu co 3 tury |
+| 6 | −0,9 pola/turę | 1 pole do tyłu co turę |
+
+„Do przodu" oznacza zgodnie z kierunkiem ruchu planet. Sam rachunek jest prosty; kłopotem może być liczba obiektów do przesuwania – co trzecią turę wszystkie obiekty na pierścieniach 4 i 5, a co turę na pierścieniu 6.
+
+Gra może więc dryf pominąć albo go realizować, zależnie od potrzeb:
+
+- **Pominięcie** wystarcza, gdy obiekty w pasie pojawiają się losowo i nie trzeba długo śledzić ich dokładnej pozycji. Pas planetoid to miliony ciał na nieznacznie różnych orbitach, więc losowe rozmieszczenie rzutem kości oddaje go dobrze – dryf zostaje pochłonięty przez losowość.
+- **Śledzenie** ma sens, gdy gra przez dłuższy czas potrzebuje dokładniej znać pozycję konkretnej planetoidy.
 
 ## Ruch statków a fizyka
 
@@ -136,7 +147,7 @@ To napęd z przyszłości – jądrowy lub fuzyjny o dużej mocy. Fizyka pozosta
 
 ### Manewry w pasie planetoid
 
-Pas planetoid jest bardzo pusty – średnia odległość między planetoidami to ok. miliona km, a sondy przelatują przez niego bez żadnych manewrów. Ominięcie przeszkód nie jest więc tym, co kosztuje. Kosztuje dopasowanie się do celu: żeby wylądować na konkretnej planetoidzie, trzeba wejść na jej orbitę, a każda planetoida ma własną. To zarazem rzeczywisty odpowiednik pomijanego dryfu – jego koszt zawiera się w koszcie manewrów.
+Pas planetoid jest bardzo pusty – średnia odległość między planetoidami to ok. miliona km, a sondy przelatują przez niego bez żadnych manewrów. Ominięcie przeszkód nie jest więc tym, co kosztuje. Kosztuje dopasowanie się do celu: żeby wylądować na konkretnej planetoidzie, trzeba wejść na jej orbitę, a każda planetoida ma własną. To zarazem rzeczywisty odpowiednik dryfu – gdy gra go pomija, jego koszt zawiera się w koszcie manewrów.
 
 ### Proponowany model lotów
 
@@ -178,4 +189,4 @@ Mimo uproszczeń model przekazuje rzeczy, których popularne wizualizacje Układ
 - Pas planetoid jest szeroki, nie cienki.
 - Układ inercjalny to nie jedyna możliwość opisu ruchu – wybór układu odniesienia ma konsekwencje.
 
-Ziemia i Mars poruszają się na planszy zgodnie z rzeczywistością. Największe uproszczenia – wspólny pierścień Merkurego i Wenus oraz pomijany dryf w pasie – dotyczą miejsc, w których dokładność nie wpływa na decyzje gracza. Gracz bez wiedzy astronomicznej spotka model spójny i intuicyjny. Gracz z tą wiedzą rozpozna, że mechanika jest prawdziwa – tylko zaokrąglona do liczb, z którymi da się grać.
+Ziemia i Mars poruszają się na planszy zgodnie z rzeczywistością. Największe uproszczenia – wspólny pierścień Merkurego i Wenus oraz uproszczony albo pomijany dryf w pasie – dotyczą miejsc, w których dokładność nie wpływa na decyzje gracza. Gracz bez wiedzy astronomicznej spotka model spójny i intuicyjny. Gracz z tą wiedzą rozpozna, że mechanika jest prawdziwa – tylko zaokrąglona do liczb, z którymi da się grać.

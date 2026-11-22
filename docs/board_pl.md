@@ -36,6 +36,16 @@ Heksy w pasie planetoid oznaczone są etykietami liczbowymi odpowiadającymi wyn
 
 Ten mechanizm pozwala szybko umieszczać planetoidy, zasoby lub zdarzenia losowo, ale z zachowaniem rozkładu odpowiadającego prawdziwemu pasowi.
 
+### Dryf (opcjonalnie)
+
+Plansza obraca się razem z jedną orbitą w pasie, a pozostałe części pasa krążą trochę szybciej lub wolniej. Gra, która potrzebuje dłużej śledzić pozycję konkretnych planetoid, może to oddać:
+
+- pierścień 4: 1 pole do przodu co 3 tury,
+- pierścień 5: 1 pole do tyłu co 3 tury,
+- pierścień 6: 1 pole do tyłu co turę.
+
+„Do przodu" oznacza zgodnie z kierunkiem ruchu planet. Gra może też dryf pominąć – szczegóły w [model_pl.md](model_pl.md#dryf-w-grze--opcjonalnie).
+
 ## Układ odniesienia – jak działa ruch na planszy
 
 To najważniejsza i najbardziej oryginalna cecha planszy.
