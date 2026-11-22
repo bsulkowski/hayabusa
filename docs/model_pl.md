@@ -117,11 +117,11 @@ Najtańsza zaplanowana trasa w tempie gry – ze startem i końcem na orbicie, p
 
 | Trasa | Δv | W modelu referencyjnym |
 |-------|----|------------------------|
-| pas planetoid, 1–4 pola do przodu z prędkością 1 | 19–22 km/s | 2 |
-| pas planetoid, 1–2 pierścienie dalej z prędkością 1 | 20–23 km/s | 2 |
+| pas planetoid, 1–4 pola do przodu z prędkością 1 | 19–21 km/s | 2 |
+| pas planetoid, 1–2 pierścienie dalej z prędkością 1 | 20–21 km/s | 2 |
 | Ziemia → pierścień 4 albo 5 z prędkością 1 | 20–21 km/s | 2 |
-| przeskok o 1 pole przy Ziemi lub Marsie | 21–26 km/s | 2 |
-| trasy z prędkością 2 | 41–48 km/s | 4 |
+| przeskok o 1 pole przy Ziemi lub Marsie | 20–26 km/s | 2 |
+| trasy z prędkością 2 | 40–48 km/s | 4 |
 
 Model trafia z dokładnością ok. ±25% w całej planszy: koszt nie zależy od długości trasy ani od miejsca, tylko od rozpędzenia i hamowania – dokładnie tak, jak w modelu.
 
@@ -260,8 +260,8 @@ W nawiasach – km/s na jednostkę kosztu w grze. Wszystkie pary mieszczą się 
 
 | Czas lotu (tury) | 1 | 2 | 3 | Najtańsza trasa |
 |------------------|---|---|---|-----------------|
-| 2 → 3 (Ziemia → Mars) | 19 km/s | 7,8 km/s | 5,4 km/s | 5,4 km/s w 2,9 tury |
-| 3 → 4 | 20 km/s | 9,1 km/s | 5,4 km/s | 3,2 km/s w 4,9 tury |
+| 2 → 3 (Ziemia → Mars) | 19 km/s | 7,9 km/s | 5,4 km/s | 5,4 km/s w 2,9 tury |
+| 3 → 4 | 20 km/s | 9,1 km/s | 5,5 km/s | 3,2 km/s w 4,9 tury |
 | 4 → 5 | 20 km/s | 9,6 km/s | 6,0 km/s | 2,2 km/s w 7,1 tury |
 | 5 → 6 | 20 km/s | 9,8 km/s | 6,3 km/s | 1,6 km/s w 9,6 tury |
 
@@ -270,6 +270,8 @@ W nawiasach – km/s na jednostkę kosztu w grze. Wszystkie pary mieszczą się 
 Model uproszczony jest spójny sam w sobie i dobrze nadaje się do gier, które nie chcą śledzić prędkości statków. Dalsze uproszczenia – na przykład stały koszt za pole na całej planszy – są możliwe, ale oddalają model od fizyki jeszcze bardziej.
 
 **Geometria planszy.** W żadnym z modeli kosztów nie uwzględniono w samej planszy – na przykład przez pola tym mniejsze, im bliżej Słońca. Plansza pokazywałaby wtedy koszt zamiast przestrzeni i straciłaby to, co jest jej główną wartością: prawdziwe odległości i proporcje ruchu orbitalnego. Mapy zbudowane z kosztów manewrów istnieją (taką ma na przykład gra High Frontier), ale tracą wyczucie, gdzie co naprawdę leży.
+
+Wszystkie liczby w tym rozdziale pochodzą ze skryptów w folderze [tools](../tools/README.md) – każdy może je sprawdzić i przeliczyć dla zmienionej planszy.
 
 ## Wybór kości do losowania w pasie planetoid
 
