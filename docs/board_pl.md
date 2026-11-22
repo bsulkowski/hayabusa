@@ -69,7 +69,16 @@ Prędkość własna statku jest porównywalna z prędkościami orbitalnymi. Ozna
 
 **Pierścień 1 jest domyślnie zamknięty dla statków.** Manewrowanie tak blisko Słońca jest wielokrotnie droższe niż dalej, a pierścień przesuwa się o pół obiegu na turę. Gra, która chce tam latać, może tę zasadę zdjąć.
 
-**Koszt ruchu może zależeć od pierścienia.** Im bliżej Słońca, tym droższe manewry. Gry, które chcą to oddać, mogą mnożyć koszt ruchu własnego: ×3 na pierścieniu 2, ×2 na pierścieniu 3, ×1 w pasie planetoid.
+**Proponowany model lotów.** Im bliżej Słońca, tym droższe manewry i mniejsza prędkość, którą silnik jest w stanie utrzymać:
+
+| Gdzie | Prędkość własna | Koszt |
+|-------|-----------------|-------|
+| pierścień 1 | zamknięty dla statków | – |
+| pierścień 2 (Ziemia) | maks. 1 pole/turę | 3 |
+| pierścień 3 (Mars) | maks. 1 pole/turę | 2 |
+| pierścienie 4–6 (pas planetoid) | 1 albo 2 pola/turę | 1 za 1 pole, 3 za 2 pola |
+
+Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka. Gry mogą przyjąć prostsze zasady, ale rozluźniają w ten sposób podejście twardej science fiction. Uzasadnienie modelu: [model_pl.md](model_pl.md#proponowany-model-lotów).
 
 ## Planowanie trasy – serce mechaniki
 

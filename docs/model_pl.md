@@ -108,7 +108,7 @@ Koszt manewrów maleje z odległością od Słońca mniej więcej jak odległoś
 | 5 | 1 | 1 | 0,16× |
 | 6 | 0,8× | – | 0,1× |
 
-Koszty są względne (pierścień 5 = 1). Różnica między Ziemią a pasem planetoid – 3–4 razy – jest na tyle duża, że przy stałym koszcie ruchu manewrowanie w okolicach Ziemi wychodzi wyraźnie za tanio. Prosty mnożnik kosztu ruchu własnego dobrze oddaje oba wyliczenia: **×3 na pierścieniu 2, ×2 na pierścieniu 3, ×1 w pasie planetoid**. Czy go użyć, decyduje konkretna gra.
+Koszty są względne (pierścień 5 = 1). Różnica między Ziemią a pasem planetoid – 3–4 razy – jest na tyle duża, że przy stałym koszcie ruchu manewrowanie w okolicach Ziemi wychodzi wyraźnie za tanio. Prosty mnożnik kosztu ruchu własnego dobrze oddaje oba wyliczenia: **×3 na pierścieniu 2, ×2 na pierścieniu 3, ×1 w pasie planetoid**. Na nim opiera się proponowany model lotów (patrz niżej).
 
 Kosztów nie uwzględniono w geometrii planszy – na przykład przez pola tym mniejsze, im bliżej Słońca. Plansza pokazywałaby wtedy koszt zamiast przestrzeni i straciłaby to, co jest jej główną wartością: prawdziwe odległości i proporcje ruchu orbitalnego. Mapy zbudowane z kosztów manewrów istnieją (taką ma na przykład gra High Frontier), ale tracą wyczucie, gdzie co naprawdę leży.
 
@@ -137,6 +137,29 @@ To napęd z przyszłości – jądrowy lub fuzyjny o dużej mocy. Fizyka pozosta
 ### Manewry w pasie planetoid
 
 Pas planetoid jest bardzo pusty – średnia odległość między planetoidami to ok. miliona km, a sondy przelatują przez niego bez żadnych manewrów. Ominięcie przeszkód nie jest więc tym, co kosztuje. Kosztuje dopasowanie się do celu: żeby wylądować na konkretnej planetoidzie, trzeba wejść na jej orbitę, a każda planetoida ma własną. To zarazem rzeczywisty odpowiednik pomijanego dryfu – jego koszt zawiera się w koszcie manewrów.
+
+### Proponowany model lotów
+
+Z powyższych szacunków, zaokrąglonych na potrzeby grywalności, wynika podstawowy model lotów proponowany dla gier na tej planszy:
+
+| Gdzie | Prędkość własna | Koszt |
+|-------|-----------------|-------|
+| pierścień 1 | zamknięty dla statków | – |
+| pierścień 2 (Ziemia) | maks. 1 pole/turę | 3 |
+| pierścień 3 (Mars) | maks. 1 pole/turę | 2 |
+| pierścienie 4–6 (pas planetoid) | 1 albo 2 pola/turę | 1 za 1 pole, 3 za 2 pola |
+
+Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka.
+
+**Limity prędkości** wynikają z ograniczonego ciągu silników. Utrzymanie kursu wymaga przyspieszenia proporcjonalnego do prędkości i do lokalnej prędkości kątowej orbity, więc przy danym ciągu największa możliwa prędkość rośnie z odległością od Słońca (jak odległość do potęgi 1,5). Silnik, który w pasie utrzyma 2 pola na turę, przy Marsie utrzyma ok. 1,1 pola, a przy Ziemi ok. 0,6 – limit przy Ziemi jest zaokrąglony w górę do 1. Odpowiada to ciągowi rzędu 0,25 milli-g.
+
+**Koszty za pole** to mnożniki z tabeli w poprzednim podrozdziale.
+
+**Kara za prędkość** (2 pola za 3, a nie za 2) zastępuje rozpędzanie i hamowanie, których model nie śledzi. Koszt utrzymania kursu przeliczony na jedno pole nie zależy od prędkości. Rozpędzenie statku na początku trasy i wyrównanie z orbitą celu na końcu kosztują jednak proporcjonalnie do prędkości. W pasie planetoid podwojenie prędkości podnosi koszt całej trasy o ok. 20–50% – najwięcej przy krótkich skokach. Kara 1,5× jest więc górną granicą, właściwą dla krótkich manewrów, które w pasie dominują. Przy Ziemi i Marsie kara nie ma znaczenia, bo limit prędkości wynosi tam 1 pole.
+
+**Zasada najbliższego pierścienia** sprawia, że model zgadza się z rzeczywistością także na całych trasach. Lot z orbity Ziemi do pasa (na pierścień 4) kosztuje w grze 3 + 2 = 5, a z orbity Marsa 2. Stosunek 2,5 jest bliski rzeczywistemu – ok. 2,3 (9,5–9,9 km/s wobec 4,2 km/s). Powrót kosztuje tyle samo co wylot, tak jak w rzeczywistości. Przy liczeniu kosztu według pierścienia startowego powrót z pasa na Ziemię kosztowałby 3, a wylot 5 – bez uzasadnienia fizycznego.
+
+**Upraszczanie modelu.** Gry mogą przyjąć prostsze zasady, na przykład stały koszt ruchu na całej planszy. Rozluźniają w ten sposób podejście twardej science fiction: manewry przy Ziemi stają się wyraźnie za tanie, a szybkość – darmowa.
 
 ## Wybór kości do losowania w pasie planetoid
 
