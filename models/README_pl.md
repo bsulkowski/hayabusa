@@ -22,6 +22,15 @@ Od dołu do góry:
 
 Ścięty kształt dziobu i zbiorników przy dyszach nie służy opływowości – w próżni nie ma ona znaczenia – tylko widoczności z mostka: wizualnej oraz dla anten i czujników.
 
+**Skala statku.** Obrót wokół osi, wzdłuż której działa ciąg, nie przeszkadza w locie. Pozorna grawitacja wymaga jednak dużego promienia, bo przy szybszym obrocie ludzie dostają choroby lokomocyjnej – bezpieczna granica to zwykle ok. 2–4 obrotów na minutę:
+
+| Pozorna grawitacja | przy 4 obr./min | przy 2 obr./min |
+|--------------------|-----------------|-----------------|
+| 0,3 g | ok. 17 m od osi | ok. 67 m od osi |
+| 1 g | ok. 56 m od osi | ok. 220 m od osi |
+
+Na modelu moduły habitatu leżą od osi w odległości ok. 1/4 długości statku. Prawdziwy statek miałby więc od ok. 70 m długości (0,3 g przy szybkim obrocie) do blisko kilometra (1 g przy wolnym). „Podłoga” w habitacie jest po stronie odwróconej od osi statku.
+
 ## Rozmiar
 
 Plansza jest przeznaczona do druku w formacie A2. Pole ma wtedy ok. 30 mm między bokami, a pionek mieści się w jednym polu przy szerokości do ok. 27 mm.
