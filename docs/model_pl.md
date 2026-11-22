@@ -84,27 +84,17 @@ Gra może więc dryf pominąć albo go realizować, zależnie od potrzeb:
 
 ## Ruch statków a fizyka
 
-Ruch statku na planszy składa się z ruchu wymuszonego (razem z pierścieniem) i ruchu własnego (1–2 pola na turę w dowolnym kierunku, zużywającego paliwo). Na pierwszy rzut oka wygląda to jak uproszczenie wbrew fizyce – w kosmosie nie ma tarcia, więc raz rozpędzony statek powinien lecieć dalej za darmo. W rzeczywistości ten model da się dobrze obronić.
+Ruch statku na planszy składa się z ruchu wymuszonego (razem z pierścieniem) i ruchu własnego (1–2 pola na turę w dowolnym kierunku, zużywającego paliwo). Na pierwszy rzut oka wygląda to jak uproszczenie wbrew fizyce – w kosmosie nie ma tarcia, więc raz rozpędzony statek powinien lecieć dalej za darmo. Model jest uproszczony, ale da się go dobrze obronić.
 
 ### Ruch wymuszony to bezwładność
 
 Statek bez napędu na danym pierścieniu leci po orbicie kołowej – czyli swobodnie, bez zużycia paliwa. Model ma więc bezwładność; jego naturalnym stanem nie jest stanie w miejscu, tylko krążenie po orbicie.
 
-### Ruch własny kosztuje stale
+### Ruch własny i jego koszt
 
-Każdy ruch własny oznacza lot kursem innym niż orbita kołowa. Taki tor nie jest balistyczny: grawitacja Słońca stale go zakrzywia (względem lokalnej orbity objawia się to jako siła Coriolisa i siły pływowe). Żeby utrzymać kurs z określoną prędkością względem lokalnej orbity, trzeba więc stale pracować silnikiem – i to tym mocniej, im szybciej statek leci.
+W rzeczywistości paliwo zużywa się głównie na początku i na końcu trasy: na zejście z orbity startowej i na wyrównanie z orbitą celu. Pomiędzy statek może lecieć swobodnie po łuku wyznaczonym przez grawitację – tak działa transfer Hohmanna, najtańsza trasa między dwiema orbitami. Paliwo zużywałoby się stale tylko przy locie kursem, który nie jest naturalnym łukiem, na przykład prosto w poprzek orbit: grawitacja stale taki tor zakrzywia (względem lokalnej orbity objawia się to jako siła Coriolisa i siły pływowe).
 
-Nie ma przy tym znaczenia, czy statek kończy trasę, czy leci dalej: koszt wynika z samego utrzymania kursu, a nie z hamowania i ponownego rozpędzania.
-
-Rzędy wielkości (1 pole na turę to ok. 10 km/s):
-
-| Gdzie | Zmiana prędkości (Δv) potrzebna na turę lotu z prędkością 1 pola/turę |
-|-------|------------------------------------------------------------------------|
-| orbita Ziemi | ok. 30 km/s |
-| orbita Marsa | ok. 16 km/s |
-| pas planetoid | ok. 6–9 km/s |
-
-To szacunki – przybliżenie, z którego wynikają, jest dokładne tylko dla przesunięć małych w porównaniu z promieniem orbity, a 0,5 AU małe nie jest. Pokazują jednak dwie rzeczy: szybszy lot kosztuje proporcjonalnie więcej paliwa na turę, a manewrowanie bliżej Słońca jest droższe niż w pasie.
+Model upraszcza to do kosztu za każde pole ruchu własnego. Jak pokazuje kalibracja niżej, koszty z modelu odpowiadają dobrze kosztom oszczędnych tras.
 
 ### Koszt a odległość od Słońca
 
@@ -123,6 +113,22 @@ Koszty są względne (pierścień 5 = 1). Różnica między Ziemią a pasem plan
 
 Kosztów nie uwzględniono w geometrii planszy – na przykład przez pola tym mniejsze, im bliżej Słońca. Plansza pokazywałaby wtedy koszt zamiast przestrzeni i straciłaby to, co jest jej główną wartością: prawdziwe odległości i proporcje ruchu orbitalnego. Mapy zbudowane z kosztów manewrów istnieją (taką ma na przykład gra High Frontier), ale tracą wyczucie, gdzie co naprawdę leży.
 
+### Kalibracja: koszty oszczędnych tras, krótszy czas
+
+Koszty z proponowanego modelu lotów (niżej) można porównać z rzeczywistą zmianą prędkości (Δv) na najtańszych trasach między orbitami:
+
+| Trasa | Koszt w grze | Δv najtańszej trasy | Δv na jednostkę | Czas w grze | Czas najtańszej trasy |
+|-------|--------------|---------------------|-----------------|-------------|-----------------------|
+| Ziemia → Mars | 3 | 5,4 km/s | 1,8 km/s | 1 tura | ok. 3 tury |
+| Ziemia → pierścień 4 | 5 | 8,5 km/s | 1,7 km/s | 2 tury | ok. 4 tury |
+| Mars → pierścień 4 | 2 | 3,2 km/s | 1,6 km/s | 1 tura | ok. 5 tur |
+| pierścień 4 → 5 | 1 | 2,2 km/s | 2,2 km/s | 1 tura | ok. 7 tur |
+| pierścień 4 → 6 | 2 | 3,8 km/s | 1,9 km/s | 2 tury | ok. 8 tur |
+
+Jedna jednostka kosztu to w całej planszy ok. **1,8 km/s** (±20%) – model lotów jest spójny z kosztami oszczędnych tras. Inaczej jest z czasem: gra skraca przeloty 2–4 razy w okolicach Ziemi i Marsa, a w pasie planetoid jeszcze bardziej. Najtańsza trasa z pierścienia 4 na 5 trwałaby 7 tur – w grze byłoby to nie do zniesienia.
+
+To świadoma decyzja: **koszty jak na oszczędnych trasach, czas skrócony dla grywalności**. Gdyby statki naprawdę latały w tempie gry, każda trasa kosztowałaby ok. 20 km/s niezależnie od tego, gdzie się odbywa – przy takiej prędkości liczy się głównie tempo, a nie położenie względem Słońca.
+
 ### Pierścień 1 – strefa zamknięta
 
 Domyślnie statki nie wlatują na pierścień 1. Przemawiają za tym trzy powody:
@@ -133,17 +139,25 @@ Domyślnie statki nie wlatują na pierścień 1. Przemawiają za tym trzy powody
 
 Zasada pasuje do roli Merkurego i Wenus jako tła. Gra, która chce tam latać, może ją zdjąć.
 
-### Co pomijamy: lot balistyczny
+### Napęd i paliwo
 
-Współczesne sondy na trasie Ziemia–Mars korzystają zwykle z transferu Hohmanna: dwa krótkie impulsy silnika, a pomiędzy nimi kilka miesięcy lotu po elipsie bez zużycia paliwa. Takiego „darmowego” lotu model nie przewiduje.
+Statki w grze to duże frachtowce, przewożące ładunek i ludzi. Najlepiej pasuje do nich przyszły **napęd jądrowo-elektryczny**: reaktor zasila silniki elektryczne o małym ciągu, pracujące tygodniami. Tak – na dużo mniejszą skalę – latała sonda Dawn: jej silniki jonowe pracowały łącznie prawie 6 lat, prowadząc ją po spirali między orbitami.
 
-Statki w grze odpowiadają innemu rodzajowi napędu – o małym ciągu, ale pracującym bez przerwy. Tak latała sonda Dawn: jej silniki jonowe pracowały łącznie prawie 6 lat, prowadząc ją po spirali między orbitami. Dla bliskich orbit taka spirala kosztuje niemal tyle samo co transfer Hohmanna: z orbity Ziemi na orbitę Marsa ok. 5,7 km/s zamiast 5,6 km/s, do pasa planetoid (2,24 AU) ok. 9,9 km/s zamiast 9,5 km/s.
+**Ciąg.** Przy kalibracji opisanej wyżej statek zużywający w turze 3 jednostki (ok. 5,4 km/s) potrzebuje stałego przyspieszenia ok. 0,07 milli-g – mniej więcej 10 razy więcej niż Dawn. Wymaga to reaktorów o kilka razy lepszym stosunku mocy do masy niż dzisiejsze koncepcje. To przyszłość, ale nieodległa.
 
-### Skala napędu
+**Zbiornik.** Zmiana prędkości, jaką da pełny zbiornik, zależy tylko od prędkości wylotu (dla napędu jądrowo-elektrycznego ok. 30–50 km/s) i od stosunku masy statku z paliwem do masy bez paliwa – nie od wielkości statku. Dla frachtowca liczy się przy tym ładunek, bo wchodzi do masy:
 
-Utrzymanie kursu z prędkością 1 pola na turę wymaga ciągłego przyspieszenia rzędu 0,1–0,4 tysięcznej części przyspieszenia ziemskiego (milli-g) – kilkanaście do kilkudziesięciu razy więcej, niż dawały silniki Dawn. W grze na kilkadziesiąt rund statki potrzebowałyby łącznie setek km/s zmiany prędkości, podczas gdy Dawn przez całą misję uzyskała ok. 11,5 km/s.
+| Stan frachtowca | Stosunek mas | Δv | Jednostki w grze |
+|-----------------|--------------|----|------------------|
+| pusty | 3 | ok. 45 km/s | ok. 25 |
+| z ładunkiem | 2 | ok. 28 km/s | ok. 15 |
+| mocno obciążony | 1,7 | ok. 20 km/s | ok. 11 |
 
-To napęd z przyszłości – jądrowy lub fuzyjny o dużej mocy. Fizyka pozostaje jednak uczciwa: przyspieszenia są rzędu milli-g, a nie całego g, jak w mniej powściągliwej fantastyce naukowej.
+Przykład zakłada konstrukcję o masie 1, ładunek 1 (albo 2) i pełny zbiornik o masie 2. Na potrzeby gry wystarczy jedna wartość: **zbiornik rzędu 15 jednostek**. Gra, która chce oddać wpływ ładunku, może pozwolić pustemu statkowi lecieć dalej – ok. 1,5 raza.
+
+Inne napędy pasują gorzej. Napęd jądrowy termiczny (prędkość wylotu ok. 9 km/s) dałby zbiornik na 3–4 jednostki. Przy napędzie fuzyjnym paliwo przestałoby być ograniczeniem – zbiornik starczałby na całą grę.
+
+Rzeczywistą możliwością jest tankowanie w pasie planetoid: materiał pędny, na przykład wodę, można pozyskiwać z samych planetoid.
 
 ### Manewry w pasie planetoid
 
@@ -160,15 +174,15 @@ Z powyższych szacunków, zaokrąglonych na potrzeby grywalności, wynika podsta
 | pierścień 3 (Mars) | maks. 1 pole/turę | 2 |
 | pierścienie 4–6 (pas planetoid) | 1 albo 2 pola/turę | 1 za 1 pole, 3 za 2 pola |
 
-Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka.
+Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka. Zbiornik frachtowca mieści rzędu 15 jednostek.
 
-**Limity prędkości** wynikają z ograniczonego ciągu silników. Utrzymanie kursu wymaga przyspieszenia proporcjonalnego do prędkości i do lokalnej prędkości kątowej orbity, więc przy danym ciągu największa możliwa prędkość rośnie z odległością od Słońca (jak odległość do potęgi 1,5). Silnik, który w pasie utrzyma 2 pola na turę, przy Marsie utrzyma ok. 1,1 pola, a przy Ziemi ok. 0,6 – limit przy Ziemi jest zaokrąglony w górę do 1. Odpowiada to ciągowi rzędu 0,25 milli-g.
+**Koszty za pole** to mnożniki z tabeli „Koszt a odległość od Słońca”. Jedna jednostka odpowiada ok. 1,8 km/s.
 
-**Koszty za pole** to mnożniki z tabeli w poprzednim podrozdziale.
+**Limity prędkości** wynikają z ograniczonego ciągu silników: w jednej turze statek może zużyć najwyżej ok. 3 jednostki. Przy Ziemi to 1 pole (koszt 3), przy Marsie też 1 pole (2 pola kosztowałyby 4), w pasie 2 pola (koszt 3).
 
-**Kara za prędkość** (2 pola za 3, a nie za 2) zastępuje rozpędzanie i hamowanie, których model nie śledzi. Koszt utrzymania kursu przeliczony na jedno pole nie zależy od prędkości. Rozpędzenie statku na początku trasy i wyrównanie z orbitą celu na końcu kosztują jednak proporcjonalnie do prędkości. W pasie planetoid podwojenie prędkości podnosi koszt całej trasy o ok. 20–50% – najwięcej przy krótkich skokach. Kara 1,5× jest więc górną granicą, właściwą dla krótkich manewrów, które w pasie dominują. Przy Ziemi i Marsie kara nie ma znaczenia, bo limit prędkości wynosi tam 1 pole.
+**Kara za prędkość** (2 pola za 3, a nie za 2) to dopłata za pośpiech. Lot szybszy niż na oszczędnej trasie wymaga mocniejszego rozpędzenia i hamowania, więc kosztuje więcej niż proporcjonalnie.
 
-**Zasada najbliższego pierścienia** sprawia, że model zgadza się z rzeczywistością także na całych trasach. Lot z orbity Ziemi do pasa (na pierścień 4) kosztuje w grze 3 + 2 = 5, a z orbity Marsa 2. Stosunek 2,5 jest bliski rzeczywistemu – ok. 2,3 (9,5–9,9 km/s wobec 4,2 km/s). Powrót kosztuje tyle samo co wylot, tak jak w rzeczywistości. Przy liczeniu kosztu według pierścienia startowego powrót z pasa na Ziemię kosztowałby 3, a wylot 5 – bez uzasadnienia fizycznego.
+**Zasada najbliższego pierścienia** sprawia, że model zgadza się z rzeczywistością także na całych trasach. Lot z orbity Ziemi do pasa (na pierścień 4) kosztuje w grze 3 + 2 = 5, a z orbity Marsa 2. Stosunek 2,5 jest bliski rzeczywistemu – ok. 2,7. Powrót kosztuje tyle samo co wylot, tak jak w rzeczywistości. Przy liczeniu kosztu według pierścienia startowego powrót z pasa na Ziemię kosztowałby 3, a wylot 5 – bez uzasadnienia fizycznego.
 
 **Upraszczanie modelu.** Gry mogą przyjąć prostsze zasady, na przykład stały koszt ruchu na całej planszy. Rozluźniają w ten sposób podejście twardej science fiction: manewry przy Ziemi stają się wyraźnie za tanie, a szybkość – darmowa.
 

@@ -88,7 +88,7 @@ Prędkość własna statku jest porównywalna z prędkościami orbitalnymi. Ozna
 | pierścień 3 (Mars) | maks. 1 pole/turę | 2 |
 | pierścienie 4–6 (pas planetoid) | 1 albo 2 pola/turę | 1 za 1 pole, 3 za 2 pola |
 
-Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka. Gry mogą przyjąć prostsze zasady, ale rozluźniają w ten sposób podejście twardej science fiction. Uzasadnienie modelu: [model_pl.md](model_pl.md#proponowany-model-lotów).
+Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka. Zbiornik frachtowca mieści rzędu 15 jednostek. Gry mogą przyjąć prostsze zasady, ale rozluźniają w ten sposób podejście twardej science fiction. Uzasadnienie modelu: [model_pl.md](model_pl.md#proponowany-model-lotów).
 
 ## Planowanie trasy – serce mechaniki
 
