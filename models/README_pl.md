@@ -9,7 +9,7 @@ Uniwersalne pionki do druku 3D, do wykorzystania w dowolnej grze na tej planszy.
 | Plik | Model | Wymiary |
 |------|-------|---------|
 | [ship.stl](ship.stl) | statek transportowy – modułowy kadłub na kręgosłupie, z dyszami na dole; inspirowany pośrednio statkiem Eagle 1 z serialu „Kosmos 1999” | 26 × 26 × 36 mm |
-| [outpost.stl](outpost.stl) | placówka na planetoidzie, z anteną do dalekiej komunikacji | 30 × 30 × 24 mm |
+| [outpost.stl](outpost.stl) | placówka na planetoidzie – część przemysłowa: reaktor, przeróbka i magazyny, antena do dalekiej komunikacji, port | 30 × 30 × 24 mm |
 
 ## Statek – intencje projektowe
 
@@ -30,6 +30,25 @@ Od dołu do góry:
 | 1 g | ok. 56 m od osi | ok. 220 m od osi |
 
 Na modelu moduły habitatu leżą od osi w odległości ok. 1/4 długości statku. Prawdziwy statek miałby więc od ok. 70 m długości (0,3 g przy szybkim obrocie) do blisko kilometra (1 g przy wolnym). „Podłoga” w habitacie jest po stronie odwróconej od osi statku.
+
+## Placówka – intencje projektowe
+
+Pionek przedstawia **przemysłową część placówki**. Część mieszkalna stoi osobno, z dala od niej – najlepiej po drugiej stronie planetoidy.
+
+- **Reaktor.** W pasie planetoid światło słoneczne ma tylko 1/5–1/9 mocy przy Ziemi, a wydobycie i przeróbka urobku zużywają dużo energii. Odzysk wody to przede wszystkim podgrzewanie skały, więc reaktor obok przeróbki może dawać ciepło bezpośrednio. Reaktor potrzebuje dużych radiatorów – w próżni nie ma czym chłodzić; to ok. 500 m² na każdy 1 MW mocy elektrycznej.
+- **Kopuły częściowo wkopane w teren** to zakłady przeróbki i magazyny wody oraz materiału pędnego. Wkopanie daje stałą temperaturę (lód się nie sublimuje) i osłonę przed mikrometeorytami.
+- **Antena** stoi na szczycie skały dla lepszej widoczności. Przy reaktorze ma pod ręką moc dla nadajnika.
+- **Port.** Statki tankują i ładują tam, gdzie wytwarza się wodę i materiał pędny. Pył i odłamki z silników przy starcie i lądowaniu lecą przy tak słabej grawitacji daleko, więc port powinien być z dala od ludzi.
+
+**Habitat osobno.** Oddalenie chroni mieszkańców przed promieniowaniem reaktora (po drugiej stronie planetoidy zasłania je sama skała), przed skutkami awarii przemysłowych i przed pyłem z portu i wydobycia. Część przemysłowa powinna być w dużej mierze zautomatyzowana i sterowana z habitatu – z odległości kilometra opóźnienie jest pomijalne, w przeciwieństwie do sterowania z Ziemi. Ludzie przychodzą głównie do napraw, więc przyda się mały schron osłonięty od promieniowania na wypadek rozbłysku słonecznego.
+
+**Łączność z Ziemią.** Antena o średnicy kilku metrów zasilana z reaktora daje teoretycznie od kilku do kilkudziesięciu Mb/s nawet przy największej odległości od Ziemi (ok. 3,2 AU); w praktyce straty obniżają to kilkukrotnie. Ograniczeniem jest raczej to, że:
+
+- sygnał idzie 10–27 minut w jedną stronę – można wymieniać wiadomości, ale nie rozmawiać,
+- gdy placówka znajdzie się za Słońcem, łączność urywa się na ok. 13 dni; zdarza się to co ok. 1,4 roku, czyli co 6 tur,
+- mała planetoida obraca się w kilka godzin, więc z każdego miejsca na powierzchni Ziemię widać tylko przez część obrotu – stałą łączność dają anteny po kilku stronach albo satelita przekaźnikowy na orbicie.
+
+**Słaba grawitacja.** Prędkość ucieczki z planetoidy o średnicy 1 km to ok. 0,5 m/s. Wszystko – maszt anteny, moduły, ludzie – musi być zakotwiczone. Regolit na kopułach osłania, ale niczego nie dociska: 3 m regolitu naciska z siłą ok. 1 Pa, a ciśnienie w module to ok. 100 000 Pa. Kopuły muszą same wytrzymać ciśnienie.
 
 ## Rozmiar
 
