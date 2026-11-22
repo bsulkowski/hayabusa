@@ -36,6 +36,8 @@ On the model the habitat modules lie about 1/4 of the ship's length from the axi
 The pawn shows **the industrial part of the outpost**. The living quarters stand separately, away from it – ideally on the other side of the asteroid.
 
 - **Reactor.** In the asteroid belt sunlight has only 1/5–1/9 of its strength at the Earth, and mining and processing take a lot of energy. Recovering water is mostly a matter of heating rock, so a reactor next to the processing plant can supply heat directly. A reactor needs large radiators – in a vacuum there is nothing to cool it with; about 500 m² for every 1 MW of electrical power.
+
+  On the pawn the reactor sits in a recess – as in NASA concepts for lunar bases, where the reactor stands in a pit and the ground shields against radiation. The cross on the reactor stands for the radiators. In reality they would be large, thin panels standing high above the pit, because a radiator gives off heat only when it "sees" the open sky. On the pawn they are marked symbolically and solidly – small fins would be awkward to print and to keep clean.
 - **The domes partly dug into the ground** are processing plants and stores of water and propellant. Burying them keeps the temperature stable (ice does not sublimate) and shields them from micrometeoroids.
 - **The antenna** stands on top of the rock for better visibility. Next to the reactor it has power at hand for the transmitter.
 - **Spaceport.** Ships refuel and load where water and propellant are produced. Dust and debris from engines at launch and landing travel far in such weak gravity, so the spaceport should be away from people.
@@ -67,3 +69,4 @@ The board is meant to be printed in A2 format. A hex is then about 30 mm across 
 - The ship file is saved in metres, the outpost in millimetres. Some slicers will load the ship at the wrong scale – it has to be scaled ×1000 or re-exported in millimetres.
 - Both models consist of overlapping bodies. Slicers usually cope, but before publishing it is worth merging them (Boolean Union or "Make Manifold" in Blender). The ship also contains a stray double triangle of zero thickness.
 - The outpost's antenna has parts 0.1–0.5 mm thick – to be thickened to at least about 1 mm at the final scale.
+- Optionally, at the next edit: raise the radiator cross higher above the rim of the recess, keeping its thickness.

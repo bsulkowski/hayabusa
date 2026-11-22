@@ -36,6 +36,8 @@ Na modelu moduły habitatu leżą od osi w odległości ok. 1/4 długości statk
 Pionek przedstawia **przemysłową część placówki**. Część mieszkalna stoi osobno, z dala od niej – najlepiej po drugiej stronie planetoidy.
 
 - **Reaktor.** W pasie planetoid światło słoneczne ma tylko 1/5–1/9 mocy przy Ziemi, a wydobycie i przeróbka urobku zużywają dużo energii. Odzysk wody to przede wszystkim podgrzewanie skały, więc reaktor obok przeróbki może dawać ciepło bezpośrednio. Reaktor potrzebuje dużych radiatorów – w próżni nie ma czym chłodzić; to ok. 500 m² na każdy 1 MW mocy elektrycznej.
+
+  Na pionku reaktor siedzi we wgłębieniu – jak w koncepcjach NASA dla baz na Księżycu, gdzie reaktor stoi w wykopie, a grunt osłania przed promieniowaniem. Krzyż na reaktorze symbolizuje radiatory. W rzeczywistości byłyby to duże, cienkie płyty ustawione wysoko nad wykopem, bo radiator oddaje ciepło tylko wtedy, gdy „widzi” otwarte niebo. Na pionku zaznaczono je symbolicznie i masywnie – drobne żebra byłyby kłopotliwe w druku i w utrzymaniu w czystości.
 - **Kopuły częściowo wkopane w teren** to zakłady przeróbki i magazyny wody oraz materiału pędnego. Wkopanie daje stałą temperaturę (lód się nie sublimuje) i osłonę przed mikrometeorytami.
 - **Antena** stoi na szczycie skały dla lepszej widoczności. Przy reaktorze ma pod ręką moc dla nadajnika.
 - **Port.** Statki tankują i ładują tam, gdzie wytwarza się wodę i materiał pędny. Pył i odłamki z silników przy starcie i lądowaniu lecą przy tak słabej grawitacji daleko, więc port powinien być z dala od ludzi.
@@ -67,3 +69,4 @@ Plansza jest przeznaczona do druku w formacie A2. Pole ma wtedy ok. 30 mm międz
 - Plik statku jest zapisany w metrach, placówki w milimetrach. Część slicerów wczyta statek w złej skali – trzeba go przeskalować ×1000 albo wyeksportować ponownie w milimetrach.
 - Oba modele składają się z nachodzących na siebie brył. Slicery zwykle sobie z tym radzą, ale przed publikacją warto je połączyć (Boolean Union albo „Make Manifold” w Blenderze). W statku jest też zabłąkany podwójny trójkąt o zerowej grubości.
 - Antena placówki ma miejsca grube na 0,1–0,5 mm – do pogrubienia do min. ok. 1 mm w docelowej skali.
+- Opcjonalnie, przy najbliższej edycji: wysunąć krzyż radiatorów wyżej ponad krawędź wgłębienia, w tej samej grubości.
