@@ -11,6 +11,17 @@ General-purpose 3D-printable pawns for any game on this board.
 | [ship.stl](ship.stl) | transport ship – modular hull on a spine, with nozzles at the bottom; indirectly inspired by the Eagle 1 from "Space: 1999" | 26 × 26 × 36 mm |
 | [outpost.stl](outpost.stl) | outpost on an asteroid, with a long-range communication antenna | 30 × 30 × 24 mm |
 
+## Ship – design intent
+
+From bottom to top:
+
+- **Tanks and nozzles.** At the bottom are the tanks for "fuel" – really propellant, expelled by the engine – and the nozzles of the fusion engines.
+- **Cargo hold.** The elongated hull is the cargo hold.
+- **Habitat.** The three modules above it carry people and other living beings. Three independent modules provide redundancy for safety. Spinning the ship around its axis creates artificial gravity in them.
+- **Bridge.** The bridge (control room) is at the bow.
+
+The faceted shape of the bow and of the tanks by the nozzles is not meant to be streamlined – in a vacuum that doesn't matter – but to give a clear view from the bridge: visually, and for antennas and sensors.
+
 ## Size
 
 The board is meant to be printed in A2 format. A hex is then about 30 mm across the flats, and a pawn fits within one hex if it is at most about 27 mm wide.

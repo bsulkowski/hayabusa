@@ -11,6 +11,17 @@ Uniwersalne pionki do druku 3D, do wykorzystania w dowolnej grze na tej planszy.
 | [ship.stl](ship.stl) | statek transportowy – modułowy kadłub na kręgosłupie, z dyszami na dole; inspirowany pośrednio statkiem Eagle 1 z serialu „Kosmos 1999” | 26 × 26 × 36 mm |
 | [outpost.stl](outpost.stl) | placówka na planetoidzie, z anteną do dalekiej komunikacji | 30 × 30 × 24 mm |
 
+## Statek – intencje projektowe
+
+Od dołu do góry:
+
+- **Zbiorniki i dysze.** Na dole są zbiorniki na „paliwo” – właściwie materiał pędny, odrzucany przez silnik – i dysze silników fuzyjnych.
+- **Ładownia.** Podłużny kadłub to ładownia.
+- **Habitat.** Trzy moduły wyżej służą do przewozu ludzi i innych istot żywych. Trzy niezależne moduły dają redundancję dla bezpieczeństwa. Obrót statku wokół jego osi wytwarza w nich pozorną grawitację.
+- **Mostek.** Na dziobie jest mostek (sterownia).
+
+Ścięty kształt dziobu i zbiorników przy dyszach nie służy opływowości – w próżni nie ma ona znaczenia – tylko widoczności z mostka: wizualnej oraz dla anten i czujników.
+
 ## Rozmiar
 
 Plansza jest przeznaczona do druku w formacie A2. Pole ma wtedy ok. 30 mm między bokami, a pionek mieści się w jednym polu przy szerokości do ok. 27 mm.
