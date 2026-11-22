@@ -16,6 +16,10 @@ The board uses a hexagonal grid divided into concentric rings around the Sun in 
 
 Ring number `x` contains exactly `6x` hexes.
 
+### Printing
+
+The board is meant to be printed in **A2** format (the PDF and SVG files at 200% scale). A hex is then about 30 mm across the flats, and a pawn fits within one hex if it is at most about 27 mm wide. Smaller formats are too cramped for 3D pawns.
+
 ## Planetary orbits
 
 The four planets of the inner Solar System occupy consecutive rings:

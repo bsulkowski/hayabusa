@@ -16,6 +16,10 @@ Plansza opiera się na siatce heksagonalnej podzielonej na koncentryczne pierśc
 
 Pierścień numer `x` zawiera dokładnie `6x` heksów.
 
+### Wydruk
+
+Plansza jest przeznaczona do druku w formacie **A2** (pliki PDF i SVG w skali 200%). Pole ma wtedy ok. 30 mm między bokami, a pionki mieszczą się w jednym polu, jeśli mają najwyżej ok. 27 mm szerokości. Mniejsze formaty są za ciasne dla pionków 3D.
+
 ## Orbity planet
 
 Cztery planety wewnętrznego Układu Słonecznego zajmują kolejne pierścienie:
