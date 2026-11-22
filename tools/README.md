@@ -24,3 +24,7 @@ python board_model.py
 ```
 
 Skrypty `coasting.py` i `simplified_model.py` liczą się kilkadziesiąt sekund.
+
+## Licencja
+
+Kod w tym folderze jest dostępny na licencji [MIT](LICENSE).

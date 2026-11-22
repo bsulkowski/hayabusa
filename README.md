@@ -27,4 +27,4 @@ Dokumentacja jest na razie po polsku; wersja angielska jest w przygotowaniu.
 
 ## Licencja
 
-[CC BY 4.0](LICENSE) – Bartosz Sułkowski
+Plansza i dokumentacja: [CC BY 4.0](LICENSE) – Bartosz Sułkowski. Kod w folderze `tools/`: [MIT](tools/LICENSE).
