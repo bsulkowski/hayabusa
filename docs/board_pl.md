@@ -85,7 +85,7 @@ W kosmosie płaci się za zmianę prędkości, a nie za przebytą drogę. Propon
 2. Na początku tury statek może zmienić prędkość najwyżej o 2 pola. Każde pole zmiany prędkości kosztuje 1 jednostkę paliwa.
 3. Statek przesuwa się o swoją prędkość i razem z pierścieniem, na którym zaczął turę.
 4. Przeskok: statek może przesunąć się o 1 pole i zatrzymać w tej samej turze (koszt 2).
-5. Lądowanie, dokowanie i każda inna interakcja wymagają prędkości 0.
+5. Dokowanie, lądowanie i każda inna interakcja wymagają prędkości 0. Przy planetach i dużych planetoidach statek dokuje do stacji na orbicie, a na powierzchnię kursują osobne promy – silnik fuzyjny jest za słaby, żeby wystartować z powierzchni. Lądować można tylko na małych planetoidach, o średnicy do kilku km.
 6. Prędkość ponad 2 pola na turę jest zakazana przepisami.
 7. Pierścień 1 jest zamknięty dla statków – blisko Słońca jest za gorąco, a pierścień przesuwa się o pół obiegu na turę.
 

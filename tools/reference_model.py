@@ -1,46 +1,46 @@
-"""Model referencyjny lotów: koszt zaplanowanych tras w tempie gry.
+"""Reference flight model: cost of planned routes at game pace.
 
-Trasa zaczyna się i kończy na orbicie kołowej; tor między nimi to optymalny łuk
-(zagadnienie Lamberta). Cel jest tam, gdzie wskazuje gra: statek co turę przesuwa się
-o swoją prędkość i razem z pierścieniem, na którym zaczął turę.
-1 jednostka paliwa = zmiana prędkości o 1 pole na turę.
-Dokumentacja: docs/model_pl.md, „Dlaczego model referencyjny ma sens”.
+A route starts and ends on a circular orbit; the path between is the optimal arc
+(Lambert's problem). The target is where the game puts it: every turn the ship moves
+by its velocity and together with the ring on which it started the turn.
+1 fuel unit = a velocity change of 1 hex per turn.
+Documentation: docs/model.md, "Why the reference model makes sense".
 """
 import math
 from orbits import *
 
-print(f"1 pole na turę = {U / 1e3:.1f} km/s (= 1 jednostka paliwa)\n")
+print(f"1 hex per turn = {U / 1e3:.1f} km/s (= 1 fuel unit)\n")
 
 
 def along(a, hexes, turns):
-    """Lot wzdłuż pierścienia o `hexes` pól w ciągu `turns` tur."""
+    """Flight along a ring by `hexes` hexes in `turns` turns."""
     t = turns * TURN
     sweep = mean_motion(a) * t + hexes * HEX_AU / a
     return transfer_dv(a, a, sweep, t)
 
 
 def radial(path):
-    """Lot przez kolejne pierścienie, 1 pierścień na turę."""
+    """Flight across successive rings, 1 ring per turn."""
     return transfer_dv(path[0], path[-1], game_sweep(path), (len(path) - 1) * TURN)
 
 
 cases = [
-    ("pas, 1 pole do przodu, prędkość 1", along(2.5, 1, 1), 2),
-    ("pas, 2 pola do przodu, prędkość 1", along(2.5, 2, 2), 2),
-    ("pas, 3 pola do przodu, prędkość 1", along(2.5, 3, 3), 2),
-    ("pas, 4 pola do przodu, prędkość 1", along(2.5, 4, 4), 2),
-    ("pierścień 4 -> 5, prędkość 1", radial([2.0, 2.5]), 2),
-    ("pierścień 4 -> 6, prędkość 1", radial([2.0, 2.5, 3.0]), 2),
-    ("Ziemia -> pierścień 4, prędkość 1", radial([1.0, 1.5, 2.0]), 2),
-    ("Ziemia -> pierścień 5, prędkość 1", radial([1.0, 1.5, 2.0, 2.5]), 2),
-    ("przeskok przy Ziemi do przodu", along(1.0, 1, 1), 2),
-    ("przeskok przy Ziemi do tyłu", along(1.0, -1, 1), 2),
-    ("przeskok Ziemia -> Mars", radial([1.0, 1.5]), 2),
-    ("przeskok przy Marsie do przodu", along(1.5, 1, 1), 2),
-    ("przeskok przy Marsie do tyłu", along(1.5, -1, 1), 2),
-    ("pas, 2 pola do przodu, prędkość 2", along(2.5, 2, 1), 4),
-    ("pierścień 4 -> 6 w 1 turę, prędkość 2", transfer_dv(2.0, 3.0, mean_motion(2.0) * TURN, TURN), 4),
-    ("Ziemia -> pierścień 4 w 1 turę, prędkość 2", transfer_dv(1.0, 2.0, mean_motion(1.0) * TURN, TURN), 4),
+    ("belt, 1 hex forward, speed 1", along(2.5, 1, 1), 2),
+    ("belt, 2 hexes forward, speed 1", along(2.5, 2, 2), 2),
+    ("belt, 3 hexes forward, speed 1", along(2.5, 3, 3), 2),
+    ("belt, 4 hexes forward, speed 1", along(2.5, 4, 4), 2),
+    ("ring 4 -> 5, speed 1", radial([2.0, 2.5]), 2),
+    ("ring 4 -> 6, speed 1", radial([2.0, 2.5, 3.0]), 2),
+    ("Earth -> ring 4, speed 1", radial([1.0, 1.5, 2.0]), 2),
+    ("Earth -> ring 5, speed 1", radial([1.0, 1.5, 2.0, 2.5]), 2),
+    ("hop near the Earth, forward", along(1.0, 1, 1), 2),
+    ("hop near the Earth, backward", along(1.0, -1, 1), 2),
+    ("hop Earth -> Mars", radial([1.0, 1.5]), 2),
+    ("hop near Mars, forward", along(1.5, 1, 1), 2),
+    ("hop near Mars, backward", along(1.5, -1, 1), 2),
+    ("belt, 2 hexes forward, speed 2", along(2.5, 2, 1), 4),
+    ("ring 4 -> 6 in 1 turn, speed 2", transfer_dv(2.0, 3.0, mean_motion(2.0) * TURN, TURN), 4),
+    ("Earth -> ring 4 in 1 turn, speed 2", transfer_dv(1.0, 2.0, mean_motion(1.0) * TURN, TURN), 4),
 ]
 for label, dv, model in cases:
-    print(f"{label:42s} {dv / 1e3:5.1f} km/s = {dv / U:4.1f} jedn.  (model: {model})")
+    print(f"{label:36s} {dv / 1e3:5.1f} km/s = {dv / U:4.1f} units  (model: {model})")

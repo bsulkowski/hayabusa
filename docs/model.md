@@ -109,7 +109,7 @@ The unit on the board is a speed of 1 hex per turn – about **10 km/s** relativ
 2. At the start of a turn a ship may change its velocity by at most 2 hexes. Each hex of velocity change costs **1 fuel unit** (about 10 km/s).
 3. The ship moves by its velocity and together with the ring on which it started the turn.
 4. Hop: a ship may move 1 hex and stop in the same turn (acceleration and braking, cost 2).
-5. Landing, docking and any other interaction with a planet or asteroid require zero velocity.
+5. Docking, landing and any other interaction require zero velocity. At planets and large asteroids the ship docks at a station in orbit – separate shuttles run to the surface and back. Ships can land directly only on small asteroids, up to a few km across (see "Launching from the surface").
 6. Speeds above 2 hexes per turn are forbidden by regulations – a rule of convention, not of physics.
 7. Ring 1 is closed to ships.
 
@@ -202,6 +202,28 @@ For a game a single value is enough: **a tank of around 20 units**. A hop costs 
 Other drives are not enough. A nuclear-electric drive (exhaust velocity about 40 km/s) would give a tank of about 3 units, a nuclear thermal one (about 9 km/s) – less than 1.
 
 A real possibility is refuelling in the asteroid belt: propellant, for example water, can be extracted from the asteroids themselves.
+
+### Launching from the surface
+
+Fuel is not the problem here: getting from the Earth's surface to low orbit takes about 9.4 km/s (an orbital speed of 7.9 km/s plus losses to gravity and air drag) – less than one unit. The problem is thrust. To lift off, an engine has to provide an acceleration greater than the surface gravity, in practice about 1.2–1.5 g. The fusion drive of the reference model provides about 0.27 milli-g:
+
+| Body | Surface gravity | Ship thrust relative to weight | Orbital speed at the surface |
+|------|-----------------|--------------------------------|------------------------------|
+| Earth | 9.8 m/s² | 1/3700 | 7.9 km/s |
+| Mars | 3.7 m/s² | 1/1400 | 3.6 km/s |
+| Ceres | 0.28 m/s² | 1/106 | 0.37 km/s |
+| Vesta | 0.25 m/s² | 1/94 | 0.26 km/s |
+| 1 km asteroid | 0.0003 m/s² | 9.5 | about 0 |
+
+At a typical asteroid density (about 2 g/cm³) the ship can lift off from a body up to about 6–10 km across.
+
+A stronger engine won't solve this: for a given power, a higher exhaust velocity means less thrust, so a fuel-efficient drive is by nature a weak one. Launching from the Earth needs a chemical rocket with an exhaust velocity of about 4 km/s. Besides, the exhaust of a fusion drive in the atmosphere would be a jet of hot plasma.
+
+Three things follow:
+
+- Fusion freighters fly from orbit to orbit. At the Earth and Mars they dock at orbital stations, and separate shuttles – chemical ones, for example – run to the surface and back. Most of today's concepts of transport in the Solar System look similar: rockets to low orbit, then separate space tugs.
+- Getting to orbit from Mars (about 4 km/s) is much cheaper than from the Earth (about 9.4 km/s), so a station at Mars is easier to supply from the surface.
+- Ceres and Vesta also need shuttles, but cheap ones – the escape velocity of Ceres is about 0.5 km/s. On small asteroids a freighter lands directly.
 
 ### Manoeuvres in the asteroid belt
 

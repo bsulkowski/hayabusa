@@ -85,7 +85,7 @@ In space you pay for changing your velocity, not for the distance travelled. The
 2. At the start of a turn a ship may change its velocity by at most 2 hexes. Each hex of velocity change costs 1 fuel unit.
 3. The ship moves by its velocity and together with the ring on which it started the turn.
 4. Hop: a ship may move 1 hex and stop in the same turn (cost 2).
-5. Landing, docking and any other interaction require zero velocity.
+5. Docking, landing and any other interaction require zero velocity. At planets and large asteroids the ship docks at a station in orbit, and separate shuttles run to the surface – a fusion drive is too weak to lift off from the surface. Ships can land only on small asteroids, up to a few km across.
 6. Speeds above 2 hexes per turn are forbidden by regulations.
 7. Ring 1 is closed to ships – it is too hot close to the Sun, and the ring moves half an orbit per turn.
 

@@ -1,13 +1,13 @@
-"""Dlaczego linia lotu w modelu referencyjnym to schemat, a nie lot swobodny:
-zakrzywienie toru przez grawitację, koszt utrzymania prostego kursu
-i sprawdzenie prostej zasady zakrzywiania.
-Dokumentacja: docs/model_pl.md, „Dlaczego nie prosta linia dosłownie”."""
+"""Why the flight line in the reference model is a schematic, not free flight:
+path bending by gravity, cost of holding a straight course and a test
+of a simple bending rule.
+Documentation: docs/model.md, "Why not take the straight line literally"."""
 import math
 import numpy as np
 from orbits import *
 
-DIRS = [("do przodu", 0, 1), ("do tyłu", 0, -1), ("na zewnątrz", 1, 0), ("do środka", -1, 0)]
-PLACES = [("Ziemia", 1.0), ("Mars", 1.5), ("pas 2,24 AU", A_REF), ("pas 3 AU", 3.0)]
+DIRS = [("forward", 0, 1), ("backward", 0, -1), ("outward", 1, 0), ("inward", -1, 0)]
+PLACES = [("Earth", 1.0), ("Mars", 1.5), ("belt 2.24 AU", A_REF), ("belt 3 AU", 3.0)]
 
 
 def to_xy(r, th):
@@ -15,8 +15,8 @@ def to_xy(r, th):
 
 
 def true_coast(a, ur, ut, turns):
-    """Lot swobodny z prędkością własną (ur, ut) [pola/turę] względem orbity kołowej.
-    Zwraca położenie w układzie planszy (obracającym się)."""
+    """Free flight with own velocity (ur, ut) [hexes/turn] relative to a circular orbit.
+    Returns the position in the (rotating) board frame."""
     r0, v0 = circ_state(a, 0.0)
     v = v0 + np.array([ur * U, ut * U])
     p, _ = propagate(r0, v, turns * TURN)
@@ -25,9 +25,9 @@ def true_coast(a, ur, ut, turns):
 
 
 def game_coast(a, ur, ut, turns, bend=False):
-    """Ruch w grze: co turę ruch wymuszony pierścienia + prędkość własna po prostej.
-    bend=True: dodatkowo prędkość wzdłuż orbity zamienia się w promieniową
-    (pas 1, Mars 2, Ziemia 3 pola/turę na pole prędkości)."""
+    """Movement in the game: every turn the ring's forced movement + own velocity in a straight line.
+    bend=True: in addition, velocity along the orbit turns into radial velocity
+    (belt 1, Mars 2, Earth 3 hexes/turn per hex of velocity)."""
     r, th, u = a * AU, 0.0, [ur, ut]
     for _ in range(turns):
         if bend:
@@ -45,27 +45,27 @@ def error(a, ur, ut, turns, bend=False):
         rg, tg = game_coast(a, ur, ut, turns, bend)
         return np.linalg.norm(to_xy(rt, tt) - to_xy(rg, tg)) / HEX
     except (ValueError, ZeroDivisionError):
-        return float("nan")   # trasa wpada w zamknięty pierścień 1
+        return float("nan")   # the route falls into the closed ring 1
 
 
-print("== Lot swobodny z prędkością 1 pole/turę: błąd prostej linii (pola) ==")
+print("== Free flight at 1 hex/turn: error of the straight line (hexes) ==")
 for name, a in PLACES:
     for turns in (1, 2, 3):
         errs = [error(a, ur, ut, turns) for _, ur, ut in DIRS]
         errs = [e for e in errs if not math.isnan(e)]
-        print(f"{name:12s} po {turns} r.: {min(errs):.1f}–{max(errs):.1f}")
+        print(f"{name:12s} after {turns} turns: {min(errs):.1f}-{max(errs):.1f}")
 
-print("\n== Przykład: pas, 1 pole/turę do przodu, lot swobodny ==")
+print("\n== Example: belt, 1 hex/turn forward, free flight ==")
 for turns in (1, 2, 3):
     r, th = true_coast(A_REF, 0, 1, turns)
-    print(f"po {turns} r.: {(r / AU - A_REF) / HEX_AU:+.1f} pierścienia od Słońca, "
-          f"{th * r / HEX:+.1f} pola wzdłuż orbity")
-print(f"(prędkość orbitalna w pasie {v_circ(A_REF) / 1e3:.1f} km/s, ucieczki "
-      f"{math.sqrt(2) * v_circ(A_REF) / 1e3:.1f} km/s, 1 pole/turę = {U / 1e3:.1f} km/s)")
+    print(f"after {turns} turns: {(r / AU - A_REF) / HEX_AU:+.1f} rings away from the Sun, "
+          f"{th * r / HEX:+.1f} hexes along the orbit")
+print(f"(orbital speed in the belt {v_circ(A_REF) / 1e3:.1f} km/s, escape "
+      f"{math.sqrt(2) * v_circ(A_REF) / 1e3:.1f} km/s, 1 hex/turn = {U / 1e3:.1f} km/s)")
 
 
 def hold_cost(a, ur, ut, steps=4000):
-    """Δv [jednostki] potrzebne, żeby przez 1 turę lecieć po prostej z gry."""
+    """Delta-v [units] needed to fly the game's straight line for 1 turn."""
     dt = TURN / steps
     r, thb, pts = a * AU, 0.0, []
     for i in range(steps + 1):
@@ -79,16 +79,16 @@ def hold_cost(a, ur, ut, steps=4000):
     return np.linalg.norm(acc - g, axis=1)[5:-5].sum() * dt / U
 
 
-print("\n== Koszt utrzymania prostego kursu przez 1 turę, prędkość 1 (jednostki) ==")
+print("\n== Cost of holding a straight course for 1 turn, speed 1 (units) ==")
 print(" " * 13 + "".join(f"{d:>13s}" for d, _, _ in DIRS))
-for name, a in [("Ziemia", 1.0), ("Mars", 1.5), ("pas 2,24 AU", A_REF)]:
+for name, a in [("Earth", 1.0), ("Mars", 1.5), ("belt 2.24 AU", A_REF)]:
     cells = []
     for _, ur, ut in DIRS:
         cells.append("–" if a + ur * HEX_AU < 0.75 else f"{hold_cost(a, ur, ut):.1f}")
     print(f"{name:12s} " + "".join(f"{c:>13s}" for c in cells))
 
-print("\n== Prosta zasada zakrzywiania: błąd (pola) bez zasady / z zasadą ==")
+print("\n== Simple bending rule: error (hexes) without rule / with rule ==")
 for name, a in PLACES[1:]:
     for d, ur, ut in DIRS:
-        row = "  ".join(f"{t} r.: {error(a, ur, ut, t):.1f}/{error(a, ur, ut, t, True):.1f}" for t in (1, 2, 3))
+        row = "  ".join(f"{t} t: {error(a, ur, ut, t):.1f}/{error(a, ur, ut, t, True):.1f}" for t in (1, 2, 3))
         print(f"{name:12s} {d:12s} {row}")

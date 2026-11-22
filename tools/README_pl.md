@@ -2,7 +2,7 @@
 
 *[English version](README.md)*
 
-Skrypty, którymi policzono liczby w [opisie modelu](../docs/model_pl.md). Każdy wypisuje tabele w tej samej postaci, w jakiej trafiły do dokumentacji.
+Skrypty, którymi policzono liczby w [opisie modelu](../docs/model_pl.md). Każdy wypisuje tabele w tej samej postaci, w jakiej trafiły do dokumentacji. Skrypty wypisują wyniki po angielsku.
 
 Model fizyczny: Słońce i statek (zagadnienie dwóch ciał), orbity kołowe i współpłaszczyznowe. Trasy między orbitami liczone są jako optymalne łuki (zagadnienie Lamberta) albo transfer Hohmanna, lot swobodny – przez numeryczne całkowanie ruchu.
 
@@ -13,7 +13,7 @@ Model fizyczny: Słońce i statek (zagadnienie dwóch ciał), orbity kołowe i w
 | `reference_model.py` | koszt zaplanowanych tras w tempie gry | Dlaczego model referencyjny ma sens |
 | `coasting.py` | zakrzywienie toru przy locie swobodnym, koszt utrzymania kursu, sprawdzenie prostej zasady zakrzywiania | Dlaczego nie prosta linia dosłownie |
 | `simplified_model.py` | kalibracja modelu uproszczonego, koszt przy jednakowym czasie lotu | Model uproszczony |
-| `propulsion.py` | zasięg zbiornika, ciąg i moc dla różnych napędów | Napęd i paliwo |
+| `propulsion.py` | zasięg zbiornika, ciąg i moc dla różnych napędów, start z powierzchni | Napęd i paliwo, Start z powierzchni |
 
 ## Uruchomienie
 

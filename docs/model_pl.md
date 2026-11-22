@@ -109,7 +109,7 @@ Jednostką na planszy jest prędkość 1 pola na turę – ok. **10 km/s** wzgl�
 2. Na początku tury statek może zmienić prędkość najwyżej o 2 pola. Każde pole zmiany prędkości kosztuje **1 jednostkę paliwa** (ok. 10 km/s).
 3. Statek przesuwa się o swoją prędkość i razem z pierścieniem, na którym zaczął turę.
 4. Przeskok: statek może przesunąć się o 1 pole i zatrzymać w tej samej turze (rozpędzenie i hamowanie, koszt 2).
-5. Lądowanie, dokowanie i każda inna interakcja z planetą lub planetoidą wymagają prędkości 0.
+5. Dokowanie, lądowanie i każda inna interakcja wymagają prędkości 0. Przy planetach i dużych planetoidach statek dokuje do stacji na orbicie – na powierzchnię i z powrotem kursują osobne promy. Lądować bezpośrednio można tylko na małych planetoidach, o średnicy do kilku km (patrz „Start z powierzchni”).
 6. Prędkość ponad 2 pola na turę jest zakazana przepisami – to ograniczenie umowne, nie fizyczne.
 7. Pierścień 1 jest zamknięty dla statków.
 
@@ -202,6 +202,28 @@ Na potrzeby gry wystarczy jedna wartość: **zbiornik rzędu 20 jednostek**. Prz
 Inne napędy nie wystarczają. Napęd jądrowo-elektryczny (prędkość wylotu ok. 40 km/s) dałby zbiornik na ok. 3 jednostki, jądrowy termiczny (ok. 9 km/s) – na mniej niż 1.
 
 Rzeczywistą możliwością jest tankowanie w pasie planetoid: materiał pędny, na przykład wodę, można pozyskiwać z samych planetoid.
+
+### Start z powierzchni
+
+Paliwo nie jest tu problemem: wejście z powierzchni Ziemi na niską orbitę to ok. 9,4 km/s (prędkość orbitalna 7,9 km/s plus straty na pokonanie grawitacji i oporu powietrza) – niecała jednostka. Problemem jest ciąg. Żeby wystartować, silnik musi dawać przyspieszenie większe niż grawitacja na powierzchni, w praktyce ok. 1,2–1,5 g. Napęd fuzyjny z modelu referencyjnego daje ok. 0,27 milli-g:
+
+| Ciało | Grawitacja na powierzchni | Ciąg statku względem ciężaru | Prędkość orbitalna przy powierzchni |
+|-------|---------------------------|------------------------------|-------------------------------------|
+| Ziemia | 9,8 m/s² | 1/3700 | 7,9 km/s |
+| Mars | 3,7 m/s² | 1/1400 | 3,6 km/s |
+| Ceres | 0,28 m/s² | 1/106 | 0,37 km/s |
+| Westa | 0,25 m/s² | 1/94 | 0,26 km/s |
+| planetoida o średnicy 1 km | 0,0003 m/s² | 9,5 | ok. 0 |
+
+Przy typowej gęstości planetoid (ok. 2 g/cm³) statek wystartuje z ciała o średnicy do ok. 6–10 km.
+
+Mocniejszy silnik tego nie rozwiąże: przy danej mocy większa prędkość wylotu oznacza mniejszy ciąg, więc napęd oszczędny w paliwie z natury pcha słabo. Do startu z Ziemi potrzebna jest rakieta chemiczna o prędkości wylotu ok. 4 km/s. Wylot napędu fuzyjnego w atmosferze byłby zresztą strumieniem gorącej plazmy.
+
+Wynikają z tego trzy rzeczy:
+
+- Frachtowce fuzyjne latają z orbity na orbitę. Przy Ziemi i Marsie dokują do stacji orbitalnych, a na powierzchnię i z powrotem kursują osobne promy, na przykład chemiczne. Podobnie wygląda większość dzisiejszych koncepcji transportu w Układzie Słonecznym: rakiety do niskiej orbity, a dalej osobne holowniki kosmiczne.
+- Wejście na orbitę z Marsa (ok. 4 km/s) jest dużo tańsze niż z Ziemi (ok. 9,4 km/s), więc stację przy Marsie łatwiej zaopatrywać z powierzchni.
+- Ceres i Westa też wymagają promów, ale tanich – prędkość ucieczki z Ceres to ok. 0,5 km/s. Na małych planetoidach frachtowiec ląduje bezpośrednio.
 
 ### Manewry w pasie planetoid
 

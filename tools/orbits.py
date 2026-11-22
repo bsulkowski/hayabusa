@@ -1,30 +1,30 @@
-"""Wspólne funkcje: ruch po orbitach wokół Słońca i parametry planszy.
+"""Shared functions: motion on orbits around the Sun and board parameters.
 
-Model: dwa ciała (Słońce + statek), orbity kołowe i współpłaszczyznowe.
-Jednostki SI, chyba że nazwa mówi inaczej (AU, tury, pola).
+Model: two bodies (Sun + ship), circular and coplanar orbits.
+SI units unless the name says otherwise (AU, turns, hexes).
 """
 import math
 import numpy as np
 from scipy.integrate import solve_ivp
 
-MU = 1.32712e20          # parametr grawitacyjny Słońca [m^3/s^2]
+MU = 1.32712e20          # gravitational parameter of the Sun [m^3/s^2]
 AU = 1.495979e11         # [m]
 DAY = 86400.0
 YEAR = 365.25 * DAY
 
-# --- parametry planszy -------------------------------------------------------
-HEX_AU = 0.5                                  # skok siatki
-T_EARTH, T_MARS = 1.0, 1.8809                 # okresy obiegu [lata]
-W_EARTH, W_MARS = 360 / T_EARTH, 360 / T_MARS # prędkości kątowe [°/rok]
-# Plansza obraca się tak, żeby na planszy Ziemia była dokładnie 3x szybsza od Marsa:
+# --- board parameters -------------------------------------------------------------
+HEX_AU = 0.5                                  # grid step
+T_EARTH, T_MARS = 1.0, 1.8809                 # orbital periods [years]
+W_EARTH, W_MARS = 360 / T_EARTH, 360 / T_MARS # angular velocities [deg/year]
+# The board rotates so that on the board the Earth is exactly 3x faster than Mars:
 # (W_EARTH - W_REF) = 3 (W_MARS - W_REF)
-W_REF = (3 * W_MARS - W_EARTH) / 2            # [°/rok]
-T_REF = 360 / W_REF                           # [lata]
-A_REF = T_REF ** (2 / 3)                      # [AU], prawo Keplera
-TURN = 60 / (W_EARTH - W_REF) * YEAR          # Ziemia: 60° na planszy na turę [s]
+W_REF = (3 * W_MARS - W_EARTH) / 2            # [deg/year]
+T_REF = 360 / W_REF                           # [years]
+A_REF = T_REF ** (2 / 3)                      # [AU], Kepler's law
+TURN = 60 / (W_EARTH - W_REF) * YEAR          # Earth: 60 deg on the board per turn [s]
 OMEGA_REF = math.radians(W_REF) / YEAR        # [rad/s]
 HEX = HEX_AU * AU                             # [m]
-U = HEX / TURN                                # 1 pole na turę [m/s]
+U = HEX / TURN                                # 1 hex per turn [m/s]
 
 RING_AU = {k: HEX_AU * k for k in range(1, 7)}
 
@@ -34,24 +34,24 @@ def period_years(a_au):
 
 
 def mean_motion(a_au):
-    """Prędkość kątowa orbity kołowej [rad/s]."""
+    """Angular velocity of a circular orbit [rad/s]."""
     return math.sqrt(MU / (a_au * AU) ** 3)
 
 
 def v_circ(a_au):
-    """Prędkość na orbicie kołowej [m/s]."""
+    """Speed on a circular orbit [m/s]."""
     return math.sqrt(MU / (a_au * AU))
 
 
 def circ_state(a_au, theta):
-    """Położenie i prędkość na orbicie kołowej o promieniu a_au w kącie theta [rad]."""
+    """Position and velocity on a circular orbit of radius a_au at angle theta [rad]."""
     r, v = a_au * AU, v_circ(a_au)
     return (np.array([r * math.cos(theta), r * math.sin(theta)]),
             np.array([-v * math.sin(theta), v * math.cos(theta)]))
 
 
 def hohmann(a1_au, a2_au):
-    """Transfer Hohmanna: (Δv [m/s], czas [s])."""
+    """Hohmann transfer: (delta-v [m/s], time [s])."""
     r1, r2 = a1_au * AU, a2_au * AU
     dv1 = math.sqrt(MU / r1) * (math.sqrt(2 * r2 / (r1 + r2)) - 1)
     dv2 = math.sqrt(MU / r2) * (1 - math.sqrt(2 * r1 / (r1 + r2)))
@@ -70,9 +70,9 @@ def _stumpff(z):
 
 
 def lambert(r1, r2, t):
-    """Zagadnienie Lamberta (lot prograde, bez pełnych obiegów).
+    """Lambert's problem (prograde, no full revolutions).
 
-    Zwraca prędkość na starcie i na końcu łuku z r1 do r2 w czasie t.
+    Returns the velocity at the start and at the end of the arc from r1 to r2 in time t.
     """
     R1, R2 = np.linalg.norm(r1), np.linalg.norm(r2)
     cross = r1[0] * r2[1] - r1[1] * r2[0]
@@ -104,9 +104,9 @@ def lambert(r1, r2, t):
 
 
 def transfer_dv(a1_au, a2_au, sweep_rad, t):
-    """Δv [m/s] trasy ze startem i końcem na orbitach kołowych.
+    """Delta-v [m/s] of a route starting and ending on circular orbits.
 
-    Start: orbita a1 w kącie 0. Cel: orbita a2 w kącie sweep_rad, osiągnięty po czasie t.
+    Start: orbit a1 at angle 0. Target: orbit a2 at angle sweep_rad, reached after time t.
     """
     r1, v1 = circ_state(a1_au, 0.0)
     r2, v2 = circ_state(a2_au, sweep_rad)
@@ -115,13 +115,13 @@ def transfer_dv(a1_au, a2_au, sweep_rad, t):
 
 
 def game_sweep(rings_au):
-    """Kąt (bezwzględny) przebyty przez statek w grze: co turę ruch wymuszony
-    pierścienia, na którym statek zaczyna turę. rings_au – promienie kolejnych pól trasy."""
+    """Angle (inertial) swept by a ship in the game: every turn the forced movement of
+    the ring on which the ship starts the turn. rings_au - radii of the successive hexes."""
     return sum(mean_motion(a) * TURN for a in rings_au[:-1])
 
 
 def propagate(r, v, t):
-    """Lot swobodny w polu grawitacyjnym Słońca."""
+    """Free flight in the gravity field of the Sun."""
     f = lambda _, s: [s[2], s[3], *(-MU * np.array(s[:2]) / np.hypot(*s[:2]) ** 3)]
     sol = solve_ivp(f, [0, t], [*r, *v], rtol=1e-10, atol=1)
     return sol.y[:2, -1], sol.y[2:, -1]
