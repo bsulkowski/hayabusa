@@ -16,6 +16,7 @@ Plansza nie jest przypisana do jednej gry – to przestrzeń, na której można 
 | [board/board.pdf](board/board.pdf) ([SVG](board/board.svg)) | plansza, wersja angielska (v0.4.1) |
 | [board/board-light_pl.pdf](board/board-light_pl.pdf) ([SVG](board/board-light_pl.svg)) | plansza alternatywna, wersja polska (v0.4e) |
 | [board/qrcode_pl.svg](board/qrcode_pl.svg), [board/qrcode.svg](board/qrcode.svg) | kody QR do strony projektu |
+| [models/](models/README_pl.md) | pionki do druku 3D: statek transportowy i placówka na planetoidzie |
 
 Poprzednie wersje są w historii repozytorium (tagi `v0.1`–`v0.4.1`). Eksperymentalna kolorystyka planszy jest na branchu `experimental-colors`.
 
@@ -23,8 +24,9 @@ Poprzednie wersje są w historii repozytorium (tagi `v0.1`–`v0.4.1`). Eksperym
 
 - [Jak działa plansza](docs/board_pl.md) – dla graczy i projektantów gier, którzy chcą wykorzystać gotową planszę
 - [Model i decyzje projektowe](docs/model_pl.md) – jak plansza ma się do rzeczywistego Układu Słonecznego
+- [Pomysły na gry](docs/ideas_pl.md) – motywy i elementy wynikające z fizyki planszy
 - [Obliczenia](tools/README_pl.md) – skrypty, którymi policzono model
 
 ## Licencja
 
-Plansza i dokumentacja: [CC BY 4.0](LICENSE) – Bartosz Sułkowski. Kod w folderze `tools/`: [MIT](tools/LICENSE).
+Plansza i dokumentacja: [CC BY 4.0](LICENSE) – Bartosz Sułkowski. Modele 3D w folderze `models/`: również CC BY 4.0. Kod w folderze `tools/`: [MIT](tools/LICENSE).

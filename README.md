@@ -16,6 +16,7 @@ The board is not tied to a single game – it is a space on which different game
 | [board/board_pl.pdf](board/board_pl.pdf) ([SVG](board/board_pl.svg)) | board, Polish version (v0.4.1) |
 | [board/board-light_pl.pdf](board/board-light_pl.pdf) ([SVG](board/board-light_pl.svg)) | alternative board, Polish version (v0.4e) |
 | [board/qrcode.svg](board/qrcode.svg), [board/qrcode_pl.svg](board/qrcode_pl.svg) | QR codes linking to the project page |
+| [models/](models/README.md) | 3D-printable pawns: a transport ship and an asteroid outpost |
 
 Earlier versions are in the repository history (tags `v0.1`–`v0.4.1`). An experimental colour scheme of the board is on the `experimental-colors` branch.
 
@@ -23,8 +24,9 @@ Earlier versions are in the repository history (tags `v0.1`–`v0.4.1`). An expe
 
 - [How the board works](docs/board.md) – for players and game designers who want to use the board as it is
 - [The model and design decisions](docs/model.md) – how the board relates to the real Solar System
+- [Ideas for games](docs/ideas.md) – themes and elements that follow from the board's physics
 - [Calculations](tools/README.md) – the scripts used to compute the model
 
 ## Licence
 
-Board and documentation: [CC BY 4.0](LICENSE) – Bartosz Sułkowski. Code in the `tools/` folder: [MIT](tools/LICENSE).
+Board and documentation: [CC BY 4.0](LICENSE) – Bartosz Sułkowski. 3D models in the `models/` folder: CC BY 4.0 as well. Code in the `tools/` folder: [MIT](tools/LICENSE).
