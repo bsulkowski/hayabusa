@@ -13,7 +13,7 @@ Model fizyczny: Słońce i statek (zagadnienie dwóch ciał), orbity kołowe i w
 | `reference_model.py` | koszt zaplanowanych tras w tempie gry | Dlaczego model referencyjny ma sens |
 | `coasting.py` | zakrzywienie toru przy locie swobodnym, koszt utrzymania kursu, sprawdzenie prostej zasady zakrzywiania | Dlaczego nie prosta linia dosłownie |
 | `simplified_model.py` | kalibracja modelu uproszczonego, koszt przy jednakowym czasie lotu | Model uproszczony |
-| `propulsion.py` | zasięg zbiornika, ciąg i moc dla różnych napędów, start z powierzchni | Napęd i paliwo, Start z powierzchni |
+| `propulsion.py` | zasięg zbiornika, ciąg i moc dla różnych napędów, start z powierzchni, tankowanie wodą z planetoid | Napęd i paliwo, Start z powierzchni |
 
 ## Uruchomienie
 

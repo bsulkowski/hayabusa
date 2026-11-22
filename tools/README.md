@@ -13,7 +13,7 @@ Physical model: the Sun and a ship (the two-body problem), circular and coplanar
 | `reference_model.py` | cost of planned routes at game pace | Why the reference model makes sense |
 | `coasting.py` | path bending in free flight, cost of holding a course, test of a simple bending rule | Why not take the straight line literally |
 | `simplified_model.py` | calibration of the simplified model, cost at equal flight time | Simplified model |
-| `propulsion.py` | tank range, thrust and power for different drives, launching from the surface | Propulsion and fuel, Launching from the surface |
+| `propulsion.py` | tank range, thrust and power for different drives, launching from the surface, refuelling from asteroid water | Propulsion and fuel, Launching from the surface |
 
 ## Running
 

@@ -206,7 +206,26 @@ Na potrzeby gry wystarczy jedna wartość: **zbiornik rzędu 20 jednostek**. Prz
 
 Inne napędy nie wystarczają. Napęd jądrowo-elektryczny (prędkość wylotu ok. 40 km/s) dałby zbiornik na ok. 3 jednostki, jądrowy termiczny (ok. 9 km/s) – na mniej niż 1.
 
-Rzeczywistą możliwością jest tankowanie w pasie planetoid: materiał pędny, na przykład wodę, można pozyskiwać z samych planetoid.
+**Tankowanie w pasie planetoid.** Materiał pędny – wodę – można pozyskiwać z samych planetoid. Statek musi się w tym celu zatrzymać: wylądować na małej planetoidzie albo wejść na orbitę wokół niej.
+
+- **Ile wody to jednostka.** Jedna jednostka to ok. 1/20 zbiornika. Dla frachtowca o konstrukcji 1000 t, z ładunkiem 1000 t i zbiornikiem 2000 t to ok. 100 t wody.
+- **Ile skały trzeba przerobić.** Planetoidy węgliste zawierają zwykle ok. 5–20% wody, związanej w minerałach; odzyskuje się ją, podgrzewając urobek do kilkuset stopni. Przy 10% wody jedna jednostka to ok. 1000 t skały.
+- **Co ogranicza tempo.** Nie energia: reaktor frachtowca ma moc rzędu kilku gigawatów, a odzyskanie 100 t wody na dobę wymaga ok. 12 MW. Ogranicza sprzęt – ile urobku da się wykopać i przerobić w mikrograwitacji. Prawdziwych danych nie ma, bo nikt jeszcze tego nie robił.
+
+Proponowane wartości:
+
+| Sposób | Wydajność | Pełny zbiornik |
+|--------|-----------|----------------|
+| awaryjny zestaw na pokładzie frachtowca (ok. 1–2,5 t skały na godzinę) | ok. 3 jednostki na turę postoju | ok. 7 tur |
+| stacja wydobywcza | cały zbiornik | 1 tura |
+
+Zestaw awaryjny jest tak wolny, że to rzeczywiście rozwiązanie awaryjne – w czasie postoju Ziemia i okna transferowe uciekają. Jak prom, zestaw ma masę i zmniejsza zasięg statku.
+
+Wody więcej jest w zewnętrznej części pasa: w wewnętrznej przeważają planetoidy kamienne, uboższe w wodę, w zewnętrznej – węgliste. Na planszy pierścienie 5–6 mogą więc dawać więcej wody niż pierścień 4.
+
+Woda jest materiałem pędnym, a nie paliwem reakcji fuzyjnej. Paliwo fuzyjne, na przykład deuter, to znikoma część masy – a deuter także da się odzyskać z wody.
+
+Te wartości – wydajność, zawartość wody, dostępność stacji – to dobre pokrętła do konfigurowania różnych scenariuszy gier.
 
 ### Start z powierzchni
 

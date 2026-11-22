@@ -44,3 +44,19 @@ for name, gm, r in BODIES:
 r_max = A_SHIP / (4 / 3 * math.pi * G * rho)
 print(f"largest asteroid the ship can lift off from (density {rho:.0f} kg/m3): "
       f"diameter {2 * r_max / 1e3:.1f} km at thrust/weight 1, {2 * r_max / 1.5 / 1e3:.1f} km at 1.5")
+
+print("\n== Refuelling from asteroid water (fusion drive, exhaust velocity 300 km/s) ==")
+VE = 300e3
+STRUCT, CARGO, TANK = 1000e3, 1000e3, 2000e3      # example freighter [kg]
+units_full = VE * math.log((STRUCT + CARGO + TANK) / (STRUCT + CARGO)) / UNIT_REF
+per_unit = TANK / units_full
+print(f"example freighter: structure {STRUCT / 1e3:.0f} t, cargo {CARGO / 1e3:.0f} t, tank {TANK / 1e3:.0f} t "
+      f"= {units_full:.1f} units, about {per_unit / 1e3:.0f} t of water per unit")
+WATER_FRACTION = 0.10                              # carbonaceous asteroids: about 5-20%
+print(f"regolith per unit at {WATER_FRACTION:.0%} water: about {per_unit / WATER_FRACTION / 1e3:.0f} t")
+for rate in (1.0, 2.5):                            # processed regolith [t/h]
+    water = rate * 1e3 * 24 * TURN / DAY * WATER_FRACTION
+    print(f"kit processing {rate} t/h of regolith: {water / 1e3:.0f} t of water per turn = {water / per_unit:.1f} units/turn")
+reactor = 2 * U / TURN * VE / (2 * 0.6) * (STRUCT + CARGO + TANK)
+heat = 100e3 * 10e6 / DAY                          # 100 t of water per day at 10 MJ/kg
+print(f"reactor power about {reactor / 1e9:.1f} GW; extracting 100 t of water per day needs about {heat / 1e6:.0f} MW")

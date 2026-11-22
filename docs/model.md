@@ -206,7 +206,26 @@ For a game a single value is enough: **a tank of around 20 units**. A hop costs 
 
 Other drives are not enough. A nuclear-electric drive (exhaust velocity about 40 km/s) would give a tank of about 3 units, a nuclear thermal one (about 9 km/s) – less than 1.
 
-A real possibility is refuelling in the asteroid belt: propellant, for example water, can be extracted from the asteroids themselves.
+**Refuelling in the asteroid belt.** Propellant – water – can be extracted from the asteroids themselves. To do so, the ship has to stop: land on a small asteroid or go into orbit around it.
+
+- **How much water is a unit.** One unit is about 1/20 of a tank. For a freighter with a 1000 t structure, 1000 t of cargo and a 2000 t tank, that is about 100 t of water.
+- **How much rock has to be processed.** Carbonaceous asteroids usually contain about 5–20% water, bound in minerals; it is recovered by heating the excavated material to a few hundred degrees. At 10% water, one unit takes about 1000 t of rock.
+- **What limits the rate.** Not energy: the freighter's reactor has a power of the order of several gigawatts, and recovering 100 t of water per day takes about 12 MW. What limits it is equipment – how much material can be dug up and processed in microgravity. There is no real data, because nobody has done it yet.
+
+Proposed values:
+
+| Method | Rate | Full tank |
+|--------|------|-----------|
+| emergency kit carried by the freighter (about 1–2.5 t of rock per hour) | about 3 units per turn of stopover | about 7 turns |
+| mining station | the whole tank | 1 turn |
+
+The emergency kit is slow enough to really be an emergency solution – during the stopover the Earth and the transfer windows slip away. Like a shuttle, the kit has mass and reduces the ship's range.
+
+There is more water in the outer part of the belt: stony, water-poor asteroids dominate the inner part, carbonaceous ones the outer part. On the board, rings 5–6 can therefore yield more water than ring 4.
+
+Water is propellant, not fusion fuel. Fusion fuel, for example deuterium, is a negligible part of the mass – and deuterium can also be recovered from water.
+
+These values – extraction rate, water content, availability of stations – are good dials for configuring different game scenarios.
 
 ### Launching from the surface
 
