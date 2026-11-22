@@ -115,19 +115,60 @@ Kosztów nie uwzględniono w geometrii planszy – na przykład przez pola tym m
 
 ### Kalibracja: koszty oszczędnych tras, krótszy czas
 
-Koszty z proponowanego modelu lotów (niżej) można porównać z rzeczywistą zmianą prędkości (Δv) na najtańszych trasach między orbitami:
+Koszty z proponowanego modelu lotów (niżej) można porównać z rzeczywistą zmianą prędkości (Δv) na najtańszych trasach między orbitami (transfer Hohmanna). Koszty są symetryczne – lot w obie strony kosztuje tyle samo.
 
-| Trasa | Koszt w grze | Δv najtańszej trasy | Δv na jednostkę | Czas w grze | Czas najtańszej trasy |
-|-------|--------------|---------------------|-----------------|-------------|-----------------------|
-| Ziemia → Mars | 3 | 5,4 km/s | 1,8 km/s | 1 tura | ok. 3 tury |
-| Ziemia → pierścień 4 | 5 | 8,5 km/s | 1,7 km/s | 2 tury | ok. 4 tury |
-| Mars → pierścień 4 | 2 | 3,2 km/s | 1,6 km/s | 1 tura | ok. 5 tur |
-| pierścień 4 → 5 | 1 | 2,2 km/s | 2,2 km/s | 1 tura | ok. 7 tur |
-| pierścień 4 → 6 | 2 | 3,8 km/s | 1,9 km/s | 2 tury | ok. 8 tur |
+**Koszt w grze** (jednostki, z zasadą najbliższego pierścienia):
 
-Jedna jednostka kosztu to w całej planszy ok. **1,8 km/s** (±20%) – model lotów jest spójny z kosztami oszczędnych tras. Inaczej jest z czasem: gra skraca przeloty 2–4 razy w okolicach Ziemi i Marsa, a w pasie planetoid jeszcze bardziej. Najtańsza trasa z pierścienia 4 na 5 trwałaby 7 tur – w grze byłoby to nie do zniesienia.
+| z \ do | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|
+| **2** (Ziemia) | – | 3 | 5 | 6 | 7 |
+| **3** (Mars) | 3 | – | 2 | 3 | 4 |
+| **4** | 5 | 2 | – | 1 | 2 |
+| **5** | 6 | 3 | 1 | – | 1 |
+| **6** | 7 | 4 | 2 | 1 | – |
 
-To świadoma decyzja: **koszty jak na oszczędnych trasach, czas skrócony dla grywalności**. Gdyby statki naprawdę latały w tempie gry, każda trasa kosztowałaby ok. 20 km/s niezależnie od tego, gdzie się odbywa – przy takiej prędkości liczy się głównie tempo, a nie położenie względem Słońca.
+**Najtańsza trasa: Δv** (w nawiasie km/s na jednostkę kosztu w grze):
+
+| z \ do | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|
+| **2** | 5,4 km/s (1,80) | 8,5 km/s (1,69) | 10,4 km/s (1,74) | 11,7 km/s (1,68) |
+| **3** | | 3,2 km/s (1,62) | 5,4 km/s (1,80) | 6,9 km/s (1,73) |
+| **4** | | | 2,2 km/s (2,22) | 3,8 km/s (1,91) |
+| **5** | | | | 1,6 km/s (1,64) |
+
+**Czas przelotu w turach** – w grze (1 pierścień na turę) / na najtańszej trasie:
+
+| z \ do | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|
+| **2** | 1 / 2,9 | 2 / 3,9 | 3 / 4,9 | 4 / 6,0 |
+| **3** | | 1 / 4,9 | 2 / 6,0 | 3 / 7,1 |
+| **4** | | | 1 / 7,1 | 2 / 8,3 |
+| **5** | | | | 1 / 9,6 |
+
+Jedna jednostka kosztu to w całej planszy ok. **1,8 km/s** (1,6–2,2 km/s) – model lotów jest spójny z kosztami oszczędnych tras. Najbardziej odstaje skok między pierścieniami 4 i 5, który gra liczy o ok. 20% za tanio. Inaczej jest z czasem: gra skraca przeloty ok. 3 razy w okolicach Ziemi i Marsa, a między sąsiednimi pierścieniami pasa planetoid 7–10 razy. Najtańsza trasa z pierścienia 4 na 5 trwałaby 7 tur – w grze byłoby to nie do zniesienia.
+
+To świadoma decyzja: **koszty jak na oszczędnych trasach, czas skrócony dla grywalności**. Gdyby statki naprawdę latały w tempie gry, każda trasa kosztowałaby 18–26 km/s niezależnie od tego, skąd i dokąd – przy takiej prędkości liczy się głównie tempo, a nie położenie względem Słońca. W pasie lot o 2 pierścienie w jednej turze kosztowałby ok. 41 km/s zamiast ok. 20 – stąd kara za prędkość w modelu lotów.
+
+### Okna transferowe
+
+Skrócony czas przelotów wpływa na okna transferowe tylko częściowo.
+
+**Częstotliwość okien jest dokładna.** Planety poruszają się na planszy zgodnie z rzeczywistością, więc korzystne ustawienia powtarzają się co tyle samo tur co w rzeczywistości: Ziemia–Mars co 9 tur (ok. 26 miesięcy), Ziemia–pas planetoid co 6 tur, Mars–pas planetoid co 18 tur.
+
+**Ustawienie planet w chwili startu jest przybliżone.** Tabela pokazuje, o ile stopni cel musi wyprzedzać statek w chwili startu (minus – cel jest z tyłu):
+
+| Trasa | W grze | Najtańsza trasa | Różnica |
+|-------|--------|-----------------|---------|
+| Ziemia → Mars | +39° | +43° | −4° |
+| Ziemia → pierścień 4 | +72° | +63° | +8° |
+| Mars → pierścień 4 | +16° | +33° | −16° |
+| Mars → Ziemia | −39° | −72° | +33° |
+| pierścień 4 → Ziemia | −94° | −151° | +57° |
+| pierścień 5 → Ziemia | −158° | +123° | +79° |
+
+Loty na zewnątrz wychodzą dobrze, lot Ziemia → Mars prawie idealnie. Loty powrotne do Ziemi są wyraźnie przesunięte: na najtańszej trasie statek okrąża pół Słońca, a w czasie długiego lotu szybka Ziemia przesuwa się dużo dalej niż w grze.
+
+Dla rozgrywki to nie problem – gra jest wewnętrznie spójna, a gracz uczy się prawdziwej zasady: trzeba celować tam, gdzie cel będzie, i czekać na okno. Konkretnych kątów startu gra nie oddaje dokładnie.
 
 ### Pierścień 1 – strefa zamknięta
 
@@ -158,6 +199,23 @@ Przykład zakłada konstrukcję o masie 1, ładunek 1 (albo 2) i pełny zbiornik
 Inne napędy pasują gorzej. Napęd jądrowy termiczny (prędkość wylotu ok. 9 km/s) dałby zbiornik na 3–4 jednostki. Przy napędzie fuzyjnym paliwo przestałoby być ograniczeniem – zbiornik starczałby na całą grę.
 
 Rzeczywistą możliwością jest tankowanie w pasie planetoid: materiał pędny, na przykład wodę, można pozyskiwać z samych planetoid.
+
+### Wariant: loty pasażerskie i napęd fuzyjny
+
+Pasażerom zależy na czasie, więc dla nich skracanie czasu przelotów nie jest uproszczeniem, tylko celem. Lot w rzeczywistym tempie gry kosztuje 18–26 km/s na trasę – 3–7 razy więcej niż ta sama trasa dla frachtowca. Lot z prędkością 2 pól na turę także przy Ziemi i Marsie kosztuje 43–48 km/s (na przykład Ziemia → pierścień 4 w jedną turę).
+
+| | Jądrowo-elektryczny (wylot ok. 40 km/s) | Fuzyjny (wylot rzędu 300 km/s) |
+|---|---|---|
+| Lekki statek pasażerski, pełny zbiornik | ok. 45–55 km/s – **2 loty** w tempie gry | ok. 200–330 km/s – **ok. 10 lotów** w tempie gry albo 4–7 lotów po 2 pola na turę |
+| Potrzebne przyspieszenie i moc | ok. 0,3 milli-g – moc ok. 100 kW na tonę statku, kilkanaście razy więcej niż dzisiejsze koncepcje | 0,3–1 milli-g – moc rzędu megawata na tonę, odległa przyszłość |
+| Frachtowiec, pełny zbiornik | ok. 15 jednostek (model podstawowy) | ok. 100 jednostek – paliwo praktycznie przestaje się liczyć |
+
+Napęd fuzyjny pozwala latać naprawdę w tempie gry – bez skracania czasu, więc z dokładnymi kątami startu. Zmienia się jednak struktura kosztów: w tym tempie koszt nie zależy od pierścienia ani od długości trasy, tylko od liczby rozpędzań i hamowań. Mnożniki ×3 / ×2 / ×1 tracą wtedy uzasadnienie fizyczne.
+
+Plansza ma więc dwa spójne ujęcia:
+
+- **A – model podstawowy:** frachtowce z napędem jądrowo-elektrycznym; koszty jak na najtańszych trasach, czas skrócony, kąty startu przybliżone.
+- **B – wariant:** napęd fuzyjny; tempo i okna transferowe prawdziwe, paliwa w zasadzie pod dostatkiem, koszt zależny od manewrów, a nie od liczby pól. Pasuje do gier z liniowcami pasażerskimi albo do gier, które chcą wiernie oddać okna transferowe.
 
 ### Manewry w pasie planetoid
 
