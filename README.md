@@ -14,7 +14,6 @@ Plansza nie jest przypisana do jednej gry – to przestrzeń, na której można 
 | [board/board.pdf](board/board.pdf) ([SVG](board/board.svg)) | plansza, wersja angielska (v0.4.1) |
 | [board/board-light_pl.pdf](board/board-light_pl.pdf) ([SVG](board/board-light_pl.svg)) | plansza alternatywna, wersja polska (v0.4e) |
 | [board/qrcode_pl.svg](board/qrcode_pl.svg), [board/qrcode.svg](board/qrcode.svg) | kody QR do strony projektu |
-| [tools/](tools/README.md) | skrypty, którymi policzono model |
 
 Poprzednie wersje są w historii repozytorium (tagi `v0.1`–`v0.4.1`). Eksperymentalna kolorystyka planszy jest na branchu `experimental-colors`.
 
@@ -22,6 +21,7 @@ Poprzednie wersje są w historii repozytorium (tagi `v0.1`–`v0.4.1`). Eksperym
 
 - [Jak działa plansza](docs/board_pl.md) – dla graczy i projektantów gier, którzy chcą wykorzystać gotową planszę
 - [Model i decyzje projektowe](docs/model_pl.md) – jak plansza ma się do rzeczywistego Układu Słonecznego
+- [Obliczenia](tools/README.md) – skrypty, którymi policzono model
 
 Dokumentacja jest na razie po polsku; wersja angielska jest w przygotowaniu.
 
