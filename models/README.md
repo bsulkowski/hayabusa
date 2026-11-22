@@ -11,6 +11,19 @@ General-purpose 3D-printable pawns for any game on this board.
 | [ship.stl](ship.stl) | transport ship – modular hull on a spine, with nozzles at the bottom; indirectly inspired by the Eagle 1 from "Space: 1999" | 26 × 26 × 36 mm |
 | [outpost.stl](outpost.stl) | outpost on an asteroid – the industrial part: reactor, processing and storage, long-range antenna, spaceport | 30 × 30 × 24 mm |
 
+## Design criteria
+
+Every pawn should meet three criteria:
+
+- **Aesthetics.** A minimalist, faceted (low-poly) form, consistent with the board and the other pawns.
+- **Practicality for printing and play.**
+  - The pawn fits within one hex of the board printed in A2 format – it is at most about 27 mm wide.
+  - It is solid: no small, thin parts (at least about 1 mm thick at the final scale), easy to print and to keep clean.
+  - It sits well in the hand and invites play – the ship has no base so that it can be turned freely, and it also stands well on its side.
+- **Consistency with physics.** Every element has a justification in the physics and technology described in the [board model](../docs/model.md) – the design intent is described below.
+
+When the criteria conflict, practicality wins over literal accuracy: the element is then marked symbolically and the departure from physics is documented (example: the reactor radiators of the outpost).
+
 ## Ship – design intent
 
 From bottom to top:

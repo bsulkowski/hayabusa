@@ -11,6 +11,19 @@ Uniwersalne pionki do druku 3D, do wykorzystania w dowolnej grze na tej planszy.
 | [ship.stl](ship.stl) | statek transportowy – modułowy kadłub na kręgosłupie, z dyszami na dole; inspirowany pośrednio statkiem Eagle 1 z serialu „Kosmos 1999” | 26 × 26 × 36 mm |
 | [outpost.stl](outpost.stl) | placówka na planetoidzie – część przemysłowa: reaktor, przeróbka i magazyny, antena do dalekiej komunikacji, port | 30 × 30 × 24 mm |
 
+## Kryteria projektowe
+
+Każdy pionek powinien spełniać trzy kryteria:
+
+- **Estetyka.** Minimalistyczna, kanciasta bryła (low-poly), spójna z planszą i z pozostałymi pionkami.
+- **Praktyczność druku i zabawy.**
+  - Pionek mieści się w jednym polu planszy drukowanej w formacie A2 – ma najwyżej ok. 27 mm szerokości.
+  - Jest masywny: bez drobnych, cienkich elementów (min. ok. 1 mm grubości w docelowej skali), łatwy do wydrukowania i do utrzymania w czystości.
+  - Dobrze leży w dłoni i daje się nim bawić – statek nie ma podstawki, żeby można go było swobodnie obracać, a przy tym dobrze stoi też na boku.
+- **Spójność z fizyką.** Każdy element ma uzasadnienie w fizyce i technice opisanej w [modelu planszy](../docs/model_pl.md) – intencje projektowe opisano niżej.
+
+Gdy kryteria się kłócą, praktyczność wygrywa z dosłownym odwzorowaniem: element zaznacza się wtedy symbolicznie, a odstępstwo od fizyki opisuje (przykład: radiatory reaktora w placówce).
+
 ## Statek – intencje projektowe
 
 Od dołu do góry:
