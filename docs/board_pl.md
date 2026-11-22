@@ -1,8 +1,10 @@
-# Wewnętrzny Układ Słoneczny – plansza
+# Synodic Board – plansza wewnętrznego Układu Słonecznego
 
 ## Czym jest ta plansza
 
-Plansza przedstawia wewnętrzny Układ Słoneczny – przestrzeń od Słońca do pasa planetoid. Zaprojektowana jest jako uniwersalna przestrzeń do gier science fiction o tematyce eksploracji kosmosu: gracze poruszają się statkami między planetami, eksploatują zasoby pasa planetoid i mierzą się z wyzwaniami, jakie niesie ze sobą prawdziwa mechanika orbitalna.
+Plansza przedstawia wewnętrzny Układ Słoneczny – przestrzeń od Słońca do pasa planetoid. Zaprojektowana jest jako uniwersalna przestrzeń do gier twardej science fiction o tematyce eksploracji kosmosu: gracze poruszają się statkami między planetami, eksploatują zasoby pasa planetoid i mierzą się z wyzwaniami, jakie niesie ze sobą prawdziwa mechanika orbitalna. Fizyka jest prawdziwa, z przyszłości pochodzą tylko silniki statków.
+
+Nazwa pochodzi od układu synodycznego – układu odniesienia, który obraca się razem z orbitującymi ciałami. Na takim układzie opiera się cała mechanika ruchu na planszy.
 
 Plansza nie jest przypisana do konkretnej gry – stanowi gotową podstawę, na której można budować różne tytuły.
 

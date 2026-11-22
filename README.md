@@ -1,10 +1,10 @@
-# Wewnętrzny Układ Słoneczny – plansza
+# Synodic Board
 
-Heksagonalna plansza do gier sci-fi o początkach eksploracji kosmosu – od Słońca po pas planetoid. Odległości i prędkości orbitalne zachowują rzeczywiste proporcje, a sama plansza obraca się razem z pasem planetoid: planety bliżej Słońca co turę przesuwają się po swoich orbitach, a statki graczy muszą się z tym liczyć.
+**Plansza wewnętrznego Układu Słonecznego**
+
+Heksagonalna plansza do gier twardej science fiction o początkach eksploracji kosmosu – od Słońca po pas planetoid. Fizyka jest prawdziwa, z przyszłości pochodzą tylko silniki statków. Odległości i prędkości orbitalne zachowują rzeczywiste proporcje, a sama plansza obraca się razem z pasem planetoid: planety bliżej Słońca co turę przesuwają się po swoich orbitach, a statki graczy muszą się z tym liczyć.
 
 Plansza nie jest przypisana do jednej gry – to przestrzeń, na której można budować różne gry.
-
-Strona projektu: [bsulkowski.pl/inner-solar-system-board-pl](https://bsulkowski.pl/inner-solar-system-board-pl)
 
 ## Plansza
 
