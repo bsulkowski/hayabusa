@@ -73,13 +73,25 @@ Każdy statek ma dwa składniki ruchu, które działają łącznie:
 
 **Ruch wymuszony** – wynikający z pierścienia, na którym statek się znajduje (patrz tabela powyżej). Dotyczy wszystkich obiektów bez wyjątku.
 
-**Ruch własny** – aktywny napęd statku, zwykle 1–2 pola na turę w dowolnym kierunku (zależnie od zasad konkretnej gry).
+**Ruch własny** – napędzany silnikiem statku. Jego prędkość (1–2 pola na turę) jest porównywalna z prędkościami orbitalnymi: mechaniki orbitalnej nie da się ignorować, ale aktywne manewrowanie pozwala ją wykorzystać lub jej przeciwdziałać.
 
-Prędkość własna statku jest porównywalna z prędkościami orbitalnymi. Oznacza to, że mechanika orbitalna jest odczuwalna, ale nie paraliżująca: nie można jej ignorować, ale aktywne manewrowanie pozwala ją wykorzystać lub jej przeciwdziałać.
+### Model referencyjny
 
-**Pierścień 1 jest domyślnie zamknięty dla statków.** Manewrowanie tak blisko Słońca jest wielokrotnie droższe niż dalej, a pierścień przesuwa się o pół obiegu na turę. Gra, która chce tam latać, może tę zasadę zdjąć.
+W kosmosie płaci się za zmianę prędkości, a nie za przebytą drogę. Proponowany model lotów:
 
-**Proponowany model lotów.** Im bliżej Słońca, tym droższe manewry i mniejsza prędkość, którą silnik jest w stanie utrzymać:
+1. Statek ma prędkość własną: 0–2 pola na turę w dowolnym kierunku (znacznik na polu, na które doleci w następnej turze).
+2. Na początku tury statek może zmienić prędkość najwyżej o 2 pola. Każde pole zmiany prędkości kosztuje 1 jednostkę paliwa.
+3. Statek przesuwa się o swoją prędkość i razem z pierścieniem, na którym zaczął turę.
+4. Przeskok: statek może przesunąć się o 1 pole i zatrzymać w tej samej turze (koszt 2).
+5. Lądowanie, dokowanie i każda inna interakcja wymagają prędkości 0.
+6. Prędkość ponad 2 pola na turę jest zakazana przepisami.
+7. Pierścień 1 jest zamknięty dla statków – blisko Słońca jest za gorąco, a pierścień przesuwa się o pół obiegu na turę.
+
+Zbiornik frachtowca mieści rzędu 20 jednostek. Linia lotu na planszy to schemat zaplanowanej trasy: początek, koniec, czas i koszt odpowiadają rzeczywistości, a prawdziwy tor jest zakrzywiony. Uzasadnienie: [model_pl.md](model_pl.md#model-referencyjny).
+
+### Model uproszczony
+
+Gry, które nie chcą śledzić prędkości statków, mogą płacić za każde pole ruchu własnego:
 
 | Gdzie | Prędkość własna | Koszt |
 |-------|-----------------|-------|
@@ -88,7 +100,7 @@ Prędkość własna statku jest porównywalna z prędkościami orbitalnymi. Ozna
 | pierścień 3 (Mars) | maks. 1 pole/turę | 2 |
 | pierścienie 4–6 (pas planetoid) | 1 albo 2 pola/turę | 1 za 1 pole, 3 za 2 pola |
 
-Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka. Zbiornik frachtowca mieści rzędu 15 jednostek. Gry mogą przyjąć prostsze zasady, ale rozluźniają w ten sposób podejście twardej science fiction. Uzasadnienie modelu: [model_pl.md](model_pl.md#proponowany-model-lotów).
+Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka. Zbiornik frachtowca mieści wtedy rzędu 15 jednostek. Ten model jest spójny sam w sobie, ale odchodzi od fizyki – co dokładnie traci, opisuje [model_pl.md](model_pl.md#model-uproszczony-koszt-za-pole).
 
 ## Planowanie trasy – serce mechaniki
 

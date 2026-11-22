@@ -84,40 +84,155 @@ Gra może więc dryf pominąć albo go realizować, zależnie od potrzeb:
 
 ## Ruch statków a fizyka
 
-Ruch statku na planszy składa się z ruchu wymuszonego (razem z pierścieniem) i ruchu własnego (1–2 pola na turę w dowolnym kierunku, zużywającego paliwo). Na pierwszy rzut oka wygląda to jak uproszczenie wbrew fizyce – w kosmosie nie ma tarcia, więc raz rozpędzony statek powinien lecieć dalej za darmo. Model jest uproszczony, ale da się go dobrze obronić.
+Ruch statku na planszy składa się z ruchu wymuszonego (razem z pierścieniem) i ruchu własnego, napędzanego silnikiem. Plansza proponuje dwa modele lotów:
+
+- **model referencyjny** – możliwie wierny fizyce, punkt odniesienia dla twardej science fiction,
+- **model uproszczony** – prostszy w grze, kosztem kilku świadomych odstępstw od fizyki.
+
+Każda gra może model lotów dalej rozluźniać. Ten rozdział pokazuje, co się wtedy traci.
 
 ### Ruch wymuszony to bezwładność
 
 Statek bez napędu na danym pierścieniu leci po orbicie kołowej – czyli swobodnie, bez zużycia paliwa. Model ma więc bezwładność; jego naturalnym stanem nie jest stanie w miejscu, tylko krążenie po orbicie.
 
-### Ruch własny i jego koszt
+### W kosmosie płaci się za zmianę prędkości
 
-W rzeczywistości paliwo zużywa się głównie na początku i na końcu trasy: na zejście z orbity startowej i na wyrównanie z orbitą celu. Pomiędzy statek może lecieć swobodnie po łuku wyznaczonym przez grawitację – tak działa transfer Hohmanna, najtańsza trasa między dwiema orbitami. Paliwo zużywałoby się stale tylko przy locie kursem, który nie jest naturalnym łukiem, na przykład prosto w poprzek orbit: grawitacja stale taki tor zakrzywia (względem lokalnej orbity objawia się to jako siła Coriolisa i siły pływowe).
+W rzeczywistości paliwo zużywa się na zmianę prędkości: na zejście z orbity startowej i na wyrównanie z orbitą celu. Pomiędzy statek leci swobodnie, po łuku wyznaczonym przez grawitację. Długość trasy nie ma więc dużego znaczenia – liczy się, jak szybko trzeba się rozpędzić i ile potem wyhamować.
 
-Model upraszcza to do kosztu za każde pole ruchu własnego. Jak pokazuje kalibracja niżej, koszty z modelu odpowiadają dobrze kosztom oszczędnych tras.
+Jednostką na planszy jest prędkość 1 pola na turę – ok. **10 km/s** względem lokalnej orbity. To dużo: prędkość orbitalna w pasie planetoid wynosi ok. 20 km/s.
 
-### Koszt a odległość od Słońca
+### Model referencyjny
 
-Koszt manewrów maleje z odległością od Słońca mniej więcej jak odległość do potęgi 1,5. Dwa niezależne sposoby liczenia – utrzymanie kursu i przejście po spirali na sąsiedni pierścień (różnica prędkości orbitalnych) – dają podobny obraz:
+1. Statek ma prędkość własną: 0–2 pola na turę w dowolnym kierunku. Najprościej zaznaczyć ją znacznikiem na polu, na które statek doleci w następnej turze, jak w klasycznym ruchu wektorowym.
+2. Na początku tury statek może zmienić prędkość najwyżej o 2 pola. Każde pole zmiany prędkości kosztuje **1 jednostkę paliwa** (ok. 10 km/s).
+3. Statek przesuwa się o swoją prędkość i razem z pierścieniem, na którym zaczął turę.
+4. Przeskok: statek może przesunąć się o 1 pole i zatrzymać w tej samej turze (rozpędzenie i hamowanie, koszt 2).
+5. Lądowanie, dokowanie i każda inna interakcja z planetą lub planetoidą wymagają prędkości 0.
+6. Prędkość ponad 2 pola na turę jest zakazana przepisami – to ograniczenie umowne, nie fizyczne.
+7. Pierścień 1 jest zamknięty dla statków.
 
-| Pierścień | Utrzymanie kursu | Przejście na pierścień dalej | Strumień ciepła ze Słońca |
-|-----------|------------------|------------------------------|---------------------------|
-| 1 (0,5 AU) | 11× | 7,5× | 4× ziemskiego |
-| 2 (Ziemia) | 4× | 3,3× | 1× |
-| 3 (Mars) | 2,2× | 2× | 0,4× |
-| 4 | 1,4× | 1,4× | 0,25× |
-| 5 | 1 | 1 | 0,16× |
-| 6 | 0,8× | – | 0,1× |
+### Dlaczego model referencyjny ma sens
 
-Koszty są względne (pierścień 5 = 1). Różnica między Ziemią a pasem planetoid – 3–4 razy – jest na tyle duża, że przy stałym koszcie ruchu manewrowanie w okolicach Ziemi wychodzi wyraźnie za tanio. Prosty mnożnik kosztu ruchu własnego dobrze oddaje oba wyliczenia: **×3 na pierścieniu 2, ×2 na pierścieniu 3, ×1 w pasie planetoid**. Na nim opiera się proponowany model lotów (patrz niżej).
+Najtańsza zaplanowana trasa w tempie gry – ze startem i końcem na orbicie, po dowolnie zakrzywionym torze – kosztuje:
 
-Kosztów nie uwzględniono w geometrii planszy – na przykład przez pola tym mniejsze, im bliżej Słońca. Plansza pokazywałaby wtedy koszt zamiast przestrzeni i straciłaby to, co jest jej główną wartością: prawdziwe odległości i proporcje ruchu orbitalnego. Mapy zbudowane z kosztów manewrów istnieją (taką ma na przykład gra High Frontier), ale tracą wyczucie, gdzie co naprawdę leży.
+| Trasa | Δv | W modelu referencyjnym |
+|-------|----|------------------------|
+| pas planetoid, 1–4 pola do przodu z prędkością 1 | 19–22 km/s | 2 |
+| pas planetoid, 1–2 pierścienie dalej z prędkością 1 | 20–23 km/s | 2 |
+| Ziemia → pierścień 4 albo 5 z prędkością 1 | 20–21 km/s | 2 |
+| przeskok o 1 pole przy Ziemi lub Marsie | 21–26 km/s | 2 |
+| trasy z prędkością 2 | 41–48 km/s | 4 |
 
-### Kalibracja: koszty oszczędnych tras, krótszy czas
+Model trafia z dokładnością ok. ±25% w całej planszy: koszt nie zależy od długości trasy ani od miejsca, tylko od rozpędzenia i hamowania – dokładnie tak, jak w modelu.
 
-Koszty z proponowanego modelu lotów (niżej) można porównać z rzeczywistą zmianą prędkości (Δv) na najtańszych trasach między orbitami (transfer Hohmanna). Koszty są symetryczne – lot w obie strony kosztuje tyle samo.
+Prawdziwy statek nie leci jednak po prostej, tylko po łuku. **Linia lotu na planszy to schemat zaplanowanej trasy**: początek, koniec, czas i koszt są prawdziwe, położenie w trakcie lotu – umowne. Ma to znaczenie tylko wtedy, gdy gra pozwala coś robić ze statkiem w locie (na przykład go przechwycić). Zmiana planu w trakcie lotu też jest liczona tymi samymi zasadami – to uczciwe przybliżenie.
 
-**Koszt w grze** (jednostki, z zasadą najbliższego pierścienia):
+### Dlaczego nie prosta linia dosłownie
+
+Gdyby traktować prostą linię dosłownie, jako lot swobodny, model rozjeżdżałby się z fizyką. Przy prędkościach z gry grawitacja zakrzywia tor bardzo mocno: w pasie planetoid 1 pole na turę do przodu (+10 km/s) wystarcza, żeby uciec z Układu Słonecznego, a 2 pola na turę do tyłu (−20 km/s) prawie zatrzymują statek względem Słońca, który zaczyna na nie spadać.
+
+Błąd położenia statku lecącego swobodnie z prędkością 1 pola na turę, w porównaniu z prostą linią w grze (w polach):
+
+| Gdzie | po 1 turze | po 2 turach | po 3 turach |
+|-------|-----------|-------------|-------------|
+| przy Ziemi | 1,1–1,9 | 2–6 | 2–8 |
+| przy Marsie | 0,7–1,0 | 1,6–4 | 2–8 |
+| pas planetoid (2,24 AU) | 0,3–0,6 | 1,0–2,3 | 1,6–5 |
+| pas planetoid (3 AU) | 0,2–0,4 | 0,7–1,5 | 1,1–3,4 |
+
+Główny mechanizm jest jednym z najbardziej nieintuicyjnych zjawisk mechaniki orbitalnej: rozpędzenie do przodu wzdłuż orbity podnosi orbitę. Statek lecący w pasie do przodu po 3 turach jest ok. 3 pierścienie dalej od Słońca i wcale nie przesunął się do przodu.
+
+Prosty kurs da się utrzymać ciągiem, ale koszt mocno zależy od kierunku. Koszt na turę przy prędkości 1 pola na turę:
+
+| Gdzie | do przodu | do tyłu | na zewnątrz | do środka |
+|-------|-----------|---------|-------------|-----------|
+| przy Ziemi | 3,5 | 2,5 | 0,5 | – |
+| przy Marsie | 2,0 | 1,3 | 0,3 | 0,5 |
+| pas planetoid | 1,1 | 0,7 | 0,2 | 0,3 |
+
+Lot od Słońca i do Słońca jest prawie darmowy, lot wzdłuż orbity – drogi. Sprawdzono też prostą zasadę zakrzywiania toru (prędkość do przodu zamienia się w prędkość na zewnątrz: w pasie 1, przy Marsie 2, przy Ziemi 3 pola na turę). Poprawia ona lot do przodu, ale psuje lot do tyłu – nie jest warta dodatkowej zasady. Ujęcie linii lotu jako schematu zaplanowanej trasy jest prostsze i daje poprawne koszty.
+
+### Okna transferowe
+
+**Częstotliwość okien jest dokładna.** Planety poruszają się na planszy zgodnie z rzeczywistością, więc korzystne ustawienia powtarzają się co tyle samo tur co w rzeczywistości: Ziemia–Mars co 9 tur (ok. 26 miesięcy), Ziemia–pas planetoid co 6 tur, Mars–pas planetoid co 18 tur.
+
+**Ustawienie planet w chwili startu zależy od tempa lotu.** W modelu referencyjnym statki naprawdę lecą w tempie gry, więc ustawienia startowe na planszy są prawdziwe dla takich lotów. Różnią się od ustawień dla najtańszych, powolnych tras (transfer Hohmanna). Tabela pokazuje, o ile stopni cel musi wyprzedzać statek w chwili startu (minus – cel jest z tyłu):
+
+| Trasa | W tempie gry | Najtańsza trasa | Różnica |
+|-------|--------------|-----------------|---------|
+| Ziemia → Mars | +39° | +43° | −4° |
+| Ziemia → pierścień 4 | +72° | +63° | +8° |
+| Mars → pierścień 4 | +16° | +33° | −16° |
+| Mars → Ziemia | −39° | −72° | +33° |
+| pierścień 4 → Ziemia | −94° | −151° | +57° |
+| pierścień 5 → Ziemia | −158° | +123° | +79° |
+
+Lot Ziemia → Mars w tempie gry wymaga niemal tego samego ustawienia co najtańsza trasa. Przy powrotach do Ziemi różnica jest duża: na najtańszej trasie statek okrąża pół Słońca, a w czasie długiego lotu szybka Ziemia przesuwa się dużo dalej. W modelu uproszczonym (niżej), który zakłada najtańsze trasy w skróconym czasie, kąty startu są więc tylko przybliżone.
+
+W obu modelach gracz uczy się prawdziwej zasady: trzeba celować tam, gdzie cel będzie, i czekać na okno.
+
+### Pierścień 1 – strefa zamknięta
+
+Domyślnie statki nie wlatują na pierścień 1. Przemawiają za tym trzy powody:
+
+- **Ciepło** – strumień promieniowania słonecznego jest tam cztery razy większy niż przy Ziemi, a przy Merkurym prawie siedem razy.
+- **Sterowanie** – pierścień przesuwa się o pół obiegu na turę, a grawitacja zakrzywia tor jeszcze mocniej niż przy Ziemi. Statek o prędkości własnej 1–2 pola na turę praktycznie traci kontrolę nad tym, gdzie się znajdzie.
+- **Koszt oszczędnych tras** – są tam 8–11 razy droższe niż w pasie planetoid. W rzeczywistości misje do Merkurego trwają latami i wymagają wielu przelotów obok planet: sonda MESSENGER wystartowała w 2004 roku, a na orbitę Merkurego weszła dopiero w 2011, po sześciu takich przelotach.
+
+Zasada pasuje do roli Merkurego i Wenus jako tła. Gra, która chce tam latać, może ją zdjąć.
+
+### Napęd i paliwo
+
+Model referencyjny wymaga **napędu fuzyjnego**: przy jednostce 10 km/s inne napędy nie unoszą wystarczająco dużo paliwa.
+
+**Ciąg.** Zmiana prędkości o 2 pola w ciągu tury to ok. 20 km/s w 87 dni – stałe przyspieszenie ok. 0,27 milli-g. Przy prędkości wylotu ok. 300 km/s wymaga to mocy rzędu 0,7 MW na tonę statku. To odległa przyszłość, ale fizyka pozostaje uczciwa: przyspieszenia są rzędu milli-g, a nie całego g, jak w mniej powściągliwej fantastyce naukowej.
+
+**Zbiornik.** Zmiana prędkości, jaką da pełny zbiornik, zależy tylko od prędkości wylotu i od stosunku masy statku z paliwem do masy bez paliwa – nie od wielkości statku. Dla frachtowca liczy się przy tym ładunek, bo wchodzi do masy. Przykład: konstrukcja o masie 1, ładunek 1 (albo 2), pełny zbiornik o masie 2, prędkość wylotu ok. 300 km/s:
+
+| Stan frachtowca | Stosunek mas | Δv | Jednostki w grze |
+|-----------------|--------------|----|------------------|
+| pusty | 3 | ok. 330 km/s | ok. 33 |
+| z ładunkiem | 2 | ok. 210 km/s | ok. 21 |
+| mocno obciążony | 1,7 | ok. 155 km/s | ok. 15 |
+
+Na potrzeby gry wystarczy jedna wartość: **zbiornik rzędu 20 jednostek**. Przeskok kosztuje 2, a cała trasa z rozpędzeniem, poprawkami i hamowaniem ok. 3–6, więc paliwo realnie ogranicza – statki muszą tankować. Gra, która chce oddać wpływ ładunku, może pozwolić pustemu statkowi lecieć dalej – ok. 1,5 raza. Lżejsze statki pasażerskie mają większy stosunek mas, więc i większy zasięg.
+
+Inne napędy nie wystarczają. Napęd jądrowo-elektryczny (prędkość wylotu ok. 40 km/s) dałby zbiornik na ok. 3 jednostki, jądrowy termiczny (ok. 9 km/s) – na mniej niż 1.
+
+Rzeczywistą możliwością jest tankowanie w pasie planetoid: materiał pędny, na przykład wodę, można pozyskiwać z samych planetoid.
+
+### Manewry w pasie planetoid
+
+Pas planetoid jest bardzo pusty – średnia odległość między planetoidami to ok. miliona km, a sondy przelatują przez niego bez żadnych manewrów. Ominięcie przeszkód nie jest więc tym, co kosztuje. Kosztuje dopasowanie się do celu: żeby wylądować na konkretnej planetoidzie, trzeba wejść na jej orbitę, a każda planetoida ma własną. To zarazem rzeczywisty odpowiednik dryfu – gdy gra go pomija, jego koszt zawiera się w koszcie manewrów.
+
+### Model uproszczony: koszt za pole
+
+Model uproszczony nie śledzi prędkości statku – płaci się za każde pole ruchu własnego:
+
+| Gdzie | Prędkość własna | Koszt |
+|-------|-----------------|-------|
+| pierścień 1 | zamknięty dla statków | – |
+| pierścień 2 (Ziemia) | maks. 1 pole/turę | 3 |
+| pierścień 3 (Mars) | maks. 1 pole/turę | 2 |
+| pierścienie 4–6 (pas planetoid) | 1 albo 2 pola/turę | 1 za 1 pole, 3 za 2 pola |
+
+Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka.
+
+**Interpretacja.** Model uproszczony odpowiada frachtowcom latającym najtańszymi trasami (transfer Hohmanna) z czasem przelotu skróconym dla grywalności. Jedna jednostka to wtedy ok. 1,8 km/s, a wystarcza napęd jądrowo-elektryczny (prędkość wylotu ok. 40 km/s) – zbiornik frachtowca z ładunkiem mieści ok. 15 jednostek.
+
+**Skąd mnożniki.** Najtańsze trasy są tym droższe, im bliżej Słońca – koszt maleje mniej więcej jak odległość do potęgi 1,5:
+
+| Pierścień | Przejście na pierścień dalej (najtańsza trasa) | Strumień ciepła ze Słońca |
+|-----------|------------------------------------------------|---------------------------|
+| 1 (0,5 AU) | 7,5× | 4× ziemskiego |
+| 2 (Ziemia) | 3,3× | 1× |
+| 3 (Mars) | 2× | 0,4× |
+| 4 | 1,4× | 0,25× |
+| 5 | 1 | 0,16× |
+
+Mnożnik ×3 na pierścieniu 2, ×2 na pierścieniu 3 i ×1 w pasie planetoid dobrze to oddaje.
+
+**Kalibracja.** Koszt w grze (z zasadą najbliższego pierścienia) i najtańsza trasa:
 
 | z \ do | 2 | 3 | 4 | 5 | 6 |
 |---|---|---|---|---|---|
@@ -127,8 +242,6 @@ Koszty z proponowanego modelu lotów (niżej) można porównać z rzeczywistą z
 | **5** | 6 | 3 | 1 | – | 1 |
 | **6** | 7 | 4 | 2 | 1 | – |
 
-**Najtańsza trasa: Δv** (w nawiasie km/s na jednostkę kosztu w grze):
-
 | z \ do | 3 | 4 | 5 | 6 |
 |---|---|---|---|---|
 | **2** | 5,4 km/s (1,80) | 8,5 km/s (1,69) | 10,4 km/s (1,74) | 11,7 km/s (1,68) |
@@ -136,113 +249,27 @@ Koszty z proponowanego modelu lotów (niżej) można porównać z rzeczywistą z
 | **4** | | | 2,2 km/s (2,22) | 3,8 km/s (1,91) |
 | **5** | | | | 1,6 km/s (1,64) |
 
-**Czas przelotu w turach** – w grze (1 pierścień na turę) / na najtańszej trasie:
+W nawiasach – km/s na jednostkę kosztu w grze. Wszystkie pary mieszczą się w 1,6–2,2 km/s na jednostkę, więc tabela kosztów jest spójna z najtańszymi trasami.
 
-| z \ do | 3 | 4 | 5 | 6 |
-|---|---|---|---|---|
-| **2** | 1 / 2,9 | 2 / 3,9 | 3 / 4,9 | 4 / 6,0 |
-| **3** | | 1 / 4,9 | 2 / 6,0 | 3 / 7,1 |
-| **4** | | | 1 / 7,1 | 2 / 8,3 |
-| **5** | | | | 1 / 9,6 |
+**Limity prędkości** wynikają z założenia, że w jednej turze statek może zużyć najwyżej ok. 3 jednostki: przy Ziemi to 1 pole, przy Marsie też 1 (2 pola kosztowałyby 4), w pasie 2 pola. **Kara za prędkość** (2 pola za 3) to dopłata za pośpiech. **Zasada najbliższego pierścienia** sprawia, że lot tam i z powrotem kosztuje tyle samo, tak jak w rzeczywistości.
 
-Jedna jednostka kosztu to w całej planszy ok. **1,8 km/s** (1,6–2,2 km/s) – model lotów jest spójny z kosztami oszczędnych tras. Najbardziej odstaje skok między pierścieniami 4 i 5, który gra liczy o ok. 20% za tanio. Inaczej jest z czasem: gra skraca przeloty ok. 3 razy w okolicach Ziemi i Marsa, a między sąsiednimi pierścieniami pasa planetoid 7–10 razy. Najtańsza trasa z pierścienia 4 na 5 trwałaby 7 tur – w grze byłoby to nie do zniesienia.
+**Co model uproszczony traci:**
 
-To świadoma decyzja: **koszty jak na oszczędnych trasach, czas skrócony dla grywalności**. Gdyby statki naprawdę latały w tempie gry, każda trasa kosztowałaby 18–26 km/s niezależnie od tego, skąd i dokąd – przy takiej prędkości liczy się głównie tempo, a nie położenie względem Słońca. W pasie lot o 2 pierścienie w jednej turze kosztowałby ok. 41 km/s zamiast ok. 20 – stąd kara za prędkość w modelu lotów.
+- **Płaci się za drogę, a nie za zmianę prędkości.** Długie przeloty kosztują kilka razy za dużo: trasa o 4 pola kosztuje fizycznie tyle co o 1 pole, a w modelu 4 razy więcej. Kara za prędkość jest za to za mała – fizycznie dwa razy szybszy lot kosztuje dwa razy więcej.
+- **Czas jest skrócony nierówno.** Najtańsza trasa Ziemia → Mars trwa ok. 3 tury, a między sąsiednimi pierścieniami pasa 7–10 tur; w grze każda trwa turę. Gra skraca więc czas w pasie kilka razy bardziej niż przy Ziemi – i stąd biorą się mnożniki. Przy jednakowym tempie koszt praktycznie nie zależy od pierścienia:
 
-### Okna transferowe
+| Czas lotu (tury) | 1 | 2 | 3 | Najtańsza trasa |
+|------------------|---|---|---|-----------------|
+| 2 → 3 (Ziemia → Mars) | 19 km/s | 7,8 km/s | 5,4 km/s | 5,4 km/s w 2,9 tury |
+| 3 → 4 | 20 km/s | 9,1 km/s | 5,4 km/s | 3,2 km/s w 4,9 tury |
+| 4 → 5 | 20 km/s | 9,6 km/s | 6,0 km/s | 2,2 km/s w 7,1 tury |
+| 5 → 6 | 20 km/s | 9,8 km/s | 6,3 km/s | 1,6 km/s w 9,6 tury |
 
-Skrócony czas przelotów wpływa na okna transferowe tylko częściowo.
+- **Kąty startu w oknach transferowych są przybliżone** (patrz „Okna transferowe”).
 
-**Częstotliwość okien jest dokładna.** Planety poruszają się na planszy zgodnie z rzeczywistością, więc korzystne ustawienia powtarzają się co tyle samo tur co w rzeczywistości: Ziemia–Mars co 9 tur (ok. 26 miesięcy), Ziemia–pas planetoid co 6 tur, Mars–pas planetoid co 18 tur.
+Model uproszczony jest spójny sam w sobie i dobrze nadaje się do gier, które nie chcą śledzić prędkości statków. Dalsze uproszczenia – na przykład stały koszt za pole na całej planszy – są możliwe, ale oddalają model od fizyki jeszcze bardziej.
 
-**Ustawienie planet w chwili startu jest przybliżone.** Tabela pokazuje, o ile stopni cel musi wyprzedzać statek w chwili startu (minus – cel jest z tyłu):
-
-| Trasa | W grze | Najtańsza trasa | Różnica |
-|-------|--------|-----------------|---------|
-| Ziemia → Mars | +39° | +43° | −4° |
-| Ziemia → pierścień 4 | +72° | +63° | +8° |
-| Mars → pierścień 4 | +16° | +33° | −16° |
-| Mars → Ziemia | −39° | −72° | +33° |
-| pierścień 4 → Ziemia | −94° | −151° | +57° |
-| pierścień 5 → Ziemia | −158° | +123° | +79° |
-
-Loty na zewnątrz wychodzą dobrze, lot Ziemia → Mars prawie idealnie. Loty powrotne do Ziemi są wyraźnie przesunięte: na najtańszej trasie statek okrąża pół Słońca, a w czasie długiego lotu szybka Ziemia przesuwa się dużo dalej niż w grze.
-
-Dla rozgrywki to nie problem – gra jest wewnętrznie spójna, a gracz uczy się prawdziwej zasady: trzeba celować tam, gdzie cel będzie, i czekać na okno. Konkretnych kątów startu gra nie oddaje dokładnie.
-
-### Pierścień 1 – strefa zamknięta
-
-Domyślnie statki nie wlatują na pierścień 1. Przemawiają za tym trzy powody:
-
-- **Koszt** – manewry są tam 8–11 razy droższe niż w pasie planetoid. W rzeczywistości misje do Merkurego trwają latami i wymagają wielu przelotów obok planet: sonda MESSENGER wystartowała w 2004 roku, a na orbitę Merkurego weszła dopiero w 2011, po sześciu takich przelotach.
-- **Ciepło** – strumień promieniowania słonecznego jest tam cztery razy większy niż przy Ziemi, a przy Merkurym prawie siedem razy.
-- **Sterowanie** – pierścień przesuwa się o pół obiegu na turę. Statek o prędkości własnej 1–2 pola na turę praktycznie traci kontrolę nad tym, gdzie się znajdzie.
-
-Zasada pasuje do roli Merkurego i Wenus jako tła. Gra, która chce tam latać, może ją zdjąć.
-
-### Napęd i paliwo
-
-Statki w grze to duże frachtowce, przewożące ładunek i ludzi. Najlepiej pasuje do nich przyszły **napęd jądrowo-elektryczny**: reaktor zasila silniki elektryczne o małym ciągu, pracujące tygodniami. Tak – na dużo mniejszą skalę – latała sonda Dawn: jej silniki jonowe pracowały łącznie prawie 6 lat, prowadząc ją po spirali między orbitami.
-
-**Ciąg.** Przy kalibracji opisanej wyżej statek zużywający w turze 3 jednostki (ok. 5,4 km/s) potrzebuje stałego przyspieszenia ok. 0,07 milli-g – mniej więcej 10 razy więcej niż Dawn. Wymaga to reaktorów o kilka razy lepszym stosunku mocy do masy niż dzisiejsze koncepcje. To przyszłość, ale nieodległa.
-
-**Zbiornik.** Zmiana prędkości, jaką da pełny zbiornik, zależy tylko od prędkości wylotu (dla napędu jądrowo-elektrycznego ok. 30–50 km/s) i od stosunku masy statku z paliwem do masy bez paliwa – nie od wielkości statku. Dla frachtowca liczy się przy tym ładunek, bo wchodzi do masy:
-
-| Stan frachtowca | Stosunek mas | Δv | Jednostki w grze |
-|-----------------|--------------|----|------------------|
-| pusty | 3 | ok. 45 km/s | ok. 25 |
-| z ładunkiem | 2 | ok. 28 km/s | ok. 15 |
-| mocno obciążony | 1,7 | ok. 20 km/s | ok. 11 |
-
-Przykład zakłada konstrukcję o masie 1, ładunek 1 (albo 2) i pełny zbiornik o masie 2. Na potrzeby gry wystarczy jedna wartość: **zbiornik rzędu 15 jednostek**. Gra, która chce oddać wpływ ładunku, może pozwolić pustemu statkowi lecieć dalej – ok. 1,5 raza.
-
-Inne napędy pasują gorzej. Napęd jądrowy termiczny (prędkość wylotu ok. 9 km/s) dałby zbiornik na 3–4 jednostki. Przy napędzie fuzyjnym paliwo przestałoby być ograniczeniem – zbiornik starczałby na całą grę.
-
-Rzeczywistą możliwością jest tankowanie w pasie planetoid: materiał pędny, na przykład wodę, można pozyskiwać z samych planetoid.
-
-### Wariant: loty pasażerskie i napęd fuzyjny
-
-Pasażerom zależy na czasie, więc dla nich skracanie czasu przelotów nie jest uproszczeniem, tylko celem. Lot w rzeczywistym tempie gry kosztuje 18–26 km/s na trasę – 3–7 razy więcej niż ta sama trasa dla frachtowca. Lot z prędkością 2 pól na turę także przy Ziemi i Marsie kosztuje 43–48 km/s (na przykład Ziemia → pierścień 4 w jedną turę).
-
-| | Jądrowo-elektryczny (wylot ok. 40 km/s) | Fuzyjny (wylot rzędu 300 km/s) |
-|---|---|---|
-| Lekki statek pasażerski, pełny zbiornik | ok. 45–55 km/s – **2 loty** w tempie gry | ok. 200–330 km/s – **ok. 10 lotów** w tempie gry albo 4–7 lotów po 2 pola na turę |
-| Potrzebne przyspieszenie i moc | ok. 0,3 milli-g – moc ok. 100 kW na tonę statku, kilkanaście razy więcej niż dzisiejsze koncepcje | 0,3–1 milli-g – moc rzędu megawata na tonę, odległa przyszłość |
-| Frachtowiec, pełny zbiornik | ok. 15 jednostek (model podstawowy) | ok. 100 jednostek – paliwo praktycznie przestaje się liczyć |
-
-Napęd fuzyjny pozwala latać naprawdę w tempie gry – bez skracania czasu, więc z dokładnymi kątami startu. Zmienia się jednak struktura kosztów: w tym tempie koszt nie zależy od pierścienia ani od długości trasy, tylko od liczby rozpędzań i hamowań. Mnożniki ×3 / ×2 / ×1 tracą wtedy uzasadnienie fizyczne.
-
-Plansza ma więc dwa spójne ujęcia:
-
-- **A – model podstawowy:** frachtowce z napędem jądrowo-elektrycznym; koszty jak na najtańszych trasach, czas skrócony, kąty startu przybliżone.
-- **B – wariant:** napęd fuzyjny; tempo i okna transferowe prawdziwe, paliwa w zasadzie pod dostatkiem, koszt zależny od manewrów, a nie od liczby pól. Pasuje do gier z liniowcami pasażerskimi albo do gier, które chcą wiernie oddać okna transferowe.
-
-### Manewry w pasie planetoid
-
-Pas planetoid jest bardzo pusty – średnia odległość między planetoidami to ok. miliona km, a sondy przelatują przez niego bez żadnych manewrów. Ominięcie przeszkód nie jest więc tym, co kosztuje. Kosztuje dopasowanie się do celu: żeby wylądować na konkretnej planetoidzie, trzeba wejść na jej orbitę, a każda planetoida ma własną. To zarazem rzeczywisty odpowiednik dryfu – gdy gra go pomija, jego koszt zawiera się w koszcie manewrów.
-
-### Proponowany model lotów
-
-Z powyższych szacunków, zaokrąglonych na potrzeby grywalności, wynika podstawowy model lotów proponowany dla gier na tej planszy:
-
-| Gdzie | Prędkość własna | Koszt |
-|-------|-----------------|-------|
-| pierścień 1 | zamknięty dla statków | – |
-| pierścień 2 (Ziemia) | maks. 1 pole/turę | 3 |
-| pierścień 3 (Mars) | maks. 1 pole/turę | 2 |
-| pierścienie 4–6 (pas planetoid) | 1 albo 2 pola/turę | 1 za 1 pole, 3 za 2 pola |
-
-Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka. Zbiornik frachtowca mieści rzędu 15 jednostek.
-
-**Koszty za pole** to mnożniki z tabeli „Koszt a odległość od Słońca”. Jedna jednostka odpowiada ok. 1,8 km/s.
-
-**Limity prędkości** wynikają z ograniczonego ciągu silników: w jednej turze statek może zużyć najwyżej ok. 3 jednostki. Przy Ziemi to 1 pole (koszt 3), przy Marsie też 1 pole (2 pola kosztowałyby 4), w pasie 2 pola (koszt 3).
-
-**Kara za prędkość** (2 pola za 3, a nie za 2) to dopłata za pośpiech. Lot szybszy niż na oszczędnej trasie wymaga mocniejszego rozpędzenia i hamowania, więc kosztuje więcej niż proporcjonalnie.
-
-**Zasada najbliższego pierścienia** sprawia, że model zgadza się z rzeczywistością także na całych trasach. Lot z orbity Ziemi do pasa (na pierścień 4) kosztuje w grze 3 + 2 = 5, a z orbity Marsa 2. Stosunek 2,5 jest bliski rzeczywistemu – ok. 2,7. Powrót kosztuje tyle samo co wylot, tak jak w rzeczywistości. Przy liczeniu kosztu według pierścienia startowego powrót z pasa na Ziemię kosztowałby 3, a wylot 5 – bez uzasadnienia fizycznego.
-
-**Upraszczanie modelu.** Gry mogą przyjąć prostsze zasady, na przykład stały koszt ruchu na całej planszy. Rozluźniają w ten sposób podejście twardej science fiction: manewry przy Ziemi stają się wyraźnie za tanie, a szybkość – darmowa.
+**Geometria planszy.** W żadnym z modeli kosztów nie uwzględniono w samej planszy – na przykład przez pola tym mniejsze, im bliżej Słońca. Plansza pokazywałaby wtedy koszt zamiast przestrzeni i straciłaby to, co jest jej główną wartością: prawdziwe odległości i proporcje ruchu orbitalnego. Mapy zbudowane z kosztów manewrów istnieją (taką ma na przykład gra High Frontier), ale tracą wyczucie, gdzie co naprawdę leży.
 
 ## Wybór kości do losowania w pasie planetoid
 
@@ -260,5 +287,6 @@ Mimo uproszczeń model przekazuje rzeczy, których popularne wizualizacje Układ
 - Transfer między orbitami wymaga planowania w czasie: trzeba przewidzieć, gdzie będzie cel w momencie przybycia.
 - Pas planetoid jest szeroki, nie cienki.
 - Układ inercjalny to nie jedyna możliwość opisu ruchu – wybór układu odniesienia ma konsekwencje.
+- W kosmosie płaci się za zmianę prędkości, a nie za przebytą drogę.
 
 Ziemia i Mars poruszają się na planszy zgodnie z rzeczywistością. Największe uproszczenia – wspólny pierścień Merkurego i Wenus oraz uproszczony albo pomijany dryf w pasie – dotyczą miejsc, w których dokładność nie wpływa na decyzje gracza. Gracz bez wiedzy astronomicznej spotka model spójny i intuicyjny. Gracz z tą wiedzą rozpozna, że mechanika jest prawdziwa – tylko zaokrąglona do liczb, z którymi da się grać.
