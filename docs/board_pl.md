@@ -55,8 +55,6 @@ Ruch kątowy jest różny dla każdej orbity, bo pierścienie mają różny obw�
 
 Ruch odbywa się w tym samym kierunku dla wszystkich (zgodnie z rzeczywistym kierunkiem obiegu wokół Słońca). Merkury i Wenus nie są śledzone jako aktywne lokacje w grze.
 
-Ziemia **nie wraca** do tego samego heksa po czterech rundach – plansza obraca się razem z pasem, więc jej pozycja względem planszy stale się przesuwa.
-
 ## Ruch statków
 
 Każdy statek ma dwa składniki ruchu, które działają łącznie:
