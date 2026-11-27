@@ -61,20 +61,21 @@ TEXT = {   # noqa: E501
 NAVY, ORANGE, SUN_YELLOW = "#000040", "#ff8000", "#ffff60"
 EXO, ORBITRON = "'Exo 2', sans-serif", "Orbitron, sans-serif"
 THEMES = {
-    # ring: (fill, stroke); belt: even and odd sectors; text colours per ring 1-3.
+    # Both versions darken outwards, as sunlight weakens with distance from the Sun.
+    # rings: fill per ring 0-3; belt: even and odd sectors; text colours per ring 1-3.
     # Text contrast (WCAG): the Earth and Mars alike, Venus and Mercury paler on purpose
-    # (dark: 8.6, 8.6, 4.1; light: 5.0, 4.6, 4.2). Accent: dice labels and sector borders,
-    # darker on the light belt to stay readable.
-    "dark": dict(rings={0: ("#6060ff", "#000080"), 1: ("#3030ff", "#000000"),
-                        2: ("#0000ff", "#000000"), 3: ("#000080", "#000000")},
-                 belt=("#000040", "#000000"), belt_stroke="#0000ff",
+    # (about 8.5 and 4.1 in both versions). Accent: dice labels and sector borders.
+    # Lines between hexes: one ink, light on the dark board and dark on the light one,
+    # laid semi-transparently over the fills, so every edge differs from its hexes by
+    # the same step whatever their colour.
+    "dark": dict(rings={0: "#6060ff", 1: "#3030ff", 2: "#0000ff", 3: "#000080"},
+                 belt=("#000040", "#000000"), line=("#a0a0ff", 0.35),
                  ring_text={1: "#c0c0ff", 2: "#ffffff", 3: "#b8b8ff"}, belt_text="#8080ff",
-                 accent=ORANGE),
-    "light": dict(rings={0: ("#000040", "#000080"), 1: ("#000080", "#000000"),
-                         2: ("#0000ff", "#000000"), 3: ("#6060ff", "#000000")},
-                  belt=("#c0c0ff", "#ffffff"), belt_stroke=NAVY,
-                  ring_text={1: "#7070ff", 2: "#c0c0ff", 3: "#ffffff"}, belt_text="#5030c0",
-                  accent="#b84800"),
+                 accent=ORANGE, sun_stroke=None),
+    "light": dict(rings={0: "#ffffff", 1: "#f0f0ff", 2: "#e0e0ff", 3: "#d0d0ff"},
+                  belt=("#c0c0ff", "#b0b0ff"), line=(NAVY, 0.35),
+                  ring_text={1: "#6868d0", 2: "#2828b0", 3: "#2020a0"}, belt_text="#4020a0",
+                  accent="#a03800", sun_stroke=ORANGE),
 }
 
 # Dice labels in the asteroid belt. Sectors come in pairs spanning 60 degrees:
@@ -123,6 +124,11 @@ def belt_sectors():
 
 def fmt(x):
     return f"{x:.3f}".rstrip("0").rstrip(".")
+
+
+def hex_corner(cx, cy, i, s=S):
+    a = math.radians(60 * i - 30)
+    return (round(cx + s * math.cos(a), 3), round(cy + s * math.sin(a), 3))
 
 
 def hex_points(cx, cy, s):
@@ -257,6 +263,7 @@ def board_art(lang, theme, fmt_name="a2"):
     def turned(x, y):
         return at(x * math.cos(a) - y * math.sin(a), x * math.sin(a) + y * math.cos(a))
 
+    edges = set()   # each edge once, so shared edges are not drawn twice
     for q in range(-RADIUS, RADIUS + 1):
         for r in range(-RADIUS, RADIUS + 1):
             h = (q, r)
@@ -264,11 +271,14 @@ def board_art(lang, theme, fmt_name="a2"):
             if k > RADIUS:
                 continue
             x, y = turned(*centre(h))
-            if k <= 3:
-                fill, stroke = th["rings"][k]
-            else:
-                fill, stroke = th["belt"][sectors[h][2]], th["belt_stroke"]
-            el.append(f'<polygon points="{hex_points(x, y, S)}" fill="{fill}" stroke="{stroke}" stroke-width="0.3"/>')
+            fill = th["rings"][k] if k <= 3 else th["belt"][sectors[h][2]]
+            el.append(f'<polygon points="{hex_points(x, y, S)}" fill="{fill}"/>')
+            for i in range(6):
+                c0, c1 = hex_corner(x, y, i), hex_corner(x, y, i + 1)
+                edges.add((min(c0, c1), max(c0, c1)))
+    ink, opacity = th["line"]
+    el.append(f'<path d="{"".join(f"M{fmt(p[0])},{fmt(p[1])}L{fmt(q[0])},{fmt(q[1])}" for p, q in sorted(edges))}" '
+              f'fill="none" stroke="{ink}" stroke-opacity="{opacity}" stroke-width="0.3" stroke-linecap="round"/>')
     for h, (number, label, _) in sectors.items():
         x, y = turned(*centre(h))
         el.append(text(x, y + 5.4, label, SMALL, th["accent"], ORBITRON))
@@ -291,7 +301,8 @@ def board_art(lang, theme, fmt_name="a2"):
             if p < q and len(corners[p] | corners[q]) > 1 and len(corners[p] & corners[q]) > 1:
                 el.append(f'<line x1="{fmt(p[0])}" y1="{fmt(p[1])}" x2="{fmt(q[0])}" y2="{fmt(q[1])}" '
                           f'stroke="{th["accent"]}" stroke-width="0.6" stroke-linecap="round"/>')
-    el.append(f'<circle cx="{fmt(sx)}" cy="{fmt(sy)}" r="3.76" fill="{SUN_YELLOW}"/>')
+    sun_stroke = f' stroke="{th["sun_stroke"]}" stroke-width="0.4"' if th["sun_stroke"] else ""
+    el.append(f'<circle cx="{fmt(sx)}" cy="{fmt(sy)}" r="3.76" fill="{SUN_YELLOW}"{sun_stroke}/>')
     rt = th["ring_text"]
     # planet names above the Sun, orbital movement below it, one ring at a time
     el.append(text(*at(0, -17.7), t["venus"], MINOR, rt[1]))
@@ -323,7 +334,7 @@ def board_art(lang, theme, fmt_name="a2"):
     el.append(on_photo(*at(123.5, 65.5), t["mars"]))
     lx, ly = at(143, 12)
     el.append(f'<polygon points="{hex_points(lx, ly, 10)}" fill="{th["belt"][0]}" '
-              f'stroke="{th["belt_stroke"]}" stroke-width="0.5"/>')
+              f'stroke="{th["line"][0]}" stroke-opacity="{th["line"][1]}" stroke-width="0.5"/>')
     el.append(text(lx, ly - 1, t["d12"], 6.2, th["accent"], ORBITRON))
     el.append(text(lx, ly + 5, t["d8"], 3.0, th["accent"], ORBITRON))
     ax, ay = lx - 10, ly
