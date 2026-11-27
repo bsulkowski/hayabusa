@@ -18,7 +18,7 @@ Wynikają z tego trzy rzeczy:
 
 Fizyka jest prawdziwa, z przyszłości pochodzą tylko silniki statków. Odległości i prędkości orbitalne zachowują rzeczywiste proporcje, okna transferowe powtarzają się tak często jak w rzeczywistości, a statki płacą za zmianę prędkości, nie za przebytą drogę.
 
-Zasada obowiązuje do końca, także w szczegółach: statki to duże frachtowce, a nie lekkie sondy, i każdy element pionków ma uzasadnienie w fizyce i technice opisanej w modelu.
+Zasada obowiązuje do końca, także w szczegółach: statki to duże frachtowce, a nie lekkie sondy, i każdy element pionków ma uzasadnienie w fizyce i technice opisanej w modelu. Także obok siatki: planety i ich orbity są narysowane w jednej, konkretnej skali, na prawdziwych zdjęciach, a [skale](model_pl.md#skale-na-wydruku) są wypisane na planszy.
 
 ## Punkt odniesienia, poluzowania świadomie
 

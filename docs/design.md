@@ -18,7 +18,7 @@ Three things follow from this:
 
 The physics is real; only the ships' engines come from the future. Distances and orbital speeds keep their real proportions, transfer windows come round as often as in reality, and ships pay for changing their velocity, not for the distance travelled.
 
-The principle holds all the way down, details included: the ships are large freighters, not light probes, and every element of the pawns is justified by the physics and technology described in the model.
+The principle holds all the way down, details included: the ships are large freighters, not light probes, and every element of the pawns is justified by the physics and technology described in the model. Beside the grid too: the planets and their orbits are drawn at one definite scale, from real photographs, and [the scales](model.md#scales-of-the-printed-board) are printed on the board.
 
 ## A point of reference, loosened knowingly
 

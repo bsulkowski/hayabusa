@@ -20,10 +20,10 @@ Pierścień numer `x` zawiera dokładnie `6x` heksów.
 
 Planszę drukuje się na zwykłej drukarce, na kartkach A4, które skleja się w całość:
 
-- **A2 z 4 kartek** (pliki `*_a2.pdf`) – format docelowy, w skali 1 : 2,5 · 10<sup>12</sup> (1 mm to ok. 2,5 mln km). Pole ma ok. 30 mm między bokami, a pionki 3D mieszczą się w jednym polu, jeśli mają najwyżej ok. 27 mm szerokości.
-- **A3 z 2 kartek** (pliki `*_a3.pdf`) – w skali 1 : 3,2 · 10<sup>12</sup>. Pole ma ok. 23 mm, za mało dla pionków 3D, ale wystarczy dla płaskich żetonów.
+- **A2 z 4 kartek** (pliki `*_a2.pdf`) – format docelowy. Pole ma ok. 30 mm między bokami, a pionki 3D mieszczą się w jednym polu, jeśli mają najwyżej ok. 27 mm szerokości.
+- **A3 z 2 kartek** (pliki `*_a3.pdf`). Pole ma ok. 23 mm, za mało dla pionków 3D, ale wystarczy dla płaskich żetonów.
 
-Ziemia, Mars, Ceres i Westa obok planszy mają własną, wspólną skalę: 1 : 6 · 10<sup>7</sup> na A2, czyli 1 mm to 60 km (ok. 1 : 7,7 · 10<sup>7</sup> na A3). W tej skali Ziemia jest dwa razy większa od Marsa, a Ceres i Westa to małe kulki – Ceres, największa w pasie, ma średnicę prawie dwa razy większą od Westy, drugiej co do wielkości. Przerywane koła to niskie orbity: 400 km nad Ziemią (jak ISS) i nad Marsem, a przy Ceres i Weście niska orbita mapowania sondy Dawn – 385 i 210 km. Obie skale są wypisane na planszy. Słońce nie jest w żadnej z nich: w skali siatki byłoby kropką o średnicy ok. 0,6 mm, więc na planszy jest symbolem, ok. 23 razy większym (13 mm na A2), a w skali planet miałoby 23 m średnicy. [Pionki](../models/README_pl.md) mają jeszcze inną: statek długości 36 mm odpowiada prawdziwemu statkowi od ok. 70 m do blisko kilometra, czyli skali od ok. 1 : 2000 do ok. 1 : 30 000.
+Obok siatki są Ziemia i Mars z polami stacji oraz Ceres i Westa – na prawdziwych zdjęciach, w skali. Skale planszy opisuje [model](model_pl.md#skale-na-wydruku).
 
 Kartki drukuje się w skali 100%, bez dopasowania do strony. Przy każdym łączeniu obie kartki przycina się wzdłuż przerywanych linii (odcina się margines), dosuwa brzegami i skleja taśmą od spodu. Łączenie działa wtedy jak zawias. Łączenia biegną między środkami pól, nigdy przez nie.
 

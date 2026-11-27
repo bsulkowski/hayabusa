@@ -27,6 +27,15 @@ Ceres (2,77 j.a.) wypada na granicy pierścieni 5 i 6.
 
 Merkury leży realnie przy 0,39 j.a., Wenus przy 0,72 j.a. W modelu obie planety trafiają do pierścienia 1 (0,5 j.a.) – żadna nie wychodzi dobrze. To świadoma decyzja: obie planety są w grach tłem, a nie aktywnymi lokacjami, więc dokładność ich położenia nie ma znaczenia dla rozgrywki.
 
+## Skale na wydruku
+
+Na wydruku plansza ma kilka skal naraz, każdą dobraną do tego, co pokazuje. Skale siatki i planet są wypisane na planszy, w zapisie 10<sup>x</sup> – „bilion” znaczy 10<sup>12</sup> albo 10<sup>9</sup> zależnie od języka, a potęga dziesięciu nie budzi wątpliwości.
+
+- **Siatka:** 1 : 2,5 · 10<sup>12</sup> na A2, czyli 1 mm to ok. 2,5 mln km, i 1 : 3,2 · 10<sup>12</sup> na A3. Obie liczby to wartości [Human Scale Numbers](https://github.com/bsulkowski/human-scale-numbers).
+- **Planety i orbity:** 1 : 6 · 10<sup>7</sup> na A2, czyli 1 mm to 60 km (ok. 1 : 7,7 · 10<sup>7</sup> na A3). Tu liczy się nie HSN, tylko łatwe przeliczanie. Ziemia, Mars, Ceres i Westa obok siatki to [prawdziwe zdjęcia](../board/images/README_pl.md), wszystkie w tej jednej skali: Ziemia jest dwa razy większa od Marsa, a Ceres i Westa to małe kulki – Ceres, największa w pasie, ma średnicę prawie dwa razy większą od Westy, drugiej co do wielkości. Z Ziemi mieści się tylko fragment, a Mars jest tak duży, jak pozwala miejsce – od tego wzięła się skala. Przerywane koła to niskie orbity w tej samej skali: 400 km nad Ziemią (jak ISS) i nad Marsem, a przy Ceres i Weście niska orbita mapowania sondy Dawn – 385 i 210 km.
+- **Słońce** nie jest w żadnej z tych skal: w skali siatki byłoby kropką o średnicy ok. 0,6 mm, więc na planszy jest symbolem, ok. 23 razy większym (13 mm na A2), a w skali planet miałoby 23 m średnicy.
+- **[Pionki](../models/README_pl.md)** mają jeszcze inną: statek długości 36 mm odpowiada prawdziwemu statkowi od ok. 70 m do blisko kilometra, czyli skali od ok. 1 : 2000 do ok. 1 : 30 000. Na polu stacji statek nie musi więc stać wewnątrz orbity – stawia się go na planecie, na orbicie albo obok.
+
 ## Układ odniesienia i prędkości orbitalne
 
 ### Skąd pochodzi ruch o 3/2/1/0 pól na rundę

@@ -27,6 +27,15 @@ Ceres (2.77 AU) falls on the boundary between rings 5 and 6.
 
 Mercury actually lies at 0.39 AU, Venus at 0.72 AU. In the model both planets land on ring 1 (0.5 AU) – neither comes out well. This is a deliberate decision: both planets are background in games, not active locations, so the accuracy of their positions doesn't matter for play.
 
+## Scales of the printed board
+
+The printed board has several scales at once, each chosen for what it shows. The grid and planet scales are printed on the board, written as 10<sup>x</sup> – "billion" means 10<sup>9</sup> or 10<sup>12</sup> depending on the language, while a power of ten leaves no doubt.
+
+- **The grid:** 1 : 2.5 · 10<sup>12</sup> on A2, i.e. 1 mm is about 2.5 million km, and 1 : 3.2 · 10<sup>12</sup> on A3. Both numbers are [Human Scale Numbers](https://github.com/bsulkowski/human-scale-numbers) values.
+- **Planets and orbits:** 1 : 6 · 10<sup>7</sup> on A2, i.e. 1 mm is 60 km (about 1 : 7.7 · 10<sup>7</sup> on A3). Here what matters is not HSN but easy reckoning. The Earth, Mars, Ceres and Vesta beside the grid are [real photographs](../board/images/README.md), all at this one scale: the Earth is twice the size of Mars, and Ceres and Vesta are small balls – Ceres, the largest body in the belt, is almost twice as wide as Vesta, the second largest. Only a part of the Earth fits, and Mars is as large as the space allows – that is where the scale comes from. The dashed circles are low orbits at the same scale: 400 km above the Earth (like the ISS) and above Mars, and at Ceres and Vesta the low-altitude mapping orbit of the Dawn probe – 385 and 210 km.
+- **The Sun** follows none of these scales: at the grid scale it would be a dot about 0.6 mm across, so on the board it is a symbol, about 23 times larger (13 mm on A2), and at the planet scale it would be 23 m across.
+- **The [pawns](../models/README.md)** have yet another: the 36 mm ship stands for a real ship from about 70 m to nearly a kilometre long, i.e. a scale from about 1 : 2,000 to about 1 : 30,000. So on a station space a ship need not stand inside the orbit – it is placed on the planet, on its orbit or next to it.
+
 ## Frame of reference and orbital speeds
 
 ### Where the 3/2/1/0 hexes per round come from
