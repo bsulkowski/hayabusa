@@ -20,10 +20,10 @@ Pierścień numer `x` zawiera dokładnie `6x` heksów.
 
 Planszę drukuje się na zwykłej drukarce, na kartkach A4, które skleja się w całość:
 
-- **A2 z 4 kartek** (pliki `*_a2.pdf`) – format docelowy. Pole ma ok. 33 mm między bokami, a pionki 3D mieszczą się w jednym polu, jeśli mają najwyżej ok. 30 mm szerokości.
-- **A3 z 2 kartek** (pliki `*_a3.pdf`) – pole ma ok. 24,5 mm, za mało dla pionków 3D, ale wystarczy dla płaskich żetonów.
+- **A2 z 4 kartek** (pliki `*_a2.pdf`) – format docelowy. Pole ma ok. 31,5 mm między bokami, a pionki 3D mieszczą się w jednym polu, jeśli mają najwyżej ok. 28 mm szerokości.
+- **A3 z 2 kartek** (pliki `*_a3.pdf`) – pole ma ok. 23 mm, za mało dla pionków 3D, ale wystarczy dla płaskich żetonów.
 
-Kartki drukuje się w skali 100%, bez dopasowania do strony. Na kartce, na którą nachodzi sąsiednia, jest zakreskowany pasek z numerem tej sąsiedniej. Sąsiednią kartkę przycina się wzdłuż przerywanej linii przy jej brzegu i nakleja na pasek tak, żeby jej brzeg trafił w krawędź paska. Kolejność: 2 na 1, potem 3 i 4.
+Kartki drukuje się w skali 100%, bez dopasowania do strony. Przy każdym łączeniu obie kartki przycina się wzdłuż przerywanych linii (odcina się margines), dosuwa brzegami i skleja taśmą od spodu. Łączenie działa wtedy jak zawias: planszę A2 można złożyć do formatu A4. Łączenia biegną między środkami pól, nigdy przez nie.
 
 Plansza jest w dwóch wersjach kolorystycznych: ciemnej i jasnej (pliki `board-light…`), przyjaznej drukarce.
 
@@ -132,7 +132,8 @@ Zbiornik frachtowca mieści rzędu 20 jednostek. Linia lotu na planszy to schema
 - Statek jest **zadokowany**, gdy ma prędkość 0 na polu celu – na początku tury, na końcu tury albo pomiędzy. **Postój w przelocie** to na przykład: zahamowanie przed ruchem (−1), dokowanie, przyspieszenie na koniec tury (+1).
 - **Krótkie działania** – handel, przeładunek, wymiana pasażerów – statek wykonuje od razu po zadokowaniu, także w postoju w przelocie.
 - **Długie działania** – wydobycie, awaryjne tankowanie – wymagają **pełnej rundy postoju**: w danej turze statek ma prędkość 0 i w ogóle jej nie zmienia. Rozpędzanie i hamowanie trwają – zmiana prędkości o 2 pola to praca silnika przez całą rundę.
-- **Ziemia i Mars:** zadokowany statek stawia się na **polu stacji** planety, poza główną siatką planszy. Statek na polu stacji porusza się razem z planetą. Odlatując, na początku swojej tury wraca na pole planety – zamiast ruchu po orbicie – i dalej porusza się normalnie. Pole stacji rozwiązuje też problem tłoku przy planecie.
+- **Ziemia i Mars:** zadokowany statek stawia się na **polu stacji** planety, poza główną siatką planszy. Statek na polu stacji porusza się razem z planetą. Odlatując, na początku swojej tury wraca na pole planety – zamiast ruchu po orbicie – i dalej porusza się normalnie. Pole stacji rozwiązuje też problem tłoku przy planecie. Pola stacji to koła po prawej stronie planszy: Ziemia u góry, Mars na dole.
+- **Ceres** też ma koło obok planszy, na dole po lewej. Czy służy do czegoś poza klimatem, decyduje gra.
 - Silnik fuzyjny jest za słaby, żeby wystartować z powierzchni planety albo dużej planetoidy:
   - przy Ziemi i Marsie statek dokuje do stacji na orbicie, a na powierzchnię kursują lądowniki stacji,
   - na Ceres i Westę potrzebny jest lądownik – miejscowy albo własny, na wyposażeniu frachtowca (kosztem zasięgu lub ładunku),

@@ -17,7 +17,7 @@ Every pawn should meet three criteria:
 
 - **Aesthetics.** A minimalist, faceted (low-poly) form, consistent with the board and the other pawns.
 - **Practicality for printing and play.**
-  - The pawn fits within one hex of the board printed in A2 format – it is at most about 30 mm wide.
+  - The pawn fits within one hex of the board printed in A2 format – it is at most about 28 mm wide.
   - It is solid: no small, thin parts (at least about 1 mm thick at the final scale), easy to print and to keep clean.
   - It sits well in the hand and invites play – the ship has no base so that it can be turned freely, and it also stands well on its side.
 - **Consistency with physics.** Every element has a justification in the physics and technology described in the [board model](../docs/model.md) – the design intent is described below.
@@ -67,10 +67,10 @@ The pawn shows **the industrial part of the outpost**. The living quarters stand
 
 ## Size
 
-The board is meant to be printed in A2 format, from 4 A4 sheets. A hex is then about 33 mm across the flats, and a pawn fits within one hex if it is at most about 30 mm wide.
+The board is meant to be printed in A2 format, from 4 A4 sheets. A hex is then about 31.5 mm across the flats, and a pawn fits within one hex if it is at most about 28 mm wide.
 
 - **The ship** fits without scaling. It has no base – it is meant to be turned freely in the hand, and a base would hide the nozzles. It also stands well on its side.
-- **The outpost** takes up almost the whole hex, but fits without scaling.
+- **The outpost** is slightly too wide – it is worth printing at about 0.93 scale.
 
 ## Printing
 

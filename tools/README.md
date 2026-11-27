@@ -29,7 +29,7 @@ python board_model.py
 
 ## Board generator
 
-`board_svg.py` draws the board and writes all the files in [`board/`](../board): the whole board as SVG, PDFs for printing on A4 sheets (A2 from 4, A3 from 2, with glue strips), previews and QR codes – in two languages and two colour versions. The board graphics are changed here, not in the files.
+`board_svg.py` draws the board and writes all the files in [`board/`](../board): the whole board as SVG, PDFs for printing on A4 sheets (A2 from 4, A3 from 2, butted together), previews and QR codes – in two languages and two colour versions. The board graphics are changed here, not in the files.
 
 You need Python 3 with the `segno` library (QR codes), `rsvg-convert` (PDF and PNG; on Windows e.g. in WSL: `sudo apt install librsvg2-bin`) and the Exo 2 and Orbitron fonts (Google Fonts):
 
@@ -38,6 +38,8 @@ pip install segno
 cd tools
 python board_svg.py
 ```
+
+Photos of the Earth, Mars and Ceres are read from `board/images/` (`earth.jpg`, `mars.jpg`, `ceres.jpg` or `.png`; square, the planet filling the frame); without them the discs are drawn in plain colours. The script also warns when a label lands on a join between sheets.
 
 Without `rsvg-convert` the script writes the SVG files only (`--svg-only` does the same on purpose).
 

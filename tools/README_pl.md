@@ -29,7 +29,7 @@ Skrypty `coasting.py` i `simplified_model.py` liczą się kilkadziesiąt sekund.
 
 ## Generator planszy
 
-`board_svg.py` rysuje planszę i zapisuje wszystkie pliki w [`board/`](../board): całą planszę w SVG, PDF-y do druku na kartkach A4 (A2 z 4, A3 z 2, z paskami do klejenia), podglądy i kody QR – w dwóch językach i dwóch wersjach kolorystycznych. Grafikę planszy zmienia się tutaj, nie w plikach.
+`board_svg.py` rysuje planszę i zapisuje wszystkie pliki w [`board/`](../board): całą planszę w SVG, PDF-y do druku na kartkach A4 (A2 z 4, A3 z 2, sklejanych na styk), podglądy i kody QR – w dwóch językach i dwóch wersjach kolorystycznych. Grafikę planszy zmienia się tutaj, nie w plikach.
 
 Potrzebny jest Python 3 z biblioteką `segno` (kody QR), `rsvg-convert` (PDF i PNG; w Windows np. w WSL: `sudo apt install librsvg2-bin`) i kroje Exo 2 oraz Orbitron (Google Fonts):
 
@@ -38,6 +38,8 @@ pip install segno
 cd tools
 python board_svg.py
 ```
+
+Zdjęcia Ziemi, Marsa i Ceres skrypt bierze z `board/images/` (`earth.jpg`, `mars.jpg`, `ceres.jpg` albo `.png`; kwadratowe, planeta wypełnia kadr); bez nich rysuje koła w jednolitych kolorach. Ostrzega też, gdy napis trafia na łączenie kartek.
 
 Bez `rsvg-convert` skrypt zapisuje tylko pliki SVG (`--svg-only` robi to samo celowo).
 

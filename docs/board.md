@@ -20,10 +20,10 @@ Ring number `x` contains exactly `6x` hexes.
 
 The board is printed on an ordinary printer, on A4 sheets glued together:
 
-- **A2 from 4 sheets** (`*_a2.pdf` files) – the intended size. A hex is about 33 mm across the flats, and 3D pawns fit within one hex if they are at most about 30 mm wide.
-- **A3 from 2 sheets** (`*_a3.pdf` files) – a hex is about 24.5 mm, too small for 3D pawns but enough for flat tokens.
+- **A2 from 4 sheets** (`*_a2.pdf` files) – the intended size. A hex is about 31.5 mm across the flats, and 3D pawns fit within one hex if they are at most about 28 mm wide.
+- **A3 from 2 sheets** (`*_a3.pdf` files) – a hex is about 23 mm, too small for 3D pawns but enough for flat tokens.
 
-Print the sheets at 100% scale, without fitting to the page. A sheet that another one overlaps has a hatched strip with the number of that other sheet. Trim the other sheet along the dashed line at its edge and glue it onto the strip so that its edge meets the edge of the strip. Order: 2 onto 1, then 3 and 4.
+Print the sheets at 100% scale, without fitting to the page. At every join, trim both sheets along the dashed lines (cutting off the margin), butt their edges together and tape them on the back. The join then works as a hinge: the A2 board folds down to A4. The joins run between hex centres, never through them.
 
 The board comes in two colour versions: dark and light (`board-light…` files), printer-friendly.
 
@@ -132,7 +132,8 @@ A freighter's tank holds around 20 units. The flight line on the board is a sche
 - A ship is **docked** when it has zero velocity on the target hex – at the start of its turn, at the end of its turn, or in between. A **touch-and-go stop** is, for example: braking before moving (−1), docking, accelerating at the end of the turn (+1).
 - **Short actions** – trading, transferring cargo, exchanging passengers – the ship carries out straight after docking, including during a touch-and-go stop.
 - **Long actions** – mining, emergency refuelling – require **a full round of stopover**: in that turn the ship has zero velocity and does not change it at all. Accelerating and braking take time – a velocity change of 2 hexes is a whole round of engine work.
-- **The Earth and Mars:** a docked ship is placed on the planet's **station space**, outside the main grid of the board. A ship on the station space moves together with the planet. When leaving, at the start of its turn it returns to the planet's hex – instead of orbital movement – and then moves normally. The station space also solves crowding at the planet.
+- **The Earth and Mars:** a docked ship is placed on the planet's **station space**, outside the main grid of the board. A ship on the station space moves together with the planet. When leaving, at the start of its turn it returns to the planet's hex – instead of orbital movement – and then moves normally. The station space also solves crowding at the planet. The station spaces are the discs to the right of the board: the Earth at the top, Mars at the bottom.
+- **Ceres** also has a disc beside the board, at the bottom left. Whether it serves any purpose beyond atmosphere is up to the game.
 - A fusion drive is too weak to lift off from the surface of a planet or a large asteroid:
   - at the Earth and Mars the ship docks at a station in orbit, and the station's landers run to the surface,
   - Ceres and Vesta need a lander – a local one or the freighter's own, carried on board (at the cost of range or cargo),

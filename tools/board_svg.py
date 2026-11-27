@@ -6,8 +6,9 @@ For every language (EN, PL) and colour version (dark, light) it writes:
   board/board[-light][_pl]_a3.pdf     - A3 board from 2 A4 sheets (side by side, portrait)
 and also board/board[_pl].png (preview) and board/qrcode[_pl].svg.
 
-The multi-sheet PDFs overlap neighbouring sheets by a glue strip: one sheet gets
-a hatched strip, the next is trimmed along its edge line and glued on top.
+On the multi-sheet PDFs the margin is trimmed on both sides of every join, along
+the dashed lines, and the sheets are butted together (taped on the back, the join
+works as a hinge). The joins run between hex centres, never through them.
 
 Requires: Python 3, segno (QR codes); rsvg-convert for PDF and PNG
 (on Windows e.g. in WSL: sudo apt install librsvg2-bin) and the Exo 2 and
@@ -34,23 +35,27 @@ S = 10.0                     # hex side; hexes are pointy-top
 R3 = math.sqrt(3)
 RADIUS = 6                   # rings 0..6
 PAGE_W, PAGE_H = 290.0, 200.0
-LEFT = 22.0                  # from the left edge of the page to the left corner of the board;
-                             # puts the vertical seam between the sector numbers at the top and bottom
+# Joins between printed sheets, relative to the Sun: halfway between hex centres,
+# right of the Sun (clear of the labels on the left) and below it.
+SEAM_X = 1.5 * R3 * S / 2    # vertical join, between the 1st and 2nd column of centres
+SEAM_Y = 1.5 * S / 2         # horizontal join (A2), between the rows of centres
+LEFT = PAGE_W / 2 - SEAM_X - (RADIUS + 0.5) * R3 * S   # left page edge to board corner:
+                             # puts the vertical join in the middle of the page
 SUN = (LEFT + (RADIUS + 0.5) * R3 * S, PAGE_H / 2)
 IMAGES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "board", "images")
-ROTATION = -60               # sectors turned as in v0.4.1; 0 = sector 12 at the top
+ROTATION = 0                 # sectors as on a clock face: 12 at the top
 
 URL = {"en": "https://bsulkowski.pl/hayabusa", "pl": "https://bsulkowski.pl/pl/hayabusa"}
 
-TEXT = {
+TEXT = {   # noqa: E501
     "en": dict(title="Hayabusa", subtitle=["a game board of the", "inner Solar System"],
                mars="Mars", earth="Earth", venus="Venus", mercury="Mercury", ceres="Ceres",
                belt="asteroid belt", d12="d12", d8="d8", credits="images: NASA",
-               version=f"board v{VERSION}", sheet="sheet", glue="glue sheet {n} here"),
+               version=f"board v{VERSION}", sheet="sheet"),
     "pl": dict(title="Hayabusa", subtitle=["plansza do gier", "w wewnętrznym", "Układzie Słonecznym"],
                mars="Mars", earth="Ziemia", venus="Wenus", mercury="Merkury", ceres="Ceres",
                belt="pas planetoid", d12="k12", d8="k8", credits="zdjęcia: NASA",
-               version=f"plansza v{VERSION}", sheet="arkusz", glue="tu przyklej arkusz {n}"),
+               version=f"plansza v{VERSION}", sheet="arkusz"),
 }
 
 NAVY, ORANGE, SUN_YELLOW = "#000040", "#ff8000", "#ffff60"
@@ -219,9 +224,9 @@ def board_art(lang, theme):
             el.append(f'<polygon points="{hex_points(x, y, S)}" fill="{fill}" stroke="{stroke}" stroke-width="0.3"/>')
     for h, (number, label, _) in sectors.items():
         x, y = turned(*centre(h))
-        el.append(text(x, y + 6.6, label, SMALL, ORANGE, ORBITRON))
+        el.append(text(x, y + 5.4, label, SMALL, ORANGE, ORBITRON))
         if label == BIG:
-            el.append(text(x, y, str(number), BIG_SIZE, ORANGE, ORBITRON))
+            el.append(text(x, y - 1.2, str(number), BIG_SIZE, ORANGE, ORBITRON))
     el.append(f'<circle cx="{fmt(sx)}" cy="{fmt(sy)}" r="3.76" fill="{SUN_YELLOW}"/>')
     rt = th["ring_text"]
     # planet names in the hexes up and to the left of the Sun
@@ -244,6 +249,8 @@ def board_art(lang, theme):
     size = 19
     qx, qy = at(-117, -52)
     el.append(qr_path(URL[lang], qx - size / 2, qy - size / 2, size, 0, NAVY))
+    el.append(text(qx, qy + size / 2 + 4, t["version"], 2.8, NAVY, ORBITRON))
+    el.append(text(qx, qy + size / 2 + 8.5, t["credits"], 2.8, NAVY, ORBITRON))
 
     # right: station spaces of the Earth (top) and Mars (bottom)
     r_st = 22
@@ -253,13 +260,13 @@ def board_art(lang, theme):
         el.append(text(cx, cy + lab_dy, t[key], PLANET, NAVY))
 
     # bottom left: Ceres, dice legend, version and credits
-    cx, cy = at(-119, 42)
+    cx, cy = at(-113, 40)
     el.append(planet("ceres", cx, cy, 15))
     el.append(text(cx, cy - 20, t["ceres"], 5.0, NAVY))
     lx, ly = at(-112, 82)
     el.append(f'<polygon points="{hex_points(lx, ly, 12)}" fill="{th["belt"][0]}" '
               f'stroke="{th["belt_stroke"]}" stroke-width="0.5"/>')
-    el.append(text(lx, ly - 1, t["d12"], 9.0, ORANGE, ORBITRON))
+    el.append(text(lx, ly - 1, t["d12"], 7.5, ORANGE, ORBITRON))
     el.append(text(lx, ly + 6, t["d8"], 3.4, ORANGE, ORBITRON))
     ax, ay = lx + 9, ly - 9
     el.append(f'<path d="M{fmt(ax)},{fmt(ay)} l10,-8" fill="none" stroke="{ORANGE}" '
@@ -267,10 +274,6 @@ def board_art(lang, theme):
     hx, hy = ax + 10, ay - 8
     el.append(f'<path d="M{fmt(hx - 3.2)},{fmt(hy + 0.9)} L{fmt(hx)},{fmt(hy)} L{fmt(hx + 0.6)},{fmt(hy + 3.3)}" '
               f'fill="none" stroke="{ORANGE}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>')
-    # right, between the stations, above the A2 seam: version and credits
-    vx, vy = at(133, -13)
-    el.append(text(vx, vy, t["version"], 2.8, NAVY, ORBITRON))
-    el.append(text(vx, vy + 4.5, t["credits"], 2.8, NAVY, ORBITRON))
     return "".join(el)
 
 
@@ -282,8 +285,7 @@ def svg_doc(w, h, body, extra_defs=""):
 
 # --- print on several A4 sheets ----------------------------------------------
 A4 = (210.0, 297.0)
-MARGIN = 7.0      # left unprinted at every edge of the sheet
-GLUE = 10.0       # overlap of neighbouring sheets
+MARGIN = 7.0      # left unprinted at every edge of the sheet, trimmed at the joins
 FORMATS = {       # columns, rows, sheet orientation
     "a3": (2, 1, "portrait"),
     "a2": (2, 2, "landscape"),
@@ -296,69 +298,67 @@ def sheets(lang, theme, fmt_name):
     cols, rows, cw, ch, scale, ox, oy = layout(fmt_name)      # cw, ch: printed area of a sheet
     art = board_art(lang, theme)
     t = TEXT[lang]
-    hatch = ('<pattern id="hatch" width="3" height="3" patternUnits="userSpaceOnUse" '
-             'patternTransform="rotate(45)"><rect width="3" height="3" fill="#ffffff"/>'
-             '<line x1="0" y1="0" x2="0" y2="3" stroke="#b0b0b0" stroke-width="0.4"/></pattern>')
+    trim = 'stroke="#808080" stroke-width="0.3" stroke-dasharray="2 1.5"'
     pages = []
     for r in range(rows):
         for c in range(cols):
             n = r * cols + 1 + c
-            x0, y0 = c * (cw - GLUE), r * (ch - GLUE)                # this sheet in the assembled board
+            x0, y0 = c * cw, r * ch                                   # this sheet in the assembled board
             body = [f'<clipPath id="area"><rect x="{MARGIN}" y="{MARGIN}" width="{fmt(cw)}" height="{fmt(ch)}"/></clipPath>',
                     f'<g clip-path="url(#area)"><g transform="translate({fmt(MARGIN - x0 + ox)} {fmt(MARGIN - y0 + oy)}) '
                     f'scale({fmt(scale)})">{art}</g></g>']
-            # glue strips for the sheets that go on top (right and below)
-            strips = []
-            if c < cols - 1:
-                strips.append((MARGIN + cw - GLUE, MARGIN, GLUE, ch, n + 1, 90))
-            if r < rows - 1:
-                strips.append((MARGIN, MARGIN + ch - GLUE, cw, GLUE, n + cols, 0))
-            for x, y, w, h, other, rot in strips:
-                body.append(f'<rect x="{fmt(x)}" y="{fmt(y)}" width="{fmt(w)}" height="{fmt(h)}" fill="url(#hatch)" '
-                            f'stroke="#808080" stroke-width="0.3"/>')
-                body.append(text(x + w / 2, y + h / 2, t["glue"].format(n=other), 3.2, "#606060", rotate=rot))
-            # trim lines where this sheet goes on top of its neighbours (left and above)
+            # trim lines on every side that joins another sheet
             if c > 0:
-                body.append(f'<line x1="{MARGIN}" y1="{MARGIN}" x2="{MARGIN}" y2="{fmt(MARGIN + ch)}" '
-                            f'stroke="#808080" stroke-width="0.3" stroke-dasharray="2 1.5"/>')
+                body.append(f'<line x1="{MARGIN}" y1="0" x2="{MARGIN}" y2="{fmt(sh)}" {trim}/>')
+            if c < cols - 1:
+                body.append(f'<line x1="{fmt(MARGIN + cw)}" y1="0" x2="{fmt(MARGIN + cw)}" y2="{fmt(sh)}" {trim}/>')
             if r > 0:
-                body.append(f'<line x1="{MARGIN}" y1="{MARGIN}" x2="{fmt(MARGIN + cw)}" y2="{MARGIN}" '
-                            f'stroke="#808080" stroke-width="0.3" stroke-dasharray="2 1.5"/>')
+                body.append(f'<line x1="0" y1="{MARGIN}" x2="{fmt(sw)}" y2="{MARGIN}" {trim}/>')
+            if r < rows - 1:
+                body.append(f'<line x1="0" y1="{fmt(MARGIN + ch)}" x2="{fmt(sw)}" y2="{fmt(MARGIN + ch)}" {trim}/>')
             # sheet number in the outer corner, which stays white
             right, bottom = c == cols - 1, r == rows - 1
             lx = MARGIN + cw - 2 if right else MARGIN + 2
             ly = MARGIN + ch - 2 if bottom else MARGIN + 3
             label = f'Hayabusa {fmt_name.upper()} · {t["sheet"]} {n}/{rows * cols}'
             body.append(text(lx, ly, label, 2.8, "#808080", anchor="end" if right else "start"))
-            pages.append(svg_doc(sw, sh, "".join(body), hatch))
+            pages.append(svg_doc(sw, sh, "".join(body)))
     return pages, scale
 
 
 def layout(fmt_name):
-    """Assembled board size, scale and offset of the one-page board on it."""
+    """Scale and offset of the one-page board on the assembled sheets, chosen so that
+    the joins fall on SEAM_X / SEAM_Y (largest scale that allows it)."""
     cols, rows, orient = FORMATS[fmt_name]
     sw, sh = A4 if orient == "portrait" else A4[::-1]
     cw, ch = sw - 2 * MARGIN, sh - 2 * MARGIN
-    total_w, total_h = cols * cw - (cols - 1) * GLUE, rows * ch - (rows - 1) * GLUE
-    scale = min(total_w / PAGE_W, total_h / PAGE_H)
-    return cols, rows, cw, ch, scale, (total_w - PAGE_W * scale) / 2, (total_h - PAGE_H * scale) / 2
+
+    def fit(n, size, page, seam):
+        # n sheets of `size` along one axis; the join (n == 2) must land on `seam`
+        if n == 1:
+            return size / page, None
+        return min(size / seam, size / (page - seam)), seam
+
+    sx, sy = SUN
+    scale_x, jx = fit(cols, cw, PAGE_W, sx + SEAM_X)
+    scale_y, jy = fit(rows, ch, PAGE_H, sy + SEAM_Y)
+    scale = min(scale_x, scale_y)
+    ox = cw - jx * scale if jx is not None else (cols * cw - PAGE_W * scale) / 2
+    oy = ch - jy * scale if jy is not None else (rows * ch - PAGE_H * scale) / 2
+    return cols, rows, cw, ch, scale, ox, oy
 
 
 def check_seams(label):
-    """Warn about texts lying on a glue strip of any format (one-page board millimetres)."""
+    """Warn about texts crossed by a join between sheets (one-page board millimetres)."""
     for fmt_name in FORMATS:
         cols, rows, cw, ch, scale, ox, oy = layout(fmt_name)
-        bands = [("x", (c * (cw - GLUE) + cw - GLUE - ox) / scale, (c * (cw - GLUE) + cw - ox) / scale)
-                 for c in range(cols - 1)]
-        bands += [("y", (r * (ch - GLUE) + ch - GLUE - oy) / scale, (r * (ch - GLUE) + ch - oy) / scale)
-                  for r in range(rows - 1)]
+        lines = [("x", (c * cw - ox) / scale) for c in range(1, cols)]
+        lines += [("y", (r * ch - oy) / scale) for r in range(1, rows)]
         for x0, y0, x1, y1, s, size in BOXES:
-            if size <= SMALL:
-                continue                     # small dice labels may cross a seam
-            for axis, lo, hi in bands:
+            for axis, at in lines:
                 a0, a1 = (x0, x1) if axis == "x" else (y0, y1)
-                if a0 < hi and a1 > lo:
-                    print(f"  warning: {label} {fmt_name}: '{s}' ({size} mm) on a seam")
+                if a0 < at < a1:
+                    print(f"  warning: {label} {fmt_name}: '{s}' ({size} mm) on a join")
 
 
 def name(lang, theme):
