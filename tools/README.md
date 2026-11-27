@@ -27,6 +27,20 @@ python board_model.py
 
 `coasting.py` and `simplified_model.py` take several tens of seconds to run.
 
+## Board generator
+
+`board_svg.py` draws the board and writes all the files in [`board/`](../board): the whole board as SVG, PDFs for printing on A4 sheets (A2 from 4, A3 from 2, with glue strips), previews and QR codes – in two languages and two colour versions. The board graphics are changed here, not in the files.
+
+You need Python 3 with the `segno` library (QR codes), `rsvg-convert` (PDF and PNG; on Windows e.g. in WSL: `sudo apt install librsvg2-bin`) and the Exo 2 and Orbitron fonts (Google Fonts):
+
+```
+pip install segno
+cd tools
+python board_svg.py
+```
+
+Without `rsvg-convert` the script writes the SVG files only (`--svg-only` does the same on purpose).
+
 ## Licence
 
 The code in this folder is available under the [MIT](LICENSE) licence.

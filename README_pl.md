@@ -12,13 +12,15 @@ Plansza nie jest przypisana do jednej gry – to przestrzeń, na której można 
 
 | Plik | Opis |
 |------|------|
-| [board/board_pl.pdf](board/board_pl.pdf) ([SVG](board/board_pl.svg)) | plansza, wersja polska (v0.4.1) |
-| [board/board.pdf](board/board.pdf) ([SVG](board/board.svg)) | plansza, wersja angielska (v0.4.1) |
-| [board/board-light_pl.pdf](board/board-light_pl.pdf) ([SVG](board/board-light_pl.svg)) | plansza alternatywna, wersja polska (v0.4e) |
+| [board/board_pl_a2.pdf](board/board_pl_a2.pdf), [board/board_pl_a3.pdf](board/board_pl_a3.pdf) | plansza do druku, wersja polska: A2 z 4 kartek A4, A3 z 2 kartek A4 |
+| [board/board_a2.pdf](board/board_a2.pdf), [board/board_a3.pdf](board/board_a3.pdf) | to samo, wersja angielska |
+| [board/board-light_pl_a2.pdf](board/board-light_pl_a2.pdf), [board/board-light_pl_a3.pdf](board/board-light_pl_a3.pdf), [board/board-light_a2.pdf](board/board-light_a2.pdf), [board/board-light_a3.pdf](board/board-light_a3.pdf) | wersja jasna, przyjazna drukarce |
+| [board/board_pl.svg](board/board_pl.svg), [board/board.svg](board/board.svg), [board/board-light_pl.svg](board/board-light_pl.svg), [board/board-light.svg](board/board-light.svg) | cała plansza na jednej stronie |
+| [board/board_pl.png](board/board_pl.png), [board/board.png](board/board.png) | podgląd |
 | [board/qrcode_pl.svg](board/qrcode_pl.svg), [board/qrcode.svg](board/qrcode.svg) | kody QR do strony projektu |
 | [models/](models/README_pl.md) | pionki do druku 3D: statek transportowy i placówka na planetoidzie |
 
-Poprzednie wersje grafiki planszy są w historii repozytorium (tagi `v0.1`–`v0.4.1`, patrz [historia wersji](#historia-wersji)). Eksperymentalna kolorystyka planszy jest na branchu `experimental-colors`.
+Wszystkie pliki w `board/` tworzy [`tools/board_svg.py`](tools/README_pl.md#generator-planszy) – żeby zmienić planszę, zmienia się skrypt, nie pliki. Druk i składanie kartek: [Jak działa plansza](docs/board_pl.md#wydruk). Poprzednie wersje grafiki planszy są w historii repozytorium (tagi `v0.1`–`v0.4.1`, patrz [historia wersji](#historia-wersji)). Eksperymentalna kolorystyka planszy jest na branchu `experimental-colors`.
 
 ## Dokumentacja
 
@@ -32,6 +34,7 @@ Poprzednie wersje grafiki planszy są w historii repozytorium (tagi `v0.1`–`v0
 
 | Wersja | Data | Zmiany |
 |---|---|---|
+| 0.6 | 2026-11-27 | Grafika planszy z generatora (`tools/board_svg.py`)<br>Tytuł Hayabusa z podtytułem, kod QR do strony projektu<br>Druk na kartkach A4 z paskami do klejenia: A2 z 4, A3 z 2<br>Wersja jasna w obu językach, w układzie z v0.4.1 |
 | 0.5 | 2026-11-27 | Nazwa: Hayabusa<br>Opis planszy, model i decyzje projektowe, pomysły na gry, filozofia projektu (PL, EN)<br>Model referencyjny lotów (ruch wektorowy) i model uproszczony<br>Pionki do druku 3D<br>Skrypty obliczeniowe<br>Grafika planszy bez zmian (v0.4.1) |
 | 0.4.1 | 2025-11-12 | Obrót planszy |
 | 0.4 | 2025-11-03 | Nowy układ i kolory planszy<br>Alternatywna jasna plansza v0.4e (PL) |

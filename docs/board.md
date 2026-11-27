@@ -18,7 +18,14 @@ Ring number `x` contains exactly `6x` hexes.
 
 ### Printing
 
-The board is meant to be printed in **A2** format (the PDF and SVG files at 200% scale). A hex is then about 30 mm across the flats, and a pawn fits within one hex if it is at most about 27 mm wide. Smaller formats are too cramped for 3D pawns.
+The board is printed on an ordinary printer, on A4 sheets glued together:
+
+- **A2 from 4 sheets** (`*_a2.pdf` files) – the intended size. A hex is about 33 mm across the flats, and 3D pawns fit within one hex if they are at most about 30 mm wide.
+- **A3 from 2 sheets** (`*_a3.pdf` files) – a hex is about 24.5 mm, too small for 3D pawns but enough for flat tokens.
+
+Print the sheets at 100% scale, without fitting to the page. A sheet that another one overlaps has a hatched strip with the number of that other sheet. Trim the other sheet along the dashed line at its edge and glue it onto the strip so that its edge meets the edge of the strip. Order: 2 onto 1, then 3 and 4.
+
+The board comes in two colour versions: dark and light (`board-light…` files), printer-friendly.
 
 ## Planetary orbits
 

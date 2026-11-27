@@ -17,7 +17,7 @@ Każdy pionek powinien spełniać trzy kryteria:
 
 - **Estetyka.** Minimalistyczna, kanciasta bryła (low-poly), spójna z planszą i z pozostałymi pionkami.
 - **Praktyczność druku i zabawy.**
-  - Pionek mieści się w jednym polu planszy drukowanej w formacie A2 – ma najwyżej ok. 27 mm szerokości.
+  - Pionek mieści się w jednym polu planszy drukowanej w formacie A2 – ma najwyżej ok. 30 mm szerokości.
   - Jest masywny: bez drobnych, cienkich elementów (min. ok. 1 mm grubości w docelowej skali), łatwy do wydrukowania i do utrzymania w czystości.
   - Dobrze leży w dłoni i daje się nim bawić – statek nie ma podstawki, żeby można go było swobodnie obracać, a przy tym dobrze stoi też na boku.
 - **Spójność z fizyką.** Każdy element ma uzasadnienie w fizyce i technice opisanej w [modelu planszy](../docs/model_pl.md) – intencje projektowe opisano niżej.
@@ -67,10 +67,10 @@ Pionek przedstawia **przemysłową część placówki**. Część mieszkalna sto
 
 ## Rozmiar
 
-Plansza jest przeznaczona do druku w formacie A2. Pole ma wtedy ok. 30 mm między bokami, a pionek mieści się w jednym polu przy szerokości do ok. 27 mm.
+Plansza jest przeznaczona do druku w formacie A2, z 4 kartek A4. Pole ma wtedy ok. 33 mm między bokami, a pionek mieści się w jednym polu przy szerokości do ok. 30 mm.
 
 - **Statek** mieści się bez skalowania. Nie ma podstawki – ma się dać swobodnie obracać w palcach, a podstawka zasłaniałaby dysze. Dobrze stoi również na boku.
-- **Placówka** zajmuje prawie całe pole – warto ją drukować w skali ok. 0,9.
+- **Placówka** zajmuje prawie całe pole, ale mieści się bez skalowania.
 
 ## Druk
 

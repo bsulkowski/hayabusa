@@ -18,7 +18,14 @@ Pierścień numer `x` zawiera dokładnie `6x` heksów.
 
 ### Wydruk
 
-Plansza jest przeznaczona do druku w formacie **A2** (pliki PDF i SVG w skali 200%). Pole ma wtedy ok. 30 mm między bokami, a pionki mieszczą się w jednym polu, jeśli mają najwyżej ok. 27 mm szerokości. Mniejsze formaty są za ciasne dla pionków 3D.
+Planszę drukuje się na zwykłej drukarce, na kartkach A4, które skleja się w całość:
+
+- **A2 z 4 kartek** (pliki `*_a2.pdf`) – format docelowy. Pole ma ok. 33 mm między bokami, a pionki 3D mieszczą się w jednym polu, jeśli mają najwyżej ok. 30 mm szerokości.
+- **A3 z 2 kartek** (pliki `*_a3.pdf`) – pole ma ok. 24,5 mm, za mało dla pionków 3D, ale wystarczy dla płaskich żetonów.
+
+Kartki drukuje się w skali 100%, bez dopasowania do strony. Na kartce, na którą nachodzi sąsiednia, jest zakreskowany pasek z numerem tej sąsiedniej. Sąsiednią kartkę przycina się wzdłuż przerywanej linii przy jej brzegu i nakleja na pasek tak, żeby jej brzeg trafił w krawędź paska. Kolejność: 2 na 1, potem 3 i 4.
+
+Plansza jest w dwóch wersjach kolorystycznych: ciemnej i jasnej (pliki `board-light…`), przyjaznej drukarce.
 
 ## Orbity planet
 
