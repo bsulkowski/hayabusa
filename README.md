@@ -25,13 +25,14 @@ Earlier versions of the board graphics are in the repository history (tags `v0.1
 - [How the board works](docs/board.md) – for players and game designers who want to use the board as it is
 - [The model and design decisions](docs/model.md) – how the board relates to the real Solar System
 - [Ideas for games](docs/ideas.md) – themes and elements that follow from the board's physics
+- [Design philosophy](docs/design.md) – the principles the board is designed by
 - [Calculations](tools/README.md) – the scripts used to compute the model
 
 ## Revision History
 
 | Version | Date | Changes |
 |---|---|---|
-| 0.5 | 2026-11-27 | Name: Hayabusa<br>Board description, the model and design decisions, ideas for games (PL, EN)<br>Reference flight model (vector movement) and simplified model<br>3D-printable pawns<br>Calculation scripts<br>Board graphics unchanged (v0.4.1) |
+| 0.5 | 2026-11-27 | Name: Hayabusa<br>Board description, the model and design decisions, ideas for games, design philosophy (PL, EN)<br>Reference flight model (vector movement) and simplified model<br>3D-printable pawns<br>Calculation scripts<br>Board graphics unchanged (v0.4.1) |
 | 0.4.1 | 2025-11-12 | Board rotation |
 | 0.4 | 2025-11-03 | Board layout and colours reworked<br>Alternative light board v0.4e (PL) |
 | 0.3b | 2025-10-30 | Dark colour scheme (PL) |

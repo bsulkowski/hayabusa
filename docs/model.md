@@ -4,7 +4,7 @@
 
 ## Who this document is for
 
-This document is for people interested in how the board relates to the real physics of the Solar System: what is modelled faithfully, what is simplified and why. It may be useful both for game designers who want to modify the board or draw inspiration from it for their own, and for players curious about the astronomical background.
+This document is for people interested in how the board relates to the real physics of the Solar System: what is modelled faithfully, what is simplified and why. It may be useful both for game designers who want to modify the board or draw inspiration from it for their own, and for players curious about the astronomical background. The principles the board is designed by, and its educational value, are described in the [design philosophy](design.md).
 
 ## Distance scale
 
@@ -326,15 +326,3 @@ Positions in the asteroid belt are rolled with a pair of dice, **d12 + d8**, rat
 First, a d12 and a d8 are easy to tell apart at a glance – they differ in shape and size. There is no need to roll them one after another or colour-code them: it is immediately clear which result is which (d12 → sector, d8 → hex within the sector).
 
 Second, the asteroid belt has 90 hexes (rings 4–6, in total `6×4 + 6×5 + 6×6 = 90`). With standard d6s, rolling among 90 hexes would take three rolls and a non-trivial mapping of the result. A d12 × d8 pair gives 96 combinations, which covers 90 hexes with a minimal surplus and a simple scheme: one roll, two results, one position on the board.
-
-## Educational value
-
-Despite the simplifications, the model conveys things that popular visualisations of the Solar System don't show at all:
-
-- Planets move at different speeds – and the difference is felt during play.
-- Transfers between orbits require planning in time: you have to predict where the target will be when you arrive.
-- The asteroid belt is wide, not thin.
-- An inertial frame is not the only way to describe motion – the choice of a frame of reference has consequences.
-- In space you pay for changing velocity, not for the distance travelled.
-
-The Earth and Mars move on the board as they do in reality. The biggest simplifications – the shared ring of Mercury and Venus and the simplified or ignored drift in the belt – concern places where accuracy doesn't affect the player's decisions. A player without astronomical knowledge will find the model consistent and intuitive. A player with that knowledge will recognise that the mechanic is real – just rounded to numbers you can play with.
