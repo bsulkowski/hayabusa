@@ -54,7 +54,7 @@ Planszę da się wydrukować na zwykłej drukarce – w częściach, na kartkach
 
 ### Dwie wersje kolorystyczne
 
-Plansza ma dwie wersje kolorystyczne: ciemną, bardziej kosmiczną, i jasną, przyjazną drukarce – zużywa mniej tuszu.
+Plansza ma dwie wersje kolorystyczne: ciemną, bardziej kosmiczną, i jasną, przyjazną drukarce – zużywa mniej tuszu. Ciemna jest też na czarnym tle, na którym przestrzeń nie kończy się na brzegu planszy.
 
 ## Walor edukacyjny
 

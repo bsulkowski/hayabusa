@@ -54,7 +54,7 @@ The board can be printed on an ordinary printer – in parts, on A4 sheets that 
 
 ### Two colour versions
 
-The board comes in two colour versions: a dark one, more like space, and a light, printer-friendly one that uses less ink.
+The board comes in two colour versions: a dark one, more like space, and a light, printer-friendly one that uses less ink. The dark one also comes on a black background, where space doesn't end at the edge of the board.
 
 ## Educational value
 
