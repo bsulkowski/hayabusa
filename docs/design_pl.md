@@ -36,6 +36,26 @@ Ziemia i Mars poruszają się na planszy zgodnie z rzeczywistością. Największ
 
 Gdy wierność fizyce kłóci się z praktyką, wygrywa praktyka, a odstępstwo jest opisane. Tak jest z dryfem pasa planetoid (opcjonalnym i zaokrąglonym) i z pionkami (radiatory reaktora placówki zaznaczone tylko symbolicznie).
 
+## Wygoda przy stole
+
+Plansza ma być wygodna w użyciu bez specjalnego sprzętu: do wydrukowania w domu i do gry zwykłymi kośćmi.
+
+### Kości do losowania
+
+Do losowania pozycji w pasie planetoid służy para kości **k12 + k8** zamiast bardziej standardowych kombinacji. Decyzja wynika z dwóch praktycznych powodów.
+
+Po pierwsze, k12 i k8 są łatwo rozróżnialne na pierwszy rzut oka – różnią się kształtem i rozmiarem. Nie trzeba rzucać nimi po kolei ani oznaczać kolorami: wyniki od razu wiadomo, który jest którym (k12 → sektor, k8 → heks w sektorze).
+
+Po drugie, pas planetoid ma 90 heksów (pierścienie 4–6, łącznie `6×4 + 6×5 + 6×6 = 90`). Przy standardowej k6 losowanie z 90 pól wymagałoby trzech rzutów i nietrywialnego mapowania wyniku. Para k12 × k8 daje 96 kombinacji, co pokrywa 90 heksów z minimalną nadwyżką i prostym schematem: jeden rzut, dwa wyniki, jedna pozycja na planszy.
+
+### Druk na domowym sprzęcie
+
+Planszę da się wydrukować na zwykłej drukarce – w częściach, na kartkach A4, z których składa się planszę w formacie A2.
+
+### Dwie wersje kolorystyczne
+
+Plansza ma dwie wersje kolorystyczne: ciemną, bardziej kosmiczną, i jasną, przyjazną drukarce – zużywa mniej tuszu.
+
 ## Walor edukacyjny
 
 Mimo uproszczeń model przekazuje rzeczy, których popularne wizualizacje Układu Słonecznego w ogóle nie pokazują:

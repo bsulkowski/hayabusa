@@ -318,11 +318,3 @@ The simplified model is consistent in itself and works well for games that don't
 **Board geometry.** Neither model builds costs into the board itself – for example through hexes that get smaller closer to the Sun. The board would then show cost instead of space and lose what is its main value: real distances and proportions of orbital motion. Maps built from manoeuvre costs do exist (the game High Frontier has one, for example), but they lose the sense of where things really are.
 
 All the numbers in this chapter come from the scripts in the [tools](../tools/README.md) folder – anyone can check them and recompute them for a modified board.
-
-## Choice of dice for placement in the asteroid belt
-
-Positions in the asteroid belt are rolled with a pair of dice, **d12 + d8**, rather than more standard combinations. The decision has two practical reasons.
-
-First, a d12 and a d8 are easy to tell apart at a glance – they differ in shape and size. There is no need to roll them one after another or colour-code them: it is immediately clear which result is which (d12 → sector, d8 → hex within the sector).
-
-Second, the asteroid belt has 90 hexes (rings 4–6, in total `6×4 + 6×5 + 6×6 = 90`). With standard d6s, rolling among 90 hexes would take three rolls and a non-trivial mapping of the result. A d12 × d8 pair gives 96 combinations, which covers 90 hexes with a minimal surplus and a simple scheme: one roll, two results, one position on the board.

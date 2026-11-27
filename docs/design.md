@@ -36,6 +36,26 @@ The Earth and Mars move on the board as they do in reality. The biggest simplifi
 
 When faithfulness to physics conflicts with practicality, practicality wins and the departure is documented. This is the case with the drift of the asteroid belt (optional and rounded) and with the pawns (the outpost's reactor radiators are marked only symbolically).
 
+## Convenience at the table
+
+The board should be convenient to use without special equipment: printable at home and played with ordinary dice.
+
+### Dice for random placement
+
+Positions in the asteroid belt are rolled with a pair of dice, **d12 + d8**, rather than more standard combinations. The decision has two practical reasons.
+
+First, a d12 and a d8 are easy to tell apart at a glance – they differ in shape and size. There is no need to roll them one after another or colour-code them: it is immediately clear which result is which (d12 → sector, d8 → hex within the sector).
+
+Second, the asteroid belt has 90 hexes (rings 4–6, in total `6×4 + 6×5 + 6×6 = 90`). With standard d6s, rolling among 90 hexes would take three rolls and a non-trivial mapping of the result. A d12 × d8 pair gives 96 combinations, which covers 90 hexes with a minimal surplus and a simple scheme: one roll, two results, one position on the board.
+
+### Printing on home equipment
+
+The board can be printed on an ordinary printer – in parts, on A4 sheets that make up an A2 board.
+
+### Two colour versions
+
+The board comes in two colour versions: a dark one, more like space, and a light, printer-friendly one that uses less ink.
+
 ## Educational value
 
 Despite the simplifications, the model conveys things that popular visualisations of the Solar System don't show at all:
