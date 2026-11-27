@@ -163,10 +163,35 @@ def qr_path(url, x, y, size, rotate, fill):
     return f'<path d="{d}" fill="{fill}" transform="rotate({fmt(rotate)} {fmt(cx)} {fmt(cy)})"/>'
 
 
-# Station spaces: Earth and Mars (top and bottom right), Ceres (bottom left).
+# Scales of the printed board: the grid (0.5 AU per ring) and, separately, the
+# planets with their orbits. Round values from the Human Scale Numbers series.
+AU_KM = 149597870.7
+GRID_SCALE = {"a2": 2.5e12, "a3": 3.2e12}     # 1 : n
+PLANET_SCALE_A2 = 64e6                        # 1 : n on A2; other formats follow
+
+
+def print_scale(fmt_name):
+    """Scale factor from the one-page board (mm) to the printed format (mm)."""
+    return 0.5 * AU_KM * 1e6 / GRID_SCALE[fmt_name] / (R3 * S)
+
+
+# Station spaces: the Earth (top right, only a part fits) and Mars (bottom right),
+# Ceres (bottom left). Planets and their orbits share one scale, KM_PER_MM. The
+# dashed circle is a low orbit: 400 km up at the Earth (like the ISS) and Mars,
+# 385 km at Ceres (the lowest orbit of the Dawn probe).
 # Photos are read from board/images/<name>.jpg or .png (square, the planet filling
 # the frame); without them the disc is drawn in a plain colour.
 PLACEHOLDER = {"earth": ("#3a78c8", "#0b2a5a"), "mars": ("#c86a40", "#5a2410"), "ceres": ("#a0a0a0", "#3a3a3a")}
+PLANET_KM = {"earth": 6371, "mars": 3390, "ceres": 470}       # radius
+ORBIT_KM = {"earth": 6771, "mars": 3790, "ceres": 855}        # radius of the station orbit
+KM_PER_MM = PLANET_SCALE_A2 / 1e6 * print_scale("a2")         # km per mm of the one-page board
+
+
+def station(key, cx, cy):
+    """Planet and its dashed station orbit, to the scale of KM_PER_MM."""
+    orbit = ORBIT_KM[key] / KM_PER_MM
+    return (f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(orbit)}" fill="none" stroke="{NAVY}" '
+            f'stroke-width="0.4" stroke-dasharray="1.5 1.2"/>' + planet(key, cx, cy, PLANET_KM[key] / KM_PER_MM))
 
 
 def planet(key, cx, cy, r):
@@ -190,7 +215,23 @@ def planet(key, cx, cy, r):
     return "".join(out)
 
 
-def board_art(lang, theme):
+def scale_lines(lang, fmt_name):
+    def num(n):
+        if n >= 1e12:
+            v, unit = n / 1e12, {"en": "trillion", "pl": "bln"}[lang]
+        else:
+            v, unit = n / 1e6, {"en": "million", "pl": "mln"}[lang]
+        v = f"{v:.2g}" if v < 10 else f"{v:.0f}"
+        return f"1 : {v.replace('.', ',') if lang == 'pl' else v} {unit}"
+    planets = KM_PER_MM * 1e6 / print_scale(fmt_name)
+    if lang == "pl":
+        return [f"Skala na {fmt_name.upper()}:", f"siatka {num(GRID_SCALE[fmt_name])}",
+                f"planety i orbity {num(planets)}"]
+    return [f"Scale on {fmt_name.upper()}:", f"grid {num(GRID_SCALE[fmt_name])}",
+            f"planets and orbits {num(planets)}"]
+
+
+def board_art(lang, theme, fmt_name="a2"):
     """The whole board as SVG elements, in millimetres of the one-page board."""
     t, th = TEXT[lang], THEMES[theme]
     sx, sy = SUN
@@ -265,28 +306,33 @@ def board_art(lang, theme):
     el.append(text(qx, qy + size / 2 + 4, t["version"], 2.8, NAVY, ORBITRON))
     el.append(text(qx, qy + size / 2 + 8.5, t["credits"], 2.8, NAVY, ORBITRON))
 
-    # right: station spaces of the Earth (top) and Mars (bottom)
-    r_st = 22
-    for key, (dx, dy), lab_dy in (("earth", (128, -72), r_st + 5), ("mars", (128, 72), -(r_st + 5))):
-        cx, cy = at(dx, dy)
-        el.append(planet(key, cx, cy, r_st))
-        el.append(text(cx, cy + lab_dy, t[key], PLANET, NAVY))
-
-    # bottom left: Ceres, dice legend, version and credits
-    cx, cy = at(-113, 40)
-    el.append(planet("ceres", cx, cy, 15))
-    el.append(text(cx, cy - 20, t["ceres"], 5.0, NAVY))
-    lx, ly = at(-112, 82)
-    el.append(f'<polygon points="{hex_points(lx, ly, 12)}" fill="{th["belt"][0]}" '
+    # right: the Earth (only a part fits) and Mars to scale, dice legend between
+    def on_photo(x, y, txt):
+        return (f'<text x="{fmt(x)}" y="{fmt(y)}" font-family="{EXO}" font-size="{PLANET}" fill="#ffffff" '
+                f'stroke="{NAVY}" stroke-width="0.8" paint-order="stroke" text-anchor="middle" '
+                f'dominant-baseline="central">{txt}</text>')
+    el.append(station("earth", *at(148, -72)))
+    el.append(on_photo(*at(128, -32), t["earth"]))
+    el.append(station("mars", *at(121.5, 63.5)))
+    el.append(on_photo(*at(121.5, 63.5), t["mars"]))
+    lx, ly = at(143, 14)
+    el.append(f'<polygon points="{hex_points(lx, ly, 10)}" fill="{th["belt"][0]}" '
               f'stroke="{th["belt_stroke"]}" stroke-width="0.5"/>')
-    el.append(text(lx, ly - 1, t["d12"], 7.5, ORANGE, ORBITRON))
-    el.append(text(lx, ly + 6, t["d8"], 3.4, ORANGE, ORBITRON))
-    ax, ay = lx + 9, ly - 9
-    el.append(f'<path d="M{fmt(ax)},{fmt(ay)} l10,-8" fill="none" stroke="{ORANGE}" '
+    el.append(text(lx, ly - 1, t["d12"], 6.2, ORANGE, ORBITRON))
+    el.append(text(lx, ly + 5, t["d8"], 3.0, ORANGE, ORBITRON))
+    ax, ay = lx - 10, ly
+    el.append(f'<path d="M{fmt(ax)},{fmt(ay)} h-10" fill="none" stroke="{ORANGE}" '
               f'stroke-width="1.2" stroke-linecap="round"/>')
-    hx, hy = ax + 10, ay - 8
-    el.append(f'<path d="M{fmt(hx - 3.2)},{fmt(hy + 0.9)} L{fmt(hx)},{fmt(hy)} L{fmt(hx + 0.6)},{fmt(hy + 3.3)}" '
+    hx, hy = ax - 10, ay
+    el.append(f'<path d="M{fmt(hx + 2.6)},{fmt(hy - 2.4)} L{fmt(hx)},{fmt(hy)} L{fmt(hx + 2.6)},{fmt(hy + 2.4)}" '
               f'fill="none" stroke="{ORANGE}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>')
+
+    # bottom left: Ceres and the scales
+    cx, cy = at(-112, 58)
+    el.append(station("ceres", cx, cy))
+    el.append(text(cx, cy - ORBIT_KM["ceres"] / KM_PER_MM - 5, t["ceres"], 5.0, NAVY))
+    for i, line in enumerate(scale_lines(lang, fmt_name)):
+        el.append(text(*at(-129, 84 + 4.8 * i), line, 3.6, NAVY, anchor="start"))
     return "".join(el)
 
 
@@ -309,7 +355,7 @@ def sheets(lang, theme, fmt_name):
     cols, rows, orient = FORMATS[fmt_name]
     sw, sh = A4 if orient == "portrait" else A4[::-1]
     cols, rows, cw, ch, scale, ox, oy = layout(fmt_name)      # cw, ch: printed area of a sheet
-    art = board_art(lang, theme)
+    art = board_art(lang, theme, fmt_name)
     t = TEXT[lang]
     trim = 'stroke="#808080" stroke-width="0.3" stroke-dasharray="2 1.5"'
     pages = []
@@ -340,8 +386,8 @@ def sheets(lang, theme, fmt_name):
 
 
 def layout(fmt_name):
-    """Scale and offset of the one-page board on the assembled sheets, chosen so that
-    the joins fall on SEAM_X / SEAM_Y (largest scale that allows it)."""
+    """Scale and offset of the one-page board on the assembled sheets: the scale
+    from GRID_SCALE, the offset so that the joins fall on SEAM_X / SEAM_Y."""
     cols, rows, orient = FORMATS[fmt_name]
     sw, sh = A4 if orient == "portrait" else A4[::-1]
     cw, ch = sw - 2 * MARGIN, sh - 2 * MARGIN
@@ -355,7 +401,8 @@ def layout(fmt_name):
     sx, sy = SUN
     scale_x, jx = fit(cols, cw, PAGE_W, sx + SEAM_X)
     scale_y, jy = fit(rows, ch, PAGE_H, sy + SEAM_Y)
-    scale = min(scale_x, scale_y)
+    scale = print_scale(fmt_name)
+    assert scale <= min(scale_x, scale_y), f"{fmt_name}: grid scale too large for the sheets"
     ox = cw - jx * scale if jx is not None else (cols * cw - PAGE_W * scale) / 2
     oy = ch - jy * scale if jy is not None else (rows * ch - PAGE_H * scale) / 2
     return cols, rows, cw, ch, scale, ox, oy
