@@ -133,7 +133,7 @@ def fmt(x):
 def dimension(x0, x1, y, label, ink):
     """Dimension line from x0 to x1 with end ticks, its label below."""
     return (f'<path d="M{fmt(x0)},{fmt(y)} H{fmt(x1)} M{fmt(x0)},{fmt(y - 1.2)} v2.4 M{fmt(x1)},{fmt(y - 1.2)} v2.4" '
-            f'fill="none" stroke="{ink}" stroke-width="0.3"/>' + text((x0 + x1) / 2, y + 3.6, label, 3.2, ink))
+            f'fill="none" stroke="{ink}" stroke-width="0.3"/>' + text((x0 + x1) / 2, y + 4.4, label, 3.2, ink))
 
 
 def hex_corner(cx, cy, i, s=S):
@@ -337,9 +337,9 @@ def board_art(lang, theme, fmt_name="a2"):
         el.append(text(*at(-100, -79.5 + 5.4 * i), line, 4.4, ink))
     size = 19
     qx, qy = at(-117, -54)
-    if th["page"] != "#ffffff":     # scanners want a dark code on a light ground
+    if th["page"] != "#ffffff":     # scanners want a dark code on a light ground; pale blue as the board
         el.append(f'<rect x="{fmt(qx - size / 2 - 1.5)}" y="{fmt(qy - size / 2 - 1.5)}" width="{fmt(size + 3)}" '
-                  f'height="{fmt(size + 3)}" rx="1" fill="#ffffff"/>')
+                  f'height="{fmt(size + 3)}" rx="1" fill="#c0c0ff"/>')
     el.append(qr_path(URL[lang], qx - size / 2, qy - size / 2, size, 0, NAVY))
     el.append(text(qx, qy + size / 2 + 4, t["version"], 2.8, ink, ORBITRON))
     lx, ly = at(-117, -27)
