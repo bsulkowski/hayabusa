@@ -71,11 +71,11 @@ THEMES = {
     "dark": dict(rings={0: "#6060ff", 1: "#3030ff", 2: "#0000ff", 3: "#000080"},
                  belt=("#000040", "#000000"), line=("#a0a0ff", 0.35),
                  ring_text={1: "#c0c0ff", 2: "#ffffff", 3: "#b8b8ff"}, belt_text="#8080ff",
-                 accent=ORANGE, sun_stroke=None),
+                 accent=ORANGE, sun_stroke=None, planet_veil=0),
     "light": dict(rings={0: "#ffffff", 1: "#f0f0ff", 2: "#e0e0ff", 3: "#d0d0ff"},
                   belt=("#c0c0ff", "#b0b0ff"), line=(NAVY, 0.35),
                   ring_text={1: "#6868d0", 2: "#2828b0", 3: "#2020a0"}, belt_text="#4020a0",
-                  accent="#a03800", sun_stroke=ORANGE),
+                  accent="#a03800", sun_stroke=ORANGE, planet_veil=0.4),
 }
 
 # Dice labels in the asteroid belt. Sectors come in pairs spanning 60 degrees:
@@ -199,14 +199,16 @@ ORBIT_KM = {"earth": 6771, "mars": 3790, "ceres": 855}        # radius of the st
 KM_PER_MM = PLANET_SCALE_A2 / 1e6 * print_scale("a2")         # km per mm of the one-page board
 
 
-def station(key, cx, cy):
+def station(key, cx, cy, veil=0):
     """Planet and its dashed station orbit, to the scale of KM_PER_MM."""
     orbit = ORBIT_KM[key] / KM_PER_MM
     return (f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(orbit)}" fill="none" stroke="{NAVY}" '
-            f'stroke-width="0.4" stroke-dasharray="1.5 1.2"/>' + planet(key, cx, cy, PLANET_KM[key] / KM_PER_MM))
+            f'stroke-width="0.4" stroke-dasharray="1.5 1.2"/>' + planet(key, cx, cy, PLANET_KM[key] / KM_PER_MM, veil))
 
 
-def planet(key, cx, cy, r):
+def planet(key, cx, cy, r, veil=0):
+    """Photo or placeholder disc; veil > 0 lightens it with white of that opacity
+    (the light version), the same way for photos and placeholders."""
     clip = f"clip-{key}"
     out = [f'<clipPath id="{clip}"><circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}"/></clipPath>']
     for ext, mime in ((".jpg", "image/jpeg"), (".png", "image/png")):
@@ -223,6 +225,8 @@ def planet(key, cx, cy, r):
         out.append(f'<radialGradient id="grad-{key}" cx="0.4" cy="0.35" r="0.7"><stop offset="0" stop-color="{light}"/>'
                    f'<stop offset="1" stop-color="{dark}"/></radialGradient>'
                    f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="url(#grad-{key})"/>')
+    if veil:
+        out.append(f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="#ffffff" fill-opacity="{veil}"/>')
     out.append(f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="none" stroke="{NAVY}" stroke-width="0.5"/>')
     return "".join(out)
 
@@ -328,9 +332,9 @@ def board_art(lang, theme, fmt_name="a2"):
         return (f'<text x="{fmt(x)}" y="{fmt(y)}" font-family="{EXO}" font-size="{PLANET}" fill="#ffffff" '
                 f'stroke="{NAVY}" stroke-width="0.8" paint-order="stroke" text-anchor="middle" '
                 f'dominant-baseline="central">{txt}</text>')
-    el.append(station("earth", *at(147, -80)))            # orbits may run off the page
+    el.append(station("earth", *at(147, -80), th["planet_veil"]))            # orbits may run off the page
     el.append(on_photo(*at(128, -38), t["earth"]))
-    el.append(station("mars", *at(123.5, 65.5)))
+    el.append(station("mars", *at(123.5, 65.5), th["planet_veil"]))
     el.append(on_photo(*at(123.5, 65.5), t["mars"]))
     lx, ly = at(143, 12)
     el.append(f'<polygon points="{hex_points(lx, ly, 10)}" fill="{th["belt"][0]}" '
@@ -346,7 +350,7 @@ def board_art(lang, theme, fmt_name="a2"):
 
     # bottom left: Ceres and the scales
     cx, cy = at(-112, 58)
-    el.append(station("ceres", cx, cy))
+    el.append(station("ceres", cx, cy, th["planet_veil"]))
     el.append(text(cx, cy - ORBIT_KM["ceres"] / KM_PER_MM - 5, t["ceres"], 5.0, NAVY))
     for i, (line, exp) in enumerate(scale_lines(lang, fmt_name)):
         x, y = at(-129, 84 + 4.8 * i)
