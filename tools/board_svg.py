@@ -61,15 +61,20 @@ TEXT = {   # noqa: E501
 NAVY, ORANGE, SUN_YELLOW = "#000040", "#ff8000", "#ffff60"
 EXO, ORBITRON = "'Exo 2', sans-serif", "Orbitron, sans-serif"
 THEMES = {
-    # ring: (fill, stroke); belt: even and odd sectors; text colours per ring 1-3
+    # ring: (fill, stroke); belt: even and odd sectors; text colours per ring 1-3.
+    # Text contrast (WCAG): the Earth and Mars alike, Venus and Mercury paler on purpose
+    # (dark: 8.6, 8.6, 4.1; light: 5.0, 4.6, 4.2). Accent: dice labels and sector borders,
+    # darker on the light belt to stay readable.
     "dark": dict(rings={0: ("#6060ff", "#000080"), 1: ("#3030ff", "#000000"),
                         2: ("#0000ff", "#000000"), 3: ("#000080", "#000000")},
                  belt=("#000040", "#000000"), belt_stroke="#0000ff",
-                 ring_text={1: "#ffffff", 2: "#e0e0ff", 3: "#c0c0ff"}, belt_text="#8080ff"),
+                 ring_text={1: "#c0c0ff", 2: "#ffffff", 3: "#b8b8ff"}, belt_text="#8080ff",
+                 accent=ORANGE),
     "light": dict(rings={0: ("#000040", "#000080"), 1: ("#000080", "#000000"),
                          2: ("#0000ff", "#000000"), 3: ("#6060ff", "#000000")},
                   belt=("#c0c0ff", "#ffffff"), belt_stroke=NAVY,
-                  ring_text={1: "#c0c0ff", 2: "#e0e0ff", 3: "#ffffff"}, belt_text="#8060ff"),
+                  ring_text={1: "#7070ff", 2: "#c0c0ff", 3: "#ffffff"}, belt_text="#5030c0",
+                  accent="#b84800"),
 }
 
 # Dice labels in the asteroid belt. Sectors come in pairs spanning 60 degrees:
@@ -83,7 +88,7 @@ ODD = {"1": (3, -4), "2": (4, -4), "3-4": (5, -5), "5": (5, -4),
        "6": (6, -5), "7": (6, -4), "8": (6, -3)}
 BIG = "2"   # the sector number stands in the hex of d8 result 2
 
-SMALL, BIG_SIZE, SECTOR, PLANET, MINOR = 4.23, 11.29, 10.0, 7.06, 4.23   # font sizes (mm)
+SMALL, BIG_SIZE, SECTOR, PLANET, MINOR = 4.23, 11.29, 9.0, 7.06, 4.23   # font sizes (mm)
 
 
 def turn(h, k):
@@ -266,9 +271,9 @@ def board_art(lang, theme, fmt_name="a2"):
             el.append(f'<polygon points="{hex_points(x, y, S)}" fill="{fill}" stroke="{stroke}" stroke-width="0.3"/>')
     for h, (number, label, _) in sectors.items():
         x, y = turned(*centre(h))
-        el.append(text(x, y + 5.4, label, SMALL, ORANGE, ORBITRON))
+        el.append(text(x, y + 5.4, label, SMALL, th["accent"], ORBITRON))
         if label == BIG:
-            el.append(text(x, y - 0.6, str(number), SECTOR, ORANGE, ORBITRON))
+            el.append(text(x, y + 0.2, str(number), SECTOR, th["accent"], ORBITRON))
     # sector borders: edges between belt hexes of different sectors
     corners = {}
     for h in sectors:
@@ -285,7 +290,7 @@ def board_art(lang, theme, fmt_name="a2"):
             p, q = pts[i], pts[(i + 1) % 6]
             if p < q and len(corners[p] | corners[q]) > 1 and len(corners[p] & corners[q]) > 1:
                 el.append(f'<line x1="{fmt(p[0])}" y1="{fmt(p[1])}" x2="{fmt(q[0])}" y2="{fmt(q[1])}" '
-                          f'stroke="{ORANGE}" stroke-width="0.6" stroke-linecap="round"/>')
+                          f'stroke="{th["accent"]}" stroke-width="0.6" stroke-linecap="round"/>')
     el.append(f'<circle cx="{fmt(sx)}" cy="{fmt(sy)}" r="3.76" fill="{SUN_YELLOW}"/>')
     rt = th["ring_text"]
     # planet names above the Sun, orbital movement below it, one ring at a time
@@ -295,7 +300,7 @@ def board_art(lang, theme, fmt_name="a2"):
     el.append(text(*at(0, -45), t["mars"], PLANET, rt[3]))
     for n in (1, 2, 3):
         el.append(arrows(*at(0, 15 * n), 4 - n, rt[n]))
-    el.append(text(*at(-33, -75), t["belt"], 10.0, th["belt_text"]))   # ring 5, left of the seam
+    el.append(text(*at(-24, -75), t["belt"], 10.0, th["belt_text"]))   # ring 5, left of the seam
 
     # top left: title, subtitle, QR code
     el.append(text(*at(-100, -88), t["title"], 13.0, NAVY))
@@ -319,14 +324,14 @@ def board_art(lang, theme, fmt_name="a2"):
     lx, ly = at(143, 12)
     el.append(f'<polygon points="{hex_points(lx, ly, 10)}" fill="{th["belt"][0]}" '
               f'stroke="{th["belt_stroke"]}" stroke-width="0.5"/>')
-    el.append(text(lx, ly - 1, t["d12"], 6.2, ORANGE, ORBITRON))
-    el.append(text(lx, ly + 5, t["d8"], 3.0, ORANGE, ORBITRON))
+    el.append(text(lx, ly - 1, t["d12"], 6.2, th["accent"], ORBITRON))
+    el.append(text(lx, ly + 5, t["d8"], 3.0, th["accent"], ORBITRON))
     ax, ay = lx - 10, ly
-    el.append(f'<path d="M{fmt(ax)},{fmt(ay)} h-10" fill="none" stroke="{ORANGE}" '
+    el.append(f'<path d="M{fmt(ax)},{fmt(ay)} h-10" fill="none" stroke="{th["accent"]}" '
               f'stroke-width="1.2" stroke-linecap="round"/>')
     hx, hy = ax - 10, ay
     el.append(f'<path d="M{fmt(hx + 2.6)},{fmt(hy - 2.4)} L{fmt(hx)},{fmt(hy)} L{fmt(hx + 2.6)},{fmt(hy + 2.4)}" '
-              f'fill="none" stroke="{ORANGE}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>')
+              f'fill="none" stroke="{th["accent"]}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>')
 
     # bottom left: Ceres and the scales
     cx, cy = at(-112, 58)
