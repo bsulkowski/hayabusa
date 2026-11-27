@@ -217,19 +217,19 @@ def planet(key, cx, cy, r):
 
 
 def scale_lines(lang, fmt_name):
+    """Lines of the scale block: (text, exponent or None). Scales are written as
+    1 : m·10^e, since "billion" means 10^9 or 10^12 depending on the language."""
     def num(n):
-        if n >= 1e12:
-            v, unit = n / 1e12, {"en": "trillion", "pl": "bln"}[lang]
-        else:
-            v, unit = n / 1e6, {"en": "million", "pl": "mln"}[lang]
-        v = f"{v:.2g}" if v < 10 else f"{v:.0f}"
-        return f"1 : {v.replace('.', ',') if lang == 'pl' else v} {unit}"
+        e = math.floor(math.log10(n))
+        m = f"{n / 10 ** e:.2g}"
+        return f"1 : {m.replace('.', ',') if lang == 'pl' else m}·10", e
     planets = KM_PER_MM * 1e6 / print_scale(fmt_name)
+    grid, planet = num(GRID_SCALE[fmt_name]), num(planets)
     if lang == "pl":
-        return [f"Skala na {fmt_name.upper()}:", f"siatka {num(GRID_SCALE[fmt_name])}",
-                f"planety i orbity {num(planets)}"]
-    return [f"Scale on {fmt_name.upper()}:", f"grid {num(GRID_SCALE[fmt_name])}",
-            f"planets and orbits {num(planets)}"]
+        return [(f"Skala na {fmt_name.upper()}:", None), (f"siatka {grid[0]}", grid[1]),
+                (f"planety i orbity {planet[0]}", planet[1])]
+    return [(f"Scale on {fmt_name.upper()}:", None), (f"grid {grid[0]}", grid[1]),
+            (f"planets and orbits {planet[0]}", planet[1])]
 
 
 def board_art(lang, theme, fmt_name="a2"):
@@ -332,8 +332,12 @@ def board_art(lang, theme, fmt_name="a2"):
     cx, cy = at(-112, 58)
     el.append(station("ceres", cx, cy))
     el.append(text(cx, cy - ORBIT_KM["ceres"] / KM_PER_MM - 5, t["ceres"], 5.0, NAVY))
-    for i, line in enumerate(scale_lines(lang, fmt_name)):
-        el.append(text(*at(-129, 84 + 4.8 * i), line, 3.6, NAVY, anchor="start"))
+    for i, (line, exp) in enumerate(scale_lines(lang, fmt_name)):
+        x, y = at(-129, 84 + 4.8 * i)
+        el.append(text(x, y, line + (str(exp) if exp else ""), 3.6, NAVY, anchor="start"))   # for the seam check
+        el[-1] = (f'<text x="{fmt(x)}" y="{fmt(y)}" font-family="{EXO}" font-size="3.6" fill="{NAVY}" '
+                  f'dominant-baseline="central">{line}'
+                  + (f'<tspan dy="-1.3" font-size="2.5">{exp}</tspan>' if exp else "") + '</text>')
     return "".join(el)
 
 
