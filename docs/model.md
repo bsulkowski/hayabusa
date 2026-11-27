@@ -88,14 +88,14 @@ Individual known bodies can be tracked separately, even when a game ignores the 
 
 ## Ship movement and physics
 
-A ship's movement on the board consists of forced movement (together with the ring) and powered movement, driven by the engine. The board proposes two flight models:
+A ship's movement on the board consists of orbital movement (together with the ring) and powered movement, driven by the engine. The board proposes two flight models:
 
 - **the reference model** – as faithful to physics as possible, a point of reference for hard science fiction,
 - **the simplified model** – simpler to play, at the cost of a few deliberate departures from physics.
 
 Any game can loosen the flight model further. This chapter shows what is lost when it does.
 
-### Forced movement is inertia
+### Orbital movement is inertia
 
 A ship without thrust on a given ring flies on a circular orbit – that is, freely, without using fuel. So the model has inertia; its natural state is not standing still but orbiting.
 
@@ -107,16 +107,7 @@ The unit on the board is a speed of 1 hex per round – about **10 km/s** relati
 
 ### Reference model
 
-1. A ship has its own velocity: 0–2 hexes per round in any direction. The simplest way to show it is a marker on the hex the ship will reach next round, as in classic vector movement.
-2. At the start of its turn a ship may change its velocity by at most 2 hexes. Each hex of velocity change costs **1 fuel unit** (about 10 km/s).
-3. The ship moves by its velocity and together with the ring on which it started the turn.
-4. Hop: a ship may move 1 hex and stop in the same turn (acceleration and braking, cost 2).
-5. Docking, landing and any other interaction require zero velocity. A fusion drive is too weak to lift off from the surface of a planet or a large asteroid (see "Launching from the surface"):
-   - at the Earth and Mars the ship docks at a station in orbit, and the station's landers run to the surface,
-   - Ceres and Vesta need a lander – a local one or the freighter's own, carried on board,
-   - on small asteroids, up to a few km across, the freighter lands directly.
-6. Speeds above 2 hexes per round are forbidden by regulations – a rule of convention, not of physics.
-7. Ring 1 is closed to ships.
+The full rules of the reference model – the sequence of a round, movement, docking – are in the [board description](board.md#reference-model). In short: a ship has its own velocity of 0–2 hexes per round, each hex of velocity change costs 1 fuel unit (at most 2 per turn), flying at constant velocity is free, and docking requires zero velocity. This chapter explains why the rules are the way they are.
 
 ### Why the reference model makes sense
 
@@ -158,6 +149,16 @@ A straight course can be held with thrust, but the cost depends strongly on dire
 | asteroid belt | 1.1 | 0.7 | 0.2 | 0.3 |
 
 Flying away from or towards the Sun is almost free; flying along the orbit is expensive. A simple path-bending rule was also tested (forward velocity rounds into outward velocity: 1 hex per round in the belt, 2 near Mars, 3 near the Earth). It improves forward flight but makes backward flight worse – not worth an extra rule. Treating the flight line as a schematic of a planned route is simpler and gives correct costs.
+
+### Round sequence and docking
+
+**Orbital movement at the start of the turn.** Orbital movement is taken from the ring the ship actually stands on; after powered movement the ship could already be on another ring, where a hex means a different angle. The planets move in the neutral turn, at the start of the round, so in their turns players aim at current positions.
+
+**Station spaces at the Earth and Mars.** A ship docked at a planet moves together with it. If it stood on the grid, it would briefly "lag behind" the planet between the neutral turn and its own turn. A station space outside the grid removes this problem, and crowding at the planet too.
+
+**Docking needs only stabilisation.** Approach and docking take hours, at most days, while a round is about 87 days. So it is enough for the ship to have zero velocity on the target hex at any moment of its turn. Long actions are different: a velocity change of 2 hexes is a whole round of engine work (about 0.27 milli-g for 87 days). A touch-and-go stop – braking and accelerating again in the same turn – leaves time only for short actions, while mining or emergency refuelling need a turn with no velocity change at all.
+
+**Velocity change before and after moving.** The engine works through the whole round, and the limit of 2 hexes is what it can do in that time. Splitting the change into a part before moving and a part after is a conventional approximation of continuous engine work. Thanks to it, a hop and braking on arrival need no separate rules.
 
 ### Transfer windows
 
@@ -261,16 +262,7 @@ The asteroid belt is very empty – the average distance between asteroids is ab
 
 ### Simplified model: cost per hex
 
-The simplified model doesn't track ship velocity – you pay for every hex of powered movement:
-
-| Where | Ship speed | Cost |
-|-------|------------|------|
-| ring 1 | closed to ships | – |
-| ring 2 (Earth) | max. 1 hex/round | 3 |
-| ring 3 (Mars) | max. 1 hex/round | 2 |
-| rings 4–6 (asteroid belt) | 1 or 2 hexes/round | 1 for 1 hex, 3 for 2 hexes |
-
-A move across a ring boundary follows the limit and cost of the ring closest to the Sun that the move touches.
+The simplified model doesn't track ship velocity – you pay for every hex of powered movement, more the closer to the Sun. The rules are in the [board description](board.md#simplified-model).
 
 **Interpretation.** The simplified model corresponds to freighters flying the cheapest routes (the Hohmann transfer) with travel times shortened for playability. One unit is then about 1.8 km/s, and a nuclear-electric drive is enough (exhaust velocity about 40 km/s) – a loaded freighter's tank holds about 15 units.
 

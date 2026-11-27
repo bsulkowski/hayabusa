@@ -60,13 +60,6 @@ This is the most important and most original feature of the board.
 
 The board **is not stationary** – it rotates around the Sun. Thanks to this, objects in the asteroid belt stay practically still on the board, while the planets closer to the Sun – which really do orbit faster – visibly move around the board in one direction every round.
 
-### Rounds and turns
-
-- **A round** is the organisational unit of the game: in every round each player makes their move. It corresponds to a little under 3 months of time (about 87 days). Once per round every object on a ring moves along its orbit.
-- **A turn** is a given player's – or, more generally, a side's – go within a round.
-- The orbital movement of a player's ships is most conveniently done in that player's turn. This makes it harder to check the relative positions of different players' ships, but in a game without direct conflict that is not a problem.
-- The Earth, Mars and other neutral objects whose position has to be tracked move in a separate turn of their own.
-
 ### Orbital speeds
 
 One game round corresponds to about 87 days (a little less than a quarter of a year). Every round, all objects on a given ring – planets, players' ships, everything – move by:
@@ -84,28 +77,58 @@ Everything moves in the same direction (the real direction of motion around the 
 
 ## Ship movement
 
-Every ship has two components of movement, which act together:
+Every ship has two components of movement:
 
-**Forced movement** – coming from the ring the ship is on (see the table above). It applies to all objects without exception.
+**Orbital movement** – coming from the ring the ship is on (see the table above). It applies to all objects without exception.
 
 **Powered movement** – driven by the ship's engine. Its speed (1–2 hexes per round) is comparable to orbital speeds: orbital mechanics cannot be ignored, but active manoeuvring can use it or work against it.
 
+### Rounds and turns
+
+- **A round** is the organisational unit of the game: in every round each player makes their move. It corresponds to a little under 3 months of time (about 87 days). Once per round every object on a ring moves along its orbit.
+- **A turn** is a given player's – or, more generally, a side's – go within a round.
+
+Sequence of a round:
+
+1. **The neutral turn**, at the start of the round:
+   - the Earth and Mars move along their orbits,
+   - objects in the asteroid belt move according to drift (if the game tracks it),
+   - the events of the round are resolved, for example interesting places in the belt appearing and disappearing.
+2. **The players' turns**, one after another. In their turn a player, for each of their ships:
+   1. carries out **orbital movement** – the ship moves together with the ring it stands on; the velocity marker moves with it and keeps its position relative to the ship,
+   2. carries out **powered movement** – according to the flight model (below).
+
+Orbital movement is taken from the ring the ship actually stands on – after powered movement it could already be on another ring. In their turns, players see where the planets are in this round.
+
+Between the neutral turn and a player's turn, that player's ships briefly "lag behind" the rest of the board. In a game without direct conflict that is not a problem. For games with conflict, a better variant is to carry out the orbital movement of all ships in the neutral turn – positions are then always consistent, at the cost of moving all ships at once.
+
 ### Reference model
 
-In space you pay for changing your velocity, not for the distance travelled. The proposed flight model:
+In space you pay for changing your velocity, not for the distance travelled.
 
-1. A ship has its own velocity: 0–2 hexes per round in any direction (a marker on the hex the ship will reach next round).
-2. At the start of its turn a ship may change its velocity by at most 2 hexes. Each hex of velocity change costs 1 fuel unit.
-3. The ship moves by its velocity and together with the ring on which it started the turn.
-4. Hop: a ship may move 1 hex and stop in the same turn (cost 2).
-5. Docking, landing and any other interaction require zero velocity. A fusion drive is too weak to lift off from the surface of a planet or a large asteroid:
-   - at the Earth and Mars the ship docks at a station in orbit, and the station's landers run to the surface,
-   - Ceres and Vesta need a lander – a local one or the freighter's own, carried on board (at the cost of range or cargo),
-   - on small asteroids, up to a few km across, the freighter lands directly.
-6. Speeds above 2 hexes per round are forbidden by regulations.
-7. Ring 1 is closed to ships – it is too hot close to the Sun, and the ring moves half an orbit per round.
+1. A ship has its own velocity: 0–2 hexes per round in any direction. The simplest way to show it is a marker on the hex the ship will reach in its next turn, as in classic vector movement.
+2. In its turn a ship may change its velocity by at most 2 hexes in total – before moving, after moving, or partly before and partly after. Each hex of velocity change costs 1 fuel unit.
+3. Between changes the ship moves by its velocity. Flying at a constant velocity costs nothing.
+4. Speeds above 2 hexes per round are forbidden by regulations.
+5. Ring 1 is closed to ships – it is too hot close to the Sun, and the ring moves half an orbit per round.
 
-A freighter's tank holds around 20 units. The flight line on the board is a schematic of a planned route: start, end, time and cost match reality, while the real path is curved. Rationale: [model.md](model.md#reference-model).
+Examples:
+
+- **A hop** of 1 hex: +1 before moving, move, −1 after moving. Cost 2.
+- **Braking on arrival**: a ship flying at speed 2 reaches its target and brakes at once (−2 after moving). Cost 2.
+
+A freighter's tank holds around 20 units. The flight line on the board is a schematic of a planned route: start, end, time and cost match reality, while the real path is curved. Rationale: [model.md](model.md#why-the-reference-model-makes-sense).
+
+### Docking and landing
+
+- A ship is **docked** when it has zero velocity on the target hex – at the start of its turn, at the end of its turn, or in between. A **touch-and-go stop** is, for example: braking before moving (−1), docking, accelerating at the end of the turn (+1).
+- **Short actions** – trading, transferring cargo, exchanging passengers – the ship carries out straight after docking, including during a touch-and-go stop.
+- **Long actions** – mining, emergency refuelling – require **a full round of stopover**: in that turn the ship has zero velocity and does not change it at all. Accelerating and braking take time – a velocity change of 2 hexes is a whole round of engine work.
+- **The Earth and Mars:** a docked ship is placed on the planet's **station space**, outside the main grid of the board. A ship on the station space moves together with the planet. When leaving, at the start of its turn it returns to the planet's hex – instead of orbital movement – and then moves normally. The station space also solves crowding at the planet.
+- A fusion drive is too weak to lift off from the surface of a planet or a large asteroid:
+  - at the Earth and Mars the ship docks at a station in orbit, and the station's landers run to the surface,
+  - Ceres and Vesta need a lander – a local one or the freighter's own, carried on board (at the cost of range or cargo),
+  - on small asteroids, up to a few km across, the freighter lands directly.
 
 ### Simplified model
 
@@ -118,7 +141,7 @@ Games that don't want to track ship velocities can charge for every hex of power
 | ring 3 (Mars) | max. 1 hex/round | 2 |
 | rings 4–6 (asteroid belt) | 1 or 2 hexes/round | 1 for 1 hex, 3 for 2 hexes |
 
-A move across a ring boundary follows the limit and cost of the ring closest to the Sun that the move touches. A freighter's tank then holds around 15 units. This model is consistent in itself but departs from physics – what exactly it loses is described in [model.md](model.md#simplified-model-cost-per-hex).
+A move across a ring boundary follows the limit and cost of the ring closest to the Sun that the move touches. The sequence of a round, docking and station spaces work the same way, except that a ship docks by ending its movement on the target hex. A freighter's tank then holds around 15 units. This model is consistent in itself but departs from physics – what exactly it loses is described in [model.md](model.md#simplified-model-cost-per-hex).
 
 ## Route planning – the heart of the mechanic
 

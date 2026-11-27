@@ -25,7 +25,7 @@ def true_coast(a, ur, ut, rounds):
 
 
 def game_coast(a, ur, ut, rounds, bend=False):
-    """Movement in the game: every round the ring's forced movement + own velocity in a straight line.
+    """Movement in the game: every round the ring's orbital movement + own velocity in a straight line.
     bend=True: in addition, velocity along the orbit converts into radial velocity
     (belt 1, Mars 2, Earth 3 hexes/round per hex of velocity)."""
     r, th, u = a * AU, 0.0, [ur, ut]

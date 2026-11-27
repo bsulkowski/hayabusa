@@ -60,13 +60,6 @@ To najważniejsza i najbardziej oryginalna cecha planszy.
 
 Plansza **nie jest nieruchoma** – obraca się wokół Słońca. Dzięki temu obiekty w pasie planetoid stoją na planszy praktycznie nieruchomo, a planety bliżej Słońca – które w rzeczywistości krążą szybciej – poruszają się po planszy wyraźnie w jednym kierunku co rundę.
 
-### Runda i tura
-
-- **Runda** to jednostka organizacyjna gry: w każdej rundzie każdy gracz wykonuje swój ruch. Odpowiada upływowi niecałych 3 miesięcy (ok. 87 dni). Raz na rundę każdy obiekt na pierścieniu przesuwa się po orbicie.
-- **Tura** to kolej danego gracza – albo ogólnie strony w grze – w ramach rundy.
-- Ruch po orbicie statków gracza najwygodniej wykonywać w jego turze. Utrudnia to sprawdzanie wzajemnych położeń statków różnych graczy, ale w grze bez bezpośredniego konfliktu nie jest to problem.
-- Ziemia, Mars i inne neutralne obiekty, których położenie trzeba śledzić, przesuwają się we własnej, osobnej turze.
-
 ### Prędkości orbitalne
 
 Jedna runda gry odpowiada ok. 87 dniom (nieco mniej niż ćwierć roku). Co rundę wszystkie obiekty na danym pierścieniu – planety, statki graczy, wszystko – przesuwają się o:
@@ -84,28 +77,58 @@ Ruch odbywa się w tym samym kierunku dla wszystkich (zgodnie z rzeczywistym kie
 
 ## Ruch statków
 
-Każdy statek ma dwa składniki ruchu, które działają łącznie:
+Każdy statek ma dwa składniki ruchu:
 
-**Ruch wymuszony** – wynikający z pierścienia, na którym statek się znajduje (patrz tabela powyżej). Dotyczy wszystkich obiektów bez wyjątku.
+**Ruch po orbicie** – wynikający z pierścienia, na którym statek się znajduje (patrz tabela powyżej). Dotyczy wszystkich obiektów bez wyjątku.
 
 **Ruch własny** – napędzany silnikiem statku. Jego prędkość (1–2 pola na rundę) jest porównywalna z prędkościami orbitalnymi: mechaniki orbitalnej nie da się ignorować, ale aktywne manewrowanie pozwala ją wykorzystać lub jej przeciwdziałać.
 
+### Runda i tura
+
+- **Runda** to jednostka organizacyjna gry: w każdej rundzie każdy gracz wykonuje swój ruch. Odpowiada upływowi niecałych 3 miesięcy (ok. 87 dni). Raz na rundę każdy obiekt na pierścieniu przesuwa się po orbicie.
+- **Tura** to kolej danego gracza – albo ogólnie strony w grze – w ramach rundy.
+
+Przebieg rundy:
+
+1. **Tura neutralna**, na początku rundy:
+   - Ziemia i Mars przesuwają się po orbitach,
+   - obiekty pasa planetoid przesuwają się zgodnie z dryfem (jeśli gra go śledzi),
+   - rozstrzygają się zdarzenia rundy, na przykład pojawianie się i znikanie ciekawych miejsc w pasie.
+2. **Tury graczy**, po kolei. W swojej turze gracz dla każdego swojego statku:
+   1. wykonuje **ruch po orbicie** – statek przesuwa się razem z pierścieniem, na którym stoi; znacznik prędkości przesuwa się razem z nim i zachowuje położenie względem statku,
+   2. wykonuje **ruch własny** – według modelu lotów (niżej).
+
+Ruch po orbicie liczy się z pierścienia, na którym statek naprawdę stoi – po ruchu własnym mógłby być już na innym pierścieniu. Gracze w swoich turach widzą, gdzie w tej rundzie są planety.
+
+Między turą neutralną a turą gracza jego statki przez chwilę „odstają” od reszty planszy. W grze bez bezpośredniego konfliktu to nie problem. W grach z konfliktem lepszy jest wariant, w którym ruch po orbicie wszystkich statków wykonuje się w turze neutralnej – wtedy położenia są zawsze spójne, kosztem przesuwania wszystkich statków naraz.
+
 ### Model referencyjny
 
-W kosmosie płaci się za zmianę prędkości, a nie za przebytą drogę. Proponowany model lotów:
+W kosmosie płaci się za zmianę prędkości, a nie za przebytą drogę.
 
-1. Statek ma prędkość własną: 0–2 pola na rundę w dowolnym kierunku (znacznik na polu, na które doleci w następnej rundzie).
-2. Na początku swojej tury statek może zmienić prędkość najwyżej o 2 pola. Każde pole zmiany prędkości kosztuje 1 jednostkę paliwa.
-3. Statek przesuwa się o swoją prędkość i razem z pierścieniem, na którym zaczął turę.
-4. Przeskok: statek może przesunąć się o 1 pole i zatrzymać w tej samej turze (koszt 2).
-5. Dokowanie, lądowanie i każda inna interakcja wymagają prędkości 0. Silnik fuzyjny jest za słaby, żeby wystartować z powierzchni planety albo dużej planetoidy:
-   - przy Ziemi i Marsie statek dokuje do stacji na orbicie, a na powierzchnię kursują lądowniki stacji,
-   - na Ceres i Westę potrzebny jest lądownik – miejscowy albo własny, na wyposażeniu frachtowca (kosztem zasięgu lub ładunku),
-   - na małych planetoidach, o średnicy do kilku km, frachtowiec ląduje bezpośrednio.
-6. Prędkość ponad 2 pola na rundę jest zakazana przepisami.
-7. Pierścień 1 jest zamknięty dla statków – blisko Słońca jest za gorąco, a pierścień przesuwa się o pół obiegu na rundę.
+1. Statek ma prędkość własną: 0–2 pola na rundę w dowolnym kierunku. Najprościej zaznaczyć ją znacznikiem na polu, na które statek doleci w następnej turze, jak w klasycznym ruchu wektorowym.
+2. W swojej turze statek może zmienić prędkość łącznie najwyżej o 2 pola – przed ruchem, po ruchu albo częściowo przed i po. Każde pole zmiany prędkości kosztuje 1 jednostkę paliwa.
+3. Między zmianami statek przesuwa się o swoją prędkość. Lot ze stałą prędkością nic nie kosztuje.
+4. Prędkość ponad 2 pola na rundę jest zakazana przepisami.
+5. Pierścień 1 jest zamknięty dla statków – blisko Słońca jest za gorąco, a pierścień przesuwa się o pół obiegu na rundę.
 
-Zbiornik frachtowca mieści rzędu 20 jednostek. Linia lotu na planszy to schemat zaplanowanej trasy: początek, koniec, czas i koszt odpowiadają rzeczywistości, a prawdziwy tor jest zakrzywiony. Uzasadnienie: [model_pl.md](model_pl.md#model-referencyjny).
+Przykłady:
+
+- **Przeskok** o 1 pole: +1 przed ruchem, ruch, −1 po ruchu. Koszt 2.
+- **Hamowanie po dolocie**: statek lecący z prędkością 2 dolatuje do celu i od razu wyhamowuje (−2 po ruchu). Koszt 2.
+
+Zbiornik frachtowca mieści rzędu 20 jednostek. Linia lotu na planszy to schemat zaplanowanej trasy: początek, koniec, czas i koszt odpowiadają rzeczywistości, a prawdziwy tor jest zakrzywiony. Uzasadnienie: [model_pl.md](model_pl.md#dlaczego-model-referencyjny-ma-sens).
+
+### Dokowanie i lądowanie
+
+- Statek jest **zadokowany**, gdy ma prędkość 0 na polu celu – na początku tury, na końcu tury albo pomiędzy. **Postój w przelocie** to na przykład: zahamowanie przed ruchem (−1), dokowanie, przyspieszenie na koniec tury (+1).
+- **Krótkie działania** – handel, przeładunek, wymiana pasażerów – statek wykonuje od razu po zadokowaniu, także w postoju w przelocie.
+- **Długie działania** – wydobycie, awaryjne tankowanie – wymagają **pełnej rundy postoju**: w danej turze statek ma prędkość 0 i w ogóle jej nie zmienia. Rozpędzanie i hamowanie trwają – zmiana prędkości o 2 pola to praca silnika przez całą rundę.
+- **Ziemia i Mars:** zadokowany statek stawia się na **polu stacji** planety, poza główną siatką planszy. Statek na polu stacji porusza się razem z planetą. Odlatując, na początku swojej tury wraca na pole planety – zamiast ruchu po orbicie – i dalej porusza się normalnie. Pole stacji rozwiązuje też problem tłoku przy planecie.
+- Silnik fuzyjny jest za słaby, żeby wystartować z powierzchni planety albo dużej planetoidy:
+  - przy Ziemi i Marsie statek dokuje do stacji na orbicie, a na powierzchnię kursują lądowniki stacji,
+  - na Ceres i Westę potrzebny jest lądownik – miejscowy albo własny, na wyposażeniu frachtowca (kosztem zasięgu lub ładunku),
+  - na małych planetoidach, o średnicy do kilku km, frachtowiec ląduje bezpośrednio.
 
 ### Model uproszczony
 
@@ -118,7 +141,7 @@ Gry, które nie chcą śledzić prędkości statków, mogą płacić za każde p
 | pierścień 3 (Mars) | maks. 1 pole/rundę | 2 |
 | pierścienie 4–6 (pas planetoid) | 1 albo 2 pola/rundę | 1 za 1 pole, 3 za 2 pola |
 
-Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka. Zbiornik frachtowca mieści wtedy rzędu 15 jednostek. Ten model jest spójny sam w sobie, ale odchodzi od fizyki – co dokładnie traci, opisuje [model_pl.md](model_pl.md#model-uproszczony-koszt-za-pole).
+Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka. Przebieg rundy, dokowanie i pola stacji działają tak samo, z tą różnicą, że statek dokuje, kończąc ruch na polu celu. Zbiornik frachtowca mieści wtedy rzędu 15 jednostek. Ten model jest spójny sam w sobie, ale odchodzi od fizyki – co dokładnie traci, opisuje [model_pl.md](model_pl.md#model-uproszczony-koszt-za-pole).
 
 ## Planowanie trasy – serce mechaniki
 

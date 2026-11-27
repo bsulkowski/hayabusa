@@ -115,7 +115,7 @@ def transfer_dv(a1_au, a2_au, sweep_rad, t):
 
 
 def game_sweep(rings_au):
-    """Angle (inertial) swept by a ship in the game: every round the forced movement of
+    """Angle (inertial) swept by a ship in the game: every round the orbital movement of
     the ring on which the ship starts the round. rings_au - radii of the successive hexes."""
     return sum(mean_motion(a) * ROUND for a in rings_au[:-1])
 
