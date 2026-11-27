@@ -328,7 +328,6 @@ def board_art(lang, theme, fmt_name="a2"):
     qx, qy = at(-117, -52)
     el.append(qr_path(URL[lang], qx - size / 2, qy - size / 2, size, 0, NAVY))
     el.append(text(qx, qy + size / 2 + 4, t["version"], 2.8, NAVY, ORBITRON))
-    el.append(text(qx, qy + size / 2 + 8.5, t["credits"], 2.8, NAVY, ORBITRON))
 
     # right: the Earth (only a part fits) and Mars to scale, dice legend between
     def on_photo(x, y, txt):
@@ -339,7 +338,7 @@ def board_art(lang, theme, fmt_name="a2"):
     el.append(on_photo(*at(128, -38), t["earth"]))
     el.append(station("mars", *at(123.5, 65.5), th["planet_veil"]))
     el.append(on_photo(*at(123.5, 65.5), t["mars"]))
-    lx, ly = at(143, 12)
+    lx, ly = at(143, 21)   # below the A2 horizontal join, above the orbit of Mars
     el.append(f'<polygon points="{hex_points(lx, ly, 10)}" fill="{th["belt"][0]}" '
               f'stroke="{th["line"][0]}" stroke-opacity="{th["line"][1]}" stroke-width="0.5"/>')
     el.append(text(lx, ly - 1, t["d12"], 6.2, th["accent"], ORBITRON))
@@ -351,13 +350,14 @@ def board_art(lang, theme, fmt_name="a2"):
     el.append(f'<path d="M{fmt(hx + 2.6)},{fmt(hy - 2.4)} L{fmt(hx)},{fmt(hy)} L{fmt(hx + 2.6)},{fmt(hy + 2.4)}" '
               f'fill="none" stroke="{th["accent"]}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>')
 
-    # left: Vesta and Ceres, bottom left: the scales
+    # left: Vesta and Ceres
     for key, (dx, dy) in (("vesta", (-114, 30)), ("ceres", (-114, 58))):
         cx, cy = at(dx, dy)
         el.append(station(key, cx, cy, th["planet_veil"]))
         el.append(text(cx, cy - ORBIT_KM[key] / KM_PER_MM - 5, t[key], 5.0, NAVY))
-    for i, (line, exp) in enumerate(scale_lines(lang, fmt_name)):
-        x, y = at(-129, 84 + 4.8 * i)
+    # bottom left: the scales, with the photo credits under the planet scale
+    for i, (line, exp) in enumerate(scale_lines(lang, fmt_name) + [(t["credits"], None)]):
+        x, y = at(-129, 79.2 + 4.8 * i)
         el.append(text(x, y, line + (str(exp) if exp else ""), 3.6, NAVY, anchor="start"))   # for the seam check
         el[-1] = (f'<text x="{fmt(x)}" y="{fmt(y)}" font-family="{EXO}" font-size="3.6" fill="{NAVY}" '
                   f'dominant-baseline="central">{line}'
