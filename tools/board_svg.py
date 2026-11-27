@@ -71,12 +71,14 @@ THEMES = {
     "dark": dict(rings={0: "#6060ff", 1: "#3030ff", 2: "#0000ff", 3: "#000080"},
                  belt=("#000040", "#000000"), line=("#a0a0ff", 0.35),
                  ring_text={1: "#c0c0ff", 2: "#ffffff", 3: "#b8b8ff"}, belt_text="#8080ff",
-                 accent=ORANGE, sun_stroke=None, planet_veil=0),
+                 accent=ORANGE, sun_stroke=None, planet_veil=0, page="#ffffff", ink=NAVY),
     "light": dict(rings={0: "#ffffff", 1: "#f0f0ff", 2: "#e0e0ff", 3: "#d0d0ff"},
                   belt=("#c0c0ff", "#b0b0ff"), line=(NAVY, 0.35),
                   ring_text={1: "#6868d0", 2: "#2828b0", 3: "#2020a0"}, belt_text="#4020a0",
-                  accent="#a03800", sun_stroke=ORANGE, planet_veil=0.4),
+                  accent="#a03800", sun_stroke=ORANGE, planet_veil=0.4, page="#ffffff", ink=NAVY),
 }
+# the dark board on a black page: everything around the board is space too
+THEMES["black"] = dict(THEMES["dark"], page="#000000", ink="#e0e0ff")
 
 # Dice labels in the asteroid belt. Sectors come in pairs spanning 60 degrees:
 # an even sector of 8 hexes and an odd one of 7 without "4": that result in an odd
@@ -202,14 +204,14 @@ ORBIT_KM = {"earth": 6771, "mars": 3790, "ceres": 855, "vesta": 473}        # ra
 KM_PER_MM = PLANET_SCALE_A2 / 1e6 * print_scale("a2")         # km per mm of the one-page board
 
 
-def station(key, cx, cy, veil=0):
+def station(key, cx, cy, veil=0, ink=NAVY):
     """Planet and its dashed station orbit, to the scale of KM_PER_MM."""
     orbit = ORBIT_KM[key] / KM_PER_MM
-    return (f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(orbit)}" fill="none" stroke="{NAVY}" '
-            f'stroke-width="0.4" stroke-dasharray="1.5 1.2"/>' + planet(key, cx, cy, PLANET_KM[key] / KM_PER_MM, veil))
+    return (f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(orbit)}" fill="none" stroke="{ink}" '
+            f'stroke-width="0.4" stroke-dasharray="1.5 1.2"/>' + planet(key, cx, cy, PLANET_KM[key] / KM_PER_MM, veil, ink))
 
 
-def planet(key, cx, cy, r, veil=0):
+def planet(key, cx, cy, r, veil=0, ink=NAVY):
     """Photo or placeholder disc; veil > 0 lightens it with white of that opacity
     (the light version), the same way for photos and placeholders."""
     clip = f"clip-{key}"
@@ -230,7 +232,7 @@ def planet(key, cx, cy, r, veil=0):
                    f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="url(#grad-{key})"/>')
     if veil:
         out.append(f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="#ffffff" fill-opacity="{veil}"/>')
-    out.append(f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="none" stroke="{NAVY}" stroke-width="0.5"/>')
+    out.append(f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="none" stroke="{ink}" stroke-width="0.5"/>')
     return "".join(out)
 
 
@@ -263,6 +265,8 @@ def board_art(lang, theme, fmt_name="a2"):
     # sheets (see check_seams): the vertical seam runs just right of the Sun,
     # the A2 horizontal one through it.
     a = math.radians(ROTATION)
+    if th["page"] != "#ffffff":     # far beyond the page, so it fills every printed sheet
+        el.append(f'<rect x="-1000" y="-1000" width="3000" height="3000" fill="{th["page"]}"/>')
 
     def at(dx, dy):
         return sx + dx, sy + dy
@@ -320,46 +324,44 @@ def board_art(lang, theme, fmt_name="a2"):
         el.append(arrows(*at(0, 15 * n), 4 - n, rt[n]))
     el.append(text(*at(-24, -75), t["belt"], 10.0, th["belt_text"]))   # ring 5, left of the seam
 
-    # top left: title, subtitle, QR code
-    el.append(text(*at(-100, -88), t["title"], 13.0, NAVY))
+    # top left: title, subtitle, QR code, dice legend
+    ink = th["ink"]
+    el.append(text(*at(-100, -88), t["title"], 13.0, ink))
     for i, line in enumerate(t["subtitle"]):
-        el.append(text(*at(-100, -79.5 + 5.4 * i), line, 4.4, NAVY))
+        el.append(text(*at(-100, -79.5 + 5.4 * i), line, 4.4, ink))
     size = 19
-    qx, qy = at(-117, -52)
+    qx, qy = at(-117, -54)
+    if th["page"] != "#ffffff":     # scanners want a dark code on a light ground
+        el.append(f'<rect x="{fmt(qx - size / 2 - 1.5)}" y="{fmt(qy - size / 2 - 1.5)}" width="{fmt(size + 3)}" '
+                  f'height="{fmt(size + 3)}" rx="1" fill="#ffffff"/>')
     el.append(qr_path(URL[lang], qx - size / 2, qy - size / 2, size, 0, NAVY))
-    el.append(text(qx, qy + size / 2 + 4, t["version"], 2.8, NAVY, ORBITRON))
-
-    # right: the Earth (only a part fits) and Mars to scale, dice legend between
-    def on_photo(x, y, txt):
-        return (f'<text x="{fmt(x)}" y="{fmt(y)}" font-family="{EXO}" font-size="{PLANET}" fill="#ffffff" '
-                f'stroke="{NAVY}" stroke-width="0.8" paint-order="stroke" text-anchor="middle" '
-                f'dominant-baseline="central">{txt}</text>')
-    el.append(station("earth", *at(147, -80), th["planet_veil"]))            # orbits may run off the page
-    el.append(on_photo(*at(128, -38), t["earth"]))
-    el.append(station("mars", *at(123.5, 65.5), th["planet_veil"]))
-    el.append(on_photo(*at(123.5, 65.5), t["mars"]))
-    lx, ly = at(143, 21)   # below the A2 horizontal join, above the orbit of Mars
+    el.append(text(qx, qy + size / 2 + 4, t["version"], 2.8, ink, ORBITRON))
+    lx, ly = at(-117, -27)
     el.append(f'<polygon points="{hex_points(lx, ly, 10)}" fill="{th["belt"][0]}" '
               f'stroke="{th["line"][0]}" stroke-opacity="{th["line"][1]}" stroke-width="0.5"/>')
     el.append(text(lx, ly - 1, t["d12"], 6.2, th["accent"], ORBITRON))
     el.append(text(lx, ly + 5, t["d8"], 3.0, th["accent"], ORBITRON))
-    ax, ay = lx - 10, ly
-    el.append(f'<path d="M{fmt(ax)},{fmt(ay)} h-10" fill="none" stroke="{th["accent"]}" '
-              f'stroke-width="1.2" stroke-linecap="round"/>')
-    hx, hy = ax - 10, ay
-    el.append(f'<path d="M{fmt(hx + 2.6)},{fmt(hy - 2.4)} L{fmt(hx)},{fmt(hy)} L{fmt(hx + 2.6)},{fmt(hy + 2.4)}" '
-              f'fill="none" stroke="{th["accent"]}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>')
+    ax, hx = lx + R3 * 10 / 2 + 1.5, lx + R3 * 10 / 2 + 8.5      # arrow towards the board
+    el.append(f'<path d="M{fmt(ax)},{fmt(ly)} H{fmt(hx)} M{fmt(hx - 2.6)},{fmt(ly - 2.4)} L{fmt(hx)},{fmt(ly)} '
+              f'L{fmt(hx - 2.6)},{fmt(ly + 2.4)}" fill="none" stroke="{th["accent"]}" stroke-width="1.2" '
+              f'stroke-linecap="round" stroke-linejoin="round"/>')
+
+    # right: the Earth (only a part fits) and Mars to scale, names beside the photos
+    el.append(station("earth", *at(147, -80), th["planet_veil"], ink))     # orbits may run off the page
+    el.append(text(*at(135, -6), t["earth"], PLANET, ink))
+    el.append(station("mars", *at(123.5, 65.5), th["planet_veil"], ink))
+    el.append(text(*at(123.5, 23), t["mars"], PLANET, ink))
 
     # left: Vesta and Ceres
     for key, (dx, dy) in (("vesta", (-114, 30)), ("ceres", (-114, 58))):
         cx, cy = at(dx, dy)
-        el.append(station(key, cx, cy, th["planet_veil"]))
-        el.append(text(cx, cy - ORBIT_KM[key] / KM_PER_MM - 5, t[key], 5.0, NAVY))
+        el.append(station(key, cx, cy, th["planet_veil"], ink))
+        el.append(text(cx, cy - ORBIT_KM[key] / KM_PER_MM - 5, t[key], 5.0, ink))
     # bottom left: the scales, with the photo credits under the planet scale
     for i, (line, exp) in enumerate(scale_lines(lang, fmt_name) + [(t["credits"], None)]):
         x, y = at(-129, 79.2 + 4.8 * i)
-        el.append(text(x, y, line + (str(exp) if exp else ""), 3.6, NAVY, anchor="start"))   # for the seam check
-        el[-1] = (f'<text x="{fmt(x)}" y="{fmt(y)}" font-family="{EXO}" font-size="3.6" fill="{NAVY}" '
+        el.append(text(x, y, line + (str(exp) if exp else ""), 3.6, ink, anchor="start"))   # for the seam check
+        el[-1] = (f'<text x="{fmt(x)}" y="{fmt(y)}" font-family="{EXO}" font-size="3.6" fill="{ink}" '
                   f'dominant-baseline="central">{line}'
                   + (f'<tspan dy="-1.3" font-size="2.5">{exp}</tspan>' if exp else "") + '</text>')
     return "".join(el)
@@ -451,7 +453,7 @@ def check_seams(label):
 
 
 def name(lang, theme):
-    return "board" + ("-light" if theme == "light" else "") + ("_pl" if lang == "pl" else "")
+    return "board" + ("" if theme == "dark" else "-" + theme) + ("_pl" if lang == "pl" else "")
 
 
 def main():
@@ -469,7 +471,7 @@ def main():
         qr = qr_path(URL[lang], 0, 0, 40, 0, NAVY)
         with open(os.path.join(out, "qrcode" + ("_pl" if lang == "pl" else "") + ".svg"), "w", encoding="utf-8") as f:
             f.write(svg_doc(40, 40, qr))
-        for theme in ("dark", "light"):
+        for theme in ("dark", "light", "black"):
             base = name(lang, theme)
             path = os.path.join(out, base + ".svg")
             with open(path, "w", encoding="utf-8") as f:

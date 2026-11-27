@@ -27,7 +27,7 @@ The Earth, Mars, Ceres and Vesta beside the board have a scale of their own, sha
 
 Print the sheets at 100% scale, without fitting to the page. At every join, trim both sheets along the dashed lines (cutting off the margin), butt their edges together and tape them on the back. The join then works as a hinge. The joins run between hex centres, never through them.
 
-The board comes in two colour versions: dark and light (`board-light…` files), printer-friendly.
+The board comes in two colour versions: dark and light (`board-light…` files), printer-friendly. The dark one is also available on a black background (`board-black…` files).
 
 ## Planetary orbits
 

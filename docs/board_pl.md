@@ -27,7 +27,7 @@ Ziemia, Mars, Ceres i Westa obok planszy mają własną, wspólną skalę: 1 : 6
 
 Kartki drukuje się w skali 100%, bez dopasowania do strony. Przy każdym łączeniu obie kartki przycina się wzdłuż przerywanych linii (odcina się margines), dosuwa brzegami i skleja taśmą od spodu. Łączenie działa wtedy jak zawias. Łączenia biegną między środkami pól, nigdy przez nie.
 
-Plansza jest w dwóch wersjach kolorystycznych: ciemnej i jasnej (pliki `board-light…`), przyjaznej drukarce.
+Plansza jest w dwóch wersjach kolorystycznych: ciemnej i jasnej (pliki `board-light…`), przyjaznej drukarce. Ciemna jest też na czarnym tle (pliki `board-black…`).
 
 ## Orbity planet
 
