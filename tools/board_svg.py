@@ -164,10 +164,11 @@ def qr_path(url, x, y, size, rotate, fill):
 
 
 # Scales of the printed board: the grid (0.5 AU per ring) and, separately, the
-# planets with their orbits. Round values from the Human Scale Numbers series.
+# planets with their orbits. The grid scale is a Human Scale Numbers value; the
+# planet scale is chosen for easy reckoning (1 mm = 60 km on A2).
 AU_KM = 149597870.7
 GRID_SCALE = {"a2": 2.5e12, "a3": 3.2e12}     # 1 : n
-PLANET_SCALE_A2 = 64e6                        # 1 : n on A2; other formats follow
+PLANET_SCALE_A2 = 60e6                        # 1 : n on A2; other formats follow
 
 
 def print_scale(fmt_name):
@@ -311,11 +312,11 @@ def board_art(lang, theme, fmt_name="a2"):
         return (f'<text x="{fmt(x)}" y="{fmt(y)}" font-family="{EXO}" font-size="{PLANET}" fill="#ffffff" '
                 f'stroke="{NAVY}" stroke-width="0.8" paint-order="stroke" text-anchor="middle" '
                 f'dominant-baseline="central">{txt}</text>')
-    el.append(station("earth", *at(148, -72)))
-    el.append(on_photo(*at(128, -32), t["earth"]))
-    el.append(station("mars", *at(121.5, 63.5)))
-    el.append(on_photo(*at(121.5, 63.5), t["mars"]))
-    lx, ly = at(143, 14)
+    el.append(station("earth", *at(147, -80)))            # orbits may run off the page
+    el.append(on_photo(*at(128, -38), t["earth"]))
+    el.append(station("mars", *at(123.5, 65.5)))
+    el.append(on_photo(*at(123.5, 65.5), t["mars"]))
+    lx, ly = at(143, 12)
     el.append(f'<polygon points="{hex_points(lx, ly, 10)}" fill="{th["belt"][0]}" '
               f'stroke="{th["belt_stroke"]}" stroke-width="0.5"/>')
     el.append(text(lx, ly - 1, t["d12"], 6.2, ORANGE, ORBITRON))
