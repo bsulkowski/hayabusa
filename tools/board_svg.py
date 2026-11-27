@@ -238,7 +238,6 @@ def planet(key, cx, cy, r, veil=0, ink=NAVY):
                    f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="url(#grad-{key})"/>')
     if veil:
         out.append(f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="#ffffff" fill-opacity="{veil}"/>')
-    out.append(f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="none" stroke="{ink}" stroke-width="0.5"/>')
     return "".join(out)
 
 
