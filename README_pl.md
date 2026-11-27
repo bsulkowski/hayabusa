@@ -17,7 +17,7 @@ Plansza nie jest przypisana do jednej gry – to przestrzeń, na której można 
 | [board/board-light_pl_a2.pdf](board/board-light_pl_a2.pdf), [board/board-light_pl_a3.pdf](board/board-light_pl_a3.pdf), [board/board-light_a2.pdf](board/board-light_a2.pdf), [board/board-light_a3.pdf](board/board-light_a3.pdf) | wersja jasna, przyjazna drukarce |
 | [board/board-black_pl_a2.pdf](board/board-black_pl_a2.pdf), [board/board-black_pl_a3.pdf](board/board-black_pl_a3.pdf), [board/board-black_a2.pdf](board/board-black_a2.pdf), [board/board-black_a3.pdf](board/board-black_a3.pdf) | wersja ciemna na czarnym tle |
 | [board/board_pl.svg](board/board_pl.svg), [board/board.svg](board/board.svg), [board/board-light_pl.svg](board/board-light_pl.svg), [board/board-light.svg](board/board-light.svg), [board/board-black_pl.svg](board/board-black_pl.svg), [board/board-black.svg](board/board-black.svg) | cała plansza na jednej stronie |
-| [board/board_pl.png](board/board_pl.png), [board/board.png](board/board.png) | podgląd |
+| [board/board_pl.png](board/board_pl.png), [board/board.png](board/board.png), [board/board-black_pl.png](board/board-black_pl.png), [board/board-black.png](board/board-black.png) | podgląd |
 | [board/qrcode_pl.svg](board/qrcode_pl.svg), [board/qrcode.svg](board/qrcode.svg) | kody QR do strony projektu |
 | [models/](models/README_pl.md) | pionki do druku 3D: statek transportowy i placówka na planetoidzie |
 

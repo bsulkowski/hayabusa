@@ -489,7 +489,7 @@ def main():
                                 + board_art(lang, theme)))
             print(path)
             check_seams(base)
-            if rsvg and theme == "dark":
+            if rsvg and theme in ("dark", "black"):     # previews; black for the web page
                 png = os.path.join(out, base + ".png")
                 subprocess.run([rsvg, "-w", "1200", "-o", png, path], check=True)
                 print(png)

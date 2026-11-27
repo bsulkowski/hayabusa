@@ -17,7 +17,7 @@ The board is not tied to a single game – it is a space on which different game
 | [board/board-light_a2.pdf](board/board-light_a2.pdf), [board/board-light_a3.pdf](board/board-light_a3.pdf), [board/board-light_pl_a2.pdf](board/board-light_pl_a2.pdf), [board/board-light_pl_a3.pdf](board/board-light_pl_a3.pdf) | light, printer-friendly version |
 | [board/board-black_a2.pdf](board/board-black_a2.pdf), [board/board-black_a3.pdf](board/board-black_a3.pdf), [board/board-black_pl_a2.pdf](board/board-black_pl_a2.pdf), [board/board-black_pl_a3.pdf](board/board-black_pl_a3.pdf) | dark version on a black background |
 | [board/board.svg](board/board.svg), [board/board_pl.svg](board/board_pl.svg), [board/board-light.svg](board/board-light.svg), [board/board-light_pl.svg](board/board-light_pl.svg), [board/board-black.svg](board/board-black.svg), [board/board-black_pl.svg](board/board-black_pl.svg) | the whole board on one page |
-| [board/board.png](board/board.png), [board/board_pl.png](board/board_pl.png) | preview |
+| [board/board.png](board/board.png), [board/board_pl.png](board/board_pl.png), [board/board-black.png](board/board-black.png), [board/board-black_pl.png](board/board-black_pl.png) | preview |
 | [board/qrcode.svg](board/qrcode.svg), [board/qrcode_pl.svg](board/qrcode_pl.svg) | QR codes linking to the project page |
 | [models/](models/README.md) | 3D-printable pawns: a transport ship and an asteroid outpost |
 
