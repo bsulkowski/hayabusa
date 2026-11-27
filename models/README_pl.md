@@ -60,7 +60,7 @@ Pionek przedstawia **przemysłową część placówki**. Część mieszkalna sto
 **Łączność z Ziemią.** Antena o średnicy kilku metrów zasilana z reaktora daje teoretycznie od kilku do kilkudziesięciu Mb/s nawet przy największej odległości od Ziemi (ok. 3,2 AU); w praktyce straty obniżają to kilkukrotnie. Ograniczeniem jest raczej to, że:
 
 - sygnał idzie 10–27 minut w jedną stronę – można wymieniać wiadomości, ale nie rozmawiać,
-- gdy placówka znajdzie się za Słońcem, łączność urywa się na ok. 13 dni; zdarza się to co ok. 1,4 roku, czyli co 6 tur,
+- gdy placówka znajdzie się za Słońcem, łączność urywa się na ok. 13 dni; zdarza się to co ok. 1,4 roku, czyli co 6 rund,
 - mała planetoida obraca się w kilka godzin, więc z każdego miejsca na powierzchni Ziemię widać tylko przez część obrotu – stałą łączność dają anteny po kilku stronach albo satelita przekaźnikowy na orbicie.
 
 **Słaba grawitacja.** Prędkość ucieczki z planetoidy o średnicy 1 km to ok. 0,5 m/s. Wszystko – maszt anteny, moduły, ludzie – musi być zakotwiczone. Regolit na kopułach osłania, ale niczego nie dociska: 3 m regolitu naciska z siłą ok. 1 Pa, a ciśnienie w module to ok. 100 000 Pa. Kopuły muszą same wytrzymać ciśnienie.

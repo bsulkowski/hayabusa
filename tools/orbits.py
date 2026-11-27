@@ -1,7 +1,7 @@
 """Shared functions: motion on orbits around the Sun and board parameters.
 
 Model: two bodies (Sun + ship), circular and coplanar orbits.
-SI units unless the name says otherwise (AU, turns, hexes).
+SI units unless the name says otherwise (AU, rounds, hexes).
 """
 import math
 import numpy as np
@@ -21,10 +21,10 @@ W_EARTH, W_MARS = 360 / T_EARTH, 360 / T_MARS # angular velocities [deg/year]
 W_REF = (3 * W_MARS - W_EARTH) / 2            # [deg/year]
 T_REF = 360 / W_REF                           # [years]
 A_REF = T_REF ** (2 / 3)                      # [AU], Kepler's law
-TURN = 60 / (W_EARTH - W_REF) * YEAR          # Earth: 60 deg on the board per turn [s]
+ROUND = 60 / (W_EARTH - W_REF) * YEAR          # Earth: 60 deg on the board per round [s]
 OMEGA_REF = math.radians(W_REF) / YEAR        # [rad/s]
 HEX = HEX_AU * AU                             # [m]
-U = HEX / TURN                                # 1 hex per turn [m/s]
+U = HEX / ROUND                                # 1 hex per round [m/s]
 
 RING_AU = {k: HEX_AU * k for k in range(1, 7)}
 
@@ -115,9 +115,9 @@ def transfer_dv(a1_au, a2_au, sweep_rad, t):
 
 
 def game_sweep(rings_au):
-    """Angle (inertial) swept by a ship in the game: every turn the forced movement of
-    the ring on which the ship starts the turn. rings_au - radii of the successive hexes."""
-    return sum(mean_motion(a) * TURN for a in rings_au[:-1])
+    """Angle (inertial) swept by a ship in the game: every round the forced movement of
+    the ring on which the ship starts the round. rings_au - radii of the successive hexes."""
+    return sum(mean_motion(a) * ROUND for a in rings_au[:-1])
 
 
 def propagate(r, v, t):

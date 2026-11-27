@@ -29,11 +29,11 @@ Mercury actually lies at 0.39 AU, Venus at 0.72 AU. In the model both planets la
 
 ## Frame of reference and orbital speeds
 
-### Where the 3/2/1/0 hexes per turn come from
+### Where the 3/2/1/0 hexes per round come from
 
 When designing the orbital speeds, the goal was to find whole numbers that best capture the proportions of real angular velocities. The angular velocities of the Earth, Mars and the asteroid belt are roughly in the proportion **4 : 2 : 1**.
 
-The board rotates in the direction of planetary motion at a speed corresponding to that unit "1". After subtracting the board's rotation, the visible speeds are **3 : 1 : 0** – exactly what the movement table shows. In astrodynamics such a rotating frame of reference is called a synodic frame – hence the board's name. On the board the Earth moves 60° per turn (2 hexes on a 12-hex ring), and Mars 20° (1 hex on an 18-hex ring).
+The board rotates in the direction of planetary motion at a speed corresponding to that unit "1". After subtracting the board's rotation, the visible speeds are **3 : 1 : 0** – exactly what the movement table shows. In astrodynamics such a rotating frame of reference is called a synodic frame – hence the board's name. On the board the Earth moves 60° per round (2 hexes on a 12-hex ring), and Mars 20° (1 hex on an 18-hex ring).
 
 ### Reference orbit and time scale
 
@@ -42,15 +42,15 @@ The 4:2:1 proportion is only a starting point – the real ratio of the angular 
 Two values follow from this condition:
 
 - the board is synchronised with an orbit of radius **2.24 AU** and an orbital period of **3.36 years** – in the inner part of the asteroid belt, closer to the Sun than Ceres,
-- one turn lasts about **87 days** (a little under a quarter of a year).
+- one round lasts about **87 days** (a little under a quarter of a year).
 
-Thanks to this, the Earth and Mars move on the board as they do in reality – with an accuracy limited only by the rounding of the turn length. Neither the reference orbit nor the turn length was assumed in advance; both are the result of the fitting. The price is that the board rotates together with the inner part of the belt, not with its middle – the further parts of the belt drift (see below).
+Thanks to this, the Earth and Mars move on the board as they do in reality – with an accuracy limited only by the rounding of the round length. Neither the reference orbit nor the round length was assumed in advance; both are the result of the fitting. The price is that the board rotates together with the inner part of the belt, not with its middle – the further parts of the belt drift (see below).
 
-Synchronising with Ceres would give a turn closer to an exact quarter of a year, but the Earth:Mars proportion on the board would then be about 2.5:1 instead of 3:1. A quarter of a year is a convenient figure to communicate, but it slightly overstates the real length of a turn.
+Synchronising with Ceres would give a round closer to an exact quarter of a year, but the Earth:Mars proportion on the board would then be about 2.5:1 instead of 3:1. A quarter of a year is a convenient figure to communicate, but it slightly overstates the real length of a round.
 
 ### Ring 1
 
-By Kepler's law a circular orbit at 0.5 AU would move about 3.6 hexes per turn on the board – the model rounds this to 3. The real planets of this ring diverge in both directions: Venus would move about 1.9 hexes per turn, Mercury about 5.5. One ring with one speed can't represent both – which doesn't matter, since both planets are background.
+By Kepler's law a circular orbit at 0.5 AU would move about 3.6 hexes per round on the board – the model rounds this to 3. The real planets of this ring diverge in both directions: Venus would move about 1.9 hexes per round, Mercury about 5.5. One ring with one speed can't represent both – which doesn't matter, since both planets are background.
 
 ## The asteroid belt – drift and randomness
 
@@ -60,12 +60,12 @@ The asteroid belt is not a disc rotating at a constant speed – each asteroid o
 
 | Ring | Distance | Drift relative to the board |
 |------|----------|-----------------------------|
-| 4 | 2.0 AU | +0.3 hexes/turn (forward) |
+| 4 | 2.0 AU | +0.3 hexes/round (forward) |
 | – | 2.24 AU (reference orbit) | 0 |
-| 5 | 2.5 AU | −0.3 hexes/turn (backward) |
-| 6 | 3.0 AU | −0.9 hexes/turn (backward) |
+| 5 | 2.5 AU | −0.3 hexes/round (backward) |
+| 6 | 3.0 AU | −0.9 hexes/round (backward) |
 
-Ceres would drift by about −0.6 hexes/turn. Over a typical game (30–50 turns) it would move by a dozen to several dozen hexes, and objects on the outer ring even more.
+Ceres would drift by about −0.6 hexes/round. Over a typical game (30–50 rounds) it would move by a dozen to several dozen hexes, and objects on the outer ring even more.
 
 ### Drift in play – optional
 
@@ -73,18 +73,18 @@ Drift can be tracked simply by rounding it to whole hexes:
 
 | Ring | Drift | Simplification |
 |------|-------|----------------|
-| 4 | +0.3 hexes/turn | 1 hex forward every 3 turns |
-| 5 | −0.3 hexes/turn | 1 hex backward every 3 turns |
-| 6 | −0.9 hexes/turn | 1 hex backward every turn |
+| 4 | +0.3 hexes/round | 1 hex forward every 3 rounds |
+| 5 | −0.3 hexes/round | 1 hex backward every 3 rounds |
+| 6 | −0.9 hexes/round | 1 hex backward every round |
 
-"Forward" means in the direction in which the planets move. The arithmetic is simple; the trouble may be the number of objects to move – every third turn all objects on rings 4 and 5, and every turn those on ring 6.
+"Forward" means in the direction in which the planets move. The arithmetic is simple; the trouble may be the number of objects to move – every third round all objects on rings 4 and 5, and every round those on ring 6.
 
 So a game can either ignore drift or apply it, depending on its needs:
 
 - **Ignoring it** is enough when objects in the belt appear at random and their exact position doesn't need to be tracked for long. The asteroid belt consists of millions of bodies on slightly different orbits, so random placement with dice represents it well – drift is absorbed by the randomness.
 - **Tracking it** makes sense when a game needs to know the position of a particular asteroid more precisely over a longer time.
 
-Individual known bodies can be tracked separately, even when a game ignores the drift of the rest of the belt. Ceres (2.77 AU) lies on the inner edge of ring 6, but orbits faster than the rest of that ring: it drifts by about −0.6 hexes/turn, that is **2 hexes backward every 3 turns**. Combined with the need for a lander (see "Launching from the surface"), this makes a trip to Ceres something to plan: the target moves, and a lander is needed on arrival.
+Individual known bodies can be tracked separately, even when a game ignores the drift of the rest of the belt. Ceres (2.77 AU) lies on the inner edge of ring 6, but orbits faster than the rest of that ring: it drifts by about −0.6 hexes/round, that is **2 hexes backward every 3 rounds**. Combined with the need for a lander (see "Launching from the surface"), this makes a trip to Ceres something to plan: the target moves, and a lander is needed on arrival.
 
 ## Ship movement and physics
 
@@ -103,19 +103,19 @@ A ship without thrust on a given ring flies on a circular orbit – that is, fre
 
 In reality fuel is spent on changing velocity: on leaving the departure orbit and on matching the target's orbit. In between, the ship flies freely, along an arc shaped by gravity. So the length of the route doesn't matter much – what counts is how fast you have to accelerate and how much you then have to brake.
 
-The unit on the board is a speed of 1 hex per turn – about **10 km/s** relative to the local orbit. That is a lot: the orbital speed in the asteroid belt is about 20 km/s.
+The unit on the board is a speed of 1 hex per round – about **10 km/s** relative to the local orbit. That is a lot: the orbital speed in the asteroid belt is about 20 km/s.
 
 ### Reference model
 
-1. A ship has its own velocity: 0–2 hexes per turn in any direction. The simplest way to show it is a marker on the hex the ship will reach next turn, as in classic vector movement.
-2. At the start of a turn a ship may change its velocity by at most 2 hexes. Each hex of velocity change costs **1 fuel unit** (about 10 km/s).
+1. A ship has its own velocity: 0–2 hexes per round in any direction. The simplest way to show it is a marker on the hex the ship will reach next round, as in classic vector movement.
+2. At the start of its turn a ship may change its velocity by at most 2 hexes. Each hex of velocity change costs **1 fuel unit** (about 10 km/s).
 3. The ship moves by its velocity and together with the ring on which it started the turn.
 4. Hop: a ship may move 1 hex and stop in the same turn (acceleration and braking, cost 2).
 5. Docking, landing and any other interaction require zero velocity. A fusion drive is too weak to lift off from the surface of a planet or a large asteroid (see "Launching from the surface"):
    - at the Earth and Mars the ship docks at a station in orbit, and the station's landers run to the surface,
    - Ceres and Vesta need a lander – a local one or the freighter's own, carried on board,
    - on small asteroids, up to a few km across, the freighter lands directly.
-6. Speeds above 2 hexes per turn are forbidden by regulations – a rule of convention, not of physics.
+6. Speeds above 2 hexes per round are forbidden by regulations – a rule of convention, not of physics.
 7. Ring 1 is closed to ships.
 
 ### Why the reference model makes sense
@@ -136,20 +136,20 @@ A real ship, however, doesn't fly in a straight line but along an arc. **The fli
 
 ### Why not take the straight line literally
 
-If the straight line were taken literally, as free flight, the model would diverge from physics. At game speeds gravity bends the path very strongly: in the asteroid belt, 1 hex per turn forward (+10 km/s) is enough to escape the Solar System, and 2 hexes per turn backward (−20 km/s) almost stop the ship relative to the Sun, so it starts falling towards it.
+If the straight line were taken literally, as free flight, the model would diverge from physics. At game speeds gravity bends the path very strongly: in the asteroid belt, 1 hex per round forward (+10 km/s) is enough to escape the Solar System, and 2 hexes per round backward (−20 km/s) almost stop the ship relative to the Sun, so it starts falling towards it.
 
-Position error of a ship coasting at 1 hex per turn, compared with the straight line in the game (in hexes):
+Position error of a ship coasting at 1 hex per round, compared with the straight line in the game (in hexes):
 
-| Where | after 1 turn | after 2 turns | after 3 turns |
+| Where | after 1 round | after 2 rounds | after 3 rounds |
 |-------|--------------|---------------|---------------|
 | near the Earth | 1.1–1.9 | 2–6 | 2–8 |
 | near Mars | 0.7–1.0 | 1.6–4 | 2–8 |
 | asteroid belt (2.24 AU) | 0.3–0.6 | 1.0–2.3 | 1.6–5 |
 | asteroid belt (3 AU) | 0.2–0.4 | 0.7–1.5 | 1.1–3.4 |
 
-The main mechanism is one of the most counter-intuitive phenomena of orbital mechanics: accelerating forward along the orbit raises the orbit. A ship flying forward in the belt is, after 3 turns, about 3 rings further from the Sun and has not moved forward at all.
+The main mechanism is one of the most counter-intuitive phenomena of orbital mechanics: accelerating forward along the orbit raises the orbit. A ship flying forward in the belt is, after 3 rounds, about 3 rings further from the Sun and has not moved forward at all.
 
-A straight course can be held with thrust, but the cost depends strongly on direction. Cost per turn at a speed of 1 hex per turn:
+A straight course can be held with thrust, but the cost depends strongly on direction. Cost per round at a speed of 1 hex per round:
 
 | Where | forward | backward | outward | inward |
 |-------|---------|----------|---------|--------|
@@ -157,11 +157,11 @@ A straight course can be held with thrust, but the cost depends strongly on dire
 | near Mars | 2.0 | 1.3 | 0.3 | 0.5 |
 | asteroid belt | 1.1 | 0.7 | 0.2 | 0.3 |
 
-Flying away from or towards the Sun is almost free; flying along the orbit is expensive. A simple path-bending rule was also tested (forward velocity turns into outward velocity: 1 hex per turn in the belt, 2 near Mars, 3 near the Earth). It improves forward flight but makes backward flight worse – not worth an extra rule. Treating the flight line as a schematic of a planned route is simpler and gives correct costs.
+Flying away from or towards the Sun is almost free; flying along the orbit is expensive. A simple path-bending rule was also tested (forward velocity rounds into outward velocity: 1 hex per round in the belt, 2 near Mars, 3 near the Earth). It improves forward flight but makes backward flight worse – not worth an extra rule. Treating the flight line as a schematic of a planned route is simpler and gives correct costs.
 
 ### Transfer windows
 
-**The frequency of windows is exact.** The planets move on the board as they do in reality, so favourable alignments repeat every same number of turns as in reality: Earth–Mars every 9 turns (about 26 months), Earth–asteroid belt every 6 turns, Mars–asteroid belt every 18 turns.
+**The frequency of windows is exact.** The planets move on the board as they do in reality, so favourable alignments repeat every same number of rounds as in reality: Earth–Mars every 9 rounds (about 26 months), Earth–asteroid belt every 6 rounds, Mars–asteroid belt every 18 rounds.
 
 **The planets' alignment at launch depends on the flight pace.** In the reference model ships really do fly at game pace, so the launch alignments on the board are real for such flights. They differ from the alignments for the cheapest, slow routes (the Hohmann transfer). The table shows by how many degrees the target must lead the ship at launch (minus – the target is behind):
 
@@ -183,7 +183,7 @@ In both models the player learns a true principle: aim where the target will be,
 By default ships do not enter ring 1. There are three reasons:
 
 - **Heat** – the solar radiation flux there is four times higher than near the Earth, and almost seven times higher near Mercury.
-- **Control** – the ring moves half an orbit per turn, and gravity bends the path even more strongly than near the Earth. A ship with an own speed of 1–2 hexes per turn practically loses control over where it ends up.
+- **Control** – the ring moves half an orbit per round, and gravity bends the path even more strongly than near the Earth. A ship with an own speed of 1–2 hexes per round practically loses control over where it ends up.
 - **Cost of economical routes** – they are 8–11 times more expensive there than in the asteroid belt. In reality missions to Mercury take years and need many planetary flybys: the MESSENGER probe launched in 2004 and entered Mercury orbit only in 2011, after six such flybys.
 
 The rule fits the role of Mercury and Venus as background. A game that wants to fly there can lift it.
@@ -192,7 +192,7 @@ The rule fits the role of Mercury and Venus as background. A game that wants to 
 
 The reference model requires a **fusion drive**: with a unit of 10 km/s, other drives cannot carry enough propellant.
 
-**Thrust.** A velocity change of 2 hexes within a turn is about 20 km/s in 87 days – a constant acceleration of about 0.27 milli-g. With an exhaust velocity of about 300 km/s this requires a power of the order of 0.7 MW per tonne of ship. That is the distant future, but the physics stays honest: accelerations are of the order of milli-g, not a full g as in less restrained science fiction.
+**Thrust.** A velocity change of 2 hexes within a round is about 20 km/s in 87 days – a constant acceleration of about 0.27 milli-g. With an exhaust velocity of about 300 km/s this requires a power of the order of 0.7 MW per tonne of ship. That is the distant future, but the physics stays honest: accelerations are of the order of milli-g, not a full g as in less restrained science fiction.
 
 **Tank.** The velocity change a full tank provides depends only on the exhaust velocity and on the ratio of the ship's mass with propellant to its mass without – not on the size of the ship. For a freighter the cargo counts too, since it is part of the mass. Example: structure of mass 1, cargo 1 (or 2), full tank of mass 2, exhaust velocity about 300 km/s:
 
@@ -216,8 +216,8 @@ Proposed values:
 
 | Method | Rate | Full tank |
 |--------|------|-----------|
-| emergency kit carried by the freighter (about 1–2.5 t of rock per hour) | about 3 units per turn of stopover | about 7 turns |
-| mining station | the whole tank | 1 turn |
+| emergency kit carried by the freighter (about 1–2.5 t of rock per hour) | about 3 units per round of stopover | about 7 rounds |
+| mining station | the whole tank | 1 round |
 
 The emergency kit is slow enough to really be an emergency solution – during the stopover the Earth and the transfer windows slip away. Like a lander, the kit has mass and reduces the ship's range.
 
@@ -266,9 +266,9 @@ The simplified model doesn't track ship velocity – you pay for every hex of po
 | Where | Ship speed | Cost |
 |-------|------------|------|
 | ring 1 | closed to ships | – |
-| ring 2 (Earth) | max. 1 hex/turn | 3 |
-| ring 3 (Mars) | max. 1 hex/turn | 2 |
-| rings 4–6 (asteroid belt) | 1 or 2 hexes/turn | 1 for 1 hex, 3 for 2 hexes |
+| ring 2 (Earth) | max. 1 hex/round | 3 |
+| ring 3 (Mars) | max. 1 hex/round | 2 |
+| rings 4–6 (asteroid belt) | 1 or 2 hexes/round | 1 for 1 hex, 3 for 2 hexes |
 
 A move across a ring boundary follows the limit and cost of the ring closest to the Sun that the move touches.
 
@@ -305,19 +305,19 @@ A multiplier of ×3 on ring 2, ×2 on ring 3 and ×1 in the asteroid belt captur
 
 In brackets – km/s per unit of game cost. All pairs fall within 1.6–2.2 km/s per unit, so the cost table is consistent with the cheapest routes.
 
-**Speed limits** follow from the assumption that a ship can spend at most about 3 units in one turn: near the Earth that is 1 hex, near Mars also 1 (2 hexes would cost 4), in the belt 2 hexes. **The speed penalty** (2 hexes for 3) is a surcharge for haste. **The closest-ring rule** makes a flight there and back cost the same, as in reality.
+**Speed limits** follow from the assumption that a ship can spend at most about 3 units in one round: near the Earth that is 1 hex, near Mars also 1 (2 hexes would cost 4), in the belt 2 hexes. **The speed penalty** (2 hexes for 3) is a surcharge for haste. **The closest-ring rule** makes a flight there and back cost the same, as in reality.
 
 **What the simplified model loses:**
 
 - **You pay for distance, not for changing velocity.** Long flights cost several times too much: a 4-hex route physically costs as much as a 1-hex one, while in the model it costs 4 times more. The speed penalty, on the other hand, is too small – physically a flight twice as fast costs twice as much.
-- **Time is shortened unevenly.** The cheapest Earth → Mars route takes about 3 turns, and between neighbouring rings of the belt 7–10 turns; in the game each takes one turn. So the game shortens time in the belt several times more than near the Earth – and that is where the multipliers come from. At the same pace the cost practically doesn't depend on the ring:
+- **Time is shortened unevenly.** The cheapest Earth → Mars route takes about 3 rounds, and between neighbouring rings of the belt 7–10 rounds; in the game each takes one round. So the game shortens time in the belt several times more than near the Earth – and that is where the multipliers come from. At the same pace the cost practically doesn't depend on the ring:
 
-| Flight time (turns) | 1 | 2 | 3 | Cheapest route |
+| Flight time (rounds) | 1 | 2 | 3 | Cheapest route |
 |---------------------|---|---|---|----------------|
-| 2 → 3 (Earth → Mars) | 19 km/s | 7.9 km/s | 5.4 km/s | 5.4 km/s in 2.9 turns |
-| 3 → 4 | 20 km/s | 9.1 km/s | 5.5 km/s | 3.2 km/s in 4.9 turns |
-| 4 → 5 | 20 km/s | 9.6 km/s | 6.0 km/s | 2.2 km/s in 7.1 turns |
-| 5 → 6 | 20 km/s | 9.8 km/s | 6.3 km/s | 1.6 km/s in 9.6 turns |
+| 2 → 3 (Earth → Mars) | 19 km/s | 7.9 km/s | 5.4 km/s | 5.4 km/s in 2.9 rounds |
+| 3 → 4 | 20 km/s | 9.1 km/s | 5.5 km/s | 3.2 km/s in 4.9 rounds |
+| 4 → 5 | 20 km/s | 9.6 km/s | 6.0 km/s | 2.2 km/s in 7.1 rounds |
+| 5 → 6 | 20 km/s | 9.8 km/s | 6.3 km/s | 1.6 km/s in 9.6 rounds |
 
 - **Launch angles in transfer windows are approximate** (see "Transfer windows").
 

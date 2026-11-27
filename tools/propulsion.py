@@ -6,7 +6,7 @@ import math
 from orbits import *
 
 G = 6.674e-11
-UNIT_REF = U            # reference model: 1 unit = 1 hex/turn (~10 km/s)
+UNIT_REF = U            # reference model: 1 unit = 1 hex/round (~10 km/s)
 UNIT_SIMPLE = 1.8e3     # simplified model: 1 unit ~ 1.8 km/s (calibration)
 DRIVES = [("nuclear thermal", 9e3), ("nuclear-electric", 40e3), ("fusion", 300e3)]
 # freighter: structure 1, cargo 0/1/2, full tank 2
@@ -21,16 +21,16 @@ for unit_name, unit in [("reference model", UNIT_REF), ("simplified model", UNIT
     print()
 
 print("== Thrust and power ==")
-for label, dv_per_turn, ve in [("reference: 2 hexes of change per turn, fusion", 2 * U, 300e3),
-                               ("simplified: 3 units per turn, nuclear-electric", 3 * UNIT_SIMPLE, 40e3)]:
-    a = dv_per_turn / TURN
+for label, dv_per_round, ve in [("reference: 2 hexes of change per round, fusion", 2 * U, 300e3),
+                               ("simplified: 3 units per round, nuclear-electric", 3 * UNIT_SIMPLE, 40e3)]:
+    a = dv_per_round / ROUND
     power = a * ve / (2 * 0.6)     # power per kg of ship at 60% efficiency
     print(f"{label}: {a / 9.81 * 1e3:.2f} milli-g, power about {power:.0f} W/kg ({power / 1e3:.2f} MW/t)")
 dawn = 0.091 / 1220
 print(f"for comparison, the Dawn probe: {dawn / 9.81 * 1e3:.4f} milli-g")
 
 print("\n== Launching from the surface with the reference fusion drive ==")
-A_SHIP = 2 * U / TURN
+A_SHIP = 2 * U / ROUND
 BODIES = [("Earth", 3.986e14, 6371e3), ("Mars", 4.2828e13, 3389.5e3),
           ("Ceres", 6.26e10, 470e3), ("Vesta", 1.73e10, 262.7e3)]
 rho = 2000.0   # typical asteroid density [kg/m^3]
@@ -55,8 +55,8 @@ print(f"example freighter: structure {STRUCT / 1e3:.0f} t, cargo {CARGO / 1e3:.0
 WATER_FRACTION = 0.10                              # carbonaceous asteroids: about 5-20%
 print(f"regolith per unit at {WATER_FRACTION:.0%} water: about {per_unit / WATER_FRACTION / 1e3:.0f} t")
 for rate in (1.0, 2.5):                            # processed regolith [t/h]
-    water = rate * 1e3 * 24 * TURN / DAY * WATER_FRACTION
-    print(f"kit processing {rate} t/h of regolith: {water / 1e3:.0f} t of water per turn = {water / per_unit:.1f} units/turn")
-reactor = 2 * U / TURN * VE / (2 * 0.6) * (STRUCT + CARGO + TANK)
+    water = rate * 1e3 * 24 * ROUND / DAY * WATER_FRACTION
+    print(f"kit processing {rate} t/h of regolith: {water / 1e3:.0f} t of water per round = {water / per_unit:.1f} units/round")
+reactor = 2 * U / ROUND * VE / (2 * 0.6) * (STRUCT + CARGO + TANK)
 heat = 100e3 * 10e6 / DAY                          # 100 t of water per day at 10 MJ/kg
 print(f"reactor power about {reactor / 1e9:.1f} GW; extracting 100 t of water per day needs about {heat / 1e6:.0f} MW")

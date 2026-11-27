@@ -4,7 +4,7 @@
 
 *[English version](README.md)*
 
-Heksagonalna plansza do gier twardej science fiction o początkach eksploracji kosmosu – od Słońca po pas planetoid. Fizyka jest prawdziwa, z przyszłości pochodzą tylko silniki statków. Odległości i prędkości orbitalne zachowują rzeczywiste proporcje, a sama plansza obraca się razem z pasem planetoid: planety bliżej Słońca co turę przesuwają się po swoich orbitach, a statki graczy muszą się z tym liczyć.
+Heksagonalna plansza do gier twardej science fiction o początkach eksploracji kosmosu – od Słońca po pas planetoid. Fizyka jest prawdziwa, z przyszłości pochodzą tylko silniki statków. Odległości i prędkości orbitalne zachowują rzeczywiste proporcje, a sama plansza obraca się razem z pasem planetoid: planety bliżej Słońca co rundę przesuwają się po swoich orbitach, a statki graczy muszą się z tym liczyć.
 
 Plansza nie jest przypisana do jednej gry – to przestrzeń, na której można budować różne gry.
 

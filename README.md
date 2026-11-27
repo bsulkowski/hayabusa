@@ -4,7 +4,7 @@
 
 *[Wersja polska](README_pl.md)*
 
-A hexagonal board for hard science fiction games about the early days of space exploration – from the Sun to the asteroid belt. The physics is real; only the ships' engines come from the future. Distances and orbital speeds keep their real proportions, and the board itself rotates together with the asteroid belt: planets closer to the Sun move along their orbits every turn, and players' ships have to reckon with it.
+A hexagonal board for hard science fiction games about the early days of space exploration – from the Sun to the asteroid belt. The physics is real; only the ships' engines come from the future. Distances and orbital speeds keep their real proportions, and the board itself rotates together with the asteroid belt: planets closer to the Sun move along their orbits every round, and players' ships have to reckon with it.
 
 The board is not tied to a single game – it is a space on which different games can be built.
 

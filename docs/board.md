@@ -46,32 +46,39 @@ This makes it quick to place asteroids, resources or events at random, while kee
 
 The board rotates together with one orbit in the belt; the rest of the belt circles the Sun slightly faster or slower. A game that needs to track the position of particular asteroids for longer can represent this:
 
-- ring 4: 1 hex forward every 3 turns,
-- ring 5: 1 hex backward every 3 turns,
-- ring 6: 1 hex backward every turn.
+- ring 4: 1 hex forward every 3 rounds,
+- ring 5: 1 hex backward every 3 rounds,
+- ring 6: 1 hex backward every round.
 
-Individual known bodies can be tracked separately: Ceres lies on the inner edge of ring 6 and moves 2 hexes backward every 3 turns.
+"Forward" means in the direction in which the planets move. Individual known bodies can be tracked separately: Ceres lies on the inner edge of ring 6 and moves 2 hexes backward every 3 rounds.
 
-"Forward" means in the direction in which the planets move. A game can also ignore drift – details in [model.md](model.md#drift-in-play--optional).
+A game can also ignore drift – details in [model.md](model.md#drift-in-play--optional).
 
 ## Frame of reference – how movement works on the board
 
 This is the most important and most original feature of the board.
 
-The board **is not stationary** – it rotates around the Sun. Thanks to this, objects in the asteroid belt stay practically still on the board, while the planets closer to the Sun – which really do orbit faster – visibly move around the board in one direction every turn.
+The board **is not stationary** – it rotates around the Sun. Thanks to this, objects in the asteroid belt stay practically still on the board, while the planets closer to the Sun – which really do orbit faster – visibly move around the board in one direction every round.
+
+### Rounds and turns
+
+- **A round** is the organisational unit of the game: in every round each player makes their move. It corresponds to a little under 3 months of time (about 87 days). Once per round every object on a ring moves along its orbit.
+- **A turn** is a given player's – or, more generally, a side's – go within a round.
+- The orbital movement of a player's ships is most conveniently done in that player's turn. This makes it harder to check the relative positions of different players' ships, but in a game without direct conflict that is not a problem.
+- The Earth, Mars and other neutral objects whose position has to be tracked move in a separate turn of their own.
 
 ### Orbital speeds
 
-One game turn corresponds to about 87 days (a little less than a quarter of a year). Every turn, all objects on a given ring – planets, players' ships, everything – move by:
+One game round corresponds to about 87 days (a little less than a quarter of a year). Every round, all objects on a given ring – planets, players' ships, everything – move by:
 
-| Ring | Circumference (hexes) | Planet | Orbital movement (hexes/turn) | Angular movement |
+| Ring | Circumference (hexes) | Planet | Orbital movement (hexes/round) | Angular movement |
 |------|-----------------------|--------|-------------------------------|------------------|
 | 1 | 6 | Mercury, Venus | 3 hexes | 180° |
 | 2 | 12 | Earth | 2 hexes | 60° |
 | 3 | 18 | Mars | 1 hex | 20° |
 | 4–6 | 24–36 | asteroid belt | 0 hexes | 0° |
 
-The angular movement differs from orbit to orbit because the rings have different circumferences. The Earth moves 2 hexes along a 12-hex ring, which is 60° – one sixth of a full orbit per turn. Mars moves only 20°, because its ring is larger.
+The angular movement differs from orbit to orbit because the rings have different circumferences. The Earth moves 2 hexes along a 12-hex ring, which is 60° – one sixth of a full orbit per round. Mars moves 1 hex along an 18-hex ring, which is only 20°.
 
 Everything moves in the same direction (the real direction of motion around the Sun). Mercury and Venus are not tracked as active locations in the game.
 
@@ -81,22 +88,22 @@ Every ship has two components of movement, which act together:
 
 **Forced movement** – coming from the ring the ship is on (see the table above). It applies to all objects without exception.
 
-**Powered movement** – driven by the ship's engine. Its speed (1–2 hexes per turn) is comparable to orbital speeds: orbital mechanics cannot be ignored, but active manoeuvring can use it or work against it.
+**Powered movement** – driven by the ship's engine. Its speed (1–2 hexes per round) is comparable to orbital speeds: orbital mechanics cannot be ignored, but active manoeuvring can use it or work against it.
 
 ### Reference model
 
 In space you pay for changing your velocity, not for the distance travelled. The proposed flight model:
 
-1. A ship has its own velocity: 0–2 hexes per turn in any direction (a marker on the hex the ship will reach next turn).
-2. At the start of a turn a ship may change its velocity by at most 2 hexes. Each hex of velocity change costs 1 fuel unit.
+1. A ship has its own velocity: 0–2 hexes per round in any direction (a marker on the hex the ship will reach next round).
+2. At the start of its turn a ship may change its velocity by at most 2 hexes. Each hex of velocity change costs 1 fuel unit.
 3. The ship moves by its velocity and together with the ring on which it started the turn.
 4. Hop: a ship may move 1 hex and stop in the same turn (cost 2).
 5. Docking, landing and any other interaction require zero velocity. A fusion drive is too weak to lift off from the surface of a planet or a large asteroid:
    - at the Earth and Mars the ship docks at a station in orbit, and the station's landers run to the surface,
    - Ceres and Vesta need a lander – a local one or the freighter's own, carried on board (at the cost of range or cargo),
    - on small asteroids, up to a few km across, the freighter lands directly.
-6. Speeds above 2 hexes per turn are forbidden by regulations.
-7. Ring 1 is closed to ships – it is too hot close to the Sun, and the ring moves half an orbit per turn.
+6. Speeds above 2 hexes per round are forbidden by regulations.
+7. Ring 1 is closed to ships – it is too hot close to the Sun, and the ring moves half an orbit per round.
 
 A freighter's tank holds around 20 units. The flight line on the board is a schematic of a planned route: start, end, time and cost match reality, while the real path is curved. Rationale: [model.md](model.md#reference-model).
 
@@ -107,9 +114,9 @@ Games that don't want to track ship velocities can charge for every hex of power
 | Where | Ship speed | Cost |
 |-------|------------|------|
 | ring 1 | closed to ships | – |
-| ring 2 (Earth) | max. 1 hex/turn | 3 |
-| ring 3 (Mars) | max. 1 hex/turn | 2 |
-| rings 4–6 (asteroid belt) | 1 or 2 hexes/turn | 1 for 1 hex, 3 for 2 hexes |
+| ring 2 (Earth) | max. 1 hex/round | 3 |
+| ring 3 (Mars) | max. 1 hex/round | 2 |
+| rings 4–6 (asteroid belt) | 1 or 2 hexes/round | 1 for 1 hex, 3 for 2 hexes |
 
 A move across a ring boundary follows the limit and cost of the ring closest to the Sun that the move touches. A freighter's tank then holds around 15 units. This model is consistent in itself but departs from physics – what exactly it loses is described in [model.md](model.md#simplified-model-cost-per-hex).
 
@@ -121,17 +128,17 @@ Changing orbit requires powered movement in the radial direction (closer to or f
 
 In reality the most energy-efficient flight to Mars is the so-called **Hohmann transfer**: instead of flying straight, the spacecraft makes two short engine burns and for most of the way "falls" along an ellipse without using fuel. The flight takes several months – in that time Mars moves on along its orbit. For the two to meet, Mars must be about 44° "ahead" of the spacecraft at launch. This transfer window opens only once every 26 months or so.
 
-That is exactly how NASA's **Perseverance** mission worked: it launched in July 2020, when the planets were suitably aligned, and the rover landed on Mars in February 2021 – after exactly 7 months of flight. Had the rocket not launched in that window, the next chance would have come only in 2022.
+That is exactly how NASA's **Perseverance** mission worked: the rover launched in July 2020, when the planets were suitably aligned, and landed on Mars in February 2021 – after just under 7 months of flight. Had the rocket not launched in that window, the next chance would have come only in 2022.
 
 On the board it works the same way: a ship flying from ring 2 to ring 3 needs time to change orbit. Meanwhile Mars moves along its orbit – the player has to plan the course so as to arrive on ring 3 exactly when and where Mars will be.
 
 ### Returning from the asteroid belt
 
-Flying deep into the asteroid belt is only half of the mission. By the time a ship has reached its target, mined the resources and is ready to return, the Earth is somewhere else entirely. During the dozen or several dozen turns spent in the belt, the Earth has moved many hexes along its orbit. The return flight also takes several turns, during which the Earth does not stand still.
+Flying deep into the asteroid belt is only half of the mission. By the time a ship has reached its target, mined the resources and is ready to return, the Earth is somewhere else entirely. During the dozen or several dozen rounds spent in the belt, the Earth has moved many hexes along its orbit. The return flight also takes several rounds, during which the Earth does not stand still.
 
-A player who focuses only on efficient mining in the belt and forgets to keep track of the Earth's position may face a hard choice: wait for a better return window (losing time) or cut diagonally across many rings (losing fuel). This tension between a successful mission and a smooth return is one of the key dramas of the game.
+A player who focuses only on efficient mining in the belt and forgets to keep track of the Earth's position may face a hard choice: wait for a better return window (losing time) or fly faster (losing fuel). This tension between a successful mission and a smooth return is one of the key dramas of the game.
 
-In reality the problem is the same – and even sharper. NASA's **Dawn** probe visited the asteroid Vesta (2011–2012) and the dwarf planet Ceres (2015–2018) in the asteroid belt, using almost all of its fuel on orbital manoeuvres. Returning to Earth was never an option – all the fuel went into reaching the targets and descending to low science orbits. Dawn ended its mission in 2018 exactly where it was: in orbit around Ceres, where it will stay for decades. A player who spends all their fuel exploring the belt may face the same dilemma.
+In reality the problem is the same – and even sharper. NASA's **Dawn** probe visited the asteroid Vesta (2011–2012) and the dwarf planet Ceres (2015–2018). Its propellant budget was planned for reaching both targets and descending to low science orbits – a return to the Earth was never part of the plan. The mission ended in 2018, when the hydrazine used to control the probe's orientation ran out, and Dawn stayed where it was: in orbit around Ceres, where it will remain for decades. A player who spends all their fuel exploring the belt may face the same dilemma.
 
 ---
 

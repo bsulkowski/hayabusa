@@ -8,7 +8,7 @@ Physical model: the Sun and a ship (the two-body problem), circular and coplanar
 
 | Script | What it computes | Section of the model description |
 |--------|------------------|----------------------------------|
-| `orbits.py` | shared functions and board parameters (reference orbit, turn length) | – |
+| `orbits.py` | shared functions and board parameters (reference orbit, round length) | – |
 | `board_model.py` | reference orbit, ring movement, belt drift, transfer windows and launch angles | Frame of reference, The asteroid belt, Transfer windows |
 | `reference_model.py` | cost of planned routes at game pace | Why the reference model makes sense |
 | `coasting.py` | path bending in free flight, cost of holding a course, test of a simple bending rule | Why not take the straight line literally |

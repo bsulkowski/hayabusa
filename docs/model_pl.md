@@ -29,11 +29,11 @@ Merkury leży realnie przy 0,39 AU, Wenus przy 0,72 AU. W modelu obie planety tr
 
 ## Układ odniesienia i prędkości orbitalne
 
-### Skąd pochodzi ruch o 3/2/1/0 pól na turę
+### Skąd pochodzi ruch o 3/2/1/0 pól na rundę
 
 Projektując prędkości orbitalne, szukano liczb całkowitych, które najlepiej oddają proporcje rzeczywistych prędkości kątowych. Prędkości kątowe Ziemi, Marsa i pasa planetoid są w przybliżeniu w proporcji **4 : 2 : 1**.
 
-Plansza obraca się w kierunku obiegu planet z prędkością odpowiadającą tej jednostce „1". Po odjęciu obrotu planszy widoczne prędkości wynoszą **3 : 1 : 0** – dokładnie to, co widzimy w tabeli ruchów. Taki obracający się układ odniesienia nazywa się w astrodynamice układem synodycznym – stąd nazwa planszy. Na planszy Ziemia przesuwa się co turę o 60° (2 pola na 12-polowym pierścieniu), a Mars o 20° (1 pole na 18-polowym).
+Plansza obraca się w kierunku obiegu planet z prędkością odpowiadającą tej jednostce „1”. Po odjęciu obrotu planszy widoczne prędkości wynoszą **3 : 1 : 0** – dokładnie to, co widzimy w tabeli ruchów. Taki obracający się układ odniesienia nazywa się w astrodynamice układem synodycznym – stąd nazwa planszy. Na planszy Ziemia przesuwa się co rundę o 60° (2 pola na 12-polowym pierścieniu), a Mars o 20° (1 pole na 18-polowym).
 
 ### Punkt odniesienia i skala czasu
 
@@ -50,7 +50,7 @@ Synchronizacja z Ceres dałaby rundę bliższą równej ćwiartce roku, ale prop
 
 ### Pierścień 1
 
-Zgodnie z prawem Keplera orbita kołowa w odległości 0,5 AU przesuwałaby się na planszy o ok. 3,6 pola na turę – model zaokrągla to do 3. Rzeczywiste planety tego pierścienia rozjeżdżają się w obie strony: Wenus przesuwałaby się o ok. 1,9 pola na turę, Merkury o ok. 5,5. Jeden pierścień z jedną prędkością nie może oddać obu – co nie przeszkadza, skoro obie planety są tłem.
+Zgodnie z prawem Keplera orbita kołowa w odległości 0,5 AU przesuwałaby się na planszy o ok. 3,6 pola na rundę – model zaokrągla to do 3. Rzeczywiste planety tego pierścienia rozjeżdżają się w obie strony: Wenus przesuwałaby się o ok. 1,9 pola na rundę, Merkury o ok. 5,5. Jeden pierścień z jedną prędkością nie może oddać obu – co nie przeszkadza, skoro obie planety są tłem.
 
 ## Pas planetoid – dryf i losowość
 
@@ -60,12 +60,12 @@ Pas planetoid nie jest tarczą obracającą się ze stałą prędkością – ka
 
 | Pierścień | Odległość | Dryf względem planszy |
 |-----------|-----------|----------------------|
-| 4 | 2,0 AU | +0,3 pola/turę (do przodu) |
+| 4 | 2,0 AU | +0,3 pola/rundę (do przodu) |
 | – | 2,24 AU (synchronizacja) | 0 |
-| 5 | 2,5 AU | −0,3 pola/turę (do tyłu) |
-| 6 | 3,0 AU | −0,9 pola/turę (do tyłu) |
+| 5 | 2,5 AU | −0,3 pola/rundę (do tyłu) |
+| 6 | 3,0 AU | −0,9 pola/rundę (do tyłu) |
 
-Ceres dryfowałaby o ok. −0,6 pola/turę. W trakcie typowej gry (30–50 rund) przesunęłaby się o kilkanaście do kilkudziesięciu pól, a obiekty na zewnętrznym pierścieniu jeszcze więcej.
+Ceres dryfowałaby o ok. −0,6 pola/rundę. W trakcie typowej gry (30–50 rund) przesunęłaby się o kilkanaście do kilkudziesięciu pól, a obiekty na zewnętrznym pierścieniu jeszcze więcej.
 
 ### Dryf w grze – opcjonalnie
 
@@ -73,18 +73,18 @@ Dryf da się śledzić w prosty sposób, zaokrąglając go do pełnych pól:
 
 | Pierścień | Dryf | Uproszczenie |
 |-----------|------|--------------|
-| 4 | +0,3 pola/turę | 1 pole do przodu co 3 tury |
-| 5 | −0,3 pola/turę | 1 pole do tyłu co 3 tury |
-| 6 | −0,9 pola/turę | 1 pole do tyłu co turę |
+| 4 | +0,3 pola/rundę | 1 pole do przodu co 3 rundy |
+| 5 | −0,3 pola/rundę | 1 pole do tyłu co 3 rundy |
+| 6 | −0,9 pola/rundę | 1 pole do tyłu co rundę |
 
-„Do przodu" oznacza zgodnie z kierunkiem ruchu planet. Sam rachunek jest prosty; kłopotem może być liczba obiektów do przesuwania – co trzecią turę wszystkie obiekty na pierścieniach 4 i 5, a co turę na pierścieniu 6.
+„Do przodu” oznacza zgodnie z kierunkiem ruchu planet. Sam rachunek jest prosty; kłopotem może być liczba obiektów do przesuwania – co trzecią rundę wszystkie obiekty na pierścieniach 4 i 5, a co rundę na pierścieniu 6.
 
 Gra może więc dryf pominąć albo go realizować, zależnie od potrzeb:
 
 - **Pominięcie** wystarcza, gdy obiekty w pasie pojawiają się losowo i nie trzeba długo śledzić ich dokładnej pozycji. Pas planetoid to miliony ciał na nieznacznie różnych orbitach, więc losowe rozmieszczenie rzutem kości oddaje go dobrze – dryf zostaje pochłonięty przez losowość.
 - **Śledzenie** ma sens, gdy gra przez dłuższy czas potrzebuje dokładniej znać pozycję konkretnej planetoidy.
 
-Pojedyncze znane ciała można śledzić osobno, nawet gdy gra pomija dryf reszty pasa. Ceres (2,77 AU) leży na wewnętrznym skraju pierścienia 6, ale krąży szybciej niż reszta tego pierścienia: dryfuje o ok. −0,6 pola/turę, czyli **2 pola do tyłu co 3 tury**. Połączone z wymogiem lądownika (patrz „Start z powierzchni”) daje to wyprawę na Ceres, którą trzeba zaplanować: cel się przesuwa, a na miejscu potrzebny jest lądownik.
+Pojedyncze znane ciała można śledzić osobno, nawet gdy gra pomija dryf reszty pasa. Ceres (2,77 AU) leży na wewnętrznym skraju pierścienia 6, ale krąży szybciej niż reszta tego pierścienia: dryfuje o ok. −0,6 pola/rundę, czyli **2 pola do tyłu co 3 rundy**. Połączone z wymogiem lądownika (patrz „Start z powierzchni”) daje to wyprawę na Ceres, którą trzeba zaplanować: cel się przesuwa, a na miejscu potrzebny jest lądownik.
 
 ## Ruch statków a fizyka
 
@@ -103,19 +103,19 @@ Statek bez napędu na danym pierścieniu leci po orbicie kołowej – czyli swob
 
 W rzeczywistości paliwo zużywa się na zmianę prędkości: na zejście z orbity startowej i na wyrównanie z orbitą celu. Pomiędzy statek leci swobodnie, po łuku wyznaczonym przez grawitację. Długość trasy nie ma więc dużego znaczenia – liczy się, jak szybko trzeba się rozpędzić i ile potem wyhamować.
 
-Jednostką na planszy jest prędkość 1 pola na turę – ok. **10 km/s** względem lokalnej orbity. To dużo: prędkość orbitalna w pasie planetoid wynosi ok. 20 km/s.
+Jednostką na planszy jest prędkość 1 pola na rundę – ok. **10 km/s** względem lokalnej orbity. To dużo: prędkość orbitalna w pasie planetoid wynosi ok. 20 km/s.
 
 ### Model referencyjny
 
-1. Statek ma prędkość własną: 0–2 pola na turę w dowolnym kierunku. Najprościej zaznaczyć ją znacznikiem na polu, na które statek doleci w następnej turze, jak w klasycznym ruchu wektorowym.
-2. Na początku tury statek może zmienić prędkość najwyżej o 2 pola. Każde pole zmiany prędkości kosztuje **1 jednostkę paliwa** (ok. 10 km/s).
+1. Statek ma prędkość własną: 0–2 pola na rundę w dowolnym kierunku. Najprościej zaznaczyć ją znacznikiem na polu, na które statek doleci w następnej rundzie, jak w klasycznym ruchu wektorowym.
+2. Na początku swojej tury statek może zmienić prędkość najwyżej o 2 pola. Każde pole zmiany prędkości kosztuje **1 jednostkę paliwa** (ok. 10 km/s).
 3. Statek przesuwa się o swoją prędkość i razem z pierścieniem, na którym zaczął turę.
 4. Przeskok: statek może przesunąć się o 1 pole i zatrzymać w tej samej turze (rozpędzenie i hamowanie, koszt 2).
 5. Dokowanie, lądowanie i każda inna interakcja wymagają prędkości 0. Silnik fuzyjny jest za słaby, żeby wystartować z powierzchni planety albo dużej planetoidy (patrz „Start z powierzchni”):
    - przy Ziemi i Marsie statek dokuje do stacji na orbicie, a na powierzchnię kursują lądowniki stacji,
    - na Ceres i Westę potrzebny jest lądownik – miejscowy albo własny, na wyposażeniu frachtowca,
    - na małych planetoidach, o średnicy do kilku km, frachtowiec ląduje bezpośrednio.
-6. Prędkość ponad 2 pola na turę jest zakazana przepisami – to ograniczenie umowne, nie fizyczne.
+6. Prędkość ponad 2 pola na rundę jest zakazana przepisami – to ograniczenie umowne, nie fizyczne.
 7. Pierścień 1 jest zamknięty dla statków.
 
 ### Dlaczego model referencyjny ma sens
@@ -136,20 +136,20 @@ Prawdziwy statek nie leci jednak po prostej, tylko po łuku. **Linia lotu na pla
 
 ### Dlaczego nie prosta linia dosłownie
 
-Gdyby traktować prostą linię dosłownie, jako lot swobodny, model rozjeżdżałby się z fizyką. Przy prędkościach z gry grawitacja zakrzywia tor bardzo mocno: w pasie planetoid 1 pole na turę do przodu (+10 km/s) wystarcza, żeby uciec z Układu Słonecznego, a 2 pola na turę do tyłu (−20 km/s) prawie zatrzymują statek względem Słońca, który zaczyna na nie spadać.
+Gdyby traktować prostą linię dosłownie, jako lot swobodny, model rozjeżdżałby się z fizyką. Przy prędkościach z gry grawitacja zakrzywia tor bardzo mocno: w pasie planetoid 1 pole na rundę do przodu (+10 km/s) wystarcza, żeby uciec z Układu Słonecznego, a 2 pola na rundę do tyłu (−20 km/s) prawie zatrzymują statek względem Słońca, który zaczyna na nie spadać.
 
-Błąd położenia statku lecącego swobodnie z prędkością 1 pola na turę, w porównaniu z prostą linią w grze (w polach):
+Błąd położenia statku lecącego swobodnie z prędkością 1 pola na rundę, w porównaniu z prostą linią w grze (w polach):
 
-| Gdzie | po 1 turze | po 2 turach | po 3 turach |
+| Gdzie | po 1 rundzie | po 2 rundach | po 3 rundach |
 |-------|-----------|-------------|-------------|
 | przy Ziemi | 1,1–1,9 | 2–6 | 2–8 |
 | przy Marsie | 0,7–1,0 | 1,6–4 | 2–8 |
 | pas planetoid (2,24 AU) | 0,3–0,6 | 1,0–2,3 | 1,6–5 |
 | pas planetoid (3 AU) | 0,2–0,4 | 0,7–1,5 | 1,1–3,4 |
 
-Główny mechanizm jest jednym z najbardziej nieintuicyjnych zjawisk mechaniki orbitalnej: rozpędzenie do przodu wzdłuż orbity podnosi orbitę. Statek lecący w pasie do przodu po 3 turach jest ok. 3 pierścienie dalej od Słońca i wcale nie przesunął się do przodu.
+Główny mechanizm jest jednym z najbardziej nieintuicyjnych zjawisk mechaniki orbitalnej: rozpędzenie do przodu wzdłuż orbity podnosi orbitę. Statek lecący w pasie do przodu po 3 rundach jest ok. 3 pierścienie dalej od Słońca i wcale nie przesunął się do przodu.
 
-Prosty kurs da się utrzymać ciągiem, ale koszt mocno zależy od kierunku. Koszt na turę przy prędkości 1 pola na turę:
+Prosty kurs da się utrzymać ciągiem, ale koszt mocno zależy od kierunku. Koszt na rundę przy prędkości 1 pola na rundę:
 
 | Gdzie | do przodu | do tyłu | na zewnątrz | do środka |
 |-------|-----------|---------|-------------|-----------|
@@ -157,11 +157,11 @@ Prosty kurs da się utrzymać ciągiem, ale koszt mocno zależy od kierunku. Kos
 | przy Marsie | 2,0 | 1,3 | 0,3 | 0,5 |
 | pas planetoid | 1,1 | 0,7 | 0,2 | 0,3 |
 
-Lot od Słońca i do Słońca jest prawie darmowy, lot wzdłuż orbity – drogi. Sprawdzono też prostą zasadę zakrzywiania toru (prędkość do przodu zamienia się w prędkość na zewnątrz: w pasie 1, przy Marsie 2, przy Ziemi 3 pola na turę). Poprawia ona lot do przodu, ale psuje lot do tyłu – nie jest warta dodatkowej zasady. Ujęcie linii lotu jako schematu zaplanowanej trasy jest prostsze i daje poprawne koszty.
+Lot od Słońca i do Słońca jest prawie darmowy, lot wzdłuż orbity – drogi. Sprawdzono też prostą zasadę zakrzywiania toru (prędkość do przodu zamienia się w prędkość na zewnątrz: w pasie 1, przy Marsie 2, przy Ziemi 3 pola na rundę). Poprawia ona lot do przodu, ale psuje lot do tyłu – nie jest warta dodatkowej zasady. Ujęcie linii lotu jako schematu zaplanowanej trasy jest prostsze i daje poprawne koszty.
 
 ### Okna transferowe
 
-**Częstotliwość okien jest dokładna.** Planety poruszają się na planszy zgodnie z rzeczywistością, więc korzystne ustawienia powtarzają się co tyle samo tur co w rzeczywistości: Ziemia–Mars co 9 tur (ok. 26 miesięcy), Ziemia–pas planetoid co 6 tur, Mars–pas planetoid co 18 tur.
+**Częstotliwość okien jest dokładna.** Planety poruszają się na planszy zgodnie z rzeczywistością, więc korzystne ustawienia powtarzają się co tyle samo rund co w rzeczywistości: Ziemia–Mars co 9 rund (ok. 26 miesięcy), Ziemia–pas planetoid co 6 rund, Mars–pas planetoid co 18 rund.
 
 **Ustawienie planet w chwili startu zależy od tempa lotu.** W modelu referencyjnym statki naprawdę lecą w tempie gry, więc ustawienia startowe na planszy są prawdziwe dla takich lotów. Różnią się od ustawień dla najtańszych, powolnych tras (transfer Hohmanna). Tabela pokazuje, o ile stopni cel musi wyprzedzać statek w chwili startu (minus – cel jest z tyłu):
 
@@ -183,7 +183,7 @@ W obu modelach gracz uczy się prawdziwej zasady: trzeba celować tam, gdzie cel
 Domyślnie statki nie wlatują na pierścień 1. Przemawiają za tym trzy powody:
 
 - **Ciepło** – strumień promieniowania słonecznego jest tam cztery razy większy niż przy Ziemi, a przy Merkurym prawie siedem razy.
-- **Sterowanie** – pierścień przesuwa się o pół obiegu na turę, a grawitacja zakrzywia tor jeszcze mocniej niż przy Ziemi. Statek o prędkości własnej 1–2 pola na turę praktycznie traci kontrolę nad tym, gdzie się znajdzie.
+- **Sterowanie** – pierścień przesuwa się o pół obiegu na rundę, a grawitacja zakrzywia tor jeszcze mocniej niż przy Ziemi. Statek o prędkości własnej 1–2 pola na rundę praktycznie traci kontrolę nad tym, gdzie się znajdzie.
 - **Koszt oszczędnych tras** – są tam 8–11 razy droższe niż w pasie planetoid. W rzeczywistości misje do Merkurego trwają latami i wymagają wielu przelotów obok planet: sonda MESSENGER wystartowała w 2004 roku, a na orbitę Merkurego weszła dopiero w 2011, po sześciu takich przelotach.
 
 Zasada pasuje do roli Merkurego i Wenus jako tła. Gra, która chce tam latać, może ją zdjąć.
@@ -192,7 +192,7 @@ Zasada pasuje do roli Merkurego i Wenus jako tła. Gra, która chce tam latać, 
 
 Model referencyjny wymaga **napędu fuzyjnego**: przy jednostce 10 km/s inne napędy nie unoszą wystarczająco dużo paliwa.
 
-**Ciąg.** Zmiana prędkości o 2 pola w ciągu tury to ok. 20 km/s w 87 dni – stałe przyspieszenie ok. 0,27 milli-g. Przy prędkości wylotu ok. 300 km/s wymaga to mocy rzędu 0,7 MW na tonę statku. To odległa przyszłość, ale fizyka pozostaje uczciwa: przyspieszenia są rzędu milli-g, a nie całego g, jak w mniej powściągliwej fantastyce naukowej.
+**Ciąg.** Zmiana prędkości o 2 pola w ciągu rundy to ok. 20 km/s w 87 dni – stałe przyspieszenie ok. 0,27 milli-g. Przy prędkości wylotu ok. 300 km/s wymaga to mocy rzędu 0,7 MW na tonę statku. To odległa przyszłość, ale fizyka pozostaje uczciwa: przyspieszenia są rzędu milli-g, a nie całego g, jak w mniej powściągliwej fantastyce naukowej.
 
 **Zbiornik.** Zmiana prędkości, jaką da pełny zbiornik, zależy tylko od prędkości wylotu i od stosunku masy statku z paliwem do masy bez paliwa – nie od wielkości statku. Dla frachtowca liczy się przy tym ładunek, bo wchodzi do masy. Przykład: konstrukcja o masie 1, ładunek 1 (albo 2), pełny zbiornik o masie 2, prędkość wylotu ok. 300 km/s:
 
@@ -216,8 +216,8 @@ Proponowane wartości:
 
 | Sposób | Wydajność | Pełny zbiornik |
 |--------|-----------|----------------|
-| awaryjny zestaw na pokładzie frachtowca (ok. 1–2,5 t skały na godzinę) | ok. 3 jednostki na turę postoju | ok. 7 tur |
-| stacja wydobywcza | cały zbiornik | 1 tura |
+| awaryjny zestaw na pokładzie frachtowca (ok. 1–2,5 t skały na godzinę) | ok. 3 jednostki na rundę postoju | ok. 7 rund |
+| stacja wydobywcza | cały zbiornik | 1 runda |
 
 Zestaw awaryjny jest tak wolny, że to rzeczywiście rozwiązanie awaryjne – w czasie postoju Ziemia i okna transferowe uciekają. Jak lądownik, zestaw ma masę i zmniejsza zasięg statku.
 
@@ -266,9 +266,9 @@ Model uproszczony nie śledzi prędkości statku – płaci się za każde pole 
 | Gdzie | Prędkość własna | Koszt |
 |-------|-----------------|-------|
 | pierścień 1 | zamknięty dla statków | – |
-| pierścień 2 (Ziemia) | maks. 1 pole/turę | 3 |
-| pierścień 3 (Mars) | maks. 1 pole/turę | 2 |
-| pierścienie 4–6 (pas planetoid) | 1 albo 2 pola/turę | 1 za 1 pole, 3 za 2 pola |
+| pierścień 2 (Ziemia) | maks. 1 pole/rundę | 3 |
+| pierścień 3 (Mars) | maks. 1 pole/rundę | 2 |
+| pierścienie 4–6 (pas planetoid) | 1 albo 2 pola/rundę | 1 za 1 pole, 3 za 2 pola |
 
 Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka.
 
@@ -305,19 +305,19 @@ Mnożnik ×3 na pierścieniu 2, ×2 na pierścieniu 3 i ×1 w pasie planetoid do
 
 W nawiasach – km/s na jednostkę kosztu w grze. Wszystkie pary mieszczą się w 1,6–2,2 km/s na jednostkę, więc tabela kosztów jest spójna z najtańszymi trasami.
 
-**Limity prędkości** wynikają z założenia, że w jednej turze statek może zużyć najwyżej ok. 3 jednostki: przy Ziemi to 1 pole, przy Marsie też 1 (2 pola kosztowałyby 4), w pasie 2 pola. **Kara za prędkość** (2 pola za 3) to dopłata za pośpiech. **Zasada najbliższego pierścienia** sprawia, że lot tam i z powrotem kosztuje tyle samo, tak jak w rzeczywistości.
+**Limity prędkości** wynikają z założenia, że w jednej rundzie statek może zużyć najwyżej ok. 3 jednostki: przy Ziemi to 1 pole, przy Marsie też 1 (2 pola kosztowałyby 4), w pasie 2 pola. **Kara za prędkość** (2 pola za 3) to dopłata za pośpiech. **Zasada najbliższego pierścienia** sprawia, że lot tam i z powrotem kosztuje tyle samo, tak jak w rzeczywistości.
 
 **Co model uproszczony traci:**
 
 - **Płaci się za drogę, a nie za zmianę prędkości.** Długie przeloty kosztują kilka razy za dużo: trasa o 4 pola kosztuje fizycznie tyle co o 1 pole, a w modelu 4 razy więcej. Kara za prędkość jest za to za mała – fizycznie dwa razy szybszy lot kosztuje dwa razy więcej.
-- **Czas jest skrócony nierówno.** Najtańsza trasa Ziemia → Mars trwa ok. 3 tury, a między sąsiednimi pierścieniami pasa 7–10 tur; w grze każda trwa turę. Gra skraca więc czas w pasie kilka razy bardziej niż przy Ziemi – i stąd biorą się mnożniki. Przy jednakowym tempie koszt praktycznie nie zależy od pierścienia:
+- **Czas jest skrócony nierówno.** Najtańsza trasa Ziemia → Mars trwa ok. 3 rundy, a między sąsiednimi pierścieniami pasa 7–10 rund; w grze każda trwa rundę. Gra skraca więc czas w pasie kilka razy bardziej niż przy Ziemi – i stąd biorą się mnożniki. Przy jednakowym tempie koszt praktycznie nie zależy od pierścienia:
 
-| Czas lotu (tury) | 1 | 2 | 3 | Najtańsza trasa |
+| Czas lotu (rundy) | 1 | 2 | 3 | Najtańsza trasa |
 |------------------|---|---|---|-----------------|
-| 2 → 3 (Ziemia → Mars) | 19 km/s | 7,9 km/s | 5,4 km/s | 5,4 km/s w 2,9 tury |
-| 3 → 4 | 20 km/s | 9,1 km/s | 5,5 km/s | 3,2 km/s w 4,9 tury |
-| 4 → 5 | 20 km/s | 9,6 km/s | 6,0 km/s | 2,2 km/s w 7,1 tury |
-| 5 → 6 | 20 km/s | 9,8 km/s | 6,3 km/s | 1,6 km/s w 9,6 tury |
+| 2 → 3 (Ziemia → Mars) | 19 km/s | 7,9 km/s | 5,4 km/s | 5,4 km/s w 2,9 rundy |
+| 3 → 4 | 20 km/s | 9,1 km/s | 5,5 km/s | 3,2 km/s w 4,9 rundy |
+| 4 → 5 | 20 km/s | 9,6 km/s | 6,0 km/s | 2,2 km/s w 7,1 rundy |
+| 5 → 6 | 20 km/s | 9,8 km/s | 6,3 km/s | 1,6 km/s w 9,6 rundy |
 
 - **Kąty startu w oknach transferowych są przybliżone** (patrz „Okna transferowe”).
 

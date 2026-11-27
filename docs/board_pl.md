@@ -46,32 +46,39 @@ Ten mechanizm pozwala szybko umieszczać planetoidy, zasoby lub zdarzenia losowo
 
 Plansza obraca się razem z jedną orbitą w pasie, a pozostałe części pasa krążą trochę szybciej lub wolniej. Gra, która potrzebuje dłużej śledzić pozycję konkretnych planetoid, może to oddać:
 
-- pierścień 4: 1 pole do przodu co 3 tury,
-- pierścień 5: 1 pole do tyłu co 3 tury,
-- pierścień 6: 1 pole do tyłu co turę.
+- pierścień 4: 1 pole do przodu co 3 rundy,
+- pierścień 5: 1 pole do tyłu co 3 rundy,
+- pierścień 6: 1 pole do tyłu co rundę.
 
-Pojedyncze znane ciała można śledzić osobno: Ceres leży na wewnętrznym skraju pierścienia 6 i przesuwa się o 2 pola do tyłu co 3 tury.
+„Do przodu” oznacza zgodnie z kierunkiem ruchu planet. Pojedyncze znane ciała można śledzić osobno: Ceres leży na wewnętrznym skraju pierścienia 6 i przesuwa się o 2 pola do tyłu co 3 rundy.
 
-„Do przodu" oznacza zgodnie z kierunkiem ruchu planet. Gra może też dryf pominąć – szczegóły w [model_pl.md](model_pl.md#dryf-w-grze--opcjonalnie).
+Gra może też dryf pominąć – szczegóły w [model_pl.md](model_pl.md#dryf-w-grze--opcjonalnie).
 
 ## Układ odniesienia – jak działa ruch na planszy
 
 To najważniejsza i najbardziej oryginalna cecha planszy.
 
-Plansza **nie jest nieruchoma** – obraca się wokół Słońca. Dzięki temu obiekty w pasie planetoid stoją na planszy praktycznie nieruchomo, a planety bliżej Słońca – które w rzeczywistości krążą szybciej – poruszają się po planszy wyraźnie w jednym kierunku co turę.
+Plansza **nie jest nieruchoma** – obraca się wokół Słońca. Dzięki temu obiekty w pasie planetoid stoją na planszy praktycznie nieruchomo, a planety bliżej Słońca – które w rzeczywistości krążą szybciej – poruszają się po planszy wyraźnie w jednym kierunku co rundę.
+
+### Runda i tura
+
+- **Runda** to jednostka organizacyjna gry: w każdej rundzie każdy gracz wykonuje swój ruch. Odpowiada upływowi niecałych 3 miesięcy (ok. 87 dni). Raz na rundę każdy obiekt na pierścieniu przesuwa się po orbicie.
+- **Tura** to kolej danego gracza – albo ogólnie strony w grze – w ramach rundy.
+- Ruch po orbicie statków gracza najwygodniej wykonywać w jego turze. Utrudnia to sprawdzanie wzajemnych położeń statków różnych graczy, ale w grze bez bezpośredniego konfliktu nie jest to problem.
+- Ziemia, Mars i inne neutralne obiekty, których położenie trzeba śledzić, przesuwają się we własnej, osobnej turze.
 
 ### Prędkości orbitalne
 
-Jedna runda gry odpowiada ok. 87 dniom (nieco mniej niż ćwierć roku). Co turę wszystkie obiekty na danym pierścieniu – planety, statki graczy, wszystko – przesuwają się o:
+Jedna runda gry odpowiada ok. 87 dniom (nieco mniej niż ćwierć roku). Co rundę wszystkie obiekty na danym pierścieniu – planety, statki graczy, wszystko – przesuwają się o:
 
-| Pierścień | Obwód (pól) | Planeta | Ruch po orbicie (pola/turę) | Ruch kątowy |
+| Pierścień | Obwód (pól) | Planeta | Ruch po orbicie (pola/rundę) | Ruch kątowy |
 |-----------|------------|---------|----------------------------|-------------|
 | 1 | 6 | Merkury, Wenus | 3 pola | 180° |
 | 2 | 12 | Ziemia | 2 pola | 60° |
 | 3 | 18 | Mars | 1 pole | 20° |
 | 4–6 | 24–36 | pas planetoid | 0 pól | 0° |
 
-Ruch kątowy jest różny dla każdej orbity, bo pierścienie mają różny obwód. Ziemia przesuwa się o 2 pola na 12-polowym pierścieniu, co odpowiada 60° – czyli ⅙ pełnego obiegu na turę. Mars przesuwa się o zaledwie 20°, bo jego pierścień jest większy.
+Ruch kątowy jest różny dla każdej orbity, bo pierścienie mają różny obwód. Ziemia przesuwa się o 2 pola na 12-polowym pierścieniu, co odpowiada 60° – czyli ⅙ pełnego obiegu na rundę. Mars przesuwa się o 1 pole na 18-polowym pierścieniu, czyli o zaledwie 20°.
 
 Ruch odbywa się w tym samym kierunku dla wszystkich (zgodnie z rzeczywistym kierunkiem obiegu wokół Słońca). Merkury i Wenus nie są śledzone jako aktywne lokacje w grze.
 
@@ -81,22 +88,22 @@ Każdy statek ma dwa składniki ruchu, które działają łącznie:
 
 **Ruch wymuszony** – wynikający z pierścienia, na którym statek się znajduje (patrz tabela powyżej). Dotyczy wszystkich obiektów bez wyjątku.
 
-**Ruch własny** – napędzany silnikiem statku. Jego prędkość (1–2 pola na turę) jest porównywalna z prędkościami orbitalnymi: mechaniki orbitalnej nie da się ignorować, ale aktywne manewrowanie pozwala ją wykorzystać lub jej przeciwdziałać.
+**Ruch własny** – napędzany silnikiem statku. Jego prędkość (1–2 pola na rundę) jest porównywalna z prędkościami orbitalnymi: mechaniki orbitalnej nie da się ignorować, ale aktywne manewrowanie pozwala ją wykorzystać lub jej przeciwdziałać.
 
 ### Model referencyjny
 
 W kosmosie płaci się za zmianę prędkości, a nie za przebytą drogę. Proponowany model lotów:
 
-1. Statek ma prędkość własną: 0–2 pola na turę w dowolnym kierunku (znacznik na polu, na które doleci w następnej turze).
-2. Na początku tury statek może zmienić prędkość najwyżej o 2 pola. Każde pole zmiany prędkości kosztuje 1 jednostkę paliwa.
+1. Statek ma prędkość własną: 0–2 pola na rundę w dowolnym kierunku (znacznik na polu, na które doleci w następnej rundzie).
+2. Na początku swojej tury statek może zmienić prędkość najwyżej o 2 pola. Każde pole zmiany prędkości kosztuje 1 jednostkę paliwa.
 3. Statek przesuwa się o swoją prędkość i razem z pierścieniem, na którym zaczął turę.
 4. Przeskok: statek może przesunąć się o 1 pole i zatrzymać w tej samej turze (koszt 2).
 5. Dokowanie, lądowanie i każda inna interakcja wymagają prędkości 0. Silnik fuzyjny jest za słaby, żeby wystartować z powierzchni planety albo dużej planetoidy:
    - przy Ziemi i Marsie statek dokuje do stacji na orbicie, a na powierzchnię kursują lądowniki stacji,
    - na Ceres i Westę potrzebny jest lądownik – miejscowy albo własny, na wyposażeniu frachtowca (kosztem zasięgu lub ładunku),
    - na małych planetoidach, o średnicy do kilku km, frachtowiec ląduje bezpośrednio.
-6. Prędkość ponad 2 pola na turę jest zakazana przepisami.
-7. Pierścień 1 jest zamknięty dla statków – blisko Słońca jest za gorąco, a pierścień przesuwa się o pół obiegu na turę.
+6. Prędkość ponad 2 pola na rundę jest zakazana przepisami.
+7. Pierścień 1 jest zamknięty dla statków – blisko Słońca jest za gorąco, a pierścień przesuwa się o pół obiegu na rundę.
 
 Zbiornik frachtowca mieści rzędu 20 jednostek. Linia lotu na planszy to schemat zaplanowanej trasy: początek, koniec, czas i koszt odpowiadają rzeczywistości, a prawdziwy tor jest zakrzywiony. Uzasadnienie: [model_pl.md](model_pl.md#model-referencyjny).
 
@@ -107,9 +114,9 @@ Gry, które nie chcą śledzić prędkości statków, mogą płacić za każde p
 | Gdzie | Prędkość własna | Koszt |
 |-------|-----------------|-------|
 | pierścień 1 | zamknięty dla statków | – |
-| pierścień 2 (Ziemia) | maks. 1 pole/turę | 3 |
-| pierścień 3 (Mars) | maks. 1 pole/turę | 2 |
-| pierścienie 4–6 (pas planetoid) | 1 albo 2 pola/turę | 1 za 1 pole, 3 za 2 pola |
+| pierścień 2 (Ziemia) | maks. 1 pole/rundę | 3 |
+| pierścień 3 (Mars) | maks. 1 pole/rundę | 2 |
+| pierścienie 4–6 (pas planetoid) | 1 albo 2 pola/rundę | 1 za 1 pole, 3 za 2 pola |
 
 Ruch przez granicę pierścieni podlega limitowi i kosztowi pierścienia najbliższego Słońcu, którego ten ruch dotyka. Zbiornik frachtowca mieści wtedy rzędu 15 jednostek. Ten model jest spójny sam w sobie, ale odchodzi od fizyki – co dokładnie traci, opisuje [model_pl.md](model_pl.md#model-uproszczony-koszt-za-pole).
 
@@ -119,9 +126,9 @@ Zmiana orbity wymaga ruchu własnego w kierunku radialnym (bliżej lub dalej od 
 
 ### Transfer Ziemia–Mars
 
-W rzeczywistości najtańszy energetycznie lot na Marsa to tzw. **manewr Hohmanna**: zamiast lecieć wprost, statek wykonuje dwa krótkie impulsy silnikowe i przez większość drogi "spada" po elipsie bez zużycia paliwa. Lot trwa kilka miesięcy – w tym czasie Mars przebywa dalej po swojej orbicie. Żeby się spotkali, Mars musi być w momencie startu ok. 44° "przed" statkiem. To okno transferowe otwiera się tylko raz na ok. 26 miesięcy.
+W rzeczywistości najtańszy energetycznie lot na Marsa to tzw. **manewr Hohmanna**: zamiast lecieć wprost, statek wykonuje dwa krótkie impulsy silnikowe i przez większość drogi „spada” po elipsie bez zużycia paliwa. Lot trwa kilka miesięcy – w tym czasie Mars przebywa dalej po swojej orbicie. Żeby się spotkali, Mars musi być w momencie startu ok. 44° „przed” statkiem. To okno transferowe otwiera się tylko raz na ok. 26 miesięcy.
 
-Tak właśnie działała misja **Perseverance**: NASA wystartowała w lipcu 2020 roku, kiedy układ planet był odpowiedni, i łazik wylądował na Marsie w lutym 2021 – po dokładnie 7 miesiącach lotu. Gdyby rakieta nie wystartowała w tym oknie, kolejna szansa byłaby dopiero w 2022 roku.
+Tak właśnie działała misja **Perseverance**: łazik wystartował w lipcu 2020 roku, kiedy układ planet był odpowiedni, i wylądował na Marsie w lutym 2021 – po niecałych 7 miesiącach lotu. Gdyby rakieta nie wystartowała w tym oknie, kolejna szansa byłaby dopiero w 2022 roku.
 
 Na planszy wygląda to analogicznie: statek lecący z pierścienia 2 na pierścień 3 potrzebuje czasu na zmianę orbity. Przez ten czas Mars przesuwa się po swojej orbicie – gracz musi zaplanować kurs tak, żeby znaleźć się na pierścieniu 3 dokładnie wtedy i tam, gdzie będzie Mars.
 
@@ -129,9 +136,9 @@ Na planszy wygląda to analogicznie: statek lecący z pierścienia 2 na pierści
 
 Lot w głąb pasa planetoid to dopiero połowa misji. Kiedy statek dotarł do celu, wydobył zasoby i jest gotowy do powrotu – Ziemia jest już zupełnie gdzie indziej. W czasie kilkunastu lub kilkudziesięciu rund spędzonych w pasie Ziemia przesunęła się po swojej orbicie o wiele pól. Lot powrotny też potrwa kilka rund, podczas których Ziemia nie stoi w miejscu.
 
-Gracz, który skupi się wyłącznie na efektywnej eksploatacji w pasie i zapomni śledzić pozycję Ziemi, może stanąć przed trudnym wyborem: czekać na korzystniejsze okno powrotne (tracąc czas) albo lecieć na skos przez wiele pierścieni (tracąc paliwo). To napięcie między sukcesem misji a sprawnym powrotem jest jednym z kluczowych dramatów rozgrywki.
+Gracz, który skupi się wyłącznie na efektywnej eksploatacji w pasie i zapomni śledzić pozycję Ziemi, może stanąć przed trudnym wyborem: czekać na korzystniejsze okno powrotne (tracąc czas) albo lecieć szybciej (tracąc paliwo). To napięcie między sukcesem misji a sprawnym powrotem jest jednym z kluczowych dramatów rozgrywki.
 
-W rzeczywistości problem jest identyczny – i jeszcze ostrzejszy. Sonda **Dawn** NASA odwiedziła kolejno asteroidę Westę (2011–2012) i planetę karłowatą Ceres (2015–2018) w pasie planetoid, zużywając na manewry orbitalne niemal całe paliwo. Powrót na Ziemię nigdy nie wchodził w grę – całe paliwo zostało spalone na dotarcie do celu i zejście na niskie orbity badawcze. Dawn zakończyła misję w 2018 roku dokładnie tam gdzie była: na orbicie Ceres, gdzie pozostanie przez dziesiątki lat. Gracz, który wyda cały zapas paliwa na eksplorację pasa, może stanąć przed tym samym dylematem.
+W rzeczywistości problem jest identyczny – i jeszcze ostrzejszy. Sonda **Dawn** NASA odwiedziła kolejno planetoidę Westę (2011–2012) i planetę karłowatą Ceres (2015–2018). Jej zapas materiału pędnego zaplanowano na dotarcie do obu celów i zejście na niskie orbity badawcze – powrót na Ziemię nigdy nie był w planach. Misja zakończyła się w 2018 roku, gdy skończyła się hydrazyna do sterowania położeniem sondy, a Dawn została tam, gdzie była: na orbicie Ceres, na której pozostanie przez dziesiątki lat. Gracz, który wyda cały zapas paliwa na eksplorację pasa, może stanąć przed tym samym dylematem.
 
 ---
 

@@ -14,59 +14,59 @@ def to_xy(r, th):
     return np.array([r * math.cos(th), r * math.sin(th)])
 
 
-def true_coast(a, ur, ut, turns):
-    """Free flight with own velocity (ur, ut) [hexes/turn] relative to a circular orbit.
+def true_coast(a, ur, ut, rounds):
+    """Free flight with own velocity (ur, ut) [hexes/round] relative to a circular orbit.
     Returns the position in the (rotating) board frame."""
     r0, v0 = circ_state(a, 0.0)
     v = v0 + np.array([ur * U, ut * U])
-    p, _ = propagate(r0, v, turns * TURN)
-    th = math.atan2(p[1], p[0]) - OMEGA_REF * turns * TURN
+    p, _ = propagate(r0, v, rounds * ROUND)
+    th = math.atan2(p[1], p[0]) - OMEGA_REF * rounds * ROUND
     return np.hypot(*p), th
 
 
-def game_coast(a, ur, ut, turns, bend=False):
-    """Movement in the game: every turn the ring's forced movement + own velocity in a straight line.
-    bend=True: in addition, velocity along the orbit turns into radial velocity
-    (belt 1, Mars 2, Earth 3 hexes/turn per hex of velocity)."""
+def game_coast(a, ur, ut, rounds, bend=False):
+    """Movement in the game: every round the ring's forced movement + own velocity in a straight line.
+    bend=True: in addition, velocity along the orbit converts into radial velocity
+    (belt 1, Mars 2, Earth 3 hexes/round per hex of velocity)."""
     r, th, u = a * AU, 0.0, [ur, ut]
-    for _ in range(turns):
+    for _ in range(rounds):
         if bend:
             ra = r / AU
             u[0] += (3 if ra < 1.25 else 2 if ra < 1.75 else 1) * u[1]
-        th += (mean_motion(r / AU) - OMEGA_REF) * TURN
+        th += (mean_motion(r / AU) - OMEGA_REF) * ROUND
         r += u[0] * HEX
         th += u[1] * HEX / r
     return r, th
 
 
-def error(a, ur, ut, turns, bend=False):
+def error(a, ur, ut, rounds, bend=False):
     try:
-        rt, tt = true_coast(a, ur, ut, turns)
-        rg, tg = game_coast(a, ur, ut, turns, bend)
+        rt, tt = true_coast(a, ur, ut, rounds)
+        rg, tg = game_coast(a, ur, ut, rounds, bend)
         return np.linalg.norm(to_xy(rt, tt) - to_xy(rg, tg)) / HEX
     except (ValueError, ZeroDivisionError):
         return float("nan")   # the route falls into the closed ring 1
 
 
-print("== Free flight at 1 hex/turn: error of the straight line (hexes) ==")
+print("== Free flight at 1 hex/round: error of the straight line (hexes) ==")
 for name, a in PLACES:
-    for turns in (1, 2, 3):
-        errs = [error(a, ur, ut, turns) for _, ur, ut in DIRS]
+    for rounds in (1, 2, 3):
+        errs = [error(a, ur, ut, rounds) for _, ur, ut in DIRS]
         errs = [e for e in errs if not math.isnan(e)]
-        print(f"{name:12s} after {turns} turns: {min(errs):.1f}-{max(errs):.1f}")
+        print(f"{name:12s} after {rounds} rounds: {min(errs):.1f}-{max(errs):.1f}")
 
-print("\n== Example: belt, 1 hex/turn forward, free flight ==")
-for turns in (1, 2, 3):
-    r, th = true_coast(A_REF, 0, 1, turns)
-    print(f"after {turns} turns: {(r / AU - A_REF) / HEX_AU:+.1f} rings away from the Sun, "
+print("\n== Example: belt, 1 hex/round forward, free flight ==")
+for rounds in (1, 2, 3):
+    r, th = true_coast(A_REF, 0, 1, rounds)
+    print(f"after {rounds} rounds: {(r / AU - A_REF) / HEX_AU:+.1f} rings away from the Sun, "
           f"{th * r / HEX:+.1f} hexes along the orbit")
 print(f"(orbital speed in the belt {v_circ(A_REF) / 1e3:.1f} km/s, escape "
-      f"{math.sqrt(2) * v_circ(A_REF) / 1e3:.1f} km/s, 1 hex/turn = {U / 1e3:.1f} km/s)")
+      f"{math.sqrt(2) * v_circ(A_REF) / 1e3:.1f} km/s, 1 hex/round = {U / 1e3:.1f} km/s)")
 
 
 def hold_cost(a, ur, ut, steps=4000):
-    """Delta-v [units] needed to fly the game's straight line for 1 turn."""
-    dt = TURN / steps
+    """Delta-v [units] needed to fly the game's straight line for 1 round."""
+    dt = ROUND / steps
     r, thb, pts = a * AU, 0.0, []
     for i in range(steps + 1):
         th = thb + OMEGA_REF * i * dt
@@ -79,7 +79,7 @@ def hold_cost(a, ur, ut, steps=4000):
     return np.linalg.norm(acc - g, axis=1)[5:-5].sum() * dt / U
 
 
-print("\n== Cost of holding a straight course for 1 turn, speed 1 (units) ==")
+print("\n== Cost of holding a straight course for 1 round, speed 1 (units) ==")
 print(" " * 13 + "".join(f"{d:>13s}" for d, _, _ in DIRS))
 for name, a in [("Earth", 1.0), ("Mars", 1.5), ("belt 2.24 AU", A_REF)]:
     cells = []

@@ -60,7 +60,7 @@ The pawn shows **the industrial part of the outpost**. The living quarters stand
 **Communication with the Earth.** An antenna a few metres across, powered by the reactor, theoretically gives from several to several tens of Mb/s even at the greatest distance from the Earth (about 3.2 AU); in practice losses reduce this several times. The limits lie elsewhere:
 
 - the signal takes 10–27 minutes one way – messages can be exchanged, but not conversations,
-- when the outpost is behind the Sun, contact is lost for about 13 days; this happens about every 1.4 years, i.e. every 6 turns,
+- when the outpost is behind the Sun, contact is lost for about 13 days; this happens about every 1.4 years, i.e. every 6 rounds,
 - a small asteroid rotates in a few hours, so from any point on the surface the Earth is visible only during part of each rotation – continuous contact needs antennas on several sides or a relay satellite in orbit.
 
 **Weak gravity.** The escape velocity of a 1 km asteroid is about 0.5 m/s. Everything – the antenna mast, the modules, the people – has to be anchored. Regolith on the domes shields them but holds nothing down: 3 m of regolith presses with about 1 Pa, while the pressure inside a module is about 100,000 Pa. The domes have to withstand the pressure on their own.

@@ -22,18 +22,18 @@ for k in range(1, 6):
     print(f"ring {k}: move outward {spiral(a) / spiral(2.5):4.1f}x, "
           f"solar heat flux {1 / a ** 2:4.2f}x Earth's")
 
-print("\n== Game cost | cheapest route: delta-v km/s (km/s per unit), time in turns ==")
+print("\n== Game cost | cheapest route: delta-v km/s (km/s per unit), time in rounds ==")
 for i in RINGS:
     for j in RINGS:
         if j > i:
             dv, t = hohmann(RING_AU[i], RING_AU[j])
             c = game_cost(i, j)
-            print(f"{i} -> {j}: game {c} (time {j - i} t) | {dv / 1e3:4.1f} km/s ({dv / 1e3 / c:.2f}), {t / TURN:.1f} t")
+            print(f"{i} -> {j}: game {c} (time {j - i} t) | {dv / 1e3:4.1f} km/s ({dv / 1e3 / c:.2f}), {t / ROUND:.1f} t")
 
 
-def best_dv(a1, a2, turns):
-    """Cheapest route a1 -> a2 lasting exactly `turns` turns (best target alignment)."""
-    t = turns * TURN
+def best_dv(a1, a2, rounds):
+    """Cheapest route a1 -> a2 lasting exactly `rounds` rounds (best target alignment)."""
+    t = rounds * ROUND
     def f(th):
         try:
             return transfer_dv(a1, a2, th, t)
@@ -48,4 +48,4 @@ for i in (2, 3, 4, 5):
     a1, a2 = RING_AU[i], RING_AU[i + 1]
     dv, t = hohmann(a1, a2)
     row = "  ".join(f"{T} t: {best_dv(a1, a2, T) / 1e3:5.1f}" for T in (1, 2, 3))
-    print(f"{i} -> {i + 1}: {row}  | cheapest {dv / 1e3:.1f} km/s in {t / TURN:.1f} t")
+    print(f"{i} -> {i + 1}: {row}  | cheapest {dv / 1e3:.1f} km/s in {t / ROUND:.1f} t")

@@ -15,7 +15,7 @@ Gdy statek kończy pracę w pasie planetoid, Ziemia jest już zupełnie gdzie in
 
 ## Ceres jako cel wyprawy
 
-Ceres można śledzić osobno, z jej własnym dryfem (2 pola do tyłu co 3 tury), i wymagać do jej odwiedzenia lądownika na wyposażeniu statku. Wyprawę na Ceres trzeba wtedy zaplanować: cel się przesuwa, a na miejscu potrzebny jest lądownik.
+Ceres można śledzić osobno, z jej własnym dryfem (2 pola do tyłu co 3 rundy), i wymagać do jej odwiedzenia lądownika na wyposażeniu statku. Wyprawę na Ceres trzeba wtedy zaplanować: cel się przesuwa, a na miejscu potrzebny jest lądownik.
 
 Pytanie do rozstrzygnięcia w konkretnej grze: czemu nie trzymać lądownika na Ceres na stałe? Tam, gdzie powstała stała osada, lądowniki byłyby pewnie miejscowe; własny lądownik pasuje do początków eksploracji pasa.
 
