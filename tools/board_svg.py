@@ -83,7 +83,7 @@ ODD = {"1": (3, -4), "2": (4, -4), "3-4": (5, -5), "5": (5, -4),
        "6": (6, -5), "7": (6, -4), "8": (6, -3)}
 BIG = "2"   # the sector number stands in the hex of d8 result 2
 
-SMALL, BIG_SIZE, PLANET, MINOR = 4.23, 11.29, 7.06, 4.23   # font sizes (mm)
+SMALL, BIG_SIZE, SECTOR, PLANET, MINOR = 4.23, 11.29, 10.0, 7.06, 4.23   # font sizes (mm)
 
 
 def turn(h, k):
@@ -226,20 +226,33 @@ def board_art(lang, theme):
         x, y = turned(*centre(h))
         el.append(text(x, y + 5.4, label, SMALL, ORANGE, ORBITRON))
         if label == BIG:
-            el.append(text(x, y - 1.2, str(number), BIG_SIZE, ORANGE, ORBITRON))
+            el.append(text(x, y - 0.6, str(number), SECTOR, ORANGE, ORBITRON))
+    # sector borders: edges between belt hexes of different sectors
+    corners = {}
+    for h in sectors:
+        x, y = turned(*centre(h))
+        for i in range(6):
+            a6 = math.radians(60 * i - 30)
+            p = (round(x + S * math.cos(a6), 3), round(y + S * math.sin(a6), 3))
+            corners.setdefault(p, set()).add(sectors[h][0])
+    for h in sectors:
+        x, y = turned(*centre(h))
+        pts = [(round(x + S * math.cos(math.radians(60 * i - 30)), 3),
+                round(y + S * math.sin(math.radians(60 * i - 30)), 3)) for i in range(6)]
+        for i in range(6):
+            p, q = pts[i], pts[(i + 1) % 6]
+            if p < q and len(corners[p] | corners[q]) > 1 and len(corners[p] & corners[q]) > 1:
+                el.append(f'<line x1="{fmt(p[0])}" y1="{fmt(p[1])}" x2="{fmt(q[0])}" y2="{fmt(q[1])}" '
+                          f'stroke="{ORANGE}" stroke-width="0.6" stroke-linecap="round"/>')
     el.append(f'<circle cx="{fmt(sx)}" cy="{fmt(sy)}" r="3.76" fill="{SUN_YELLOW}"/>')
     rt = th["ring_text"]
-    # planet names in the hexes up and to the left of the Sun
-    ux, uy = -0.5 * R3 * S, -1.5 * S                    # one hex in that direction
-    x, y = at(ux, uy)
-    el.append(text(x, y - 2.7, t["venus"], MINOR, rt[1]))
-    el.append(text(x, y + 2.7, t["mercury"], MINOR, rt[1]))
-    el.append(text(*at(2 * ux, 2 * uy), t["earth"], PLANET, rt[2]))
-    el.append(text(*at(3 * ux, 3 * uy), t["mars"], PLANET, rt[3]))
-    # orbital movement in the hexes down and to the left, along the orbit
+    # planet names above the Sun, orbital movement below it, one ring at a time
+    el.append(text(*at(0, -17.7), t["venus"], MINOR, rt[1]))
+    el.append(text(*at(0, -12.3), t["mercury"], MINOR, rt[1]))
+    el.append(text(*at(0, -30), t["earth"], PLANET, rt[2]))
+    el.append(text(*at(0, -45), t["mars"], PLANET, rt[3]))
     for n in (1, 2, 3):
-        x, y = at(n * ux, -n * uy)
-        el.append(f'<g transform="rotate(30 {fmt(x)} {fmt(y)})">{arrows(x, y, 4 - n, rt[n])}</g>')
+        el.append(arrows(*at(0, 15 * n), 4 - n, rt[n]))
     el.append(text(*at(-33, -75), t["belt"], 10.0, th["belt_text"]))   # ring 5, left of the seam
 
     # top left: title, subtitle, QR code

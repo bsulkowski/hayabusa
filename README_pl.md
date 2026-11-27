@@ -34,7 +34,7 @@ Wszystkie pliki w `board/` tworzy [`tools/board_svg.py`](tools/README_pl.md#gene
 
 | Wersja | Data | Zmiany |
 |---|---|---|
-| 0.6 | 2026-11-27 | Grafika planszy z generatora (`tools/board_svg.py`)<br>Tytuł Hayabusa z podtytułem, kod QR do strony projektu<br>Druk na kartkach A4 sklejanych na styk, łączenia między środkami pól: A2 z 4, A3 z 2<br>Pola stacji Ziemi i Marsa, Ceres obok planszy<br>Napisy poziomo, sektory jak na tarczy zegara (12 u góry)<br>Wersja jasna w obu językach |
+| 0.6 | 2026-11-27 | Grafika planszy z generatora (`tools/board_svg.py`)<br>Tytuł Hayabusa z podtytułem, kod QR do strony projektu<br>Druk na kartkach A4 sklejanych na styk, łączenia między środkami pól: A2 z 4, A3 z 2<br>Pola stacji Ziemi i Marsa, Ceres obok planszy<br>Napisy poziomo, sektory jak na tarczy zegara (12 u góry), z pomarańczowymi granicami<br>Wersja jasna w obu językach |
 | 0.5 | 2026-11-27 | Nazwa: Hayabusa<br>Opis planszy, model i decyzje projektowe, pomysły na gry, filozofia projektu (PL, EN)<br>Model referencyjny lotów (ruch wektorowy) i model uproszczony<br>Pionki do druku 3D<br>Skrypty obliczeniowe<br>Grafika planszy bez zmian (v0.4.1) |
 | 0.4.1 | 2025-11-12 | Obrót planszy |
 | 0.4 | 2025-11-03 | Nowy układ i kolory planszy<br>Alternatywna jasna plansza v0.4e (PL) |
