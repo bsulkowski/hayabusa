@@ -1,4 +1,4 @@
-# Hayabusa – plansza wewnętrznego Układu Słonecznego
+# Hayabusa – plansza do gier w wewnętrznym Układzie Słonecznym
 
 *[English version](board.md)*
 

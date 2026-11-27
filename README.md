@@ -1,6 +1,6 @@
 # Hayabusa
 
-**A board of the inner Solar System**
+**A game board of the inner Solar System**
 
 *[Wersja polska](README_pl.md)*
 

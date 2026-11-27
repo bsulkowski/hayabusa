@@ -1,6 +1,6 @@
 # Hayabusa
 
-**Plansza wewnętrznego Układu Słonecznego**
+**Plansza do gier w wewnętrznym Układzie Słonecznym**
 
 *[English version](README.md)*
 

@@ -1,4 +1,4 @@
-# Hayabusa – a board of the inner Solar System
+# Hayabusa – a game board of the inner Solar System
 
 *[Wersja polska](board_pl.md)*
 
