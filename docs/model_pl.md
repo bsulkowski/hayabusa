@@ -8,24 +8,24 @@ Ten dokument jest przeznaczony dla osób zainteresowanych tym, jak plansza ma si
 
 ## Skala odległości
 
-Skok siatki 0,5 AU na pierścień daje bardzo dobre przybliżenie dla planet aktywnie obecnych w grze:
+Skok siatki 0,5 j.a. na pierścień daje bardzo dobre przybliżenie dla planet aktywnie obecnych w grze:
 
 | Obiekt | Rzeczywistość | Model | Błąd |
 |--------|--------------|-------|------|
-| Ziemia | 1,00 AU | pierścień 2 (1,0 AU) | 0% |
-| Mars | 1,52 AU | pierścień 3 (1,5 AU) | −2% |
+| Ziemia | 1,00 j.a. | pierścień 2 (1,0 j.a.) | 0% |
+| Mars | 1,52 j.a. | pierścień 3 (1,5 j.a.) | −2% |
 
 ### Pas planetoid
 
-Pierścień to nie linia, tylko pas o szerokości jednego pola – od −0,25 do +0,25 AU wokół swojej odległości nominalnej. Pierścienie 4–6 obejmują więc obszar **1,75–3,25 AU**.
+Pierścień to nie linia, tylko pas o szerokości jednego pola – od −0,25 do +0,25 j.a. wokół swojej odległości nominalnej. Pierścienie 4–6 obejmują więc obszar **1,75–3,25 j.a.**
 
-Główny pas planetoid leży między dwiema lukami Kirkwooda – pustymi pasmami wyczyszczonymi przez rezonanse z Jowiszem: 4:1 (2,06 AU) i 2:1 (3,27 AU). Zewnętrzna krawędź pasa na planszy zgadza się z nim praktycznie idealnie. Wewnętrzna sięga ok. 0,3 AU bliżej Słońca, ale ten obszar (1,78–2,0 AU) zajmuje grupa Hungaria – najbardziej wewnętrzne gęste skupisko planetoid w Układzie Słonecznym.
+Główny pas planetoid leży między dwiema lukami Kirkwooda – pustymi pasmami wyczyszczonymi przez rezonanse z Jowiszem: 4:1 (2,06 j.a.) i 2:1 (3,27 j.a.). Zewnętrzna krawędź pasa na planszy zgadza się z nim praktycznie idealnie. Wewnętrzna sięga ok. 0,3 j.a. bliżej Słońca, ale ten obszar (1,78–2,0 j.a.) zajmuje grupa Hungaria – najbardziej wewnętrzne gęste skupisko planetoid w Układzie Słonecznym.
 
-Ceres (2,77 AU) wypada na granicy pierścieni 5 i 6.
+Ceres (2,77 j.a.) wypada na granicy pierścieni 5 i 6.
 
 ### Merkury i Wenus
 
-Merkury leży realnie przy 0,39 AU, Wenus przy 0,72 AU. W modelu obie planety trafiają do pierścienia 1 (0,5 AU) – żadna nie wychodzi dobrze. To świadoma decyzja: obie planety są w grach tłem, a nie aktywnymi lokacjami, więc dokładność ich położenia nie ma znaczenia dla rozgrywki.
+Merkury leży realnie przy 0,39 j.a., Wenus przy 0,72 j.a. W modelu obie planety trafiają do pierścienia 1 (0,5 j.a.) – żadna nie wychodzi dobrze. To świadoma decyzja: obie planety są w grach tłem, a nie aktywnymi lokacjami, więc dokładność ich położenia nie ma znaczenia dla rozgrywki.
 
 ## Układ odniesienia i prędkości orbitalne
 
@@ -41,7 +41,7 @@ Proporcja 4:2:1 jest tylko punktem wyjścia – rzeczywisty stosunek prędkości
 
 Z tego warunku wynikają dwie wartości:
 
-- plansza jest zsynchronizowana z orbitą o promieniu **2,24 AU** i okresie obiegu **3,36 roku** – w wewnętrznej części pasa planetoid, bliżej Słońca niż Ceres,
+- plansza jest zsynchronizowana z orbitą o promieniu **2,24 j.a.** i okresie obiegu **3,36 roku** – w wewnętrznej części pasa planetoid, bliżej Słońca niż Ceres,
 - jedna runda trwa ok. **87 dni** (nieco poniżej ćwierć roku).
 
 Dzięki temu Ziemia i Mars poruszają się na planszy zgodnie z rzeczywistością – z dokładnością ograniczoną tylko zaokrągleniem długości rundy. Ani punkt synchronizacji, ani długość rundy nie były zakładane z góry; oba są wynikiem dopasowania. Ceną jest to, że plansza obraca się razem z wewnętrzną częścią pasa, a nie z jego środkiem – dalsze części pasa dryfują (patrz niżej).
@@ -50,20 +50,20 @@ Synchronizacja z Ceres dałaby rundę bliższą równej ćwiartce roku, ale prop
 
 ### Pierścień 1
 
-Zgodnie z prawem Keplera orbita kołowa w odległości 0,5 AU przesuwałaby się na planszy o ok. 3,6 pola na rundę – model zaokrągla to do 3. Rzeczywiste planety tego pierścienia rozjeżdżają się w obie strony: Wenus przesuwałaby się o ok. 1,9 pola na rundę, Merkury o ok. 5,5. Jeden pierścień z jedną prędkością nie może oddać obu – co nie przeszkadza, skoro obie planety są tłem.
+Zgodnie z prawem Keplera orbita kołowa w odległości 0,5 j.a. przesuwałaby się na planszy o ok. 3,6 pola na rundę – model zaokrągla to do 3. Rzeczywiste planety tego pierścienia rozjeżdżają się w obie strony: Wenus przesuwałaby się o ok. 1,9 pola na rundę, Merkury o ok. 5,5. Jeden pierścień z jedną prędkością nie może oddać obu – co nie przeszkadza, skoro obie planety są tłem.
 
 ## Pas planetoid – dryf i losowość
 
 ### Nieuniknione uproszczenie
 
-Pas planetoid nie jest tarczą obracającą się ze stałą prędkością – każda planetoida krąży z własną prędkością wynikającą z jej orbity. Obiekty bliżej Słońca krążą szybciej, obiekty dalej – wolniej. Plansza jest zsynchronizowana tylko z jedną orbitą (2,24 AU), więc obiekty na pozostałych pierścieniach pasa dryfowałyby względem planszy:
+Pas planetoid nie jest tarczą obracającą się ze stałą prędkością – każda planetoida krąży z własną prędkością wynikającą z jej orbity. Obiekty bliżej Słońca krążą szybciej, obiekty dalej – wolniej. Plansza jest zsynchronizowana tylko z jedną orbitą (2,24 j.a.), więc obiekty na pozostałych pierścieniach pasa dryfowałyby względem planszy:
 
 | Pierścień | Odległość | Dryf względem planszy |
 |-----------|-----------|----------------------|
-| 4 | 2,0 AU | +0,3 pola/rundę (do przodu) |
-| – | 2,24 AU (synchronizacja) | 0 |
-| 5 | 2,5 AU | −0,3 pola/rundę (do tyłu) |
-| 6 | 3,0 AU | −0,9 pola/rundę (do tyłu) |
+| 4 | 2,0 j.a. | +0,3 pola/rundę (do przodu) |
+| – | 2,24 j.a. (synchronizacja) | 0 |
+| 5 | 2,5 j.a. | −0,3 pola/rundę (do tyłu) |
+| 6 | 3,0 j.a. | −0,9 pola/rundę (do tyłu) |
 
 Ceres dryfowałaby o ok. −0,6 pola/rundę. W trakcie typowej gry (30–50 rund) przesunęłaby się o kilkanaście do kilkudziesięciu pól, a obiekty na zewnętrznym pierścieniu jeszcze więcej.
 
@@ -84,7 +84,7 @@ Gra może więc dryf pominąć albo go realizować, zależnie od potrzeb:
 - **Pominięcie** wystarcza, gdy obiekty w pasie pojawiają się losowo i nie trzeba długo śledzić ich dokładnej pozycji. Pas planetoid to miliony ciał na nieznacznie różnych orbitach, więc losowe rozmieszczenie rzutem kości oddaje go dobrze – dryf zostaje pochłonięty przez losowość.
 - **Śledzenie** ma sens, gdy gra przez dłuższy czas potrzebuje dokładniej znać pozycję konkretnej planetoidy.
 
-Pojedyncze znane ciała można śledzić osobno, nawet gdy gra pomija dryf reszty pasa. Ceres (2,77 AU) leży na wewnętrznym skraju pierścienia 6, ale krąży szybciej niż reszta tego pierścienia: dryfuje o ok. −0,6 pola/rundę, czyli **2 pola do tyłu co 3 rundy**. Połączone z wymogiem lądownika (patrz „Start z powierzchni”) daje to wyprawę na Ceres, którą trzeba zaplanować: cel się przesuwa, a na miejscu potrzebny jest lądownik.
+Pojedyncze znane ciała można śledzić osobno, nawet gdy gra pomija dryf reszty pasa. Ceres (2,77 j.a.) leży na wewnętrznym skraju pierścienia 6, ale krąży szybciej niż reszta tego pierścienia: dryfuje o ok. −0,6 pola/rundę, czyli **2 pola do tyłu co 3 rundy**. Połączone z wymogiem lądownika (patrz „Start z powierzchni”) daje to wyprawę na Ceres, którą trzeba zaplanować: cel się przesuwa, a na miejscu potrzebny jest lądownik.
 
 ## Ruch statków a fizyka
 
@@ -135,8 +135,8 @@ Błąd położenia statku lecącego swobodnie z prędkością 1 pola na rundę, 
 |-------|-----------|-------------|-------------|
 | przy Ziemi | 1,1–1,9 | 2–6 | 2–8 |
 | przy Marsie | 0,7–1,0 | 1,6–4 | 2–8 |
-| pas planetoid (2,24 AU) | 0,3–0,6 | 1,0–2,3 | 1,6–5 |
-| pas planetoid (3 AU) | 0,2–0,4 | 0,7–1,5 | 1,1–3,4 |
+| pas planetoid (2,24 j.a.) | 0,3–0,6 | 1,0–2,3 | 1,6–5 |
+| pas planetoid (3 j.a.) | 0,2–0,4 | 0,7–1,5 | 1,1–3,4 |
 
 Główny mechanizm jest jednym z najbardziej nieintuicyjnych zjawisk mechaniki orbitalnej: rozpędzenie do przodu wzdłuż orbity podnosi orbitę. Statek lecący w pasie do przodu po 3 rundach jest ok. 3 pierścienie dalej od Słońca i wcale nie przesunął się do przodu.
 
@@ -270,7 +270,7 @@ Model uproszczony nie śledzi prędkości statku – płaci się za każde pole 
 
 | Pierścień | Przejście na pierścień dalej (najtańsza trasa) | Strumień ciepła ze Słońca |
 |-----------|------------------------------------------------|---------------------------|
-| 1 (0,5 AU) | 7,5× | 4× ziemskiego |
+| 1 (0,5 j.a.) | 7,5× | 4× ziemskiego |
 | 2 (Ziemia) | 3,3× | 1× |
 | 3 (Mars) | 2× | 0,4× |
 | 4 | 1,4× | 0,25× |

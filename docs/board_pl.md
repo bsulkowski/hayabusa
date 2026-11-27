@@ -12,7 +12,7 @@ Plansza nie jest przypisana do konkretnej gry – stanowi gotową podstawę, na 
 
 ## Siatka i skala
 
-Plansza opiera się na siatce heksagonalnej podzielonej na koncentryczne pierścienie wokół centralnie umieszczonego Słońca. Każdy kolejny pierścień jest oddalony od poprzedniego o **0,5 AU** (1 AU to średnia odległość Ziemi od Słońca – ok. 150 mln km).
+Plansza opiera się na siatce heksagonalnej podzielonej na koncentryczne pierścienie wokół centralnie umieszczonego Słońca. Każdy kolejny pierścień jest oddalony od poprzedniego o **0,5 j.a.** (1 j.a. to średnia odległość Ziemi od Słońca – ok. 150 mln km).
 
 Pierścień numer `x` zawiera dokładnie `6x` heksów.
 
@@ -35,15 +35,15 @@ Cztery planety wewnętrznego Układu Słonecznego zajmują kolejne pierścienie:
 
 | Planeta | Pierścień | Odległość od Słońca |
 |---------|-----------|----------------------|
-| Merkury i Wenus | 1 | ~0,5 AU |
-| Ziemia | 2 | ~1 AU |
-| Mars | 3 | ~1,5 AU |
+| Merkury i Wenus | 1 | ~0,5 j.a. |
+| Ziemia | 2 | ~1 j.a. |
+| Mars | 3 | ~1,5 j.a. |
 
 Merkury i Wenus w tej skali leżą bardzo blisko siebie i zajmują wspólny pierścień. W grach opartych na planszy pełnią raczej rolę tła niż aktywnych lokacji.
 
 ## Pas planetoid
 
-Pierścienie 4–6 (2–3 AU) to pas planetoid. Popularne wyobrażenia pasa jako cienkiego pierścienia wynikają z przekłamań proporcji na rysunkach popularnonaukowych – w rzeczywistości gęsta część pasa rozciąga się na setki milionów kilometrów. Jowisz w tej skali leżałby na pierścieniu ok. 10–11 (5,2 AU) – prawie dwukrotnie dalej niż krawędź planszy.
+Pierścienie 4–6 (2–3 j.a.) to pas planetoid. Popularne wyobrażenia pasa jako cienkiego pierścienia wynikają z przekłamań proporcji na rysunkach popularnonaukowych – w rzeczywistości gęsta część pasa rozciąga się na setki milionów kilometrów. Jowisz w tej skali leżałby na pierścieniu ok. 10–11 (5,2 j.a.) – prawie dwukrotnie dalej niż krawędź planszy.
 
 ### Losowe rozmieszczenie obiektów
 

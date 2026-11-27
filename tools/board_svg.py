@@ -54,7 +54,7 @@ TEXT = {   # noqa: E501
                version=f"board v{VERSION}", sheet="sheet"),
     "pl": dict(title="Hayabusa", subtitle=["plansza do gier", "w wewnętrznym", "Układzie Słonecznym"],
                mars="Mars", earth="Ziemia", venus="Wenus", mercury="Merkury", ceres="Ceres", vesta="Westa",
-               belt="pas planetoid", d12="k12", d8="k8", credits="zdjęcia: NASA", hex_size="0,5 AU",
+               belt="pas planetoid", d12="k12", d8="k8", credits="zdjęcia: NASA", hex_size="0,5 j.a.",
                version=f"plansza v{VERSION}", sheet="arkusz"),
 }
 

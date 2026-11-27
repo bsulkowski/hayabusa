@@ -57,7 +57,7 @@ Pionek przedstawia **przemysłową część placówki**. Część mieszkalna sto
 
 **Habitat osobno.** Oddalenie chroni mieszkańców przed promieniowaniem reaktora (po drugiej stronie planetoidy zasłania je sama skała), przed skutkami awarii przemysłowych i przed pyłem z portu i wydobycia. Część przemysłowa powinna być w dużej mierze zautomatyzowana i sterowana z habitatu – z odległości kilometra opóźnienie jest pomijalne, w przeciwieństwie do sterowania z Ziemi. Ludzie przychodzą głównie do napraw, więc przyda się mały schron osłonięty od promieniowania na wypadek rozbłysku słonecznego.
 
-**Łączność z Ziemią.** Antena o średnicy kilku metrów zasilana z reaktora daje teoretycznie od kilku do kilkudziesięciu Mb/s nawet przy największej odległości od Ziemi (ok. 3,2 AU); w praktyce straty obniżają to kilkukrotnie. Ograniczeniem jest raczej to, że:
+**Łączność z Ziemią.** Antena o średnicy kilku metrów zasilana z reaktora daje teoretycznie od kilku do kilkudziesięciu Mb/s nawet przy największej odległości od Ziemi (ok. 3,2 j.a.); w praktyce straty obniżają to kilkukrotnie. Ograniczeniem jest raczej to, że:
 
 - sygnał idzie 10–27 minut w jedną stronę – można wymieniać wiadomości, ale nie rozmawiać,
 - gdy placówka znajdzie się za Słońcem, łączność urywa się na ok. 13 dni; zdarza się to co ok. 1,4 roku, czyli co 6 rund,
