@@ -50,11 +50,11 @@ URL = {"en": "https://bsulkowski.pl/hayabusa", "pl": "https://bsulkowski.pl/pl/h
 TEXT = {   # noqa: E501
     "en": dict(title="Hayabusa", subtitle=["a game board of the", "inner Solar System"],
                mars="Mars", earth="Earth", venus="Venus", mercury="Mercury", ceres="Ceres", vesta="Vesta",
-               belt="asteroid belt", d12="d12", d8="d8", credits="images: NASA",
+               belt="asteroid belt", d12="d12", d8="d8", credits="images: NASA", hex_size="0.5 AU",
                version=f"board v{VERSION}", sheet="sheet"),
     "pl": dict(title="Hayabusa", subtitle=["plansza do gier", "w wewnętrznym", "Układzie Słonecznym"],
                mars="Mars", earth="Ziemia", venus="Wenus", mercury="Merkury", ceres="Ceres", vesta="Westa",
-               belt="pas planetoid", d12="k12", d8="k8", credits="zdjęcia: NASA",
+               belt="pas planetoid", d12="k12", d8="k8", credits="zdjęcia: NASA", hex_size="0,5 AU",
                version=f"plansza v{VERSION}", sheet="arkusz"),
 }
 
@@ -130,6 +130,12 @@ def fmt(x):
     return f"{x:.3f}".rstrip("0").rstrip(".")
 
 
+def dimension(x0, x1, y, label, ink):
+    """Dimension line from x0 to x1 with end ticks, its label below."""
+    return (f'<path d="M{fmt(x0)},{fmt(y)} H{fmt(x1)} M{fmt(x0)},{fmt(y - 1.2)} v2.4 M{fmt(x1)},{fmt(y - 1.2)} v2.4" '
+            f'fill="none" stroke="{ink}" stroke-width="0.3"/>' + text((x0 + x1) / 2, y + 3.6, label, 3.2, ink))
+
+
 def hex_corner(cx, cy, i, s=S):
     a = math.radians(60 * i - 30)
     return (round(cx + s * math.cos(a), 3), round(cy + s * math.sin(a), 3))
@@ -199,7 +205,7 @@ def print_scale(fmt_name):
 # the frame); without them the disc is drawn in a plain colour.
 PLACEHOLDER = {"earth": ("#3a78c8", "#0b2a5a"), "mars": ("#c86a40", "#5a2410"), "ceres": ("#a0a0a0", "#3a3a3a"),
                "vesta": ("#b0a490", "#45403a")}
-PLANET_KM = {"earth": 6371, "mars": 3390, "ceres": 470, "vesta": 263}       # mean radius
+PLANET_KM = {"earth": 6371, "mars": 3390, "ceres": 470, "vesta": 263}       # mean radius (Ceres 939.4 km across)
 ORBIT_KM = {"earth": 6771, "mars": 3790, "ceres": 855, "vesta": 473}        # radius of the station orbit
 KM_PER_MM = PLANET_SCALE_A2 / 1e6 * print_scale("a2")         # km per mm of the one-page board
 
@@ -352,11 +358,16 @@ def board_art(lang, theme, fmt_name="a2"):
     el.append(station("mars", *at(123.5, 65.5), th["planet_veil"], ink))
     el.append(text(*at(123.5, 23), t["mars"], PLANET, ink))
 
+    # the hex is half an astronomical unit across: the distance between rings
+    el.append(dimension(lx - R3 * S / 2, lx + R3 * S / 2, ly + S + 2.5, t["hex_size"], ink))
+
     # left: Vesta and Ceres
     for key, (dx, dy) in (("vesta", (-114, 30)), ("ceres", (-114, 58))):
         cx, cy = at(dx, dy)
         el.append(station(key, cx, cy, th["planet_veil"], ink))
         el.append(text(cx, cy - ORBIT_KM[key] / KM_PER_MM - 5, t[key], 5.0, ink))
+    r = PLANET_KM["ceres"] / KM_PER_MM          # Ceres: diameter, under its orbit
+    el.append(dimension(cx - r, cx + r, cy + ORBIT_KM["ceres"] / KM_PER_MM + 1.8, f'{2 * PLANET_KM["ceres"]} km', ink))
     # bottom left: the scales, with the photo credits under the planet scale
     for i, (line, exp) in enumerate(scale_lines(lang, fmt_name) + [(t["credits"], None)]):
         x, y = at(-129, 79.2 + 4.8 * i)
