@@ -18,6 +18,7 @@ Orbitron fonts installed (Google Fonts, OFL licence).
     python board_svg.py --svg-only # only SVG, without rsvg-convert
 """
 import argparse
+import base64
 import math
 import os
 import shutil
@@ -32,20 +33,23 @@ VERSION = "0.6"
 S = 10.0                     # hex side; hexes are pointy-top
 R3 = math.sqrt(3)
 RADIUS = 6                   # rings 0..6
-PAGE_W, PAGE_H = 268.13, 200.0
-SUN = (PAGE_W - (RADIUS + 0.5) * R3 * S, PAGE_H / 2)   # board touches the right edge
-ROTATION = -60               # board content (v0.4.1 layout); 0 = sector 12 at the top
+PAGE_W, PAGE_H = 290.0, 200.0
+LEFT = 22.0                  # from the left edge of the page to the left corner of the board;
+                             # puts the vertical seam between the sector numbers at the top and bottom
+SUN = (LEFT + (RADIUS + 0.5) * R3 * S, PAGE_H / 2)
+IMAGES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "board", "images")
+ROTATION = -60               # sectors turned as in v0.4.1; 0 = sector 12 at the top
 
 URL = {"en": "https://bsulkowski.pl/hayabusa", "pl": "https://bsulkowski.pl/pl/hayabusa"}
 
 TEXT = {
     "en": dict(title="Hayabusa", subtitle=["a game board of the", "inner Solar System"],
-               mars="Mars", earth="Earth", venus="Venus", mercury="Mercury",
-               belt="asteroid belt", d12="d12", d8="d8",
+               mars="Mars", earth="Earth", venus="Venus", mercury="Mercury", ceres="Ceres",
+               belt="asteroid belt", d12="d12", d8="d8", credits="images: NASA",
                version=f"board v{VERSION}", sheet="sheet", glue="glue sheet {n} here"),
-    "pl": dict(title="Hayabusa", subtitle=["plansza do gier w wewnętrznym", "Układzie Słonecznym"],
-               mars="Mars", earth="Ziemia", venus="Wenus", mercury="Merkury",
-               belt="pas planetoid", d12="k12", d8="k8",
+    "pl": dict(title="Hayabusa", subtitle=["plansza do gier", "w wewnętrznym", "Układzie Słonecznym"],
+               mars="Mars", earth="Ziemia", venus="Wenus", mercury="Merkury", ceres="Ceres",
+               belt="pas planetoid", d12="k12", d8="k8", credits="zdjęcia: NASA",
                version=f"plansza v{VERSION}", sheet="arkusz", glue="tu przyklej arkusz {n}"),
 }
 
@@ -117,7 +121,14 @@ def hex_points(cx, cy, s):
     return " ".join(f"{fmt(x)},{fmt(y)}" for x, y in pts)
 
 
+BOXES = []   # (x0, y0, x1, y1, text, size) of every horizontal text, for the seam check
+
+
 def text(x, y, s, size, fill, font=EXO, rotate=0, anchor="middle"):
+    if not rotate:
+        w = len(s) * size * (0.72 if font == ORBITRON else 0.55)
+        x0 = x - w / 2 if anchor == "middle" else (x - w if anchor == "end" else x)
+        BOXES.append((x0, y - size * 0.4, x0 + w, y + size * 0.4, s, size))
     s = s.replace("&", "&amp;").replace("<", "&lt;")
     rot = f' transform="rotate({fmt(rotate)} {fmt(x)} {fmt(y)})"' if rotate else ""
     return (f'<text x="{fmt(x)}" y="{fmt(y)}" font-family="{font}" font-size="{fmt(size)}" fill="{fill}" '
@@ -147,75 +158,119 @@ def qr_path(url, x, y, size, rotate, fill):
     return f'<path d="{d}" fill="{fill}" transform="rotate({fmt(rotate)} {fmt(cx)} {fmt(cy)})"/>'
 
 
+# Station spaces: Earth and Mars (top and bottom right), Ceres (bottom left).
+# Photos are read from board/images/<name>.jpg or .png (square, the planet filling
+# the frame); without them the disc is drawn in a plain colour.
+PLACEHOLDER = {"earth": ("#3a78c8", "#0b2a5a"), "mars": ("#c86a40", "#5a2410"), "ceres": ("#a0a0a0", "#3a3a3a")}
+
+
+def planet(key, cx, cy, r):
+    clip = f"clip-{key}"
+    out = [f'<clipPath id="{clip}"><circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}"/></clipPath>']
+    for ext, mime in ((".jpg", "image/jpeg"), (".png", "image/png")):
+        path = os.path.join(IMAGES, key + ext)
+        if os.path.exists(path):
+            with open(path, "rb") as f:
+                data = base64.b64encode(f.read()).decode("ascii")
+            out.append(f'<image x="{fmt(cx - r)}" y="{fmt(cy - r)}" width="{fmt(2 * r)}" height="{fmt(2 * r)}" '
+                       f'preserveAspectRatio="xMidYMid slice" clip-path="url(#{clip})" '
+                       f'href="data:{mime};base64,{data}"/>')
+            break
+    else:
+        light, dark = PLACEHOLDER[key]
+        out.append(f'<radialGradient id="grad-{key}" cx="0.4" cy="0.35" r="0.7"><stop offset="0" stop-color="{light}"/>'
+                   f'<stop offset="1" stop-color="{dark}"/></radialGradient>'
+                   f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="url(#grad-{key})"/>')
+    out.append(f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="none" stroke="{NAVY}" stroke-width="0.5"/>')
+    return "".join(out)
+
+
 def board_art(lang, theme):
     """The whole board as SVG elements, in millimetres of the one-page board."""
     t, th = TEXT[lang], THEMES[theme]
     sx, sy = SUN
     sectors = belt_sectors()
     el = []
+    BOXES.clear()
 
-    # board content, drawn with sector 12 at the top and turned as a whole
-    g = []
+    # Board content. Sectors are turned by ROTATION; all texts stay horizontal.
+    # Positions are chosen so that no label lands on a seam between printed
+    # sheets (see check_seams): the vertical seam runs just right of the Sun,
+    # the A2 horizontal one through it.
+    a = math.radians(ROTATION)
+
+    def at(dx, dy):
+        return sx + dx, sy + dy
+
+    def turned(x, y):
+        return at(x * math.cos(a) - y * math.sin(a), x * math.sin(a) + y * math.cos(a))
+
     for q in range(-RADIUS, RADIUS + 1):
         for r in range(-RADIUS, RADIUS + 1):
             h = (q, r)
             k = ring(h)
             if k > RADIUS:
                 continue
-            x, y = centre(h)
+            x, y = turned(*centre(h))
             if k <= 3:
                 fill, stroke = th["rings"][k]
             else:
                 fill, stroke = th["belt"][sectors[h][2]], th["belt_stroke"]
-            g.append(f'<polygon points="{hex_points(x, y, S)}" fill="{fill}" stroke="{stroke}" stroke-width="0.3"/>')
+            el.append(f'<polygon points="{hex_points(x, y, S)}" fill="{fill}" stroke="{stroke}" stroke-width="0.3"/>')
     for h, (number, label, _) in sectors.items():
-        x, y = centre(h)
-        g.append(text(x, y + 6.6, label, SMALL, ORANGE, ORBITRON))
+        x, y = turned(*centre(h))
+        el.append(text(x, y + 6.6, label, SMALL, ORANGE, ORBITRON))
         if label == BIG:
-            g.append(text(x, y, str(number), BIG_SIZE, ORANGE, ORBITRON))
-    g.append(f'<circle cx="0" cy="0" r="3.76" fill="{SUN_YELLOW}"/>')
+            el.append(text(x, y, str(number), BIG_SIZE, ORANGE, ORBITRON))
+    el.append(f'<circle cx="{fmt(sx)}" cy="{fmt(sy)}" r="3.76" fill="{SUN_YELLOW}"/>')
     rt = th["ring_text"]
-    g.append(text(0, -17.7, t["venus"], MINOR, rt[1]))
-    g.append(text(0, -12.3, t["mercury"], MINOR, rt[1]))
-    g.append(text(0, -30, t["earth"], PLANET, rt[2]))
-    g.append(text(0, -44.8, t["mars"], PLANET, rt[3]))
-    g.append(arrows(0, 15, 3, rt[1]))
-    g.append(arrows(0, 30, 2, rt[2]))
-    g.append(arrows(0, 45, 1, rt[3]))
-    g.append(text(0, -76, t["belt"], BIG_SIZE, th["belt_text"]))   # in ring 5, above sector 12
-    el.append(f'<g transform="translate({fmt(sx)} {fmt(sy)}) rotate({ROTATION})">{"".join(g)}</g>')
+    # planet names in the hexes up and to the left of the Sun
+    ux, uy = -0.5 * R3 * S, -1.5 * S                    # one hex in that direction
+    x, y = at(ux, uy)
+    el.append(text(x, y - 2.7, t["venus"], MINOR, rt[1]))
+    el.append(text(x, y + 2.7, t["mercury"], MINOR, rt[1]))
+    el.append(text(*at(2 * ux, 2 * uy), t["earth"], PLANET, rt[2]))
+    el.append(text(*at(3 * ux, 3 * uy), t["mars"], PLANET, rt[3]))
+    # orbital movement in the hexes down and to the left, along the orbit
+    for n in (1, 2, 3):
+        x, y = at(n * ux, -n * uy)
+        el.append(f'<g transform="rotate(30 {fmt(x)} {fmt(y)})">{arrows(x, y, 4 - n, rt[n])}</g>')
+    el.append(text(*at(-33, -75), t["belt"], 10.0, th["belt_text"]))   # ring 5, left of the seam
 
-    # around the board: title, QR code, dice legend (relative to the Sun)
-    def at(dx, dy):
-        return sx + dx, sy + dy
-
-    # text lines run parallel to the upper left edge of the board
-    along = (math.cos(math.radians(-60)), math.sin(math.radians(-60)))
-    down = (-along[1], along[0])
-    tx, ty = at(-113, -51)
-    el.append(text(tx, ty, t["title"], 15.5, NAVY, rotate=-60))
+    # top left: title, subtitle, QR code
+    el.append(text(*at(-100, -88), t["title"], 13.0, NAVY))
     for i, line in enumerate(t["subtitle"]):
-        d = 11 + 5.6 * i
-        el.append(text(tx + down[0] * d, ty + down[1] * d, line, 4.4, NAVY, rotate=-60))
-
-    qx, qy = at(-137, 25)          # off the A2 seam, which runs through the middle
+        el.append(text(*at(-100, -79.5 + 5.4 * i), line, 4.4, NAVY))
     size = 19
-    el.append(qr_path(URL[lang], qx - size / 2, qy - size / 2, size, -60, NAVY))
-    vx, vy = qx + down[0] * (size / 2 + 2.5), qy + down[1] * (size / 2 + 2.5)
-    el.append(text(vx, vy, t["version"], 3.0, NAVY, ORBITRON, rotate=-60))
+    qx, qy = at(-117, -52)
+    el.append(qr_path(URL[lang], qx - size / 2, qy - size / 2, size, 0, NAVY))
 
-    lx, ly = at(-105.3, 61.2)
-    el.append(f'<polygon points="{hex_points(lx, ly, 15)}" fill="{th["belt"][0]}" '
+    # right: station spaces of the Earth (top) and Mars (bottom)
+    r_st = 22
+    for key, (dx, dy), lab_dy in (("earth", (128, -72), r_st + 5), ("mars", (128, 72), -(r_st + 5))):
+        cx, cy = at(dx, dy)
+        el.append(planet(key, cx, cy, r_st))
+        el.append(text(cx, cy + lab_dy, t[key], PLANET, NAVY))
+
+    # bottom left: Ceres, dice legend, version and credits
+    cx, cy = at(-119, 42)
+    el.append(planet("ceres", cx, cy, 15))
+    el.append(text(cx, cy - 20, t["ceres"], 5.0, NAVY))
+    lx, ly = at(-112, 82)
+    el.append(f'<polygon points="{hex_points(lx, ly, 12)}" fill="{th["belt"][0]}" '
               f'stroke="{th["belt_stroke"]}" stroke-width="0.5"/>')
-    leg = [text(lx, ly, t["d12"], BIG_SIZE, ORANGE, ORBITRON),
-           text(lx, ly + 7.5, t["d8"], SMALL, ORANGE, ORBITRON)]
-    el.append(f'<g transform="rotate({ROTATION} {fmt(lx)} {fmt(ly)})">{"".join(leg)}</g>')
-    ax, ay = at(-111.7, 44.8)
-    el.append(f'<path d="M{fmt(ax)},{fmt(ay)} v-8 l10.2,-7.4" fill="none" stroke="{ORANGE}" '
-              f'stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>')
-    hx, hy = ax + 10.2, ay - 15.4
-    el.append(f'<path d="M{fmt(hx - 3.6)},{fmt(hy - 0.2)} L{fmt(hx)},{fmt(hy)} L{fmt(hx - 1.3)},{fmt(hy + 3.4)}" '
+    el.append(text(lx, ly - 1, t["d12"], 9.0, ORANGE, ORBITRON))
+    el.append(text(lx, ly + 6, t["d8"], 3.4, ORANGE, ORBITRON))
+    ax, ay = lx + 9, ly - 9
+    el.append(f'<path d="M{fmt(ax)},{fmt(ay)} l10,-8" fill="none" stroke="{ORANGE}" '
+              f'stroke-width="1.2" stroke-linecap="round"/>')
+    hx, hy = ax + 10, ay - 8
+    el.append(f'<path d="M{fmt(hx - 3.2)},{fmt(hy + 0.9)} L{fmt(hx)},{fmt(hy)} L{fmt(hx + 0.6)},{fmt(hy + 3.3)}" '
               f'fill="none" stroke="{ORANGE}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>')
+    # right, between the stations, above the A2 seam: version and credits
+    vx, vy = at(133, -13)
+    el.append(text(vx, vy, t["version"], 2.8, NAVY, ORBITRON))
+    el.append(text(vx, vy + 4.5, t["credits"], 2.8, NAVY, ORBITRON))
     return "".join(el)
 
 
@@ -238,10 +293,7 @@ FORMATS = {       # columns, rows, sheet orientation
 def sheets(lang, theme, fmt_name):
     cols, rows, orient = FORMATS[fmt_name]
     sw, sh = A4 if orient == "portrait" else A4[::-1]
-    cw, ch = sw - 2 * MARGIN, sh - 2 * MARGIN                      # printed area of a sheet
-    total_w, total_h = cols * cw - (cols - 1) * GLUE, rows * ch - (rows - 1) * GLUE
-    scale = min(total_w / PAGE_W, total_h / PAGE_H)
-    ox, oy = (total_w - PAGE_W * scale) / 2, (total_h - PAGE_H * scale) / 2
+    cols, rows, cw, ch, scale, ox, oy = layout(fmt_name)      # cw, ch: printed area of a sheet
     art = board_art(lang, theme)
     t = TEXT[lang]
     hatch = ('<pattern id="hatch" width="3" height="3" patternUnits="userSpaceOnUse" '
@@ -282,6 +334,33 @@ def sheets(lang, theme, fmt_name):
     return pages, scale
 
 
+def layout(fmt_name):
+    """Assembled board size, scale and offset of the one-page board on it."""
+    cols, rows, orient = FORMATS[fmt_name]
+    sw, sh = A4 if orient == "portrait" else A4[::-1]
+    cw, ch = sw - 2 * MARGIN, sh - 2 * MARGIN
+    total_w, total_h = cols * cw - (cols - 1) * GLUE, rows * ch - (rows - 1) * GLUE
+    scale = min(total_w / PAGE_W, total_h / PAGE_H)
+    return cols, rows, cw, ch, scale, (total_w - PAGE_W * scale) / 2, (total_h - PAGE_H * scale) / 2
+
+
+def check_seams(label):
+    """Warn about texts lying on a glue strip of any format (one-page board millimetres)."""
+    for fmt_name in FORMATS:
+        cols, rows, cw, ch, scale, ox, oy = layout(fmt_name)
+        bands = [("x", (c * (cw - GLUE) + cw - GLUE - ox) / scale, (c * (cw - GLUE) + cw - ox) / scale)
+                 for c in range(cols - 1)]
+        bands += [("y", (r * (ch - GLUE) + ch - GLUE - oy) / scale, (r * (ch - GLUE) + ch - oy) / scale)
+                  for r in range(rows - 1)]
+        for x0, y0, x1, y1, s, size in BOXES:
+            if size <= SMALL:
+                continue                     # small dice labels may cross a seam
+            for axis, lo, hi in bands:
+                a0, a1 = (x0, x1) if axis == "x" else (y0, y1)
+                if a0 < hi and a1 > lo:
+                    print(f"  warning: {label} {fmt_name}: '{s}' ({size} mm) on a seam")
+
+
 def name(lang, theme):
     return "board" + ("-light" if theme == "light" else "") + ("_pl" if lang == "pl" else "")
 
@@ -308,6 +387,7 @@ def main():
                 f.write(svg_doc(PAGE_W, PAGE_H, f'<rect width="{PAGE_W}" height="{PAGE_H}" fill="#ffffff"/>'
                                 + board_art(lang, theme)))
             print(path)
+            check_seams(base)
             if rsvg and theme == "dark":
                 png = os.path.join(out, base + ".png")
                 subprocess.run([rsvg, "-w", "1200", "-o", png, path], check=True)
