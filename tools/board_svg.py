@@ -28,7 +28,7 @@ import tempfile
 
 import segno
 
-VERSION = "0.6"
+VERSION = "1.0"
 
 # --- geometry (millimetres, scale of the one-page board) ---------------------
 S = 10.0                     # hex side; hexes are pointy-top
