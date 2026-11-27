@@ -158,7 +158,7 @@ Flying away from or towards the Sun is almost free; flying along the orbit is ex
 
 **Docking needs only stabilisation.** Approach and docking take hours, at most days, while a round is about 87 days. So it is enough for the ship to have zero velocity on the target hex at any moment of its turn. Long actions are different: a velocity change of 2 hexes is a whole round of engine work (about 0.27 milli-g for 87 days). A touch-and-go stop – braking and accelerating again in the same turn – leaves time only for short actions, while mining or emergency refuelling need a turn with no velocity change at all.
 
-**Velocity change before and after moving.** The engine works through the whole round, and the limit of 2 hexes is what it can do in that time. Splitting the change into a part before moving and a part after is a conventional approximation of continuous engine work. Thanks to it, a hop and braking on arrival need no separate rules.
+**Velocity change before and after moving.** The engine works through the whole round, and 2 hexes of velocity change is what it can do in that time. With constant thrust, the distance a ship covers in a round corresponds to its average velocity – the velocity at the middle of the round. That is why the change is split into two halves of at most 1 hex each: before moving and after moving. The movement between them happens at the mid-round velocity, just as with continuous engine work. It is the same method (the so-called leapfrog) used in numerical simulations of orbital motion. Changing the whole velocity before moving would overstate the distance, and after moving – understate it. A hop, accelerating and braking then need no separate rules.
 
 ### Transfer windows
 

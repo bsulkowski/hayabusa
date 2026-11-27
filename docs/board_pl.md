@@ -107,15 +107,16 @@ Między turą neutralną a turą gracza jego statki przez chwilę „odstają”
 W kosmosie płaci się za zmianę prędkości, a nie za przebytą drogę.
 
 1. Statek ma prędkość własną: 0–2 pola na rundę w dowolnym kierunku. Najprościej zaznaczyć ją znacznikiem na polu, na które statek doleci w następnej turze, jak w klasycznym ruchu wektorowym.
-2. W swojej turze statek może zmienić prędkość łącznie najwyżej o 2 pola – przed ruchem, po ruchu albo częściowo przed i po. Każde pole zmiany prędkości kosztuje 1 jednostkę paliwa.
-3. Między zmianami statek przesuwa się o swoją prędkość. Lot ze stałą prędkością nic nie kosztuje.
+2. W swojej turze statek może dwa razy zmienić prędkość, za każdym razem najwyżej o 1 pole w dowolnym kierunku: raz przed ruchem i raz po ruchu. Każde pole zmiany prędkości kosztuje 1 jednostkę paliwa.
+3. Między tymi zmianami statek przesuwa się o swoją prędkość. Lot ze stałą prędkością nic nie kosztuje.
 4. Prędkość ponad 2 pola na rundę jest zakazana przepisami.
 5. Pierścień 1 jest zamknięty dla statków – blisko Słońca jest za gorąco, a pierścień przesuwa się o pół obiegu na rundę.
 
 Przykłady:
 
 - **Przeskok** o 1 pole: +1 przed ruchem, ruch, −1 po ruchu. Koszt 2.
-- **Hamowanie po dolocie**: statek lecący z prędkością 2 dolatuje do celu i od razu wyhamowuje (−2 po ruchu). Koszt 2.
+- **Rozpędzanie**: z postoju +1 przed ruchem, ruch o 1, +1 po ruchu – w następnej turze statek leci z prędkością 2. Koszt 2.
+- **Hamowanie**: z prędkości 2: −1 przed ruchem, ruch o 1, −1 po ruchu – statek zatrzymuje się po jednym polu. Koszt 2.
 
 Zbiornik frachtowca mieści rzędu 20 jednostek. Linia lotu na planszy to schemat zaplanowanej trasy: początek, koniec, czas i koszt odpowiadają rzeczywistości, a prawdziwy tor jest zakrzywiony. Uzasadnienie: [model_pl.md](model_pl.md#dlaczego-model-referencyjny-ma-sens).
 

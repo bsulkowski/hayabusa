@@ -107,15 +107,16 @@ Between the neutral turn and a player's turn, that player's ships briefly "lag b
 In space you pay for changing your velocity, not for the distance travelled.
 
 1. A ship has its own velocity: 0–2 hexes per round in any direction. The simplest way to show it is a marker on the hex the ship will reach in its next turn, as in classic vector movement.
-2. In its turn a ship may change its velocity by at most 2 hexes in total – before moving, after moving, or partly before and partly after. Each hex of velocity change costs 1 fuel unit.
-3. Between changes the ship moves by its velocity. Flying at a constant velocity costs nothing.
+2. In its turn a ship may change its velocity twice, each time by at most 1 hex in any direction: once before moving and once after moving. Each hex of velocity change costs 1 fuel unit.
+3. Between these changes the ship moves by its velocity. Flying at a constant velocity costs nothing.
 4. Speeds above 2 hexes per round are forbidden by regulations.
 5. Ring 1 is closed to ships – it is too hot close to the Sun, and the ring moves half an orbit per round.
 
 Examples:
 
 - **A hop** of 1 hex: +1 before moving, move, −1 after moving. Cost 2.
-- **Braking on arrival**: a ship flying at speed 2 reaches its target and brakes at once (−2 after moving). Cost 2.
+- **Accelerating**: from rest, +1 before moving, move 1, +1 after moving – in its next turn the ship flies at speed 2. Cost 2.
+- **Braking**: from speed 2, −1 before moving, move 1, −1 after moving – the ship stops after one hex. Cost 2.
 
 A freighter's tank holds around 20 units. The flight line on the board is a schematic of a planned route: start, end, time and cost match reality, while the real path is curved. Rationale: [model.md](model.md#why-the-reference-model-makes-sense).
 

@@ -158,7 +158,7 @@ Lot od Słońca i do Słońca jest prawie darmowy, lot wzdłuż orbity – drogi
 
 **Dokowanie wymaga tylko stabilizacji.** Zbliżenie i dokowanie trwają godziny, najwyżej dni, a runda to ok. 87 dni. Wystarczy więc, że statek ma prędkość 0 na polu celu w którymkolwiek momencie swojej tury. Inaczej z długimi działaniami: zmiana prędkości o 2 pola to praca silnika przez całą rundę (ok. 0,27 milli-g przez 87 dni). Postój w przelocie – zahamowanie i ponowne rozpędzenie w tej samej turze – zostawia czas tylko na krótkie działania, a wydobycie czy awaryjne tankowanie wymagają tury bez żadnej zmiany prędkości.
 
-**Zmiana prędkości przed ruchem i po nim.** Silnik pracuje przez całą rundę, a limit 2 pól to jego możliwości w tym czasie. Podział zmiany na część przed ruchem i po nim jest umownym przybliżeniem ciągłej pracy silnika. Dzięki niemu przeskok i hamowanie po dolocie nie potrzebują osobnych zasad.
+**Zmiana prędkości przed ruchem i po nim.** Silnik pracuje przez całą rundę, a 2 pola zmiany prędkości to jego możliwości w tym czasie. Przy stałym ciągu statek przebywa w rundzie drogę odpowiadającą średniej prędkości – prędkości z połowy rundy. Dlatego zmiana dzieli się na dwie połowy po najwyżej 1 polu: przed ruchem i po ruchu. Ruch między nimi odbywa się z prędkością z połowy rundy, tak jak przy ciągłej pracy silnika. To ta sama metoda (tzw. leapfrog), której używa się w numerycznych symulacjach ruchu orbitalnego. Zmiana całej prędkości przed ruchem zawyżałaby drogę, a po ruchu – zaniżała. Przeskok, rozpędzanie i hamowanie nie potrzebują przy tym osobnych zasad.
 
 ### Okna transferowe
 
