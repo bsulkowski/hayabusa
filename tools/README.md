@@ -39,7 +39,7 @@ cd tools
 python board_svg.py
 ```
 
-Photos of the Earth, Mars and Ceres are read from `board/images/` (`earth.jpg`, `mars.jpg`, `ceres.jpg` or `.png`; square, the planet filling the frame); without them the discs are drawn in plain colours. The script also warns when a label lands on a join between sheets.
+Photos of the Earth, Mars, Ceres and Vesta are read from `board/images/` (`earth.jpg`, `mars.jpg`, `ceres.jpg`, `vesta.jpg` or `.png`; square, the planet filling the frame); without them the discs are drawn in plain colours. The script also warns when a label lands on a join between sheets.
 
 Without `rsvg-convert` the script writes the SVG files only (`--svg-only` does the same on purpose).
 

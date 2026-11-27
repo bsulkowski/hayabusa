@@ -49,11 +49,11 @@ URL = {"en": "https://bsulkowski.pl/hayabusa", "pl": "https://bsulkowski.pl/pl/h
 
 TEXT = {   # noqa: E501
     "en": dict(title="Hayabusa", subtitle=["a game board of the", "inner Solar System"],
-               mars="Mars", earth="Earth", venus="Venus", mercury="Mercury", ceres="Ceres",
+               mars="Mars", earth="Earth", venus="Venus", mercury="Mercury", ceres="Ceres", vesta="Vesta",
                belt="asteroid belt", d12="d12", d8="d8", credits="images: NASA",
                version=f"board v{VERSION}", sheet="sheet"),
     "pl": dict(title="Hayabusa", subtitle=["plansza do gier", "w wewnętrznym", "Układzie Słonecznym"],
-               mars="Mars", earth="Ziemia", venus="Wenus", mercury="Merkury", ceres="Ceres",
+               mars="Mars", earth="Ziemia", venus="Wenus", mercury="Merkury", ceres="Ceres", vesta="Westa",
                belt="pas planetoid", d12="k12", d8="k8", credits="zdjęcia: NASA",
                version=f"plansza v{VERSION}", sheet="arkusz"),
 }
@@ -188,14 +188,15 @@ def print_scale(fmt_name):
 
 
 # Station spaces: the Earth (top right, only a part fits) and Mars (bottom right),
-# Ceres (bottom left). Planets and their orbits share one scale, KM_PER_MM. The
-# dashed circle is a low orbit: 400 km up at the Earth (like the ISS) and Mars,
-# 385 km at Ceres (the lowest orbit of the Dawn probe).
+# Ceres and Vesta (left). Planets and their orbits share one scale, KM_PER_MM. The
+# dashed circle is a low orbit: 400 km up at the Earth (like the ISS) and Mars;
+# at Ceres and Vesta the low-altitude mapping orbit of the Dawn probe, 385 and 210 km.
 # Photos are read from board/images/<name>.jpg or .png (square, the planet filling
 # the frame); without them the disc is drawn in a plain colour.
-PLACEHOLDER = {"earth": ("#3a78c8", "#0b2a5a"), "mars": ("#c86a40", "#5a2410"), "ceres": ("#a0a0a0", "#3a3a3a")}
-PLANET_KM = {"earth": 6371, "mars": 3390, "ceres": 470}       # radius
-ORBIT_KM = {"earth": 6771, "mars": 3790, "ceres": 855}        # radius of the station orbit
+PLACEHOLDER = {"earth": ("#3a78c8", "#0b2a5a"), "mars": ("#c86a40", "#5a2410"), "ceres": ("#a0a0a0", "#3a3a3a"),
+               "vesta": ("#b0a490", "#45403a")}
+PLANET_KM = {"earth": 6371, "mars": 3390, "ceres": 470, "vesta": 263}       # mean radius
+ORBIT_KM = {"earth": 6771, "mars": 3790, "ceres": 855, "vesta": 473}        # radius of the station orbit
 KM_PER_MM = PLANET_SCALE_A2 / 1e6 * print_scale("a2")         # km per mm of the one-page board
 
 
@@ -348,10 +349,11 @@ def board_art(lang, theme, fmt_name="a2"):
     el.append(f'<path d="M{fmt(hx + 2.6)},{fmt(hy - 2.4)} L{fmt(hx)},{fmt(hy)} L{fmt(hx + 2.6)},{fmt(hy + 2.4)}" '
               f'fill="none" stroke="{th["accent"]}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>')
 
-    # bottom left: Ceres and the scales
-    cx, cy = at(-112, 58)
-    el.append(station("ceres", cx, cy, th["planet_veil"]))
-    el.append(text(cx, cy - ORBIT_KM["ceres"] / KM_PER_MM - 5, t["ceres"], 5.0, NAVY))
+    # left: Vesta and Ceres, bottom left: the scales
+    for key, (dx, dy) in (("vesta", (-114, 30)), ("ceres", (-114, 58))):
+        cx, cy = at(dx, dy)
+        el.append(station(key, cx, cy, th["planet_veil"]))
+        el.append(text(cx, cy - ORBIT_KM[key] / KM_PER_MM - 5, t[key], 5.0, NAVY))
     for i, (line, exp) in enumerate(scale_lines(lang, fmt_name)):
         x, y = at(-129, 84 + 4.8 * i)
         el.append(text(x, y, line + (str(exp) if exp else ""), 3.6, NAVY, anchor="start"))   # for the seam check

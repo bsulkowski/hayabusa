@@ -39,7 +39,7 @@ cd tools
 python board_svg.py
 ```
 
-Zdjęcia Ziemi, Marsa i Ceres skrypt bierze z `board/images/` (`earth.jpg`, `mars.jpg`, `ceres.jpg` albo `.png`; kwadratowe, planeta wypełnia kadr); bez nich rysuje koła w jednolitych kolorach. Ostrzega też, gdy napis trafia na łączenie kartek.
+Zdjęcia Ziemi, Marsa, Ceres i Westy skrypt bierze z `board/images/` (`earth.jpg`, `mars.jpg`, `ceres.jpg`, `vesta.jpg` albo `.png`; kwadratowe, planeta wypełnia kadr); bez nich rysuje koła w jednolitych kolorach. Ostrzega też, gdy napis trafia na łączenie kartek.
 
 Bez `rsvg-convert` skrypt zapisuje tylko pliki SVG (`--svg-only` robi to samo celowo).
 
