@@ -1,4 +1,4 @@
-# Synodic Board – a board of the inner Solar System
+# Hayabusa – a board of the inner Solar System
 
 *[Wersja polska](board_pl.md)*
 
@@ -6,7 +6,7 @@
 
 The board shows the inner Solar System – the space from the Sun to the asteroid belt. It is designed as a general-purpose space for hard science fiction games about space exploration: players fly ships between planets, exploit the resources of the asteroid belt and face the challenges of real orbital mechanics. The physics is real; only the ships' engines come from the future.
 
-The name comes from the synodic frame – a frame of reference that rotates together with orbiting bodies. The whole movement mechanic of the board is built on such a frame.
+The name comes from the Japanese probe Hayabusa ("peregrine falcon"), the first to bring samples of an asteroid back to the Earth – from the asteroid Itokawa, in 2010.
 
 The board is not tied to any particular game – it is a ready-made base on which different games can be built.
 

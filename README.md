@@ -1,4 +1,4 @@
-# Synodic Board
+# Hayabusa
 
 **A board of the inner Solar System**
 

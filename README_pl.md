@@ -1,4 +1,4 @@
-# Synodic Board
+# Hayabusa
 
 **Plansza wewnętrznego Układu Słonecznego**
 

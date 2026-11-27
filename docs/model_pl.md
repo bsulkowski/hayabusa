@@ -1,4 +1,4 @@
-# Synodic Board – model i decyzje projektowe
+# Hayabusa – model i decyzje projektowe
 
 *[English version](model.md)*
 
@@ -33,7 +33,7 @@ Merkury leży realnie przy 0,39 AU, Wenus przy 0,72 AU. W modelu obie planety tr
 
 Projektując prędkości orbitalne, szukano liczb całkowitych, które najlepiej oddają proporcje rzeczywistych prędkości kątowych. Prędkości kątowe Ziemi, Marsa i pasa planetoid są w przybliżeniu w proporcji **4 : 2 : 1**.
 
-Plansza obraca się w kierunku obiegu planet z prędkością odpowiadającą tej jednostce „1”. Po odjęciu obrotu planszy widoczne prędkości wynoszą **3 : 1 : 0** – dokładnie to, co widzimy w tabeli ruchów. Taki obracający się układ odniesienia nazywa się w astrodynamice układem synodycznym – stąd nazwa planszy. Na planszy Ziemia przesuwa się co rundę o 60° (2 pola na 12-polowym pierścieniu), a Mars o 20° (1 pole na 18-polowym).
+Plansza obraca się w kierunku obiegu planet z prędkością odpowiadającą tej jednostce „1”. Po odjęciu obrotu planszy widoczne prędkości wynoszą **3 : 1 : 0** – dokładnie to, co widzimy w tabeli ruchów. Taki obracający się układ odniesienia nazywa się w astrodynamice układem synodycznym. Na planszy Ziemia przesuwa się co rundę o 60° (2 pola na 12-polowym pierścieniu), a Mars o 20° (1 pole na 18-polowym).
 
 ### Punkt odniesienia i skala czasu
 

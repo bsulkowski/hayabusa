@@ -1,4 +1,4 @@
-# Synodic Board – the model and design decisions
+# Hayabusa – the model and design decisions
 
 *[Wersja polska](model_pl.md)*
 
@@ -33,7 +33,7 @@ Mercury actually lies at 0.39 AU, Venus at 0.72 AU. In the model both planets la
 
 When designing the orbital speeds, the goal was to find whole numbers that best capture the proportions of real angular velocities. The angular velocities of the Earth, Mars and the asteroid belt are roughly in the proportion **4 : 2 : 1**.
 
-The board rotates in the direction of planetary motion at a speed corresponding to that unit "1". After subtracting the board's rotation, the visible speeds are **3 : 1 : 0** – exactly what the movement table shows. In astrodynamics such a rotating frame of reference is called a synodic frame – hence the board's name. On the board the Earth moves 60° per round (2 hexes on a 12-hex ring), and Mars 20° (1 hex on an 18-hex ring).
+The board rotates in the direction of planetary motion at a speed corresponding to that unit "1". After subtracting the board's rotation, the visible speeds are **3 : 1 : 0** – exactly what the movement table shows. In astrodynamics such a rotating frame of reference is called a synodic frame. On the board the Earth moves 60° per round (2 hexes on a 12-hex ring), and Mars 20° (1 hex on an 18-hex ring).
 
 ### Reference orbit and time scale
 

@@ -1,4 +1,4 @@
-# Synodic Board – plansza wewnętrznego Układu Słonecznego
+# Hayabusa – plansza wewnętrznego Układu Słonecznego
 
 *[English version](board.md)*
 
@@ -6,7 +6,7 @@
 
 Plansza przedstawia wewnętrzny Układ Słoneczny – przestrzeń od Słońca do pasa planetoid. Zaprojektowana jest jako uniwersalna przestrzeń do gier twardej science fiction o tematyce eksploracji kosmosu: gracze poruszają się statkami między planetami, eksploatują zasoby pasa planetoid i mierzą się z wyzwaniami, jakie niesie ze sobą prawdziwa mechanika orbitalna. Fizyka jest prawdziwa, z przyszłości pochodzą tylko silniki statków.
 
-Nazwa pochodzi od układu synodycznego – układu odniesienia, który obraca się razem z orbitującymi ciałami. Na takim układzie opiera się cała mechanika ruchu na planszy.
+Nazwa pochodzi od japońskiej sondy Hayabusa („sokół wędrowny”), która jako pierwsza przywiozła na Ziemię próbki planetoidy – z planetoidy Itokawa, w 2010 roku.
 
 Plansza nie jest przypisana do konkretnej gry – stanowi gotową podstawę, na której można budować różne tytuły.
 

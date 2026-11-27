@@ -1,4 +1,4 @@
-# Synodic Board – pomysły na gry
+# Hayabusa – pomysły na gry
 
 *[English version](ideas.md)*
 
