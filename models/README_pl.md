@@ -42,7 +42,7 @@ Od dołu do góry:
 | 0,3 g | ok. 17 m od osi | ok. 67 m od osi |
 | 1 g | ok. 56 m od osi | ok. 220 m od osi |
 
-Na modelu moduły habitatu leżą od osi w odległości ok. 1/4 długości statku. Prawdziwy statek miałby więc od ok. 70 m długości (0,3 g przy szybkim obrocie) do blisko kilometra (1 g przy wolnym). „Podłoga” w habitacie jest po stronie odwróconej od osi statku.
+Na modelu moduły habitatu leżą od osi w odległości ok. 1/4 długości statku. Prawdziwy statek miałby więc od ok. 70 m długości (0,3 g przy szybkim obrocie) do blisko kilometra (1 g przy wolnym), a pionek długości 36 mm jest w skali od ok. 1 : 2000 do ok. 1 : 30 000. „Podłoga” w habitacie jest po stronie odwróconej od osi statku.
 
 ## Placówka – intencje projektowe
 

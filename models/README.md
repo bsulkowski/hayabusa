@@ -42,7 +42,7 @@ The faceted shape of the bow and of the tanks by the nozzles is not meant to be 
 | 0.3 g | about 17 m from the axis | about 67 m from the axis |
 | 1 g | about 56 m from the axis | about 220 m from the axis |
 
-On the model the habitat modules lie about 1/4 of the ship's length from the axis. A real ship would therefore be from about 70 m long (0.3 g at fast rotation) to nearly a kilometre (1 g at slow rotation). The "floor" in the habitat is on the side facing away from the ship's axis.
+On the model the habitat modules lie about 1/4 of the ship's length from the axis. A real ship would therefore be from about 70 m long (0.3 g at fast rotation) to nearly a kilometre (1 g at slow rotation), and the 36 mm pawn is at a scale from about 1 : 2,000 to about 1 : 30,000. The "floor" in the habitat is on the side facing away from the ship's axis.
 
 ## Outpost – design intent
 
