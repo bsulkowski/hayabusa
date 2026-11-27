@@ -18,7 +18,7 @@ The board is not tied to a single game – it is a space on which different game
 | [board/qrcode.svg](board/qrcode.svg), [board/qrcode_pl.svg](board/qrcode_pl.svg) | QR codes linking to the project page |
 | [models/](models/README.md) | 3D-printable pawns: a transport ship and an asteroid outpost |
 
-Earlier versions are in the repository history (tags `v0.1`–`v0.4.1`). An experimental colour scheme of the board is on the `experimental-colors` branch.
+Earlier versions of the board graphics are in the repository history (tags `v0.1`–`v0.4.1`, see the [revision history](#revision-history)). An experimental colour scheme of the board is on the `experimental-colors` branch.
 
 ## Documentation
 
@@ -26,6 +26,18 @@ Earlier versions are in the repository history (tags `v0.1`–`v0.4.1`). An expe
 - [The model and design decisions](docs/model.md) – how the board relates to the real Solar System
 - [Ideas for games](docs/ideas.md) – themes and elements that follow from the board's physics
 - [Calculations](tools/README.md) – the scripts used to compute the model
+
+## Revision History
+
+| Version | Date | Changes |
+|---|---|---|
+| 0.5 | 2026-11-27 | Name: Hayabusa<br>Board description, the model and design decisions, ideas for games (PL, EN)<br>Reference flight model (vector movement) and simplified model<br>3D-printable pawns<br>Calculation scripts<br>Board graphics unchanged (v0.4.1) |
+| 0.4.1 | 2025-11-12 | Board rotation |
+| 0.4 | 2025-11-03 | Board layout and colours reworked<br>Alternative light board v0.4e (PL) |
+| 0.3b | 2025-10-30 | Dark colour scheme (PL) |
+| 0.3 | 2025-10-29 | English version<br>Belt hexes labelled for a d12 + d8 roll<br>Title and QR code |
+| 0.2 | 2025-10-15 | Zones in colour (PL) |
+| 0.1 | 2025-10-15 | First sketch: grid, planetary orbits, orbital movement (PL) |
 
 ## Licence
 
