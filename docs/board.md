@@ -47,7 +47,7 @@ Rings 4–6 (2–3 AU) are the asteroid belt. The popular image of the belt as a
 
 ### Random placement of objects
 
-Hexes in the asteroid belt are labelled with numbers that correspond to a roll of two dice: a **d12** and a **d8**. The d12 picks a sector (12 sectors around the board), the d8 a hex within the sector. The mapping is not exactly one-to-one, so some hexes cover several results (marked e.g. `3-4`).
+Hexes in the asteroid belt are labelled with numbers that correspond to a roll of two dice: a **d12** and a **d8**. The d12 picks a sector (12 sectors around the board), the d8 a hex within the sector. The d8 result also tells the ring: 1–2 is ring 4, 3–5 ring 5, 6–8 ring 6. Odd sectors have one hex fewer and no hex 4: a 4 in an odd sector means rolling **both** dice again. This gives each of the 90 hexes the same chance – rerolling only the d8 would upset it.
 
 This makes it quick to place asteroids, resources or events at random, while keeping a distribution that matches the real belt.
 

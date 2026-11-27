@@ -46,7 +46,7 @@ Positions in the asteroid belt are rolled with a pair of dice, **d12 + d8**, rat
 
 First, a d12 and a d8 are easy to tell apart at a glance – they differ in shape and size. There is no need to roll them one after another or colour-code them: it is immediately clear which result is which (d12 → sector, d8 → hex within the sector).
 
-Second, the asteroid belt has 90 hexes (rings 4–6, in total `6×4 + 6×5 + 6×6 = 90`). With standard d6s, rolling among 90 hexes would take three rolls and a non-trivial mapping of the result. A d12 × d8 pair gives 96 combinations, which covers 90 hexes with a minimal surplus and a simple scheme: one roll, two results, one position on the board.
+Second, the asteroid belt has 90 hexes (rings 4–6, in total `6×4 + 6×5 + 6×6 = 90`). With standard d6s, rolling among 90 hexes would take three rolls and a non-trivial mapping of the result. A d12 × d8 pair gives 96 combinations, which covers 90 hexes with a minimal surplus and a simple scheme: one roll, two results, one position on the board. The surplus – a 4 on the d8 in an odd sector – means rolling again, on average once in 16 rolls; in return every hex has the same chance. The d8 result also tells the ring at once: 1–2, 3–5, 6–8.
 
 ### Printing on home equipment
 

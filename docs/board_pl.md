@@ -47,7 +47,7 @@ Pierścienie 4–6 (2–3 AU) to pas planetoid. Popularne wyobrażenia pasa jako
 
 ### Losowe rozmieszczenie obiektów
 
-Heksy w pasie planetoid oznaczone są etykietami liczbowymi odpowiadającymi wynikom rzutu dwiema kośćmi: **k12** i **k8**. Kość k12 losuje sektor (12 sektorów wokół planszy), kość k8 – konkretny heks w sektorze. Mapowanie nie jest idealnie 1:1, stąd niektóre heksy obejmują kilka wyników (oznaczone np. `3-4`).
+Heksy w pasie planetoid oznaczone są etykietami liczbowymi odpowiadającymi wynikom rzutu dwiema kośćmi: **k12** i **k8**. Kość k12 losuje sektor (12 sektorów wokół planszy), kość k8 – konkretny heks w sektorze. Sam wynik k8 wskazuje też pierścień: 1–2 to pierścień 4, 3–5 pierścień 5, 6–8 pierścień 6. Sektory nieparzyste mają o jedno pole mniej i nie mają pola 4: przy 4 w sektorze nieparzystym rzuca się jeszcze raz **obiema** kośćmi. Dzięki temu każde z 90 pól ma tę samą szansę – przerzucenie samej k8 by ją zaburzyło.
 
 Ten mechanizm pozwala szybko umieszczać planetoidy, zasoby lub zdarzenia losowo, ale z zachowaniem rozkładu odpowiadającego prawdziwemu pasowi.
 

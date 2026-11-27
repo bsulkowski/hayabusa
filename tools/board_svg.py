@@ -79,13 +79,15 @@ THEMES = {
 }
 
 # Dice labels in the asteroid belt. Sectors come in pairs spanning 60 degrees:
-# an even sector of 8 hexes and an odd one of 7, where "3-4" covers two results
-# (6 x 15 = 90 hexes for 12 x 8 = 96 results). The pair below is sectors 12 and 1
+# an even sector of 8 hexes and an odd one of 7 without "4": that result in an odd
+# sector means rolling both dice again, so all 90 hexes have the same chance
+# (6 rerolls out of 12 x 8 = 96 results). The d8 result tells the ring in both:
+# 1-2 ring 4, 3-5 ring 5, 6-8 ring 6. The pair below is sectors 12 and 1
 # with sector 12 at the top; the others are the same pair turned by 60 degrees.
 # Hex positions are axial coordinates (q, r); d8 result -> hex.
 EVEN = {"1": (1, -4), "2": (2, -4), "3": (2, -5), "4": (3, -5),
         "5": (4, -5), "6": (4, -6), "7": (5, -6), "8": (6, -6)}
-ODD = {"1": (3, -4), "2": (4, -4), "3-4": (5, -5), "5": (5, -4),
+ODD = {"1": (3, -4), "2": (4, -4), "3": (5, -5), "5": (5, -4),
        "6": (6, -5), "7": (6, -4), "8": (6, -3)}
 BIG = "2"   # the sector number stands in the hex of d8 result 2
 
