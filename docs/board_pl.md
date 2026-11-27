@@ -23,7 +23,7 @@ Planszę drukuje się na zwykłej drukarce, na kartkach A4, które skleja się w
 - **A2 z 4 kartek** (pliki `*_a2.pdf`) – format docelowy. Pole ma ok. 31,5 mm między bokami, a pionki 3D mieszczą się w jednym polu, jeśli mają najwyżej ok. 28 mm szerokości.
 - **A3 z 2 kartek** (pliki `*_a3.pdf`) – pole ma ok. 23 mm, za mało dla pionków 3D, ale wystarczy dla płaskich żetonów.
 
-Kartki drukuje się w skali 100%, bez dopasowania do strony. Przy każdym łączeniu obie kartki przycina się wzdłuż przerywanych linii (odcina się margines), dosuwa brzegami i skleja taśmą od spodu. Łączenie działa wtedy jak zawias: planszę A2 można złożyć do formatu A4. Łączenia biegną między środkami pól, nigdy przez nie.
+Kartki drukuje się w skali 100%, bez dopasowania do strony. Przy każdym łączeniu obie kartki przycina się wzdłuż przerywanych linii (odcina się margines), dosuwa brzegami i skleja taśmą od spodu. Łączenie działa wtedy jak zawias. Łączenia biegną między środkami pól, nigdy przez nie.
 
 Plansza jest w dwóch wersjach kolorystycznych: ciemnej i jasnej (pliki `board-light…`), przyjaznej drukarce.
 

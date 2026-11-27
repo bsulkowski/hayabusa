@@ -23,7 +23,7 @@ The board is printed on an ordinary printer, on A4 sheets glued together:
 - **A2 from 4 sheets** (`*_a2.pdf` files) – the intended size. A hex is about 31.5 mm across the flats, and 3D pawns fit within one hex if they are at most about 28 mm wide.
 - **A3 from 2 sheets** (`*_a3.pdf` files) – a hex is about 23 mm, too small for 3D pawns but enough for flat tokens.
 
-Print the sheets at 100% scale, without fitting to the page. At every join, trim both sheets along the dashed lines (cutting off the margin), butt their edges together and tape them on the back. The join then works as a hinge: the A2 board folds down to A4. The joins run between hex centres, never through them.
+Print the sheets at 100% scale, without fitting to the page. At every join, trim both sheets along the dashed lines (cutting off the margin), butt their edges together and tape them on the back. The join then works as a hinge. The joins run between hex centres, never through them.
 
 The board comes in two colour versions: dark and light (`board-light…` files), printer-friendly.
 
